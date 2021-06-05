@@ -5,7 +5,13 @@
     \footnote{
     3个振动自由度分别为剪切振动、对称伸缩振动和不对称伸缩振动。
     水分子的O-H振动波数约为3700 cm$^{-1}$, 剪切振动波数约为1600 cm$^{-1}$, 
-    伸缩振动1个周期应当约为20.8 fs, 剪切振动周期约为9 fs. 而1 a.u. = 0.024 fs.即可据此估计模拟过程中的时间步长。
+    伸缩振动1个周期应当约为20.8 fs, 剪切振动周期约为9 fs. 而1 a.u. = 0.024 fs.即可据此估计模拟过程中的时间步长。\\
+    多原子分子的振动问题比表面上看起来更加复杂。对于刚体，
+    有三个平动自由度与三个转动自由度，可以通过描述质心坐标与刚体的旋转
+    （特殊正交矩阵描述，3个自由度）来确定整个刚体的运动。对于分子来说，振动和转动
+    通常是耦合的，并不能严格定义转动自由度，但是在\textbf{小振动}的情形下，可以分离
+    平动、转动、振动自由度，略微下详细的讨论可以参见\cite{Landau2007mechanics}，
+    这里不再展开。
     }
     对于水分子，定义每个原子的坐标为：
     \begin{equation}
@@ -18,7 +24,7 @@
         \end{pmatrix}
     \end{split}
     \end{equation}
-    其中$\bm{x}_\mr{O}$表示氧原子O在三维空间中的坐标，其他以此类推。
+    其中$\bm{x}_\mr{O}$表示氧原子O在三维空间中的Descartes坐标，其他以此类推。
     给定原子核运动的势能$V(\bm{x})$, 定义质量矩阵：
     \begin{equation}
         \begin{split}
@@ -51,9 +57,14 @@
          + \frac{1}{2}\bm{q}^{\mr{t}}\left.\pdv{^2V}{\bm{x}^2}\right|_{\bm{x} = \bm{x_{\mr{eq}}}}\bm{q} + o(\left|\bm{q}\right|^2)\\
         \end{split}
     \end{equation}
-    显然在平衡位置$\dps\left.\pdv{^2V}{\bm{x}^2}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}$为0；同时常数项不会影响
-    运动方程，可以不予考虑；如果在$\bm{q}$比较小时，忽略2阶以上的项\footnote{这就是小振动近似}，那么就可以将势能函数
-    重写为：
+    显然在平衡位置$\dps\left.\pdv{V}{\bm{x}}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}$
+    为0（从数学上讲，这是函数极小值点的性质；从物理上讲，平衡位置处系统不受力）；
+    同时常数项不会影响运动方程，可以不予考虑；如果在$\bm{q}$比较小时，忽略2阶以上的项
+    \footnote{这就是小振动近似，但是前提我们假设了Taylor展开的二阶项存在。但是，
+    对于稳定平衡（极小值点）附近的Taylor展开，完全可能出现二阶项为0的情形，
+    比如势能是四次函数，这时使用小振动图像得到的结论就会完全出错。
+    }
+    ，那么就可以将势能函数重写为：
     \begin{equation}
         V(\bm{q}) = \frac{1}{2}\bm{q}^{\mr{t}}\left.\pdv{^2V}{\bm{x}^2}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}\bm{q}
         \label{potential at equilibrium point}
@@ -101,9 +112,9 @@
     \end{equation}
     它的量纲为s$^{-2}$. 显然这是一个实对称矩阵，可以由正交矩阵作对角化：
     \begin{equation}
-        \bm{\mathcal{H}} = \bm{S}\bm{\mathcal{H}S}^{\mr{t}}
+        \bm{\mathcal{H}} = \bm{S}\bm{\bm{\Omega}S}^{\mr{t}}
     \end{equation}
-    其中$\Omega$为一个对角矩阵，$\bm{S}$为\textbf{正交矩阵}
+    其中$\bm{\Omega}$为一个对角矩阵，$\bm{S}$为\textbf{正交矩阵}
     \footnote{
         正交矩阵满足: 
     \begin{equation}
@@ -115,45 +126,107 @@
     \begin{equation}
         \bm{\Omega} = \mathrm{diag} \{\omega_1^2, ..., \omega_N^2 \}
     \end{equation}
-    这样就得到了$N$个（$N$为系统的总自由度数目）具有频率量纲的常数，后面我们会讨论
-    其物理含义。利用上面对角化使用的矩阵，可以继续改写Hamilton方程：
+    这样就得到了$N$个（$N$为系统的总自由度数目）具有频率量纲的常数，后面会讨论
+    其物理含义。利用上面定义的矩阵，可以继续改写系统的Hamilton量：
     \begin{equation}
         H(\bm{q},\bm{p}) = \frac{1}{2}\left(\bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}\right)^\mr{t}\left(\bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}\right) + 
         \frac{1}{2}\left(\bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\right)^{t}\bm{\Omega}\left(\bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\right)
     \end{equation}
-    利用上面Hamilton量的形式，定义如下相空间中的坐标变换（简正坐标变换）：
+    利用上面Hamilton量的形式，定义如下相空间中的\textbf{坐标变换}（简正坐标变换）：
     \begin{equation}
+        \left\{
         \begin{split}
-            \bm{Q} = \bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\\
-            \bm{P} = \bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}
+            \bm{Q} &= \bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\\
+            \bm{P} &= \bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}
         \end{split}
+        \right.
         \label{normal mode transformation}
     \end{equation}
-    这样就可以将Hamilton量方便地记为：
+    这样就可以将Hamilton量表示为：
     \begin{equation}
         \begin{split}
-        H(Q,P) &= \frac{1}{2}\bm{P}^{\mr{t}}\bm{P} + \frac{1}{2}\bm{Q}^{\mr{t}}\bm{\Omega}\bm{Q}\\
+        H(\bm{Q},\bm{P}) &= \frac{1}{2}\bm{P}^{\mr{t}}\bm{P} + \frac{1}{2}\bm{Q}^{\mr{t}}\bm{\Omega}\bm{Q}\\
         & = \frac{1}{2}\sum_{i=1}^{N}P_{i}^2 + \frac{1}{2}\sum_{i=1}^{N}\omega_{i}^2Q_{i}^{2}
         \end{split}
     \end{equation}
-    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量，其解也有简单的形式（在第一章
-    中我们讨论了这个问题）。\textbf{但是}，这里忽略了一个重要的问题：坐标变换之后的变量是否满足Hamilton方程？
-    相空间中什么样的变换不会改变Hamilton方程？
+    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量，
+    其解有简单的形式（在第一章中我们讨论了这个问题）。\textbf{但是}，
+    这里忽略了一个重要的问题：坐标变换之后的新变量$(\bm{Q},\bm{P})$
+    与对应的Hamilton量$H(\bm{Q},\bm{P})$是否满足Hamilton方程？
+    \par 
+    在此处\textbf{不打算}完全解决这个问题，只给出此问题的一个严谨的表述，
+    目的是清楚地认识到上面的变换并不是随意进行的，而是一种特殊的变换。
+    考虑一个系统A的运动可以由Hamilton量$H(\bm{q},\bm{p},t),\,\,(\bm{q},\bm{p})\in\mathbb{R}^{2N}$
+    与对应的Hamilton方程来描述，考虑相空间中的一个可逆变换：$\rho:(\bm{q},\bm{p})\mapsto(\bm{Q}, \bm{P}),\,\,\mathbb{R}^{2N}\to\mathbb{R}^{2N}$
+    （其中$t$为时间，也可以将其理解为任意参数）
+    \begin{equation}
+        \left\{
+        \begin{split}
+            Q_i &= Q_i(\bm{q},\bm{p}, t)\\
+            P_i &= P_i(\bm{q}, \bm{p}, t)
+        \end{split}
+        \right.
+    \end{equation}
+    这样的变换可以很丰富，比前面讨论的简正坐标变换\ref{normal mode transformation}，
+    这是相空间中不包含时间的一个线性变换；还有在第二章讨论过的Hamilton方程的解所定义的
+    不同时刻轨线上的点之间的映射$\phi^{\tau}:(\bm{q}_{t},\bm{p}_{t})\mapsto(\bm{q}_{t+\tau},\bm{p}_{t+\tau})$。
+    如果存在一个函数$K(\bm{Q}, \bm{P}, t)$能够让变换之后的坐标满足
+    （即$K(\bm{Q}, \bm{P}, t)$\textbf{对应的}Hamilton方程等价于$H(\bm{q},\bm{p},t)$
+    \textbf{对应的}Hamilton方程所描述的运动）：
+    \begin{equation}
+        \left\{
+        \begin{split}
+            \dot{Q_i} &= \pdv{K}{P_i}\\
+            \dot{P_{i}} &= -\pdv{K}{Q_i}
+        \end{split}
+        \right.
+    \end{equation}
+    那么称这样的变换为\textbf{正则变换}，前面提到的两种变换都是正则变换。
+    \footnote{
+        一个变换是正则变换的充要条件是满足：
+        \begin{equation}
+            \left[\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})}\right]^{\mr{t}}\bm{J}\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})} = \bm{J}
+        \end{equation}
+        其中$\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})}$是正则变换的Jacobi矩阵，它可以是时间的函数，$\bm{J}$为
+        标准辛矩阵。可以通过这个验证文中所述的变换为正则变换。
+        正则变换极大地拓展了Hamilton力学的内涵，导出了很多在数学和物理上有深刻意义的结论，
+        比如之前详细讨论的Liouville定理，就可以看作是正则变换不改变相空间体积的一个特例，
+        详细的介绍可以参考\cite{Goldstein2000Classical}。
+    }
+    对于任意的相空间中的变换，“新Hamilton量”$K$的存在性是无法保证的，
+    考虑新坐标对于时间的导数（方便起见，此处使用求和约定）：
+    \begin{equation}
+        \left\{
+            \begin{split}
+                \dot{Q_i} &= \pdv{Q_i}{q_{j}}\dot{q_{j}} + \pdv{Q_i}{p_j}\dot{p_j}
+                + \pdv{Q_i}{t} = \{Q_i, H\}_{\bm{q},\bm{p}} + \pdv{Q_i}{t}\\
+                \dot{P_i} &= \pdv{P_i}{q_{j}}\dot{q_{j}} + \pdv{P_i}{p_j}\dot{p_j}
+                + \pdv{P_i}{t} = \{P_i, H\}_{\bm{q},\bm{p}} + \pdv{P_i}{t}
+            \end{split}
+        \right.
+        \label{the derivative of new coordinate}
+    \end{equation}
+    等式\ref{the derivative of new coordinate}右边为$(\bm{q},\bm{p},t)$的函数，可以想象
+    ，对于任意的变换，并不一定可以找到$K(\bm{Q},\bm{P},t)$使得等式右边与
+    $\pdv{K}{P_{i}},-\pdv{K}{Q_i}$对应相等。
+    \par 
 
-    水分子在谐振子近似下的势能函数为：
-    \begin{align*}
+    回到水分子的振动问题，水分子的势能函数在谐振子近似下为：
+    \begin{equation}
+        \begin{split}
         V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
         &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12}\bm{\mathcal{H}} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
         &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12} \bm{T\Omega T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
-    \end{align*}
-    定义\textbf{简正坐标}$\bm{Q}$为
-    \begin{equation*}
+        \end{split}
+    \end{equation}
+    定义\textbf{简正坐标}$\bm{Q}$：
+    \begin{equation}
         \bm{Q} = \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
-    \end{equation*}
-    于是势能面可以写为
-    \begin{equation*}
+    \end{equation}
+    于是稳定平衡点附近的势能面可以表示为：
+    \begin{equation}
         V(\bm{Q}) = V(\bm{0}) + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q} = V(\bm{0}) + \sum_{j=1}^N \frac 12 \omega_j^2 Q_j^2
-    \end{equation*}
+    \end{equation}
 
     \section{简正坐标和Cartesian坐标的关系}
     上一节讨论了势能在简正坐标下的形式。要想得到全能量，还需要给出动量在简正坐标下的形式。根据
