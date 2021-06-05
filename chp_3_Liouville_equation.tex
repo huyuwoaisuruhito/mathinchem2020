@@ -108,7 +108,7 @@
     }
     ：
     \begin{equation}
-        \{A, B\} := \left(\pdv{A}{\bm{x}}\right)^\mr{t}\left(\pdv{B}{\bm{p}}\right) - \left(\pdv{A}{\bm{p}}\right)\mr{t}\left(\pdv{B}{\bm{x}}\right)
+        \{A, B\} := \left(\pdv{A}{\bm{x}}\right)^\mr{t}\left(\pdv{B}{\bm{p}}\right) - \left(\pdv{A}{\bm{p}}\right)^\mr{t}\left(\pdv{B}{\bm{x}}\right)
     \end{equation}
     利用Poisson括号重写Liouville方程：
     \begin{equation}
@@ -180,7 +180,7 @@
 
     \subsection{从Euler图像求解任意时刻的密度分布}
     这里给出一个具体的问题。
-    回顾第一章中使用经典力学描述HCl分子的振动，在那里只讨论了谐振子的情形，事实上可以用Morse势来
+    回顾第一章中使用经典力学描述HCl分子的振动，在那里只讨论了谐振子的情形，通常使用Morse势来
     更精确地描述这个振动，Morse势被定义为：
     \begin{equation}
         V(x) = D_e (1- \mathrm{e}^{-a(r-r_\mathrm{eq})})^2 = D_e(1-\mathrm{e}^{-ax})^2
@@ -313,9 +313,9 @@
         - \frac{p_j\Delta t}{2 \mu \Delta x}(\rho_{i+1, j}^{n} - \rho_{i-1, j}^{n}) 
     \end{equation}
     可以看出根据前一个时刻5个格点的数据可以递推出下一个时刻一个格点的函数值。这样看起来已经很好地解决了
-    数值演化系综密度的问题，理论上只要将时间步长和空间步长取得足够小，就可以获得任意精确的解，但是事实上
-    并不是这样，真实计算中无法将步长取的任意小（而且更小的时间步长会带来更大的计算量）所以我们获取的数值解
-    并不一定准确
+    数值演化系综密度的问题，理论上只要将时间步长和空间步长取得足够小，就可以获得任意精确的解，但是实际
+    并不是这样，真实计算中无法将步长取的任意小（更小的时间步长会带来更大的计算量，同时也受到
+    计算机处理浮点数精度的影响）所以我们获取的数值解并不一定准确
     \footnote{
         至于“有限差分带来的误差到底有多大”，“这样的误差怎么传递”，“误差会不会累积”这样的问题就不是本课程
         能够讨论的内容了，应该查阅数值偏微分方程相关的书籍。
@@ -395,12 +395,12 @@
         \end{split}
         \label{delta function}
     \end{equation}
-    \footnote{事实上，$\delta$函数的严格定义是从上面性质的第三条出发的，$\delta$函数被
+    \footnote{$\delta$函数的严格定义是从上面性质的第三条出发的，$\delta$函数被
     定义为试验函数空间上的满足性质3的连续线性泛函}基于上面的性质，$\delta$函数
     在物理中经常被用来描述一些集中在某一点但积分有限的量（比如带有一定电量的点电荷，具有质量的质点）。
     现在希望给$\delta$函数给一个形式
     \footnote{
-        事实上可以证明$\delta$函数并不能表示为普通函数的形式，但是可以用普通函数序列来逼近。
+        可以证明$\delta$函数并不能表示为普通函数的形式，但是可以用普通函数序列来逼近。
     }
     ，让它和上面满足的性质自洽：
     可以利用Fourier变换
@@ -449,8 +449,8 @@
         \label{character line}
     \end{equation}
     容易看出沿着这个粒子的运动轨迹，函数$f$的值不变，这样可以仿照Lagrange图像求解密度函数的方法来求解
-    任意时刻$f$的数值，将这个粒子的运动轨迹\ref{character line}称为这个一阶偏微分方程的特征线，事实上
-    Hamilton方程决定的曲线也是Liouville方程的特征线，因此这个方法也被称为特征线方法。
+    任意时刻$f$的数值。将这个粒子的运动轨迹\ref{character line}称为这个一阶偏微分方程的特征线，
+    Hamilton方程决定的曲线就是Liouville方程的特征线，因此这个方法也被称为特征线方法。
     \par
     物理量$B(x, p)$的期望定义为：
     \begin{equation}
