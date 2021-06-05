@@ -32,7 +32,7 @@ chapter 8 : Lagrange 力学与量子力学的路径积分形式
 
 chapter 9 : Bohmain 动力学
 
-chapter 10 : Winger 函数
+chapter 10 : Wigner 函数
 
 
 ## `main_dsp.pdf` 是最终效果
