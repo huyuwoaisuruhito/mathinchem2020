@@ -230,85 +230,85 @@
 
     \section{简正坐标和Cartesian坐标的关系}
     上一节讨论了势能在简正坐标下的形式。要想得到全能量，还需要给出动量在简正坐标下的形式。根据
-    \begin{equation*}
+    \begin{equation}
         \bm{p} = \bm{M\dot{x}} = \bm{M}^{\frac 12} \bm{T\dot{Q}}
-    \end{equation*}
+    \end{equation}
     这是在Cartesian坐标系下的动量。定义简正坐标下的动量为
-    \begin{equation*}
+    \begin{equation}
         \bm{P = \dot{Q}} = \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}
-    \end{equation*}
+    \end{equation}
     那么，可以得到动能的表达式为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         E_\mathrm{k} = \frac 12 \bm{p}^{\mathrm{T}} \bm{M}^{-1} \bm{p} &= \frac 12 \bm{\dot{x}}^\mathrm{T}\bm{M\dot{x}}
         = \frac 12 \bm{\dot{Q}}^\mathrm{T} \bm{Q}
         = \frac 12 \bm{P}^{\mathrm{T}} \bm{P}
-    \end{align*}
+    \end{aligned}\end{equation}
     总结简正坐标和Cartesian坐标的变换：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{Q} &= \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
         \bm{P} &= \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}\\
         \bm{x} &= \bm{x}_\mathrm{eq} + \bm{M}^{-\frac 12}\bm{TQ}\\
         \bm{p} &= \bm{M}^{\frac 12}\bm{TP}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     有了简正坐标下的动量就可以得到简正坐标下的Hamilton函数：
-    \begin{equation*}
+    \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
-    \end{equation*}
+    \end{equation}
     很容易可以验证，正则方程在简正坐标下依旧成立：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{\dot{Q}} &= \frac {\partial H}{\partial \bm{P}} = \bm{P}\\
         \bm{\dot{P}} &= -\frac {\partial H}{\partial \bm{Q}} = -\bm{\Omega Q}
-    \end{align*}
+    \end{aligned}\end{equation}
     要求出每个元素的值也十分容易：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{Q}_j &= P_j\\
         \dot{P}_j &= - \omega_j^2 Q_j
-    \end{align*}
+    \end{aligned}\end{equation}
     但如果在Cartesian坐标下用正则方程，得到每个元素的值结果为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x}_i &= \frac {p_j}{m_i}\\
         \dot{p}_i &= \sum_j \frac {\partial^2 V}{\partial x_i \partial x_j} (x_j - x_\mathrm{eq}^{(j)})
-    \end{align*}
+    \end{aligned}\end{equation}
     显然要比在简正坐标下的形式要复杂很多。这体现了简正坐标的优势。
 
     我们可以根据初始条件$(\bm{x}_0,\bm{p}_0)$，得到$(\bm{x},\bm{p}$每个分量的解析表达式。将它变换为简正坐标，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Q_j &= \sum_i T_{ij} m_i^{\frac 12} (x_0^{(i)} - x_\mathrm{eq}^{(i)})\\
         P_j &= \sum_i T_{ij} m_i^{-\frac 12} (p_0^{(i)})
-    \end{align*}
+    \end{aligned}\end{equation}
     由正则方程的形式可以给出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Q_j(t) &= Q_0^{(j)}\cos{\omega_j t} + \frac {P_0^{(j)}}{\omega} \sin{\omega_j t}\\
         P_j(t) &= P_0^{(j)}\cos{\omega_j t} - \omega_j Q_0^{(j)} \sin{\omega_j t}
-    \end{align*}
+    \end{aligned}\end{equation}
     再变换回Cartesian坐标，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x_i(t) - x_\mathrm{eq}^{(i)} &= \sum_j m_j^{-\frac 12} T_{ij} Q_j(t)\\
         p_i(t) &= \sum_j m_j^{\frac 12} T_{ij}P_j(t)
-    \end{align*}
+    \end{aligned}\end{equation}
 
     如果水分子服从Boltzmann分布，即
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \rho \propto \mathrm{e}^{-\beta (\frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q})} = \mathrm{e}^{- \frac {\beta}2 \sum_j (P_j^2 + \omega_j^2 Q_j^2)} = \prod_j \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
-    \end{align*}
+    \end{aligned}\end{equation}
     要想将Cartesian坐标下的积分变换成简正坐标下的积分，需要计算Jacobi行列式：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bigg|\frac {\partial (\bm{Q,P})}{\partial (\bm{x,p})}\bigg| &= \det
         \begin{pmatrix}
             \bm{T}^\mathrm{T}\bm{M}^{\frac 12} & 0\\
             0 & \bm{T}^\mathrm{T}\bm{M}^{-\frac 12}
         \end{pmatrix}
         = 1
-    \end{align*}
+    \end{aligned}\end{equation}
     这里用到了正交矩阵的行列式为1（这也是显然成立的）。因此可以积分得到配分函数，从而得到简正坐标下的某个分量概率密度为
-    \begin{equation*}
+    \begin{equation}
         \mathcal{P}_j = \frac {2\pi}{\beta\omega_j} \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
-    \end{equation*}
+    \end{equation}
     总概率密度为
-    \begin{equation*}
+    \begin{equation}
         \mathcal{P} = \prod_j \mathcal{P}_j
-    \end{equation*}
+    \end{equation}
     由此可以得到Cartesian坐标下概率密度。
 
     \section{Homework}

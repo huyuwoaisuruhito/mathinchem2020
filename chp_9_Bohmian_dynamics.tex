@@ -1,69 +1,71 @@
 \chapter{Bonmian 动力学}
-    \section{20210104：Bohmian动力学}
+    \section{连续性方程}
 
-        类比经典情况，若存在守恒量
-        \begin{equation*}
+        类比经典情况, 若存在守恒量:
+        \begin{equation}
             \int \rho (\bm{x},t) \mathrm{d} \bm{x} = \text{const.}
-        \end{equation*}
-        且局部没有粒子的产生与湮灭，则有连续性方程
-        \begin{equation*}
+        \end{equation}
+        且局部没有粒子的产生与湮灭, 则有连续性方程:
+        \begin{equation}
             \frac {\partial \rho}{\partial t} + \bm{\nabla} \cdot (\rho \bm{v}) = 0
-        \end{equation*}
-        可以将守恒量的方程两侧对时间求导，可以得到一个在积分中的连续性方程
-        \begin{align*}
+        \end{equation}
+        可以将守恒量的方程两侧对时间求导, 可以得到一个在积分号下的连续性方程. 
+        \begin{equation}\begin{aligned}
             \frac{\mathrm{d}}{\mathrm{d}t} \int_V \rho (\bm{x}_t, t) \mathrm{d} \bm{x}_t
             & = \int_V \bigg( \frac{\mathrm{d}\rho}{\mathrm{d}t} \mathrm{d} \bm{x}_t + \rho \frac{\mathrm{d}}{\mathrm{d}t} \mathrm{d} \bm{x}_t\bigg) \\
             & = \int_V \bigg( \frac{\partial \rho}{\partial t} + \frac{\partial \rho}{\partial \bm{x}_t}\bm{\dot{x}}_t + \rho \frac{\partial \bm{\dot{x}}_t}{\partial \bm{x}_t} \bigg) \mathrm{d} \bm{x}_t \\
             & = \int_V \bigg( \frac {\partial \rho}{\partial t} + \bm{\nabla} \cdot (\rho \bm{v}) \bigg) \mathrm{d} \bm{x}_t \\
             & = 0 
-        \end{align*}
-        如果希望连续性方程在局部也成立，则要求局部没有粒子的产生与湮灭。
+        \end{aligned}\end{equation}
+        如果要求局部没有粒子的产生与湮灭, 该积分可以在任意小的体积元内成立, 则微分形式的连续性方程也成立. 
 
-        在量子力学中也有守恒量
-        \begin{equation*}
+        在非相对论量子力学中粒子数守恒, 因此上述连续性方程依然成立. 
+        \begin{equation}
             \int |\psi(\bm{x},t)|^2 \mathrm{d}x = 1
-        \end{equation*}
-        因此上述连续性方程依然成立。
+        \end{equation}
 
-        考虑含时Schrodinger方程
-        \begin{equation*}
+    \section{Bohmian 动力学}
+
+        考虑含时Schrodinger方程: 
+        \begin{equation}
             \mathrm{i}\hbar \frac {\partial}{\partial t} \psi(\bm{x},t) = \bigg( - \frac {\hbar^2}{2m}\bm{\nabla}^2 + V(\bm{x})\bigg) \psi(\bm{x},t)
-        \end{equation*}
-        如果我们将波函数写成如下形式，其中$\rho(\bm{x},t)$与$S(\bm{x},t)$是两个实函数，且$\rho(\bm{x},t)$非负。在后面我们会发现$\rho(\bm{x},t)$具有概率密度的意义，$S(\bm{x},t)$具有作用量的意义。
-        \begin{equation*}
-            \psi(\bm{x},t) = \sqrt{\rho} \mathrm{e}^{\frac {\mathrm{i}S(\bm{x},t)t}{\hbar}}
-        \end{equation*}
-        将波函数的形式代入含时Schrodinger方程，对比方程两侧虚部与实部，可以得到连续性方程以及Hamilton-Jacobian方程
-        \begin{align*}
+        \end{equation}
+        如果我们将波函数写成如下形式, 其中$\rho(\bm{x},t)$与$S(\bm{x},t)$是两个实函数, 且$\rho(\bm{x},t)$非负. 在后面我们会发现$\rho(\bm{x},t)$具有概率密度的意义, $S(\bm{x},t)$具有作用量的意义. 
+        \begin{equation}
+            \psi(\bm{x},t) = \sqrt{\rho(\bm{x},t)} \mathrm{e}^{\frac {\mathrm{i}S(\bm{x},t)t}{\hbar}}
+        \end{equation}
+        将波函数的形式代入含时Schrodinger方程. 对比方程两侧虚部与实部, 可以得到连续性方程以及Hamilton-Jacobian方程: 
+        \begin{equation}\begin{aligned}
             &\frac {\partial \rho}{\partial t} + \bm{\nabla} \cdot (\rho \bm{v}) = 0 \\
-            &\frac {(\frac {\partial S}{\partial x})^2}{2m} + V(\bm{x}) - \frac {\hbar^2}{2m} \frac {\nabla^2 \sqrt{\rho}}{\sqrt{\rho}} = -\frac {\partial S}{\partial t}
-        \end{align*}
-        其中连续性方程中的速度场为
-        \begin{equation*}
+            &\frac {1}{2m}(\frac {\partial S}{\partial x})^2 + V(\bm{x}) - \frac {\hbar^2}{2m} \frac {\nabla^2 \sqrt{\rho}}{\sqrt{\rho}} = -\frac {\partial S}{\partial t}
+        \end{aligned}\end{equation}
+        其中连续性方程中的速度场为: 
+        \begin{equation}
             \bm{v} = \frac 1m \frac {\partial S}{\partial \bm{x}}
-        \end{equation*}
-        Hamilton-Jacobian方程前两项可以和经典情况类比，第三项是量子力学而来，定义为\textbf{量子势}：
-        \begin{equation*}
+        \end{equation}
+        Hamilton-Jacobian方程前两项可以和经典情况类比, 第三项是由于量子效应产生的, 定义为\textbf{量子势}: 
+        \begin{equation}
             Q(\bm{x},t) = - \frac {\hbar^2}{2m} \frac {\nabla^2 \sqrt{\rho}}{\sqrt{\rho}}
-        \end{equation*}
+        \end{equation}
 
-        从Hamilton-Jacobian方程出发，可以得到运动方程
-        \begin{equation*}
-            \frac 12 \bigg(\frac {\partial S}{\partial \bm{x}_t}\bigg)^{\mathrm{T}} \bm{M}^{-1} \frac {\partial S}{\partial \bm{x}_t} + V(\bm{x}) + Q(\bm{x}, t) = -\frac {\partial S}{\partial t}
-        \end{equation*}
-        考虑作用量的全导
-        \begin{equation*}
-            \frac {\mathrm{d}S}{\mathrm{d}t} = \frac {\partial S}{\partial t} + \frac {\partial S}{\partial \bm{x}_t} \dot{\bm{x}_t} = \frac 12 \bigg(\frac {\partial S}{\partial \bm{x}_t}\bigg)^{\mathrm{T}} \bm{M}^{-1} \frac {\partial S}{\partial \bm{x}_t} - V(\bm{x}) - Q(\bm{x}, t)
-        \end{equation*}
-        之后可以对位置求偏导（即对方程两侧求${\partial} / {\partial \bm{x}_t}$），最终得到以下第二个式子。第一个式子是动量的定义。
-        \begin{align*}
-            \dot{\bm{x}}_t &= \bm{M}^{-1} \frac {\partial S(\bm{x}_t,t)}{\partial \bm{x}_t} \\
+        从Hamilton-Jacobian方程出发, 可以得到运动方程: 
+        \begin{equation}
+            \frac 12 \bigg(\frac {\partial S}{\partial \bm{x}_t}\bigg)^{\mathrm{T}} \mb{M}^{-1} \frac {\partial S}{\partial \bm{x}_t} + V(\bm{x}) + Q(\bm{x}, t) = -\frac {\partial S}{\partial t}
+        \end{equation}
+        考虑作用量的全导: 
+        \begin{equation}
+            \frac {\mathrm{d}S}{\mathrm{d}t} = \frac {\partial S}{\partial t} + \frac {\partial S}{\partial \bm{x}_t} \dot{\bm{x}_t} = \frac 12 \bigg(\frac {\partial S}{\partial \bm{x}_t}\bigg)^{\mathrm{T}} \mb{M}^{-1} \frac {\partial S}{\partial \bm{x}_t} - V(\bm{x}) - Q(\bm{x}, t)
+        \end{equation}
+        之后可以对位置求偏导（即对方程两侧求${\partial} / {\partial \bm{x}_t}$）, 最终总结得到以下第二个式子. 配以动量的定义, 可以得到$\bm{x}$与$\bm{p}$的演化方程. 
+        \begin{equation}\begin{aligned}
+            \dot{\bm{x}}_t &= \mb{M}^{-1} \frac {\partial S(\bm{x}_t,t)}{\partial \bm{x}_t} \\
             \dot{\bm{p}}_t &= -\frac {\partial V(\bm{x}_t)}{\partial \bm{x}_t} - \frac {\partial Q(\bm{x}_t, t)}{\partial \bm{x}_t}
-        \end{align*}
-        这称为\textbf{量子轨线方程}。如果对$\rho$求全导，
-        \begin{equation*}
+        \end{aligned}\end{equation}
+        这称为\textbf{量子轨线方程}. 如果对$\rho$求全导: 
+        \begin{equation}
             \frac {\mathrm{d}\rho}{\mathrm{d}t} = \frac {\partial \rho}{\partial t} + \frac {\partial \rho}{\partial \bm{x}_t} \dot{\bm{x}}_t = -\rho \bm{\nabla} \cdot \dot{\bm{x}}_t
-        \end{equation*}
-        由以上方程，可以通过直接演化量子轨线计算量子体系随时间演化的问题。但计算速度场的散度在数值上无疑是十分困难的。
+        \end{equation}
+        由以上方程, 可以通过直接演化量子轨线计算量子体系随时间演化的问题. 但计算速度场的散度在数值上无疑是十分困难的. 
+
         \bibliographystyle{plain}
         \bibliography{ref_chp_9}

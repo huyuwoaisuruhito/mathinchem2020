@@ -1,46 +1,86 @@
-\chapter{Winger 函数}
-    \section{Winger 函数的定义与性质}
+\chapter{Wigner 函数}
+    \section{统计力学基础回顾}
 
-        根据经典情况统计物理的结果
-        \begin{equation*}
+        在量子统计力学中对于任意一个算符 $\hat{A}$：
+        \begin{equation}
+            \langle {\hat{A}} \rangle = \sum_i \left\langle {\psi^{i}(t)} \middle| {\hat{A}} \middle| {\psi^{i}(t)} \right\rangle P_{i}
+        \end{equation}
+        其中$P_i$是体系处于$\psi^{i}(t)$的态上的概率, 且$\sum_i P_i = 1$. 
+        这里实际采取了两重平均: 其一是量子力学上的平均, 即物理量在某个态下的期望
+        $\left\langle {\psi^{i}(t)} \middle| {\hat{A}} \middle| {\psi^{i}(t)} \right\rangle$; 
+        另个一重是热力学上的平均, 表现为某个态出现的概率 $P_{i}$. 
+
+        设$\left. \middle| {\phi_{i}} \right\rangle$ 是一组完备基, 则:
+        \begin{equation}\begin{aligned}
+            \langle {\hat{A}} \rangle
+            &= \sum_i \left\langle {\psi^{i}(t)} \middle| {\hat{A}} \middle| {\psi^{i}(t)} \right\rangle P_{i}
+            \\
+            &= \sum_{imn} \left\langle {\psi^{i}(t)} \middle| {\phi_{n}} \right\rangle \left\langle {\phi_{n}} \middle| {\hat{A}} \middle| {\phi_{m}} \right\rangle \left\langle {\phi_{m}} \middle| {\psi^{i}(t)} \right\rangle P_{i}
+            \\
+            &= \sum_{imn} \left\langle {\phi_{n}} \middle| {\hat{A}} \middle| {\phi_{m}} \right\rangle 
+            \left\langle {\phi_{m}} \middle| {\psi^{i}(t)} \right\rangle P_{i}
+            \left\langle {\psi^{i}(t)} \middle| {\phi_{n}} \right\rangle
+        \end{aligned}\end{equation}
+        从中我们可以定义\textbf{统计算符}
+        \begin{equation}
+            \hat{\rho} = \sum_i P_{i} \left. \middle| {\psi^{i}(t)} \right\rangle \left\langle {\psi^{i}(t)} \middle| \right.
+        \end{equation}
+        则有
+        \begin{equation}
+            \langle {\hat{A}} \rangle = \mathrm{Tr}(\hat{\rho}\hat{A})
+        \end{equation}
+
+        如果在某种表象下, 存在某一个态$\psi^{n}(t)$对任意的$i$都有$P_i = \delta_{ni}$, 则称这个系统处于一个\textbf{纯态}; 否则称这个体系处于\textbf{混合态}.
+        纯态的密度算符可以写为$\hat{\rho} = \left. \middle| {\psi^{n}(t)} \right\rangle \left\langle {\psi^{n}(t)} \middle| \right.$. 
+
+        统计算符有如下性质:
+        \begin{equation}
+            \mathrm{Tr}\hat\rho = 1, \quad
+            \hat\rho^{\dagger} = \hat\rho, \quad
+            \mathrm{Tr}\hat\rho^{2} \leq 1
+        \end{equation}
+        当且仅当密度矩阵对应的是纯态时, 最后一个式子取等号. 这一性质使用Cauchy不等式可以证明. 
+
+        \splitline
+
+        而根据我们熟悉的经典统计物理, 物理量的系综平均为
+        \begin{equation}
             \langle A \rangle = \int \rho(x,p) A(x,p) \mathrm{d}x\mathrm{d}p
-        \end{equation*}
-        其中 
-        \begin{align*}
+        \end{equation}
+        其中
+        \begin{equation}\begin{aligned}
             \rho &= \frac 1Z \mathrm{e}^{-\beta H(x,p)}\\
             Z &= \int \frac 1{2\pi \hbar} \mathrm{e}^{-\beta H(x,p)} \mathrm{d}x \mathrm{d}p
-        \end{align*}
-        现在要问，量子力学有没有同样的形式？
+        \end{aligned}\end{equation}
 
-        定义算符的Winger密度分布函数
-        \begin{align*}
-            A_\mathrm{w}(x,p) &= \int \langle x - \frac {\Delta}2 | \hat{A} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i} p \Delta}{\hbar}} \mathrm{d} \Delta \\
-            B_\mathrm{w}(x,p) &= \int \langle x - \frac {\Delta}2 | \hat{B} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i} p \Delta}{\hbar}} \mathrm{d} \Delta 
-        \end{align*}
-        可以验证，如果$\hbar \to 0$, 应有$A_\mathrm{w} \to A_\mathrm{cl}$, $B_\mathrm{w} \to B_\mathrm{cl}$。且可以验证
-        \begin{align*}
+    \section{Wigner 函数}
+
+        能否将量子统计力学中求物理量期望值的公式写成与经典统计物理相同的形式?
+
+        这个问题粗看似乎不太可能: 要把算符写成$x$与$p$的函数似乎就意味着在指定$x$与$p$下得到算符的"值", 而在量子力学框架下我们无法同时确定粒子的位置与动量.
+
+        解决这个矛盾的关键在于, 不要把$x$与$p$看作粒子实际的位置与动量, 而是一个算符空间$(\hat x, \hat p)$到相空间$(x, p)$的映射. 当然我们希望这个映射(和它的逆映射)满足一定的性质, 比如将单位算符$\hat I$映射为1, 等等.
+
+        其中一种映射方法称为Wigner变换, 定义算符的Wigner密度分布函数: 
+        \begin{equation}
+            A_\mathrm{w}(x,p) = \int \langle x - \frac {\Delta}2 | \hat{A} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i} p \Delta}{\hbar}} \mathrm{d} \Delta
+        \end{equation}
+        可以验证, 如果$\hbar \to 0$, 应有$A_\mathrm{w} \to A_\mathrm{classic}$, $B_\mathrm{w} \to B_\mathrm{classic}$. 且可以验证:
+        \begin{equation}\begin{aligned}
             \mathrm{Tr} (\hat{A}\hat{B}) &= \sum_{ij} \langle \phi_{i} | \hat{A} | \phi_{j} \rangle \langle \phi_{j} | \hat{B} | \phi_{i} \rangle \\
             &= \frac 1{2\pi\hbar} \int A_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x \mathrm{d}p
-        \end{align*}
+        \end{aligned}\end{equation}
 
-        定义密度算符
-        \begin{equation*}
-            \hat{\rho} = |\psi \rangle \langle \psi |
-        \end{equation*}
-        可以在位置空间和动量空间给出概率密度分布。并可以验证
-        \begin{align*}
-            \int \rho_\mathrm{w}(x,p) \mathrm{d}x &= \langle p|\hat{\rho}|p \rangle\\
-            \int \rho_\mathrm{w}(x,p) \mathrm{d}p &= \langle x|\hat{\rho}|x \rangle
-        \end{align*}
-        物理量期望值可以写成
-        \begin{align*}
-            \langle \psi | \hat{B} | \psi \rangle &=  \langle \psi |\sum_n | \phi_n \rangle \langle \phi_n | \hat{B} | \psi \rangle\\
-            &= \sum_n \langle \phi_n | \hat{B} | \psi \rangle \langle \psi  | \phi_n \rangle\\
-            &= \mathrm{Tr} (\hat{B}|\psi \rangle \langle \psi |)
-        \end{align*}
-        由前文的讨论可以发现
-        \begin{equation*}
-            \langle \psi|\hat{B}|\psi \rangle = \frac 1{2\pi \hbar} \int \rho_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x\mathrm{d}p
-        \end{equation*}
-        \bibliographystyle{plain}
+        可以在位置空间和动量空间给出概率密度分布. 并可以验证:
+        \begin{equation}
+            \int \rho_\mathrm{w}(x,p) \mathrm{d}x = \langle p|\hat{\rho}|p \rangle
+            \qquad\qquad
+            \int \rho_\mathrm{w}(x,p) \mathrm{d}p = \langle x|\hat{\rho}|x \rangle
+        \end{equation}
+        由前文的讨论可以发现物理量的期望值可以写为: 
+        \begin{equation}
+            \langle \hat{B} \rangle = \frac 1{2\pi \hbar} \int \rho_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x\mathrm{d}p
+        \end{equation}
+
+    \bibliographystyle{plain}
     \bibliography{ref_chp_10}

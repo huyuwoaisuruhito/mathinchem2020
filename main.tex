@@ -1,4 +1,4 @@
-\documentclass[12pt]{book}
+\documentclass[12pt, openany]{book}
 
 \usepackage{geometry}
 \geometry{a4paper, centering, scale=0.8}
@@ -26,6 +26,7 @@
 \newcommand{\mb}[1]{\mathbf{#1}}
 \newcommand{\dv}[2]{\frac{\dd{#1}}{\dd{#2}}}
 \newcommand{\pdv}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\splitline}{\noindent\hfil\ \hfil$*$\hfil$*$\hfil$*$\hfil\ \hfil}
 \def\degree{$^{\circ}$}
 
 % 字体设置
@@ -67,7 +68,7 @@
     \tableofcontents
 
     % 设置段间距
-    \setlength\parskip{0.5 em}
+    \setlength\parskip{0.62 em}
     \mainmatter
  
     \include{chp_1_Hamilton_equation}
@@ -79,6 +80,6 @@
     \include{chp_7_Hamiltonian_mechanics_and_QM}
     \include{chp_8_Lagrangian_mechanics_and_QM}
     \include{chp_9_Bohmian_dynamics}
-    \include{chp_10_Winger_function}
+    \include{chp_10_Wigner_function}
 
 \end{document}

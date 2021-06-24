@@ -46,100 +46,100 @@
 \section{20200925：正则方程}
 
     经典力学中常用的独立变量为位置$x$和动量$p$, 且满足关系
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x} = \frac pm\\
         \dot{p} = -\frac {\partial V}{\partial x}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     首先研究HCl分子。每个原子的坐标有3个自由度，总共是6个自由度。而这个分子总体有3个平动自由度，2个转动自由度，还剩余1个振动自由度。振动自由度的能量由\textbf{势能面}来描述。势能面是两个原子的距离$r$的函数，且
-    \begin{equation*}
+    \begin{equation}
         \lim_{r \to \infty} V(r) = 0
-    \end{equation*}
+    \end{equation}
     当$r$减小时，势能逐渐减小，有一个极小值，对应的两原子距离称为平衡位置$r_\mathrm{eq}$, 然后再减小$r$时，势能增大，最后达到
-    \begin{equation*}
+    \begin{equation}
         \lim_{r \to 0^+} V(r) = +\infty
-    \end{equation*}
+    \end{equation}
 
     实际上在平衡位置附近，我们把这个振动自由度近似为谐振子模型。通过改变势能零点的定义，我们总可以把势能写为
-    \begin{equation*}
+    \begin{equation}
         V(r) = \frac 12 k(r-r_\mathrm{eq})^2
-    \end{equation*}
+    \end{equation}
     根据势能的形式可以写出力的形式
-    \begin{equation*}
+    \begin{equation}
         F = -\frac {\partial V}{\partial r} = -k(r-r_\mathrm{eq})
-    \end{equation*}
+    \end{equation}
     做变换$x = r - r_\mathrm{eq}$, 可以将势能写为
-    \begin{equation*}
+    \begin{equation}
         V(x) = \frac 12 kx^2
-    \end{equation*}
+    \end{equation}
     也可以将位置和动量对时间导数写为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x} = \frac pm\\
         \dot{p} = -kx
-    \end{align*}
+    \end{aligned}\end{equation}
     现在求解这个运动方程：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \ddot{x} = \frac {\dot{p}}m = -\frac {kx}{m}
-    \end{align*}
+    \end{aligned}\end{equation}
     这是一个二阶常微分方程，求解得到通解
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x &= A \cos{\omega t} + B \sin{\omega t}\\
         p &= -{Am\omega} \sin{\omega t} + {Bm \omega} \cos{\omega t}
-    \end{align*}
+    \end{aligned}\end{equation}
     其中$\omega = \sqrt{\frac km}$. 如果给定初始条件
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x(0) = x_0\\
         p(0) = p_0
-    \end{align*}
+    \end{aligned}\end{equation}
     将这两个方程代入到通解中，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x &= x_0 \cos{\omega t} + \frac {p_0}{m\omega} \sin{\omega t}\\
         p &= p_0 \cos{\omega t} - {m\omega x_0} \sin{\omega t}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     体系的Hamilton函数为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         H(x,p,t) &= \frac {p^2}{2m} + V(x)
-    \end{align*}
+    \end{aligned}\end{equation}
     现在希望验算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         H(x,p,t) = H(x,p,0),~~~~~\forall t
-    \end{align*}
+    \end{aligned}\end{equation}
     为了证明这个成立，首先可以推导\textbf{正则方程}：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\partial H}{\partial x} &= \frac {\partial V}{\partial x} = -\dot{p}\\
         \frac {\partial H}{\partial p} &= \frac pm = \dot{x}
-    \end{align*}
+    \end{aligned}\end{equation}
     因此
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}H}{\mathrm{d}t} &= \frac {\partial H}{\partial x} \dot{x} + \frac {\partial H}{\partial p} \dot{p} + \frac {\partial H}{\partial t} = \frac {\partial H}{\partial t}
-    \end{align*}
+    \end{aligned}\end{equation}
     这个结论对任意正则方程成立的体系都成立。在谐振子模型中，Hamilton函数不显含时间，故
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}H}{\mathrm{d}t} = 0
-    \end{equation*}
+    \end{equation}
     这个体系可以在\textbf{相空间}中描述，即把它的状态画在一个$(x,p)$的二维空间中，观察它随时间的变化。显然地谐振子体系在相空间中的轨迹应该是一个椭圆。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {p^2}{2m} + \frac 12 kx^2 = E_0
-    \end{align*}
+    \end{aligned}\end{equation}
     其周期为
-    \begin{equation*}
+    \begin{equation}
         T = \frac {2\pi}{\omega}
-    \end{equation*}
+    \end{equation}
     事实上，对于任意的满足能量守恒的体系，在相空间中都可以得到一条封闭的曲线。
     \begin{asg}
         第1次作业第1题：一维四次势的周期轨道
     \end{asg}
 
     现在考虑质量是$x,p$的函数$m_\mathrm{eff}(x,p)$, 在这种情况下Hamilton函数为
-    \begin{equation*}
+    \begin{equation}
         H(x,p) = \frac {p^2}{2m_\mathrm{eff}(x,p)} + V(x)
-    \end{equation*}
+    \end{equation}
     在这种情况下的运动方程为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x} &= \frac {\partial H}{\partial p} = \frac {p}{2m_{\mathrm{eff}}} - \frac {p^2}{2m_{\mathrm{eff}^2}} \frac {\partial m_\mathrm{eff}}{\partial p} \\
         \dot{p} &= -\frac {\partial H}{\partial x} = \frac {p^2}{2m_\mathrm{eff}^2} \frac {\partial m_\mathrm{eff}}{\partial x} + \frac {\partial V}{\partial x}
-    \end{align*}
+    \end{aligned}\end{equation}
     这种情况下能量仍然守恒，因为Hamilton函数不显含时间，且正则方程成立。
     \begin{asg}
         第1次作业第2题：竖立粉笔的问题
@@ -147,10 +147,10 @@
 
 \section{20200928：相空间不同时刻体积元的关系}
     匀变速直线运动，应当有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x(t) &= x(0) + vt + \frac 12 at^2\\
         &= x(0) + \dot{x}t + \frac 12 \ddot{x}t^2
-    \end{align*}
+    \end{aligned}\end{equation}
     这相当于位置对时间作了Taylor展开，展开到二阶。但是为什么只考虑前两阶，而不考虑后面的项呢？
 
     可以这样考虑：在给定了Hamilton函数的情形下，正则方程最多只涉及到对时间的二阶导数，最终解出位置对时间的函数，以及动量对时间的函数只有两个待定常数，因此只用位置和动量初始的条件。
@@ -160,41 +160,41 @@
     这实际上给出了两种研究问题的办法：一种是参考系不动，一种是参考系随着时间跟踪系统在相空间中的轨线进行运动。
 
     对于任意个不显含时间的函数$f(\bm{x}_t,\bm{p}_t)$, 它和$f(\bm{x}_0,\bm{p}_0)$的关系为：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int f(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_t\mathrm{d}\bm{p}_t = \int f(\bm{x}_0,\bm{p}_0)\bigg|\frac {\partial (\bm{x}_t, \bm{p}_t)}{\partial (\bm{x}_0,\bm{p}_0)}\bigg| \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
-    \end{align*}
+    \end{aligned}\end{equation}
     由此可知，算出Jacobi行列式的值是非常重要的。Jacobi行列式的对应矩阵写为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \begin{pmatrix}
             \frac {\partial \bm{x}_t}{\partial \bm{x}_0} & \frac {\partial \bm{x}_t}{\partial \bm{p}_0}\\
             \frac {\partial \bm{p}_t}{\partial \bm{x}_0} & \frac {\partial \bm{p}_t}{\partial \bm{p}_0}
         \end{pmatrix}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     我们可以把$t$时刻的状态写成初始条件的函数：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{x}_t &= \bm{x}_t(\bm{x}_0, \bm{p}_0)\\
         \bm{p}_t &= \bm{p}_t(\bm{x}_0, \bm{p}_0)
-    \end{align*}
+    \end{aligned}\end{equation}
     如果初始状态偏离$(\mathrm{d}\bm{x}_0,\mathrm{d}\bm{p}_0)$，那么
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{x}_t(\bm{x}_0+\mathrm{d}\bm{x}_0, \bm{p}_0+\mathrm{d}\bm{p}_0) &= \bm{x}_t(\bm{x}_0, \bm{p}_0) + \frac {\partial \bm{x}_t}{\partial \bm{x_0}} \mathrm{d}x_0 + \frac {\partial \bm{x}_t}{\partial \bm{p}_0} \mathrm{d}p_0\\
         \bm{p}_t(\bm{x}_0+\mathrm{d}\bm{x}_0, \bm{p}_0+\mathrm{d}\bm{p}_0) &= \bm{p}_t(\bm{x}_0, \bm{p}_0) + \frac {\partial \bm{p}_t}{\partial \bm{x_0}} \mathrm{d}x_0 + \frac {\partial \bm{p}_t}{\partial \bm{p}_0} \mathrm{d}p_0
-    \end{align*}
+    \end{aligned}\end{equation}
     此处只考虑Taylor展开到一阶的结果。或者写成
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \mathrm{d}\bm{x}_t &= \frac {\partial \bm{x}_t}{\partial \bm{x_0}} \mathrm{d}x_0 + \frac {\partial \bm{x}_t}{\partial \bm{p}_0} \mathrm{d}p_0\\
         \mathrm{d}\bm{p}_t &= \frac {\partial \bm{p}_t}{\partial \bm{x_0}} \mathrm{d}x_0 + \frac {\partial \bm{p}_t}{\partial \bm{p}_0} \mathrm{d}p_0
-    \end{align*}
+    \end{aligned}\end{equation}
     矩阵没有办法直接求出来，我们尝试对时间求导。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t} \bigg(\frac {\partial \bm{x}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0} &= \bigg(\frac {\partial}{\partial \bm{x}_0} \frac {\mathrm{d}}{\mathrm{d}t} \bm{x}_t\bigg)_{\bm{p}_0} = \bigg(\frac {\partial}{\partial \bm{x}_0} \bigg(\frac {\partial H}{\partial \bm{p}_t}\bigg)_{\bm{x}_t}\bigg)_{\bm{p}_0} = \bigg(\frac {\partial^2 H}{\partial \bm{x}_t \partial \bm{p}_t}\bigg) \bigg(\frac {\partial \bm{x}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}+ \bigg(\frac {\partial^2H}{\partial \bm{p}_t^2}\bigg)_{\bm{x}_t} \bigg(\frac {\partial \bm{p}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}\\
         \frac {\mathrm{d}}{\mathrm{d}t} \bigg(\frac {\partial \bm{x}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0} &= \bigg(\frac {\partial}{\partial \bm{p}_0} \frac {\mathrm{d}}{\mathrm{d}t} \bm{x}_t\bigg)_{\bm{x}_0} = \bigg(\frac {\partial}{\partial \bm{p}_0} \bigg(\frac {\partial H}{\partial \bm{p}_t}\bigg)_{\bm{x}_t}\bigg)_{\bm{x}_0} = \bigg(\frac {\partial^2 H}{\partial \bm{x}_t \partial \bm{p}_t}\bigg) \bigg(\frac {\partial \bm{x}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0} + \bigg(\frac {\partial^2H}{\partial \bm{p}_t^2}\bigg)_{\bm{x}_t} \bigg(\frac {\partial \bm{p}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0}\\
         \frac {\mathrm{d}}{\mathrm{d}t} \bigg(\frac {\partial \bm{p}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0} &= \bigg(\frac {\partial}{\partial \bm{x}_0} \frac {\mathrm{d}}{\mathrm{d}t} \bm{p}_t\bigg)_{\bm{p}_0} = -\bigg(\frac {\partial}{\partial \bm{x}_0} \bigg(\frac {\partial H}{\partial \bm{x}_t}\bigg)_{\bm{p}_t}\bigg)_{\bm{p}_0} = -\bigg(\frac {\partial^2 H}{\partial \bm{x}_t^2}\bigg)_{\bm{p}t} \bigg(\frac {\partial \bm{x}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}- \bigg(\frac {\partial^2H}{\partial \bm{p}_t \partial \bm{x}_t}\bigg) \bigg(\frac {\partial \bm{p}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}\\
         \frac {\mathrm{d}}{\mathrm{d}t} \bigg(\frac {\partial \bm{p}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0} &= \bigg(\frac {\partial}{\partial \bm{p}_0} \frac {\mathrm{d}}{\mathrm{d}t} \bm{p}_t\bigg)_{\bm{x}_0} = -\bigg(\frac {\partial}{\partial \bm{p}_0} \bigg(\frac {\partial H}{\partial \bm{x}_t}\bigg)_{\bm{p}_t}\bigg)_{\bm{x}_0} = -\bigg(\frac {\partial^2 H}{\partial \bm{x}_t^2}\bigg)_{\bm{p}t} \bigg(\frac {\partial \bm{x}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0}- \bigg(\frac {\partial^2H}{\partial \bm{p}_t \partial \bm{x}_t}\bigg) \bigg(\frac {\partial \bm{p}_t}{\partial \bm{p}_0}\bigg)_{\bm{x}_0}
-    \end{align*}
+    \end{aligned}\end{equation}
     由此可以得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t}
         \begin{pmatrix}
             \frac {\partial \bm{x}_t}{\partial \bm{x}_0} & \frac {\partial \bm{x}_t}{\partial \bm{p}_0}\\
@@ -209,7 +209,7 @@
             \frac {\partial \bm{x}_t}{\partial \bm{x}_0} & \frac {\partial \bm{x}_t}{\partial \bm{p}_0}\\
             \frac {\partial \bm{p}_t}{\partial \bm{x}_0} & \frac {\partial \bm{p}_t}{\partial \bm{p}_0}
         \end{pmatrix}
-    \end{align*}
+    \end{aligned}\end{equation}
     将此处的Jacobi矩阵称为\textbf{稳定性矩阵}，其含义是如果系统初始时刻状态变化很小，那么$t$时刻的变化也很小。
     \begin{asg}
         第1次作业第3题：Liouville定理的证明
@@ -218,104 +218,104 @@
 \section{20201009：Liouville定理}
 
     设矩阵
-    \begin{equation*}
+    \begin{equation}
         \bm{A} = 
         \begin{pmatrix}
             a_{11} & \cdots & a_{1n}\\
             \vdots & & \vdots\\
             a_{n1} & \cdots & a_{nn}\\
             \end{pmatrix}
-    \end{equation*}
+    \end{equation}
     它的行列式为
-    \begin{equation*}
+    \begin{equation}
         \det{\bm{A}} = \sum_{j=1}^n (-1)^{i+j} a_{ij} \bm{A}_{ij}^*, \ \forall \ i
-    \end{equation*}
+    \end{equation}
     其中，$\bm{A}_{ij}^*$表示$a_{ij}$的代数余子式。定义$\bm{A}$的\textbf{伴随矩阵}$\bar{\bm{A}}$为
-    \begin{equation*}
+    \begin{equation}
         \bar{\bm{A}}_{ij} = \bm{A}_{ji}^* 
-    \end{equation*}
+    \end{equation}
     矩阵的逆矩阵为
-    \begin{equation*}
+    \begin{equation}
         \bm{A}^{-1} = \frac 1{\det{\bm{A}}} \bm{\bar{A}}
-    \end{equation*}
+    \end{equation}
     对行列式的求导并不是对每个元素求导再求行列式，而是依照下列方法：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t} \det{\bm{A}} = \sum_i \det{\tilde{\bm{A}_i}}
-    \end{align*}
+    \end{aligned}\end{equation}
     其中，$\bm{A}_i$是只对第$i$行的所有元素对时间求导，其他元素不变得到的矩阵。进一步得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t} \det{\bm{A}} &= \sum_i \det{\tilde{\bm{A}_i}} = \sum_{i=1}^n \sum_{j=1}^n \frac {\mathrm{d}a_{ij}}{\mathrm{d}t} \bm{A}_{ij}^*\\
         &= \mathrm{Tr} \bigg(\frac {\mathrm{d}\bm{A}}{\mathrm{d}t} \bar{\bm{A}}\bigg) = \mathrm{Tr} \bigg(\frac {\mathrm{d}\bm{A}}{\mathrm{d}t} \bm{A}^{-1}\bigg) \det{\bm{A}}
-    \end{align*}
+    \end{aligned}\end{equation}
     将两边同时除以$\bm{A}$的行列式，得到
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \ln{\det{\bm{A}}} = \mathrm{Tr} \bigg(\frac {\mathrm{d}\bm{A}}{\mathrm{d}t} \bm{A}^{-1}\bigg)
-    \end{equation*}
+    \end{equation}
     如果
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \bm{A} = \bm{MA}
-    \end{equation*}
+    \end{equation}
     就有
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \ln{\det{\bm{A}}} = \mathrm{Tr}\ \bm{M}
-    \end{equation*}
+    \end{equation}
     对于上一节讲的Jacobi矩阵，有
-    \begin{equation*}
+    \begin{equation}
         \bm{M} = 
         \begin{pmatrix}
         \frac {\partial^2 H}{\partial \vec{x}_t \partial \vec{p}_t} & (\frac {\partial^2 H}{\partial \vec{p}_t^2})_{\vec{x}_t}\\
         -(\frac {\partial^2 H}{\partial \vec{x}_t^2})_{\vec{p}_t} & - \frac {\partial^2 H}{\partial \vec{x}_t \partial \vec{p}_t}
         \end{pmatrix}
-    \end{equation*}
+    \end{equation}
     显然这个矩阵的迹为0，所以
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \det \bigg|\frac {\partial (\bm{x}_t,\bm{p}_t)}{\partial (\bm{x}_0,\bm{p}_0)} \bigg| = 0
-    \end{equation*}
+    \end{equation}
     但初始时刻显然Jacobi行列式为1，所以Jacobi行列式一直为1，就有
-    \begin{equation*}
+    \begin{equation}
         \mathrm{d}\bm{x}_t \mathrm{d}\bm{p}_t = \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
-    \end{equation*}
+    \end{equation}
 
     这个结论称为\textbf{Liouville定理}。注意到这个结论的推导只用到了正则方程，只要正则方程成立，这个结论就成立。
 
     如果定义一个概率密度$\rho(\bm{x},\bm{p})$，它满足归一化条件，且处处不小于0. 假设初始条件下在$\bm{x}_0,\bm{p}_0$位置有个体积元$\mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0$，跟踪这个体积元经历的轨线，达到$\mathrm{d}\bm{x}_t \mathrm{d}\bm{p}_t$时，在这个体积元的概率应为不变的。这可以理解为，根据Liouville定理，最开始在体积元里面的状态仍然会在初始状态演化后的体积元里。这可以表述为
-    \begin{equation*}
+    \begin{equation}
         \rho(\bm{x}_t,\bm{p}_t) = \rho(\bm{x}_0,\bm{p}_0)
-    \end{equation*}
+    \end{equation}
     它对任意的$t$都成立，则
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}\rho}{\mathrm{d}t} = \frac {\partial \rho}{\partial t} + \frac {\partial \rho}{\partial \bm{x}_t}\dot{\bm{x}}_t  + \frac {\partial \rho}{\partial \bm{p}_t} \dot{\bm{p}}_t = 0
-    \end{equation*}
+    \end{equation}
     再利用正则方程，得到
-    \begin{equation*}
+    \begin{equation}
         - \frac {\partial \rho}{\partial t} = \bigg(\frac {\partial \rho}{\partial \bm{x}_t}\bigg)^\mathrm{T} \frac {\partial H}{\partial \bm{p}_t} - \bigg(\frac {\partial \rho}{\partial \bm{p}_t}\bigg)^\mathrm{T} \frac {\partial H}{\partial \bm{x}_t}
-    \end{equation*}
+    \end{equation}
     定义\textbf{Poisson括号}为
-    \begin{equation*}
+    \begin{equation}
         \{ \rho, H\} = \bigg(\frac {\partial \rho}{\partial \bm{x}_t}\bigg)^\mathrm{T} \frac {\partial H}{\partial \bm{p}_t} - \bigg(\frac {\partial \rho}{\partial \bm{p}_t}\bigg)^\mathrm{T} \frac {\partial H}{\partial \bm{x}_t}
-    \end{equation*}
+    \end{equation}
     则有
-    \begin{equation*}
+    \begin{equation}
         - \frac {\partial \rho}{\partial t} = \{ \rho, H\}
-    \end{equation*}
+    \end{equation}
     这也是Liouville定理的一种形式。如果Hamilton函数满足形式
-    \begin{equation*}
+    \begin{equation}
         H(\bm{x}_t,\bm{p}_t) = \frac 12 \bm{p}_t^\mathrm{T} \bm{M}^{-1} \bm{p}_t + V(\bm{x}_t)
-    \end{equation*}
+    \end{equation}
     则有
-    \begin{equation*}
+    \begin{equation}
         - \frac {\partial \rho}{\partial t} = \bigg(\frac {\partial \rho}{\partial \bm{x}_t}\bigg)^\mathrm{T} \bm{M}^{-1} \bm{p}_t  - \bigg(\frac {\partial \rho}{\partial \bm{p}_t}\bigg)^\mathrm{T} \frac {\partial V}{\partial \bm{x}_t}
-    \end{equation*}
+    \end{equation}
 
     一种常见的分布：\textbf{Boltzmann分布}：
-    \begin{equation*}
+    \begin{equation}
         \rho(\bm{x},\bm{p}) \propto \mathrm{e}^{-\beta H(\bm{x},\bm{p})}
-    \end{equation*}
+    \end{equation}
 
     如果一个分布满足
-    \begin{equation*}
+    \begin{equation}
         \frac {\partial \rho}{\partial t} = 0
-    \end{equation*}
+    \end{equation}
     则称为\textbf{稳态分布}。但是即使不是稳态分布，它也会满足对时间的全导数是0。这也是Liouville定理的一个形式。
     \begin{asg}
         第2次作业第1题: Boltzmann分布是否为稳态分布？
@@ -326,56 +326,56 @@
 \section{20201012：Euler图象演化概率密度}
 
     Liouville定理有两种表述形式：
-    \begin{equation*}
+    \begin{equation}
         -\frac {\partial \rho}{\partial t} = \{ \rho,H \}
-    \end{equation*}
+    \end{equation}
     以及 
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}\rho}{\mathrm{d}t} = 0
-    \end{equation*}
+    \end{equation}
     第一种形式下，$\rho = \rho(x, p ,t)$, 第二种形式下$\rho = \rho(x_t,p_t,t)$. 分别表示了Euler和Lagrange两种图象。
 
     回顾描述HCl分子的振动的例子，我们可以用Morse势来描述这个振动：
-    \begin{equation*}
+    \begin{equation}
         V(x) = D_e (1- \mathrm{e}^{-a(r-r_\mathrm{eq})})^2 = D_e(1-\mathrm{e}^{-ax})^2
-    \end{equation*}
+    \end{equation}
     其中有$a>0$, 在平衡位置附近可以使用谐振子近似。写出其Boltzmann分布
-    \begin{equation*}
+    \begin{equation}
         \rho(x,p,0) = \frac 1Z \mathrm{e}^{-\beta (\frac {p^2}{2m} + \frac 12 m\omega^2 x^2)} 
-    \end{equation*}
+    \end{equation}
     由概率密度的归一化，可以得到配分函数的值，这里涉及到Gauss函数的积分
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I &= \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
-    \end{align*}
+    \end{aligned}\end{equation}
     令$t = ax^2$, 则$\mathrm{d}t = 2ax\mathrm{d}x$
     所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I &= \int_0^{+\infty} \mathrm{e}^{-t} \bigg(\frac ta\bigg)^{\frac n2} \frac {\mathrm{d}t}{\sqrt{at}}\\
     &= \frac 1{2a^{\frac {n+1}2}} \int_0^{+\infty} \mathrm{e}^{-t} t^{\frac {n-1}2} \mathrm{d}t\\
     &= \frac {\Gamma(\frac {n+1}2)}{2a^{\frac {n+1}2}}
-    \end{align*}
+    \end{aligned}\end{equation}
     据此算出配分函数
-    \begin{equation*}
+    \begin{equation}
         Z = \int \mathrm{e}^{-\beta (\frac {p^2}{2m} + \frac 12 m\omega^2 x^2)} \mathrm{d}x\mathrm{d}p = \frac {2\pi}{\beta \omega}
-    \end{equation*}
+    \end{equation}
     从量纲上分析，在配分函数中少了$\mathrm{d}x\mathrm{d}p$的量纲。本质上应该除以$2\pi\hbar$, 相当于对相空间做了量子化。于是
-    \begin{equation*}
+    \begin{equation}
         Z = \frac 1{\beta \hbar \omega}
-    \end{equation*}
+    \end{equation}
     就是无量纲的配分函数。
 
     回到用Morse势描述HCl的振动的问题，Morse势的常数$a$可以用谐振子近似的$\omega$进行估计。令$x \to 0 $，对$V(x)$在平衡位置附近作Taylor展开，展开到二阶。
-    \begin{equation*}
+    \begin{equation}
         V(x) = D_e a^2 x^2 + o(x^2)
-    \end{equation*}
+    \end{equation}
     它与谐振子近似一致，因此
-    \begin{equation*}
+    \begin{equation}
         \frac 12 m\omega^2x^2 = D_e a^2 x^2
-    \end{equation*}
+    \end{equation}
     于是
-    \begin{equation*}
+    \begin{equation}
         \omega = \sqrt{\frac {2D_ea^2}m}
-    \end{equation*}
+    \end{equation}
     \begin{asg}
         第2次作业第2题：构造\ce{H2}分子的Morse势
     \end{asg}
@@ -387,46 +387,46 @@
 \section{20201016：Lagrange图象演化概率密度}
 
     除了用Euler图象来演化密度以外，也可以用Lagrange图象来演化密度。由
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \rho(x_t,p_t,t) = 0
-    \end{equation*}
+    \end{equation}
     可以得到$t$时刻的概率密度为
-    \begin{equation*}
+    \begin{equation}
         \rho(x,p,t) = \int \rho(x_0,p_0,0)\delta(x-x_t(x_0,p_0)) \delta(p-p_t(x_0,p_0)) \mathrm{d}x_0\mathrm{d}p_0
-    \end{equation*}
+    \end{equation}
     这里引入了$\delta$函数。$\delta$函数满足
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \delta(x-x_0) &= 0, \ \forall \ x \neq x_0\\
         \int_{-\infty}^{+\infty} \delta(x-x_0) \mathrm{d}x &= 1\\
         \int_{-\infty}^{+\infty} f(x)\delta(x-x_0) \mathrm{d}x &= f(x_0)
-    \end{align*}
+    \end{aligned}\end{equation}
     现在希望给$\delta$函数给一个形式，让它和上面满足的性质自洽：
     可以利用Fourier变换及其逆变换的定义
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac 1{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x)\mathrm{e}^{\mathrm{i}kx}\mathrm{d}x &= F(k)\\
         \frac 1{\sqrt{2\pi}} \int_{-\infty}^{+\infty} F(k)\mathrm{e}^{-\mathrm{i}kx}\mathrm{d}k &= f(x)
-    \end{align*}
+    \end{aligned}\end{equation}
     于是有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         f(x_0) &= \frac 1{\sqrt{2\pi}} \int_{-\infty}^{+\infty} \frac 1{\sqrt{2\pi}} \int_{-\infty}^{+\infty} f(x)\mathrm{e}^{\mathrm{i}kx}\mathrm{d}x \mathrm{e}^{-\mathrm{i}kx_0}\mathrm{d}k\\
         &= \frac 1{2\pi} \iint f(x)\mathrm{e}^{\mathrm{i}k(x-x_0)}\mathrm{d}x\mathrm{d}k\\
         &= \frac 1{2\pi} \iint f(x)\mathrm{e}^{\mathrm{i}k(x-x_0)}\mathrm{d}k\mathrm{d}x
-    \end{align*}
+    \end{aligned}\end{equation}
     于是可以写出$\delta$函数为
-    \begin{equation*}
+    \begin{equation}
         \delta(x-x_0) = \frac 1{2\pi} \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}k(x-x_0)}\mathrm{d}k
-    \end{equation*}
+    \end{equation}
 
     某个物理量的期望定义为
-    \begin{equation*}
+    \begin{equation}
         \langle B(t) \rangle = \int \rho(x,p,t) B(x,p) \mathrm{d}x\mathrm{d}p
-    \end{equation*}
+    \end{equation}
     回到用Morse势描述HCl的振动的问题，在这个问题下，初始时刻为Boltzmann分布时，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x \rangle &= 0\\
         \langle x^2 \rangle &= \frac 1{\beta m \omega^2}\\
         \Delta x &= \sqrt{\langle x^2 \rangle - \langle x \rangle ^2} = \frac 1{\sqrt{\beta m \omega^2}}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     \begin{asg}
         第3次作业第2题：以Boltzmann分布为初始分布，在Morse势，Lagrange图象下演化\ce{H2}的$t$时刻的分布。
@@ -435,12 +435,12 @@
 \section{20201019：多自由度振动的频率计算}
 
     利用上一节得到的$\delta$函数，可以计算在$t$时刻的物理量期望为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle B(t) \rangle &= \int \rho(\bm{x},\bm{p},t) B(\bm{x},\bm{p}) \mathrm{d}\bm{x}\mathrm{d}\bm{p}\\
         &= \int \int \rho(\bm{x}_0,\bm{p}_0,0)\delta(\bm{x}-\bm{x}_t(\bm{x}_0,\bm{p}_0)) \delta(\bm{p}-\bm{p}_t(\bm{x}_0,\bm{p}_0)) \mathrm{d}\bm{x}_0\mathrm{d}\bm{p}_0 B(\bm{x},\bm{p}) \mathrm{d}\bm{x}\mathrm{d}\bm{p}\\
         &= \int \int \delta(\bm{x}-\bm{x}_t(\bm{x}_0,\bm{p}_0)) \delta(\bm{p}-\bm{p}_t(\bm{x}_0,\bm{p}_0)) B(\bm{x},\bm{p}) \mathrm{d}\bm{x}\mathrm{d}\bm{p} \rho(\bm{x}_0,\bm{p}_0,0) \mathrm{d}\bm{x}_0\mathrm{d}\bm{p}_0\\
         &= \int B(\bm{x}_t,\bm{p}_t) \rho(\bm{x}_0,\bm{p}_0,0)\mathrm{d}\bm{x}_0\mathrm{d}\bm{p}_0
-    \end{align*}
+    \end{aligned}\end{equation}
     这意味着，只用初始概率密度也可以得到$t$时刻的物理量的期望。
 
     现在研究复杂一些的\ce{H2O}分子的振动。它总共有3个原子，所以9个自由度。平动3个自由度，转动也有3个自由度，因此振动是3个自由度。3个振动自由度分别为剪切振动、对称伸缩振动和不对称伸缩振动。
@@ -450,56 +450,56 @@
     水分子的O-H振动波数约为3700 cm$^{-1}$, 剪切振动波数约为1600 cm$^{-1}$, 伸缩振动1个周期应当约为20.8 fs, 剪切振动波数约为9 fs. 而1 a.u. = 0.024 fs.即可据此估计模拟过程中的时间步长。
 
     对于水分子，定义其坐标为
-    \begin{equation*}
+    \begin{equation}
         \bm{x} = 
         \begin{pmatrix}
             \bm{x}_\mathrm{O}\\
             \bm{x}_{\mathrm{H1}}\\
             \bm{x}_{\mathrm{H2}}
         \end{pmatrix}
-    \end{equation*}
+    \end{equation}
     并给定了其势能$V(\bm{x})$, 给出质量矩阵
-    \begin{equation*}
+    \begin{equation}
         \bm{M} = \mathrm{diag} \{m_1,...,m_9 \} = 
         \begin{pmatrix}
             m_1 & \cdots & 0\\
             \vdots & \ddots & \vdots\\
             0 & \cdots & m_9
         \end{pmatrix}
-    \end{equation*}
+    \end{equation}
     其中，$m_1,m_2,m_3$等于氧原子的质量，$m_4,...,m_9$等于氢原子的质量。
 
     定义\textbf{Hessian}矩阵$\bm{\mathcal{H}}$为 
-    \begin{equation*}
+    \begin{equation}
         \bm{\mathcal{H}}_{ij} = \frac 1{\sqrt{m_i}} \frac {\partial^2 V}{\partial x_i \partial x_j} \frac 1{\sqrt{m_j}}
-    \end{equation*}
+    \end{equation}
     它的单位为s$^{-2}$. 显然地，这是一个实对称矩阵，可以由正交矩阵作对角化：
-    \begin{equation*}
+    \begin{equation}
         \bm{T}^\mathrm{T} \bm{\mathcal{H}T = \Omega}
-    \end{equation*}
+    \end{equation}
     其中$\bm{T}$为\textbf{正交矩阵}，满足 
-    \begin{equation*}
+    \begin{equation}
         \bm{T}^\mathrm{T}\bm{T} = \bm{TT}^\mathrm{T} = \bm{I}
-    \end{equation*}
+    \end{equation}
     并且
-    \begin{equation*}
+    \begin{equation}
         \bm{\Omega} = \mathrm{diag} \{\omega_1^2, ..., \omega_9^2 \}
-    \end{equation*}
+    \end{equation}
     这样就得到了角频率，$\omega_j$对应的能量为$\hbar \omega_j$。总共得到了9个模式的频率，其中3个模式的频率对应平动，3个模式频率对应转动（平动转动的频率趋于0），3个模式频率对应振动。
 
     如果用矩阵形式来表示Hessian矩阵，应有
-    \begin{equation*}
+    \begin{equation}
         \bm{\mathcal{H} = M}^{-\frac 12} \bm{V}^{(2)} \bm{M}^{-\frac 12}
-    \end{equation*}
+    \end{equation}
 
 \section{20201023：简正坐标}
 
     上一节研究的Hessian矩阵对角化向量形式应为
-    \begin{equation*}
+    \begin{equation}
         \bm{\mathcal{H}b}_j = \omega_j^2 \bm{b}_j
-    \end{equation*}
+    \end{equation}
     由此可知 
-    \begin{equation*}
+    \begin{equation}
         \bm{H}
         \begin{pmatrix}
             \bm{b}_1 & \cdots & \bm{b}_N
@@ -509,368 +509,368 @@
             \bm{b}_1 & \cdots & \bm{b}_N
         \end{pmatrix}
         \bm{\Omega}
-    \end{equation*}
+    \end{equation}
     所以
-    \begin{equation*}
+    \begin{equation}
         \bm{T} = 
         \begin{pmatrix}
             \bm{b}_1 & \cdots & \bm{b}_N
         \end{pmatrix}
-    \end{equation*}
+    \end{equation}
     有
-    \begin{equation*}
+    \begin{equation}
         \bm{HT = T\Omega}
-    \end{equation*}
+    \end{equation}
     要得到本征值，应当有
-    \begin{equation*}
+    \begin{equation}
         \det (\bm{\mathcal{H}}- \omega^2 \bm{I}) = 0
-    \end{equation*}
+    \end{equation}
     即可得到$N$本征频率。
     \begin{asg}
         第3次作业第1题：证明Hessian矩阵的本征值都是实数。
     \end{asg}
 
     水分子在谐振子近似下的势能函数为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
         &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12}\bm{\mathcal{H}} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
         &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12} \bm{T\Omega T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
-    \end{align*}
+    \end{aligned}\end{equation}
     定义\textbf{简正坐标}$\bm{Q}$为
-    \begin{equation*}
+    \begin{equation}
         \bm{Q} = \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
-    \end{equation*}
+    \end{equation}
     于是势能面可以写为
-    \begin{equation*}
+    \begin{equation}
         V(\bm{Q}) = V(\bm{0}) + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q} = V(\bm{0}) + \sum_{j=1}^N \frac 12 \omega_j^2 Q_j^2
-    \end{equation*}
+    \end{equation}
 
 \section{20201026：简正坐标和Cartesian坐标的关系}
 
     上一节讨论了势能在简正坐标下的形式。要想得到全能量，还需要给出动量在简正坐标下的形式。根据
-    \begin{equation*}
+    \begin{equation}
         \bm{p} = \bm{M\dot{x}} = \bm{M}^{\frac 12} \bm{T\dot{Q}}
-    \end{equation*}
+    \end{equation}
     这是在Cartesian坐标系下的动量。定义简正坐标下的动量为
-    \begin{equation*}
+    \begin{equation}
         \bm{P = \dot{Q}} = \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}
-    \end{equation*}
+    \end{equation}
     那么，可以得到动能的表达式为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         E_\mathrm{k} = \frac 12 \bm{p}^{\mathrm{T}} \bm{M}^{-1} \bm{p} &= \frac 12 \bm{\dot{x}}^\mathrm{T}\bm{M\dot{x}}
         = \frac 12 \bm{\dot{Q}}^\mathrm{T} \bm{Q}
         = \frac 12 \bm{P}^{\mathrm{T}} \bm{P}
-    \end{align*}
+    \end{aligned}\end{equation}
     总结简正坐标和Cartesian坐标的变换：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{Q} &= \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
         \bm{P} &= \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}\\
         \bm{x} &= \bm{x}_\mathrm{eq} + \bm{M}^{-\frac 12}\bm{TQ}\\
         \bm{p} &= \bm{M}^{\frac 12}\bm{TP}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     有了简正坐标下的动量就可以得到简正坐标下的Hamilton函数：
-    \begin{equation*}
+    \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
-    \end{equation*}
+    \end{equation}
     很容易可以验证，正则方程在简正坐标下依旧成立：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{\dot{Q}} &= \frac {\partial H}{\partial \bm{P}} = \bm{P}\\
         \bm{\dot{P}} &= -\frac {\partial H}{\partial \bm{Q}} = -\bm{\Omega Q}
-    \end{align*}
+    \end{aligned}\end{equation}
     要求出每个元素的值也十分容易：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{Q}_j &= P_j\\
         \dot{P}_j &= - \omega_j^2 Q_j
-    \end{align*}
+    \end{aligned}\end{equation}
     但如果在Cartesian坐标下用正则方程，得到每个元素的值结果为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x}_i &= \frac {p_j}{m_i}\\
         \dot{p}_i &= \sum_j \frac {\partial^2 V}{\partial x_i \partial x_j} (x_j - x_\mathrm{eq}^{(j)})
-    \end{align*}
+    \end{aligned}\end{equation}
     显然要比在简正坐标下的形式要复杂很多。这体现了简正坐标的优势。
 
     我们可以根据初始条件$(\bm{x}_0,\bm{p}_0)$，得到$(\bm{x},\bm{p}$每个分量的解析表达式。将它变换为简正坐标，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Q_j &= \sum_i T_{ij} m_i^{\frac 12} (x_0^{(i)} - x_\mathrm{eq}^{(i)})\\
         P_j &= \sum_i T_{ij} m_i^{-\frac 12} (p_0^{(i)})
-    \end{align*}
+    \end{aligned}\end{equation}
     由正则方程的形式可以给出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Q_j(t) &= Q_0^{(j)}\cos{\omega_j t} + \frac {P_0^{(j)}}{\omega} \sin{\omega_j t}\\
         P_j(t) &= P_0^{(j)}\cos{\omega_j t} - \omega_j Q_0^{(j)} \sin{\omega_j t}
-    \end{align*}
+    \end{aligned}\end{equation}
     再变换回Cartesian坐标，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         x_i(t) - x_\mathrm{eq}^{(i)} &= \sum_j m_j^{-\frac 12} T_{ij} Q_j(t)\\
         p_i(t) &= \sum_j m_j^{\frac 12} T_{ij}P_j(t)
-    \end{align*}
+    \end{aligned}\end{equation}
 
     如果水分子服从Boltzmann分布，即
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \rho \propto \mathrm{e}^{-\beta (\frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q})} = \mathrm{e}^{- \frac {\beta}2 \sum_j (P_j^2 + \omega_j^2 Q_j^2)} = \prod_j \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
-    \end{align*}
+    \end{aligned}\end{equation}
     要想将Cartesian坐标下的积分变换成简正坐标下的积分，需要计算Jacobi行列式：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bigg|\frac {\partial (\bm{Q,P})}{\partial (\bm{x,p})}\bigg| &= \det
         \begin{pmatrix}
             \bm{T}^\mathrm{T}\bm{M}^{\frac 12} & 0\\
             0 & \bm{T}^\mathrm{T}\bm{M}^{-\frac 12}
         \end{pmatrix}
         = 1
-    \end{align*}
+    \end{aligned}\end{equation}
     这里用到了正交矩阵的行列式为1（这也是显然成立的）。因此可以积分得到配分函数，从而得到简正坐标下的某个分量概率密度为
-    \begin{equation*}
+    \begin{equation}
         \mathcal{P}_j = \frac {2\pi}{\beta\omega_j} \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
-    \end{equation*}
+    \end{equation}
     总概率密度为
-    \begin{equation*}
+    \begin{equation}
         \mathcal{P} = \prod_j \mathcal{P}_j
-    \end{equation*}
+    \end{equation}
     由此可以得到Cartesian坐标下概率密度。
 
 \section{20201030：物理量及其时间关联函数}
 
     对简正坐标下的Hamilton函数
-    \begin{equation*}
+    \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
-    \end{equation*}
+    \end{equation}
     它满足Boltzmann分布时，配分函数为
-    \begin{equation*}
+    \begin{equation}
         Z = \int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P} = \bigg(\frac {2\pi}{\beta}\bigg)^N \frac 1{\det \bm{\Omega}}
-    \end{equation*}
+    \end{equation}
     量子化以后得到的结果是
-    \begin{equation*}
+    \begin{equation}
         Z = \frac 1{(\beta \hbar)^N \det \bm{\Omega}}
-    \end{equation*}
+    \end{equation}
     要计算物理量的期望，应有
-    \begin{equation*}
+    \begin{equation}
         \langle B \rangle = \frac {\int B(\bm{Q,P})\mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
-    \end{equation*}
+    \end{equation}
     在$t$时刻也可以写出类似的形式
-    \begin{equation*}
+    \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q,P}) \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
-    \end{equation*}
+    \end{equation}
     再由
-    \begin{equation*}
+    \begin{equation}
         \rho_t (\bm{Q,P}) = \int \mathrm{e}^{-\beta H(\bm{Q_0,P_0})} \delta(\bm{Q-Q}_t) \delta(\bm{P-P}_t) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0
-    \end{equation*}
+    \end{equation}
     代入，可以得到
-    \begin{equation*}
+    \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q}_t,\bm{P}_t) \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}{\int \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}
-    \end{equation*}
+    \end{equation}
 
     现在开始研究一些光谱的性质。设红外光谱为$I(\omega)$, 让分子不转动，则得到的红外光谱为分立的线。对红外光谱做Fourier变换，得到
-    \begin{equation*}
+    \begin{equation}
     f(t) = \int I(\omega)\mathrm{e}^{\mathrm{i}\omega t}\mathrm{d}\omega 
-    \end{equation*}
+    \end{equation}
     它反映了分子的动力学性质。这个时间是什么？现在问有没有可能成为某个物理量的Fourier变换？
     \begin{asg}
         第4次作业第1题：Fourier变换
     \end{asg}
     定义\textbf{两点时间关联函数}:
-    \begin{equation*}
+    \begin{equation}
     \langle B(0)B(t) \rangle = \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0
-    \end{equation*}
+    \end{equation}
     同一物理量的两点时间关联函数如果交换顺序并不会有变化，因为Liouville定理，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
     &= \int \rho_t(x_t,p_t) B(x_t,p_t) B(x_0(x_t,p_t),p_0(x_t,p_t)) \mathrm{d}x_t \mathrm{d}p_t\\
     &= \langle B(t)B(0) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     现在要求$\langle B(0)B(t) \rangle$和$\langle B(0)B(-t) \rangle$的关系。在积分的条件下，因为积分变量是哑变量，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
     &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
     &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-    \end{align*}
+    \end{aligned}\end{equation}
     其中，第二步是作变量替换
-    \begin{equation*}
+    \begin{equation}
     x_0 \to x_{-t}
-    \end{equation*}
+    \end{equation}
     并且$x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果，而将$x_{-t}$演化$t$时间为$x_0$。如果假设
-    \begin{equation*}
+    \begin{equation}
     \frac {\partial \rho}{\partial t} = 0 = \{ H, \rho\}
-    \end{equation*}
+    \end{equation}
     则显然地，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle B(0)B(t) \rangle &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
         &= \int \rho_{-t}(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
         &= \langle B(-t)B(0) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第4次作业第2题：时间自关联函数是否有时间平移对称性？
     \end{asg}
 
 \section{20201102：平衡分布的时间关联函数}
     更一般情况的两点时间关联函数为
-    \begin{equation*}
+    \begin{equation}
     \langle A(0)B(t) \rangle = \int \rho_0(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
-    \end{equation*}
+    \end{equation}
     如果是平衡分布，即
-    \begin{equation*}
+    \begin{equation}
         \frac {\partial \rho}{\partial t} = 0
-    \end{equation*}
+    \end{equation}
     例如Boltzmann分布，那么
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle A(0)B(t) \rangle &= \int \rho_\mathrm{eq}(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0\\
         &= \int \rho_\mathrm{eq}(\bm{x}_{t'},\bm{p}_{t'}) A(\bm{x}_{t'},\bm{p}_{t'}) B(\bm{x}_{t+t'},\bm{p}_{t+t'}) \mathrm{d}\bm{x}_{t'} \mathrm{d}\bm{p}_{t'}\\
         &= \langle A(t')B(t'+ t) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     这样时间关联函数有时间平移对称性。但是如果不是平衡分布，就没有时间平移对称性。同样由Liouville定理很容易证明
-    \begin{equation*}
+    \begin{equation}
         \langle A(0)B(t) \rangle = \langle B(t)A(0) \rangle
-    \end{equation*}
+    \end{equation}
 
     平衡分布满足
-    \begin{equation*}
+    \begin{equation}
     \langle B(t) \rangle = \langle B(0) \rangle
-    \end{equation*}
+    \end{equation}
     于是平衡分布对应的平均物理量为
-    \begin{equation*}
+    \begin{equation}
     \langle B \rangle = \frac 1T \int_0^T \langle B(t) \rangle \mathrm{d}t
-    \end{equation*}
+    \end{equation}
 
     对于Liouville方程，有
-    \begin{equation*}
+    \begin{equation}
     -\frac {\partial \rho}{\partial t} = \{H,\rho\}
-    \end{equation*}
+    \end{equation}
     此时，满足
-    \begin{equation*}
+    \begin{equation}
     \rho_0 = \rho_{\mathrm{eq}}
-    \end{equation*}
+    \end{equation}
     两点关联函数满足
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
     &= \int \rho_{\mathrm{eq}} (\bm{x_{t'}},\bm{p_{t'}}) A(\bm{x_{t'}},\bm{p_{t'}}) B(\bm{x_{t+t'}}, \bm{p_{t + t'}})\\
     &= \langle A(t')B(t+t') \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     这只有在
-    \begin{equation*}
+    \begin{equation}
     \rho_0(\bm{x},\bm{p}) = \rho_{t'}(\bm{x},\bm{p})
-    \end{equation*}
+    \end{equation}
     时成立。
 
     现在想要探索$\langle A(0)B(t) \rangle$和$\langle A(0)B(-t) \rangle$的关系。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
     &= \int \rho_{\mathrm{eq}}(\bm x_t, \bm p_t) A(\bm x_0,\bm p_0)B(\bm x_t, \bm p_t) \mathrm{d}\bm x_t \mathrm{d} \bm p_t\\
     &= \int \rho_{\mathrm{eq}}(\bm x, \bm p)B(\bm x, \bm p) A(\bm x_{-t}(x,p), \bm p_{-t}(x,p))\mathrm{d}x\mathrm{d}p\\
     &= \langle B(0)A(-t) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     如果只考虑一个物理量的自关联函数，作Fourier积分
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I(\omega) = \int_{-\infty}^{+\infty} \mathrm{e}^{-\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t
-    \end{align*}
+    \end{aligned}\end{equation}
     令$t=-s$，则
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I(\omega) &= -\int_{+\infty}^{-\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(-t) \rangle \mathrm{d}t\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t\\
     &= I(-\omega)
-    \end{align*}
+    \end{aligned}\end{equation}
     所以自关联函数的Fourier变换在频率空间是一个偶函数。
 
     这在量子力学中并不成立，如果它在能级0和能级1之间跃迁，则它在能级0的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_0}$,在能级1的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_1}$, 配分函数为
-    \begin{equation*}
+    \begin{equation}
     Z = \mathrm{e}^{-\beta \epsilon_0} + \mathrm{e}^{-\beta \epsilon_1}
-    \end{equation*}
+    \end{equation}
     设$E = \epsilon_1 - \epsilon_0$, 从0到1的跃迁对应的光谱Fourier变换的强度为$\mathrm{e}^{-\beta \epsilon_0} \delta(E - \hbar \omega)$，从1到0的跃迁对应的强度为$\mathrm{e}^{-\beta \epsilon_1} \delta(E + \hbar \omega)$, 于是
-    \begin{equation*}
+    \begin{equation}
     \mathrm{e}^{-\beta(\epsilon_1 - \epsilon_0)} I(\omega) = I(-\omega)
-    \end{equation*}
+    \end{equation}
     或写成
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{-\beta \hbar \omega}I(\omega) = I(-\omega)
-    \end{equation*}
+    \end{equation}
     这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同，称为\textbf{细致平衡}。经典极限下，$\hbar \to 0$，变成了偶函数。
 
 \section{20201106：Gauss积分的计算}
 
     回顾一维Gauss积分的计算：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I &= \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
-    \end{align*}
+    \end{aligned}\end{equation}
     令$t = ax^2$, 则$\mathrm{d}t = 2ax\mathrm{d}x$
     所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I &= \int_0^{+\infty} \mathrm{e}^{-t} \bigg(\frac ta\bigg)^{\frac n2} \frac {\mathrm{d}t}{\sqrt{at}}\\
     &= \frac 1{2a^{\frac {n+1}2}} \int_0^{+\infty} \mathrm{e}^{-t} t^{\frac {n-1}2} \mathrm{d}t\\
     &= \frac {\Gamma(\frac {n+1}2)}{2a^{\frac {n+1}2}}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     利用一维Gauss积分的计算结果可以计算多维的Gauss积分。比如计算
-    \begin{equation*}
+    \begin{equation}
         I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     其中，$\bm{A}$为正定的实对称矩阵。首先将$\bm{A}$对角化，得到
-    \begin{equation*}
+    \begin{equation}
         \bm{T}^\mathrm{T} \bm{AT} = \bm{D}
-    \end{equation*}
+    \end{equation}
     其中$\bm{T}$为正交矩阵、$\bm{D}$为对角矩阵。所以
-    \begin{equation*}
+    \begin{equation}
         I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{TDT}^\mathrm{T}\bm{x}}\mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     作换元$\bm{y} = \bm{T}^\mathrm{T}\bm{x}$，则有
-    \begin{equation*}
+    \begin{equation}
         \mathrm{d}\bm{y} = \det \bm{T}^\mathrm{T}\mathrm{d}\bm{x} = \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     原积分化为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I = \int \bm{y}^\mathrm{T}\bm{T}^\mathrm{T}\bm{BTy} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}
-    \end{align*}
+    \end{aligned}\end{equation}
     令$\bm{E = T}^\mathrm{T}\bm{BT}$, 于是
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I &= \int \bm{y}^\mathrm{T}\bm{Ey} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}\\
         &= \int \sum_i \sum_j E_{ij} y_i y_j \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k
-    \end{align*}
+    \end{aligned}\end{equation}
     可以通过分离变量将各个积分分开，显然，$i \neq j$的项都是奇函数对全空间的积分，得到的结果为0，只有$i=j$的项会有贡献。于是积分化为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I &= \int \sum_i E_{ii} y_i^2 \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k\\
         &= \prod_k \sqrt{\frac {\pi}{d_k}} \sum_i \frac {E_{ii}}{2d_i}\\
         &= \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{D}}}} \mathrm{Tr} (\bm{ED}^{-1})
-    \end{align*}
+    \end{aligned}\end{equation}
     而
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \det{\bm{D}} = \det{\bm{A}}
-    \end{align*}
+    \end{aligned}\end{equation}
     并且
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \mathrm{Tr}(\bm{ED}^{-1}) = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BT}\bm{T}^\mathrm{T} \bm{A}^{-1}\bm{T})
         = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BA}^{-1}\bm{T})
         = \mathrm{Tr}(\bm{BA}^{-1})
-    \end{align*}
+    \end{aligned}\end{equation}
     所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I = \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{A}}}} \mathrm{Tr} (\bm{BA}^{-1})
-    \end{align*}
+    \end{aligned}\end{equation}
 
     接下来尝试计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{I} = \int \bm{xx}^\mathrm{T} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
-    \end{align*}
+    \end{aligned}\end{equation}
     用相同的还原方法得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{I} = \int \bm{Ty}\bm{y}^\mathrm{T}\bm{T}^\mathrm{T} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-    \end{align*}
+    \end{aligned}\end{equation}
     计算每个元素
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I_{ij} &= \int (\bm{Ty})_{i}(\bm{y}^\mathrm{T}\bm{T}^\mathrm{T})_{j} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
         &= \int \sum_k T_{ik}y_k \sum_l T_{jl} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
         &= \int \sum_{k,l} T_{ik}T_{jl} y_ky_l \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-    \end{align*}
+    \end{aligned}\end{equation}
     同样地，只有在$k=l$时才有贡献，故
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         I_{ij} &= \int \sum_k T_{ik}T_{jk}y_k^2 \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
         &= \prod_l \sqrt{\frac {\pi}{d_l}} \sum_k T_{ik}T_{jk} \frac 1{2d_k}\\
         &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{D}}}} (\bm{TD}^{-1}\bm{T}^\mathrm{T})_{ij}\\
         &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}_{ij}
-    \end{align*}
+    \end{aligned}\end{equation}
     因此，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bm{I} = \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第4次作业第3题：Gauss积分的计算
     \end{asg}
@@ -880,114 +880,114 @@
     从本节开始讨论量子力学。量子力学中第一个重要的概念是\textbf{态}。有了态我们可以进行测量，得到这个态的物理量。用$| \psi \rangle$来表示态。
 
     如何来描述这个态呢？我们可以选择一个空间进行描述。对于经典力学，我们之前选择了相空间。但对于量子力学，我们选择位置空间或者动量空间进行描述。如果选取位置空间，对这个态的描述为
-    \begin{equation*}
+    \begin{equation}
         \langle \bm{x} | \psi \rangle = \psi(\bm{x})
-    \end{equation*}
+    \end{equation}
     将这个函数称为\textbf{波函数}。如果选取动量空间，类似地可以描述为
-    \begin{equation*}
+    \begin{equation}
         \langle \bm{p} | \psi \rangle = \psi(\bm{p})
-    \end{equation*}
+    \end{equation}
     量子力学中，位置空间和动量空间都是连续的。
 
     我们也可以在离散的空间中描述态。态可以看作一个向量，它可以用一组基展开。回顾在线性代数中，
-    \begin{equation*}
+    \begin{equation}
         \bm{c} = \sum_n c_n \bm{e}_n
-    \end{equation*}
+    \end{equation}
     如果这组基是内积空间中的规范正交基，则
-    \begin{equation*}
+    \begin{equation}
         \bm{c} = \sum_n \bm{e}_n (\bm{e}_n^\mathrm{T}\bm{c}) 
         = \sum_n |n\rangle \langle n|c\rangle
-    \end{equation*}
+    \end{equation}
     由此可见
-    \begin{equation*}
+    \begin{equation}
         \bm{I} = \sum_n |n\rangle \langle n|
-    \end{equation*}
+    \end{equation}
     在量子力学中，我们可以类似地描述态：
-    \begin{equation*}
+    \begin{equation}
         |\psi \rangle = \sum_n |n\rangle \langle n|\psi \rangle = \sum_n c_n |n\rangle
-    \end{equation*}
+    \end{equation}
 
     物理量测量都是实数。物理量在量子力学中都对应一个算符，假设
-    \begin{equation*}
+    \begin{equation}
         \hat{A} |n\rangle = a_n |n\rangle
-    \end{equation*}
+    \end{equation}
     其中$a_n$为实数，那么$|n\rangle$就是$\hat{A}$的一个本征态。我们可以把态对于$\hat{A}$的本征态来展开，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \hat{A}|\psi \rangle &= \hat{A}\hat{I}|\psi \rangle
         = \hat{A} \sum_n |n\rangle \langle n|\psi\rangle
         = \sum_n c_n a_n |n\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     可以计算出$\hat{A}$的平均值为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \hat{A} \rangle &= \langle \psi |\hat{A}| \psi \rangle\\
         &= \sum_n \langle n| c_n^* \sum_m c_m a_m |m\rangle\\
         &= \sum_n \sum_m c_n^* c_m a_m \langle n|m\rangle\\
         &= \sum_n |c_n|^2 a_n
-    \end{align*}
+    \end{aligned}\end{equation}
     这里用到了
     \[\langle n | m \rangle = \delta_{nm}\]
     注意到$|c_n|^2 \in [0,1]$，且$\sum_n |c_n|^2 = 1$（我们总可以让这个态乘一个常数使该式成立，此时态也满足归一化条件$\langle \psi |\psi \rangle = 1$）, 所以可以认为这个态处于该本征态的概率。按照Copenhagen学派的观点，我们测量某一个物理量时这个态会坍塌到这个物理量的一个本征态，而$|c_n^2|$反应了坍塌到第$n$个本征态的概率。
 
     对于波函数$\langle \bm{x}|\psi \rangle$, 它的模方是在位置空间的概率密度。定义一个位置算符$\hat{\bm{y}}$。应有
-    \begin{equation*}
+    \begin{equation}
         \hat{\bm{x}}|\bm{x}_0\rangle = \bm{x}_0 |\bm{x}_0\rangle
-    \end{equation*}
+    \end{equation}
     其中态$|\bm{x}_0\rangle$代表精确地处在$\bm{x}_0$位置的态。引入动量算符$\hat{\bm{p}}$，同样有
-    \begin{equation*}
+    \begin{equation}
         \hat{\bm{p}}|\bm{p}_0\rangle = \bm{p}_0 |\bm{p}_0\rangle
-    \end{equation*}
+    \end{equation}
     类比在可数个物理量本征态下的展开，同样有
-    \begin{equation*}
+    \begin{equation}
         \hat{I} = \int |\bm{x}\rangle \langle \bm{x}| \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     于是对位置的测量应有
-    \begin{equation*}
+    \begin{equation}
         \hat{\bm{x}}|\psi \rangle = \int \hat{\bm{x}}|\bm{x}\rangle \langle \bm{x}|\psi \rangle \mathrm{d}\bm{x}
         = \int \bm{x}|\bm{x}\rangle \langle \bm{x}|\psi \rangle \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     同样，任意一个态可以展开到位置空间
-    \begin{equation*}
+    \begin{equation}
         |\psi \rangle = \int |\bm{x} \rangle \langle \bm{x}|\psi\rangle \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     类似地得到位置的平均值为
-    \begin{equation*}
+    \begin{equation}
         \langle \psi | \hat{\bm{x}} | \psi \rangle 
         = \int \bm{x} |\langle \bm{x} | \psi \rangle|^2 \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     这就给出了波函数的概率诠释。
 
     接下来讨论动量算符在位置空间的描述。假设
-    \begin{equation*}
+    \begin{equation}
         \langle \bm{x} |\hat{\bm{p}} | \psi \rangle
         = \langle \bm{x} | \phi \rangle
-    \end{equation*}
+    \end{equation}
     如果选择
-    \begin{equation*}
+    \begin{equation}
         \hat{\bm{p}} = -\mathrm{i}\hbar \frac {\partial }{\partial \bm{x}}
-    \end{equation*}
+    \end{equation}
     就得到
-    \begin{equation*}
+    \begin{equation}
         \langle \bm{x} |\hat{\bm{p}} | \psi \rangle = -\mathrm{i}\hbar \frac {\partial }{\partial \bm{x}}\langle \bm{x} | \psi \rangle
-    \end{equation*}
+    \end{equation}
     有了位置算符和动量算符，我们可以讨论两个算符的\textbf{对易}
-    \begin{equation*}
+    \begin{equation}
         [\hat{\bm{x}},\hat{\bm{p}}] = \hat{\bm{x}}\hat{\bm{p}} - \hat{\bm{p}}\hat{\bm{x}}
-    \end{equation*}
+    \end{equation}
     先计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \bm{x}_0 |\hat{\bm{p}}\hat{\bm{x}} | \psi \rangle &= -\mathrm{i}\hbar \frac {\partial}{\partial \bm{x}_0} \langle \bm{x}_0 |\hat{\bm{x}} | \psi \rangle\\
         &= -\mathrm{i}\hbar \frac {\partial}{\partial \bm{x}_0} (\bm{x}_0\psi(\bm{x}_0))\\
         &= -\mathrm{i}\hbar \psi(\bm{x}_0) - \mathrm{i}\hbar \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
-    \end{align*}
+    \end{aligned}\end{equation}
     再计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \bm{x}_0 |\hat{\bm{x}} \hat{\bm{p}} | \psi \rangle &= \bm{x}_0 \langle \bm{x}_0 \hat{\bm{p}} | \psi \rangle\\
         &= -\mathrm{i}\hbar \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
-    \end{align*}
+    \end{aligned}\end{equation}
     这两个式子相比较，得到
-    \begin{equation*}
+    \begin{equation}
         [\hat{\bm{x}},\hat{\bm{p}}] = \mathrm{i}\hbar
-    \end{equation*}
+    \end{equation}
     此即\textbf{Heisenberg不确定性原理}。
 
 \section{20201113：不确定性原理}
@@ -1002,104 +1002,104 @@
     在量子力学中，位置空间、动量空间是连续的，时间也是连续的，并且认为质量不变。量子力学中，位置和动量都有对应的算符，但时间没有。
 
     可以定义位置的量子涨落
-    \begin{equation*}
+    \begin{equation}
         \Delta x = \sqrt{\langle \hat{x}^2 \rangle - \langle \hat{x} \rangle^2}
-    \end{equation*}
+    \end{equation}
     同理可以定义动量的量子涨落
-    \begin{equation*}
+    \begin{equation}
         \Delta p = \sqrt{\langle \hat{p}^2 \rangle - \langle \hat{p} \rangle^2}
-    \end{equation*}
+    \end{equation}
     现在定义 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \Delta \hat{x} &= \hat{x} - \langle \hat{x} \rangle \\
         \Delta \hat{p} &= \hat{p} - \langle \hat{p} \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     希望求出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \Delta \hat{x}^2\rangle\langle \Delta \hat{p}^2\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     设
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         |\phi_x \rangle &= \Delta \hat{x}^2|\psi\rangle\\
         |\phi_p \rangle &= \Delta \hat{p}^2|\psi\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     于是 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \Delta \hat{x}^2\rangle\langle \Delta \hat{p}^2\rangle = \langle \phi_x | \phi_x \rangle \langle \phi_p | \phi_p \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     考察
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         |\langle \phi_x | \phi_p \rangle| = |\bm{a}^\dagger \bm{b}| = |\bm{a}||\bm{b}|\cos{\theta} \leqslant |\bm{a}||\bm{b}|
-    \end{align*}
+    \end{aligned}\end{equation}
     应有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \Delta \hat{x}^2\rangle\langle \Delta \hat{p}^2\rangle &= \langle \phi_x | \phi_x \rangle \langle \phi_p | \phi_p \rangle\\ &\geqslant |\langle \phi_x|\phi_p \rangle|^2\\
         &= |\langle \psi |\Delta \hat{x} \Delta \hat{p}|\psi \rangle|^2
-    \end{align*}
+    \end{aligned}\end{equation}
     所以只需要求出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \Delta \hat{x} \Delta \hat{p} = \frac 12([\Delta \hat{x}, \Delta \hat{p}] + \{\Delta \hat{x}, \Delta \hat{p}\})
-    \end{align*}
+    \end{aligned}\end{equation}
     其中反对易关系
-    \begin{equation*}
+    \begin{equation}
         \{\hat{A}, \hat{B}\} = \hat{A}\hat{B} + \hat{B}\hat{A}
-    \end{equation*}
+    \end{equation}
     因此
-    \begin{equation*}
+    \begin{equation}
         |\langle \psi |\Delta \hat{x} \Delta \hat{p}|\psi \rangle|^2 = \frac 14 |\langle \psi |[\Delta \hat{x},\Delta \hat{p}]|\psi \rangle + \langle \psi |\{\Delta \hat{x},\Delta \hat{p}\}|\psi \rangle|^2
-    \end{equation*}
+    \end{equation}
     注意
-    \begin{equation*}
+    \begin{equation}
         [\Delta \hat{x},\Delta \hat{p}] = [\hat{x}-\langle \hat{x} \rangle, \hat{p}-\langle \hat{p} \rangle ] = [\hat{x},\hat{p}] = \mathrm{i}\hbar
-    \end{equation*}
+    \end{equation}
     上面就是一个复数模的平方，得到
-    \begin{equation*}
+    \begin{equation}
         |\langle \psi |\Delta \hat{x} \Delta \hat{p}|\psi \rangle|^2 = \frac {\hbar^2}4 + \frac 14 |\langle \psi |\{\Delta \hat{x},\Delta \hat{p}\}|\psi \rangle|^2 \geqslant \frac {\hbar^2}4
-    \end{equation*}
+    \end{equation}
     这是不确定性原理的另一种表述形式。
 
     现在来在位置空间描述动量本征态，即求出$\langle x|p \rangle$。这表示动量精确地处在$p$时，在位置空间的描述。显然地，它满足
-    \begin{equation*}
+    \begin{equation}
         \langle x|\hat{p}|p\rangle = p\langle x|p \rangle
-    \end{equation*}
+    \end{equation}
     由此可知 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         -\mathrm{i}\hbar \frac {\partial}{\partial x} \langle x|p \rangle = p \langle x|p \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     解这个常微分方程，得到
-    \begin{equation*}
+    \begin{equation}
         \langle x|p \rangle = C \mathrm{e}^{\frac {\mathrm{i}px}\hbar}
-    \end{equation*}
+    \end{equation}
     $C$由归一化条件决定。首先考虑
-    \begin{equation*}
+    \begin{equation}
         \langle p' | p_0 \rangle = \delta (p'-p_0)
-    \end{equation*}
+    \end{equation}
     这是因为
-    \begin{equation*}
+    \begin{equation}
         |p_0 \rangle = \int |p\rangle \langle p|p_0\rangle \mathrm{d}p
-    \end{equation*}
+    \end{equation}
     显然$\delta$函数满足这个要求。又
-    \begin{equation*}
+    \begin{equation}
         \langle p' | p_0 \rangle = \delta (p'-p_0) = \frac 1{2\pi\hbar} \int \mathrm{e}^{\frac {\mathrm{i}(p-p_0)x}{\hbar}} \mathrm{d}x
-    \end{equation*}
+    \end{equation}
     并且
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle p'|p_0 \rangle &= \int \langle p'|x\rangle \langle x|p_0 \rangle \mathrm{d}x\\
         &= \int (\langle x|p' \rangle)^* \langle x|p_0 \rangle \mathrm{d}x\\
         &= C^*C\int \mathrm{e}^{\frac {\mathrm{i}(p_0-p')x}{\hbar}} \mathrm{d}x
-    \end{align*}
+    \end{aligned}\end{equation}
     所以， 
-    \begin{equation*}
+    \begin{equation}
         C = \frac 1{\sqrt{2\pi\hbar}}
-    \end{equation*}
+    \end{equation}
     这样就得到 
-    \begin{equation*}
+    \begin{equation}
         \langle x|p \rangle = \frac 1{\sqrt{2\pi\hbar}} \mathrm{e}^{\frac {\mathrm{i}px}{\hbar}}
-    \end{equation*}
+    \end{equation}
     并由此可以得到
-    \begin{equation*}
+    \begin{equation}
         \langle p|x \rangle = \frac 1{\sqrt{2\pi\hbar}} \mathrm{e}^{-\frac {\mathrm{i}px}{\hbar}}
-    \end{equation*}
+    \end{equation}
     \begin{asg}
         第5次作业第1题：计算动量空间的位置算符。
     \end{asg}
@@ -1110,13 +1110,13 @@
 \section{20201116：一维无限深势阱}
 
     考虑动能算符和动量算符的对易关系，
-    \begin{equation*}
+    \begin{equation}
         [\frac {\hat{p}^2}{2m}, \hat{p}] = 0
-    \end{equation*}
+    \end{equation}
     事实上可以证明
-    \begin{equation*}
+    \begin{equation}
         [f(\hat{A}),g(\hat{A})] = 0
-    \end{equation*}
+    \end{equation}
     \begin{asg}
         第6次作业第1题（1）：证明上述结论。
     \end{asg}
@@ -1127,9 +1127,9 @@
     那么
     \[ \hat{A} \hat{B} |\phi_n \rangle = \hat{B}\hat{A} |\phi_n \rangle = a_n \hat{B} |\phi_n \rangle \]
     这说明，如果$\hat{A},\hat{B}$对易，则$\hat{B}|\phi_n\rangle$必然是$\hat{A}$的本征态，且本征值为$a_n$。如果不简并，那么$\hat{B}|\phi_n\rangle$一定是$\phi_n$的一个倍数，即
-    \begin{equation*}
+    \begin{equation}
         \hat{B}|\phi_n \rangle = b_n |\phi_n \rangle
-    \end{equation*}
+    \end{equation}
     对于简并的情况，$\hat{B}|\phi_n$只能是所有本征值为$a_n$的本征态的线性组合。也就是说，如果
     \[ \hat{A}|\phi_{n+m} = a_n |\phi_{n+m},\ m=0,...,k\]
     并且$\hat{A},\hat{B}$对易，那么
@@ -1148,80 +1148,80 @@
     \[ \frac {p_0^2}{2m} |\psi\rangle = \frac {\hat{p}^2}{2m} (c_+|p_0\rangle + c_-|p_0\rangle) \]
 
     现在求解一维无限深势阱的能量本征态。其势能算符为
-    \begin{equation*}
+    \begin{equation}
         V(x) = \left \{
             \begin{aligned}
                 &0,\ x\in [-\frac L2, \frac L2 ]\\
                 &\infty, \ \mathrm{otherwise}
             \end{aligned}
             \right.
-    \end{equation*}
+    \end{equation}
     Hamilton算符为
-    \begin{equation*}
+    \begin{equation}
         \hat{H} = \frac {\hat{p}^2}{2m}
-    \end{equation*}
+    \end{equation}
     波函数只能在$[-\frac L2, \frac L2 ]$区间内，并且边界条件给出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \phi(x = -\frac L2) &= 0\\
         \phi(x = \frac L2) &= 0
-    \end{align*}
+    \end{aligned}\end{equation}
     应有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \phi_n(x) &= c_+ \langle x|p_n\rangle + c_- \langle x|p_n\rangle\\
         &= \frac 1{\sqrt{2\pi \hbar}}(c_+\mathrm{e}^{\frac {\mathrm{i}xp_n}{\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}xp_n}{\hbar}})
-    \end{align*}
+    \end{aligned}\end{equation}
     再加上边界条件
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hbar}} &= 0\\
         c_+\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hbar}}+c_-\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hbar}} &= 0
-    \end{align*}
+    \end{aligned}\end{equation}
     又有归一化条件
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \phi_n | \phi_n \rangle = \int_{-\frac L2}^{\frac L2} |\phi_n(x)|^2 \mathrm{d}x = 1
-    \end{align*}
+    \end{aligned}\end{equation}
     定义算符$\hat{B}$满足
     \[ \langle x|\hat{B}| p \rangle = \langle x+\lambda |p\rangle \]
     由于
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\hat{B}| p \rangle = \langle x+\lambda |p\rangle = \frac {\mathrm{e}^{\frac {\mathrm{i}(x+\lambda)p}{\hbar}}}{\sqrt{2\pi\hbar}}
-    \end{align*}
+    \end{aligned}\end{equation}
     显然地，应有
-    \begin{equation*}
+    \begin{equation}
         \hat{B} = \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hbar}}
-    \end{equation*}
+    \end{equation}
     这个算符称为\textbf{平移算符}。左矢形式表达为
     \[ \langle x| \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hbar}} = \langle x+\lambda| \]
     右矢形式表达为
     \[ \mathrm{e}^{-\frac {\mathrm{i}\lambda \hat{p}}{\hbar}} | x\rangle = |x+\lambda \rangle \]
     我们使用平移算符，将一维势阱的体系作平移，将波函数平移到$[0,\frac L2]$的位置上。此时体系满足
-    \begin{equation*}
+    \begin{equation}
         V(x) = \left \{
             \begin{aligned}
                 &0,\ x\in [0, L]\\
                 &\infty, \ \mathrm{otherwise}
             \end{aligned}
             \right.
-    \end{equation*}
+    \end{equation}
     由边界条件
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \phi(0)= 0\\
         \phi(L) = 0
-    \end{align*}
+    \end{aligned}\end{equation}
     得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         c_+ +c_- &= 0\\
         c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hbar}} &= 0
-    \end{align*}
+    \end{aligned}\end{equation}
     将前一个式子代入后一个，得到
     \[ c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hbar}}-c_+ \mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hbar}} = 0 \]
     于是
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         2\mathrm{i}c_+ \sin{\frac {Lp_n}{\hbar}} = 0
-    \end{align*}
+    \end{aligned}\end{equation}
     但是$c_+ \neq 0$（否则得到零解），所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {Lp_n}{\hbar} = n\pi
-    \end{align*}
+    \end{aligned}\end{equation}
     即
     \[ p_n = \frac {n\pi \hbar}{L} \]
     $c_+$的选择取决于归一化条件，
@@ -1262,11 +1262,11 @@
     那么这个配分函数是否收敛呢？
     \[ Z = \sum_n \mathrm{e}^{-\beta \frac {\hbar^2}{2m} (\frac {n\pi}L)^2} \]
     定义$x_n = \frac nL$, 于是$\Delta x = \frac 1L$. 由此可以将求和变成积分。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Z &= L \sum_n \Delta x \mathrm{e}^{-\beta \frac {\hbar^2\pi^2 x^2}{2m} }\\
         &= L \int_0^{+\infty} \mathrm{e}^{-\beta \frac {\hbar^2\pi^2 x^2}{2m}} \mathrm{d}x\\
         &= L\sqrt{\frac m{2\pi \beta \hbar^2}}
-    \end{align*}
+    \end{aligned}\end{equation}
     或者我们定义
     \[ \mathrm{Tr} \ \mathrm{e}^{-\frac {\beta \hat{p}^2}{2m}} = \int \mathrm{e}^{-\frac {\beta p^2}{2m}} \langle p|p\rangle \mathrm{d}p \]
     发现这里并不好处理，只能知道该值为$\infty$, 但不能给出具体的表达形式。这就是我们使用一维无限深势阱来近似自由粒子的原因。
@@ -1275,11 +1275,11 @@
     \[ Z = V \bigg(\frac m{2\pi \beta \hbar^2}\bigg)^{\frac 32} \]
 
     有了配分函数可以得到一维情况下能量的平均值：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \hat{H} \rangle &= \frac {\mathrm{Tr} \ (\mathrm{e}^{-\beta \hat{H}} \hat{H})}Z
         = \frac {\sum_n \epsilon_n \mathrm{e}^{-\beta \epsilon_n}}{\sum_n \mathrm{e}^{-\beta \epsilon_n}}
         = -\frac {\partial}{\partial \beta} \ln{Z}
-    \end{align*}
+    \end{aligned}\end{equation}
     将配分函数代入得到
     \[ \langle \hat{H} \rangle = \frac 1{2\beta} \]
     该结果和经典情况得到的结果是一致的。得到结论，自由粒子的体系经典和量子力学的结果是一致的。
@@ -1299,17 +1299,17 @@
     \[ \langle p|\phi_n \rangle = \int \langle p|x \rangle \langle x |\phi_n \rangle \mathrm{d}x \]
 
     两个有限维矩阵乘积的求迹：
-    \begin{equation*}
+    \begin{equation}
         \mathrm{Tr} \ (\bm{AB}) = \mathrm{Tr} \ (\bm{BA})
-    \end{equation*}
+    \end{equation}
     证明是显然的，只需要直接展开
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \mathrm{Tr} \ (\bm{AB}) &= \sum_i (\bm{AB})_{ii}
         = \sum_i \sum_k a_{ik}b_{ki}
         = \sum_k \sum_i b_{ki}a_{ik}
         = \sum_k \bm{(BA)}_{kk}
         = \mathrm{Tr} \ (\bm{BA})
-    \end{align*}
+    \end{aligned}\end{equation}
     但对于无限维的，必须保证二重级数绝对收敛才能够交换次序才能成立。
     \begin{asg}
         第5次作业第3题(2)：位置算符和动量算符乘积交换后迹是否相等？
@@ -1345,27 +1345,27 @@
     继续讨论一维谐振子的求解问题。定义算符
     \[ \hat{c} = \frac {\hat{p}}{\sqrt{2m}} + \mathrm{i}\sqrt{\frac m2}\omega \hat{x} \]
     算符的对易满足如下性质：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         [\hat{A}+\hat{B},\hat{C}] &= [\hat{A},\hat{C}]+[\hat{B},\hat{C}]\\
         [\alpha \hat{A}, \beta \hat{B}] &= \alpha \beta [\hat{A},\hat{B}]\\
         [\hat{A}\hat{B},\hat{C}] &= \hat{A}[\hat{B},\hat{C}] + [\hat{A},\hat{C}]\hat{B}
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第6次作业第3题（1）：证明上述结论
     \end{asg}
     可以计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         [\hat{c},\hat{c}^\dagger] &= [d_1\hat{p} +\mathrm{i}d_2\hat{x}, d_1\hat{p} - \mathrm{i}d_2\hat{x}]\\
         &= [d_1\hat{p}, d_1\hat{p} - \mathrm{i}d_2\hat{x}] + [\mathrm{i}d_2\hat{x}, d_1\hat{p} - \mathrm{i}d_2\hat{x}]\\
         &= [d_1\hat{p}, -\mathrm{i}d_2\hat{x}] + [\mathrm{i}d_2\hat{x}, d_1\hat{p}]\\
         &= -\mathrm{i}d_1d_2[\hat{p},\hat{x}] + \mathrm{i}d_1d_2[\hat{x},\hat{p}]\\
         &= -2d_1d_2\hbar\\
         &= -\hbar \omega
-    \end{align*}
+    \end{aligned}\end{equation}
     为了让算符无量纲化，定义
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \hat{a} = \frac {\hat{c}}{\sqrt{\hbar \omega}} =\frac 1{\sqrt{2}} \bigg(\frac {\hat{p}}{\sqrt{m\hbar\omega}} + \mathrm{i}\sqrt{\frac {m\omega}{\hbar}} \hat{x}\bigg)
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第6次作业第3题（2）：证明$\hat{a}\hat{a}^\dagger$和$\hat{a}^\dagger\hat{a}$都是Hermite算符。
     \end{asg}
@@ -1374,11 +1374,11 @@
     可以用$\hat{a}$写出Hamilton算符：
     \[ \hat{H} = \frac {\hbar \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
     可以计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         [\hat{a}^\dagger\hat{a}, \hat{a}\hat{a}^\dagger] &= \hat{a}^\dagger [\hat{a},\hat{a}\hat{a}^\dagger] +  [\hat{a}^\dagger,\hat{a}\hat{a}^\dagger]\hat{a}\\
         &= \hat{a}^\dagger\hat{a}[\hat{a},\hat{a}^\dagger] + [\hat{a}^\dagger,\hat{a}]\hat{a}^\dagger \hat{a}\\
         &= 0
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第6次作业第3题（3）：证明
         \[ \hat{H} = \frac {\hbar \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
@@ -1402,9 +1402,9 @@
     两个对易的算符有相同的本征态。假设
     \[ \hat{N}|\phi_n \rangle = \lambda_n |\phi_n \rangle \]
     则
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \hat{H}|\phi_n \rangle = \bigg(\hat{N}+\frac 12\bigg)\hbar\omega|\phi_n \rangle = \bigg(\lambda_n + \frac 12\bigg)\hbar\omega|\phi_n\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     并且
     \[ \langle \phi_n|\hat{N}|\phi_n \rangle = \lambda_n \langle \phi_n |\phi_n \rangle = \lambda_n \]
     而
@@ -1416,9 +1416,9 @@
     这样证明了$\hat{N}$的本征值必然是非负数。
 
     那么$|\psi_n\rangle$是否仍然是$\hat{N}$的本征态呢？计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \hat{N}|\psi_n\rangle = \hat{b}^\dagger\hat{b}^2|\phi_n\rangle = (\hat{b}\hat{b}^\dagger\hat{b}- \hat{b})|\phi_n\rangle = \hat{b}(\hat{N}-\hat{I})|\phi_n\rangle = (\lambda_n-1)\hat{b}|\phi_n\rangle = (\lambda_n - 1)|\psi_n\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     这说明$\hat{b}$作用于$\hat{N}$的本征态以后得到的态仍然是$\hat{N}$的本征态，且本征值减少1. 于是可以设
     \[ \hat{b}|\phi_n\rangle = |\psi_n\rangle = \sqrt{\lambda_n}|\phi_m\rangle \]
     将$\hat{N}$作用上来，得到
@@ -1436,9 +1436,9 @@
     求解
     \[ \langle x|\hat{b}|\phi_0 \rangle = 0\]
     将$\hat{b}$的定义代入，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\sqrt{\frac 12}\bigg(\sqrt{\frac {m\omega}{\hbar}}\hat{x}+ \frac {\mathrm{i}\hat{p}}{\sqrt{m\omega\hbar}}\bigg)|\phi_0 \rangle = 0
-    \end{align*}
+    \end{aligned}\end{equation}
     解得
     \[ \langle x|\phi_0\rangle = \bigg(\frac {m\omega}{\pi\hbar} \bigg)^{\frac 14} \mathrm{e}^{-\frac {m\omega}{2\hbar}x^2} \]
     求出基态的能量
@@ -1446,9 +1446,9 @@
     基态也有一定的能量，称为\textbf{零点能}。
 
     现在研究一下$\hat{b}^\dagger$作用于$\hat{N}$的本征态上。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \hat{N}\hat{b}^\dagger |\phi_n \rangle = (\hat{b}^\dagger \hat{b})\hat{b}^\dagger |\phi_n \rangle = \hat{b}^\dagger (\hat{b}^\dagger\hat{b}+\hat{I})|\phi_n \rangle = (\lambda_n+1) \hat{b}^\dagger |\phi_n \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     所以，$\hat{b}^\dagger$作用在$\hat{N}$的本征态上还会得到$\hat{N}$的本征态，会使得$\hat{N}$的本征值上升1，于是将$\hat{b}^\dagger$称为\textbf{上升算符}。
 
     同理可以得到
@@ -1497,12 +1497,12 @@
     时间演化算符可以写在能量本征态上
     \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}\epsilon_n t}{\hbar}} |\phi_n \rangle \langle\phi_n| \]
     代入，得到 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \hat{B}(t) \rangle &= \langle \psi(t)|\hat{B} | \psi(t) \rangle\\
         &= \langle \psi(0) |\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hbar}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}|\psi(0) \rangle\\
         &= \langle \psi(0) |\sum_n \mathrm{e}^{\frac {\mathrm{i}\epsilon_n t}{\hbar}} |\phi_n \rangle \langle\phi_n|\hat{B}|\sum_m \mathrm{e}^{-\frac {\mathrm{i}\epsilon_m t}{\hbar}} |\phi_m \rangle \langle\phi_m|\psi(0)\rangle\\
         &= \sum_{m,n} \langle \psi(0)|\phi_n\rangle \langle \phi_n|\hat{B}|\phi_m \rangle \langle \phi_m|\psi(0)\rangle \mathrm{e}^{\frac {\mathrm{i}(\epsilon_n-\epsilon_m)t}{\hbar}}
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第7次作业第1题：高维谐振子$t$时刻的物理量
     \end{asg}
@@ -1528,25 +1528,25 @@
     有了配分函数就可以求出各个热力学函数。定义
     \[ u = \beta\hbar\omega \]
     自由能为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         F_\mathrm{cl} &= -\frac 1{\beta} \ln{Z_\mathrm{cl}} = \frac 1{\beta} \ln{u}\\
         F_\mathrm{Q} &= -\frac 1{\beta} \ln{Z_\mathrm{Q}} = \frac 1{\beta}\ln{\sinh{\frac u2}}+ \frac {\ln{2}}{\beta}
-    \end{align*}
+    \end{aligned}\end{equation}
     熵为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         S_\mathrm{cl} &= -\bigg(\frac {\partial F_{\mathrm{cl}}}{\partial T}\bigg)_V = -k_B \ln{u} + k_B\\
         S_\mathrm{Q} &= -\bigg(\frac {\partial F_{\mathrm{Q}}}{\partial T}\bigg)_V = -k_B \ln{\sinh{\frac u2}} + \frac {k_Bu}2 \coth{\frac u2} - k_B \ln{2}
-    \end{align*}
+    \end{aligned}\end{equation}
     内能为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         U_\mathrm{cl} &= -\frac {\partial}{\partial \beta}\ln{Z_\mathrm{cl}} = \frac 1{\beta}\\
         U_\mathrm{Q} &= -\frac {\partial}{\partial \beta}\ln{Z_\mathrm{Q}} = \frac {u}{2\beta} \coth{\frac u2}
-    \end{align*}
+    \end{aligned}\end{equation}
     热容为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         C_{V\mathrm{cl}} = -k_B \beta^2 \bigg(\frac {\partial U_\mathrm{cl}}{\partial T}) &= k_B\\
         C_{V\mathrm{Q}} = -k_B \beta^2 \bigg(\frac {\partial U_\mathrm{Q}}{\partial T}) &= k_B \frac {(\frac u2)^2}{\sinh^2{\frac u2}}
-    \end{align*}
+    \end{aligned}\end{equation}
     定义\textbf{量子校正因子}
     \[ Q(\frac u2) = \frac u2 \coth{\frac u2} \]
     于是 
@@ -1560,90 +1560,90 @@
 \section{20201221：传播子的计算}
 
     如果求出传播子
-    \begin{equation*}
+    \begin{equation}
         \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle
-    \end{equation*}
+    \end{equation}
     那么就可以求解含时Schrodinger方程，这时就将研究对象从波函数变为传播子。所以现在需要求解传播子。
 
     首先研究$\mathrm{e}^{\lambda \hat{A}}\mathrm{e}^{\lambda \hat{B}}$和$\mathrm{e}^{\lambda (\hat{A}+\hat{B})}$的关系。应有
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B}) + \frac 12 \lambda^2 [\hat{A},\hat{B}] + O(\lambda^2)}
-    \end{equation*}
+    \end{equation}
     如果$\lambda \to 0$, 可以忽略二阶无穷小量，则有
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B})}
-    \end{equation*}
+    \end{equation}
 
     将时间平均分为$N$份，令$\lambda = \frac tN$, 并令$N \to \infty$.所以
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{K}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} =\mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{H}} 
-    \end{equation*}
+    \end{equation}
     代入传播子，得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}}
         \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} |y \rangle\\
         &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
         &= \int \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |p \rangle \langle p |y \rangle \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
         &= \int \langle x|p \rangle \langle p|y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
         &= \frac 1{2\pi \hbar} \int \mathrm{e}^{\frac {i(x-y)p}{\hbar}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}
-    \end{align*}
+    \end{aligned}\end{equation}
     根据Gauss积分
-    \begin{equation*}
+    \begin{equation}
         \int_{-\infty}^{+\infty} \mathrm{e}^{-ax^2+bx} \mathrm{d}x = \sqrt{\frac {\pi}a} \mathrm{e}^{-\frac {b^2}{4a}}
-    \end{equation*}
+    \end{equation}
     由此得到传播子为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \sqrt{\frac {mN}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {mN(x-y)^2}{2\hbar t}}\mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar} V(y)}
-    \end{align*}
+    \end{aligned}\end{equation}
     前两项来自于动能算符，第三项来自于势能算符。动能算符和势能算符虽然不对易，但是在$N \to \infty$时可以得到这个结果。
 
     自由粒子体系的势能为0，所以可以不需要把时间分成$N$份，而是直接对整个传播子来计算。把$V=0,N=1$代入上式，即得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |y_0 \rangle &= \sqrt{\frac {m}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {m(x-y)^2}{2\hbar t}}
-    \end{align*}
+    \end{aligned}\end{equation}
     如果推广到$F$维体系，则有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle &= (\frac {1}{2\pi\mathrm{i} \hbar t})^{\frac F2} |\bm{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {\bm{(x-y)}^{\mathrm{T}} \bm{M (x-y)}}{2\hbar t}}
-    \end{align*}
+    \end{aligned}\end{equation}
     可以将传播子写成
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle &= C(t) \mathrm{e}^{\frac {\mathrm{i}S(x(t))}{\hbar}}
-    \end{align*}
+    \end{aligned}\end{equation}
     在经典情况下写出作用量
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         S(x(t)) = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
-    \end{align*}
+    \end{aligned}\end{equation}
     Lagrange函数会满足Euler-Lagrange方程，而对于自由粒子，Lagrange函数不显含坐标，所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t} (m \dot x) = 0
-    \end{align*}
+    \end{aligned}\end{equation}
     由此可见，速度不随时间变化，且
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{x} = \frac {y_0-x_0}t
-    \end{align*}
+    \end{aligned}\end{equation}
     所以，上述作用量积分的结果为
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         S = \frac {m(y_0 - x_0)^2}{2t}
-    \end{align*}
+    \end{aligned}\end{equation}
     显然地，这个结果代入上面写出的传播子表达式相吻合。现在希望能把$C(t)$求出。给定初始条件
-    \begin{equation*}
+    \begin{equation}
         t \to 0,~~~~~\langle y_0|x_0\rangle = \delta(y_0-x_0)
-    \end{equation*}
+    \end{equation}
     计算出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int_{-\infty}^{+\infty} \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac {m(y_0 - x_0)^2}{2t}}\mathrm{d}y_0 = C(t) \sqrt{\frac {2\pi\mathrm{i}\hbar t}m}
-    \end{align*}
+    \end{aligned}\end{equation}
     于是 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         C(t) = \sqrt{\frac m{2\pi\mathrm{i}\hbar t}} D(t)
-    \end{align*}
+    \end{aligned}\end{equation}
     其中$D(0) = 1$. 现在希望证明$D(t) = 1$.
 
     计算
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         -\mathrm{i}\hbar \frac {\partial}{\partial t} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle =  \langle y_0 | \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
         = -\frac {\hbar^2}{2m} \frac {\partial^2}{\partial y_0^2} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
 
     \begin{asg}
         第8次作业第四题
@@ -1654,91 +1654,91 @@
 \section{20201225：量子力学和经典力学在路径积分表象下的同构}
 
     假设已经得到传播子
-    \begin{equation*}
+    \begin{equation}
         \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} |y \rangle = \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \mathrm{e}^{\mathrm{i}\frac {m(x-y)^2}{2t\hbar}}
-    \end{equation*}
+    \end{equation}
     路径积分是在空间中连接所有$x,y$的路径都要进行考虑。所以，传播子是对所有路径求和
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} = \sum_{\mathrm{all~paths}} C_t \mathrm{e}^{\mathrm{i}S_t\hbar}
-    \end{align*}
+    \end{aligned}\end{equation}
     其中 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         C_t &= \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \\
         S_t &= \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \int_0^t (\frac 12 m \dot{x}^2 - V(x)) \mathrm{d}t'
-    \end{align*}
+    \end{aligned}\end{equation}
 
     量子体系下的Boltzmann分布为
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta E_n} |\phi_n \rangle \langle \phi_n|
-    \end{equation*}
+    \end{equation}
     利用了Schodinger方程
-    \begin{equation*}
+    \begin{equation}
         \hat{H} |\phi_n \rangle = E_n |\phi_n \rangle
-    \end{equation*}
+    \end{equation}
     类似地，可以作和
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}E_n t}{\hbar}} |\phi_n \rangle \langle \phi_n|
-    \end{align*}
+    \end{aligned}\end{equation}
     上述两个式子可以对应起来，区别在于第二个方程中的时间是虚数，称为\textbf{虚时间}。对应关系为
-    \begin{equation*}
+    \begin{equation}
         t = -\mathrm{i}\hbar \beta
-    \end{equation*}
+    \end{equation}
     显然地，高温对应虚时间的短时，低温对应虚时间的长时。同样可求出虚时间下的传播子
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\mathrm{e}^{-\beta \hat{H}}|y\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     求出配分函数
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         Z &= \mathrm{Tr}(\mathrm{e}^{-\beta \hat{H}}) \\
         &= \sum_n \langle n| \mathrm{e}^{-\beta \hat{H}}|n\rangle \\
         &= \int \sum_n \langle n| \mathrm{e}^{-\beta \hat{H}}|x \rangle \langle x|n\rangle \mathrm{d}x\\
         &= \int \langle x|\sum_n|n \rangle \langle n| \mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x\\
         &= \int \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x
-    \end{align*}
+    \end{aligned}\end{equation}
     在路径积分的语言下，可以放弃态的概念，也不需要有波函数，只要有传播子，就有配分函数，也就有了所有的热力学函数。要求这个积分中的传播子，将$\beta$分为$N$份.有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int \langle x_0|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_1 \rangle ... \langle x_{n-2}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_{n-1} \rangle \langle x_{n-1}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_N \rangle \prod_{i=1}^{N-1}\mathrm{d}x_i
-    \end{align*}
+    \end{aligned}\end{equation}
     其中$x_0=x_N = x$. 如果$N \to \infty$, 则可以把动能项和势能项分开。用和之前传播子计算类似的方法得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {m(x_j- x_{j+1})^2}{2\hbar^2 \Delta \beta}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-    \end{align*}
+    \end{aligned}\end{equation}
     定义$\omega_N^2 = \frac N{\hbar^2 \Delta \beta^2} = \frac N{\hbar^2 \beta^2}$，则有
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {\beta m\omega_N^2(x_j- x_{j+1})^2}{2}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-    \end{align*}
+    \end{aligned}\end{equation}
     代入得到 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \bigg(\frac {mN}{2\pi \hbar^2 \beta}\bigg)^{\frac N2} \int \mathrm{e}^{-\sum_{j=0}^{N-1} \frac {\beta}2 m \omega_N^2 (x_{j+1} - x_j)^2} \mathrm{e}^{-\Delta \beta \sum_{j=0}^{N-1}V(x_j)}\prod_{i=1}^{N-1}\mathrm{d}x_i
-    \end{align*}
+    \end{aligned}\end{equation}
     这可以看作$N$个点组成的环两两用弹簧连接，且每个点都额外受外力作用。它可以写成
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int C(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x}
-    \end{align*}
+    \end{aligned}\end{equation}
     积分不太容易做，可以在这里插入一个关于“动量”的积分
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  &= \int D(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x} \int \mathrm{d}\bm{p} \mathrm{e}^{-\frac {\beta}2 \bm{p}^{\mathrm{T}}\bm{M}^{-1} \bm{p}}\\
         &= \int D(N) \mathrm{e}^{-\beta H_{\mathrm{eff}}(\bm{x,p})} \mathrm{d}\bm{x} \mathrm{d}\bm{p}
-    \end{align*}
+    \end{aligned}\end{equation}
     如果$N=1$，那么就是经典统计力学的结果。这体现了量子力学和经典统计力学的同构。
 
     如果关心含时Schodinger方程：
-    \begin{equation*}
+    \begin{equation}
         \mathrm{i}\hbar \frac {\partial}{\partial t} | \psi(t) \rangle = \hat{H}|\psi(t) \rangle
-    \end{equation*}
+    \end{equation}
     将这个改成对于$\beta$的方程：
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         -\frac {\partial}{\partial \beta} |\psi(\beta) \rangle = \hat{H} |\psi(\beta) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
 
     任意给定一个初态，可以写成Hamilton函数的本征函数的线性组合
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         |\psi(0) \rangle = \sum_n c_n |\phi_n\rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     并且
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         |\psi(\beta) \rangle &= \mathrm{e}^{-\beta \hat{H}} |\phi(0) \rangle = \sum_n c_n\mathrm{e}^{-\beta E_n}|\phi_n \rangle = \mathrm{e}^{-\beta E_0} \sum_n c_n \mathrm{e}^{-\beta(E_n-E_0)} |\phi_n \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     因此，当$\beta \to \infty$时，得到的就是基态。基于此开发出了\textbf{量子Monte-Carlo算法}
 
     如果要求第一激发态，只需求出系数，把基态从初始条件中减去，得到的新的最低的能量对应的态就是第一激发态。
@@ -1746,176 +1746,176 @@
 \section{20201228：连续性方程}
 
     考虑一个一维问题：
-    \begin{equation*}
+    \begin{equation}
         \mathrm{i}\hbar \frac {\partial}{\partial t} \psi(x,t) = \bigg(-\frac {\hbar^2}{2m} \frac {\partial ^2}{\partial x^2} + V(x)\bigg)\psi(x,t)
-    \end{equation*}
+    \end{equation}
     波函数满足
-    \begin{equation*}
+    \begin{equation}
         \int_{-\infty}^{+\infty} |\psi(x,t)|^2 \mathrm{d}x = 1
-    \end{equation*}
+    \end{equation}
     这可以类比守恒量。比如电荷守恒
-    \begin{equation*}
+    \begin{equation}
         Q = \int \rho(\bm{x},t) \mathrm{d}\bm{x}
-    \end{equation*}
+    \end{equation}
     或者电流密度
-    \begin{equation*}
+    \begin{equation}
         j(\bm{x},t) = \rho(\bm{x},t)v(\bm{x},t)
-    \end{equation*}
+    \end{equation}
     满足\textbf{连续性方程}
-    \begin{equation*}
+    \begin{equation}
         \frac{\partial \rho}{\partial t} + \bm{\nabla} \cdot \bm{j} = 0
-    \end{equation*}
+    \end{equation}
     以及流体力学中的扩散系数
-    \begin{equation*}
+    \begin{equation}
         \bm{j} = -c \bm{\nabla}\rho(\bm{x},t)
-    \end{equation*}
+    \end{equation}
     连续性方程可以等价为
-    \begin{equation*}
+    \begin{equation}
         \rho(\bm{x_0},0)\mathrm{d}\bm{x_0} = \rho(\bm{x_t},t)\mathrm{d}\bm{x_t} 
-    \end{equation*}
+    \end{equation}
 
     现在希望从物质流密度的定义出发来推导连续性方程。由Gauss公式。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \bm{\nabla} \cdot \rho(\bm{x},t) \bm{\dot{x}}(\bm{x},t) \mathrm{d}\bm{x} = \int \rho(\bm{x},t) \bm{\dot{x}}(\bm{x},t) \cdot \mathrm{d}\bm{S}
-    \end{align*}
+    \end{aligned}\end{equation}
     根据边界条件，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \rho(\bm{x},t) \bm{\dot{x}}(\bm{x},t) \cdot \mathrm{d}\bm{S} = \int -\frac {\partial \rho(\bm{x},t)}{\partial t} \mathrm{d}\bm{x}
-    \end{align*}
+    \end{aligned}\end{equation}
     这要求物质只能通过表面来进出积分区域。由此可以推出
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \bigg(\frac {\partial \rho}{\partial t} + \bm{\nabla \cdot j}\bigg) \mathrm{d}\bm{x} = 0 
-    \end{align*}
+    \end{aligned}\end{equation}
     从对物质的密度的积分出发
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \rho \mathrm{d}x = C
-    \end{align*}
+    \end{aligned}\end{equation}
     对时间求全导数，得
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \frac {\mathrm{d}}{\mathrm{d}t}\rho(\bm{x_t},t)\mathrm{d}\bm{x_t} = 0
-    \end{align*}
+    \end{aligned}\end{equation}
     所以
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \int \frac {\mathrm{d}}{\mathrm{d}t}\rho(\bm{x_t},t)\mathrm{d}\bm{x_t} &= \int \frac {\mathrm{d}\rho}{\mathrm{d}t}\mathrm{d}\bm{x_t} + \rho \mathrm{d}\bm{\dot{x}}
-    \end{align*}
+    \end{aligned}\end{equation}
     考虑不同时刻的体积元
-    \begin{equation*}
+    \begin{equation}
         \mathrm{d}\bm{x_t} = \mathrm{d}\bm{x_0} \bigg|\frac {\partial \bm{x_t}}{\partial \bm{x_0}}\bigg|
-    \end{equation*}
+    \end{equation}
     计算这个Jacobi行列式，就对Jacobi矩阵求导
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {\mathrm{d}}{\mathrm{d}t} \frac {\partial \bm{x_t}}{\partial \bm{x_0}} = \frac {\partial \bm{\dot{x}_t}}{\partial \bm{x_0}} = \frac {\partial \bm{\dot{x}_t}}{\partial \bm{x_t}} \frac {\partial \bm{x_t}}{\partial \bm{x_0}}
-    \end{align*}
+    \end{aligned}\end{equation}
     又有初始状态
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \bigg|\frac {\partial \bm{x_t}}{\partial \bm{x_0}} \bigg|\Bigg|_{t=0} = 1
-    \end{align*}
+    \end{aligned}\end{equation}
 
 \section{20210104：Bohmian动力学}
 
     类比经典情况有守恒的连续性方程
-    \begin{equation*}
+    \begin{equation}
         \frac {\partial \rho}{\partial t} + \bm{\nabla} \cdot (\rho \bm{v}) = 0
-    \end{equation*}
+    \end{equation}
     在量子力学中也有守恒量：
-    \begin{equation*}
+    \begin{equation}
         \int |\psi(\bm{x},t)|^2 \mathrm{d}x = 1
-    \end{equation*}
+    \end{equation}
     因此上述连续性方程依然成立。
 
     考虑含时Schrodinger方程
-    \begin{equation*}
+    \begin{equation}
         \mathrm{i}\hbar \frac {\partial}{\partial t} \psi(\bm{x},t) = \bigg(\frac {\hbar^2}{2m}\bm{\nabla + \bm{v}}\bigg)\psi
-    \end{equation*}
+    \end{equation}
     波函数可以写成
-    \begin{equation*}
+    \begin{equation}
         \psi(\bm{x},t) = \sqrt{\rho} \mathrm{e}^{\frac {\mathrm{i}S(\bm{x},t)t}{\hbar}}
-    \end{equation*}
+    \end{equation}
     将波函数的形式代入Schrodinger方程可以得到上式以及Hamilton-Jacobian方程
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \frac {(\frac {\partial S}{\partial x})^2}{2m} + V(\bm{x}) - \frac {\hbar^2}{2m} \frac {\nabla^2 \sqrt{\rho}}{\sqrt{\rho}} = -\frac {\partial S}{\partial t}
-    \end{align*}
+    \end{aligned}\end{equation}
     前两项可以和经典情况类比，第三项是量子力学而来，定义
-    \begin{equation*}
+    \begin{equation}
         Q(\bm{x},t) = - \frac {\hbar^2}{2m} \frac {\nabla^2 \sqrt{\rho}}{\sqrt{\rho}}
-    \end{equation*}
+    \end{equation}
     为\textbf{量子势}。速度场即为
-    \begin{equation*}
+    \begin{equation}
         \bm{v} = \bm{M}^{-1}\bm{p} = \bm{M}^{-1}\frac {\partial S}{\partial \bm{x}}
-    \end{equation*}
+    \end{equation}
     从Hamilton-Jacobian方程出发，可以得到运动方程。如果是经典的Hamilton-Jacobian方程，没有量子势
-    \begin{equation*}
+    \begin{equation}
         \frac {(\frac {\partial S}{\partial x})^2}{2m} + V(\bm{x}) = -\frac {\partial S}{\partial t}
-    \end{equation*}
+    \end{equation}
     考虑作用量的全导
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}S}{\mathrm{d}t} = \frac {\partial S}{\partial t} + \frac {\partial S}{\partial \bm{x}_t} \dot{\bm{x}_t} = \frac 12 \bigg(\frac {\partial S}{\partial \bm{x}_t}\bigg)^{\mathrm{T}} \bm{M}^{-1} \frac {\partial S}{\partial \bm{x}_t} - V(\bm{x})
-    \end{equation*}
+    \end{equation}
     之后可以对位置求偏导，最终得到
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \dot{\bm{x}}_t &= \bm{M}^{-1} \frac {\partial S(\bm{x}_t,t)}{\partial \bm{x}_t}\\
         \dot{\bm{p}}_t &= -\frac {\partial V(\bm{x}_t)}{\partial \bm{x}_t} - \frac {\partial Q(\bm{x}_t)}{\partial \bm{x}_t}
-    \end{align*}
+    \end{aligned}\end{equation}
     这称为\textbf{量子轨线方程}。如果对$\rho$求全导，
-    \begin{equation*}
+    \begin{equation}
         \frac {\mathrm{d}\rho}{\mathrm{d}t} = \frac {\partial \rho}{\partial t} + \frac {\partial \rho}{\partial \bm{x}_t} \dot{\bm{x}}_t = -\rho \bm{\nabla} \cdot \dot{\bm{x}}_t
-    \end{equation*}
+    \end{equation}
 
     波函数的求解可以转化为用0时刻的求解
-    \begin{equation*}
+    \begin{equation}
         \psi(\bm{x},t) = \langle \bm{x} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | \psi(\bm{x},0) \rangle = \sum_n \langle \bm{x}|\phi_n \rangle \langle \phi_n |\psi_0 \rangle \mathrm{e}^{-\frac {\mathrm{i}E_n t}{\hbar}}
-    \end{equation*}
+    \end{equation}
 
     例如，
-    \begin{equation*}
+    \begin{equation}
         \psi(x,0) =  \bigg(\frac {2a}{\pi}\bigg)^{\frac 14} \mathrm{e}^{-\alpha (x - x_{\mathrm{eq}})^2 +\frac {\mathrm{i}{\hbar}} p_{\mathrm{eq}}(x - x_\mathrm{eq})}
-    \end{equation*}
+    \end{equation}
     则
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         S(x_0,0) &= p_\mathrm{eq} (x_0 - x_\mathrm{eq})\\
         p_0 &= \frac {\partial S}{\partial x_0} = p_\mathrm{eq}
-    \end{align*}
+    \end{aligned}\end{equation}
 
     根据经典情况统计物理的结果
-    \begin{equation*}
+    \begin{equation}
         \langle A \rangle =\frac 1Z \int \rho(x,p)A(x,p) \mathrm{d}x\mathrm{d}p
-    \end{equation*}
+    \end{equation}
     其中 
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \rho &= \frac 1Z \mathrm{e}^{-\beta H(x,p)}\\
         Z &= \int \frac 1{2\pi \hbar} \mathrm{e}^{-\beta H(x,p)} \mathrm{d}x \mathrm{d}p
-    \end{align*}
+    \end{aligned}\end{equation}
     现在要问，量子力学有没有同样的形式？
 
     定义
-    \begin{equation*}
+    \begin{equation}
         \mathrm{Tr} (\hat{A}\hat{B}) = \frac 1{2\pi\hbar}\int A(x,p)B(x,p) \mathrm{d}x \mathrm{d}p
-    \end{equation*}
+    \end{equation}
     重要的是求出两个算符在量子力学下的形式。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         A_\mathrm{w}(x,p) &= \langle x - \frac {\Delta}2 | \hat{A} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i}\Delta p}{\hbar}}\\
         B_\mathrm{w}(x,p) &= \langle x - \frac {\Delta}2 | \hat{B} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i}\Delta p}{\hbar}}
-    \end{align*}
+    \end{aligned}\end{equation}
     可以验证，如果$\hbar \to 0$, 应有$A_\mathrm{w} \to A_\mathrm{cl}$, $B_\mathrm{w} \to B_\mathrm{cl}$. 
 
     可以表示出概率密度分布
-    \begin{equation*}
+    \begin{equation}
         \hat{\rho} = |\psi \rangle \langle \psi |
-    \end{equation*}
+    \end{equation}
     可以在位置空间和动量空间给出概率密度分布。并可以验证
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \int \rho_\mathrm{w}(x,p) \mathrm{d}x &= \langle p|\hat{\rho}|p \rangle\\
         \int \rho_\mathrm{w}(x,p) \mathrm{d}p &= \langle x|\hat{\rho}|x \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     要求物理量期望值可以写成
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle \psi | \hat{B} | \psi \rangle &=  \langle \psi |\sum_n | \phi_n \rangle \langle \phi_n | \hat{B} | \psi \rangle\\
         &= \sum_n \langle \phi_n | \hat{B} | \psi \rangle \langle \psi  | \phi_n \rangle\\
         &= \mathrm{Tr} (\hat{B}|\psi \rangle \langle \psi |)
-    \end{align*}
+    \end{aligned}\end{equation}
     它等价为
-    \begin{equation*}
+    \begin{equation}
         \langle \psi|\hat{B}|\psi \rangle = \frac 1{2\pi \hbar} \int \rho_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x\mathrm{d}p
-    \end{equation*}    
+    \end{equation}    
 
 \end{document}

@@ -1,88 +1,88 @@
 \chapter{Gauss积分}
     \section{20201106：Gauss积分的计算}
         回顾一维Gauss积分的计算：
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I &= \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
-        \end{align*}
+        \end{aligned}\end{equation}
         令$t = ax^2$, 则$\mathrm{d}t = 2ax\mathrm{d}x$
         所以
-        \begin{align*}
+        \begin{equation}\begin{aligned}
         I &= \int_0^{+\infty} \mathrm{e}^{-t} \bigg(\frac ta\bigg)^{\frac n2} \frac {\mathrm{d}t}{\sqrt{at}}\\
         &= \frac 1{2a^{\frac {n+1}2}} \int_0^{+\infty} \mathrm{e}^{-t} t^{\frac {n-1}2} \mathrm{d}t\\
         &= \frac {\Gamma(\frac {n+1}2)}{2a^{\frac {n+1}2}}
-        \end{align*}
+        \end{aligned}\end{equation}
 
         利用一维Gauss积分的计算结果可以计算多维的Gauss积分。比如计算
-        \begin{equation*}
+        \begin{equation}
             I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
-        \end{equation*}
+        \end{equation}
         其中，$\bm{A}$为正定的实对称矩阵。首先将$\bm{A}$对角化，得到
-        \begin{equation*}
+        \begin{equation}
             \bm{T}^\mathrm{T} \bm{AT} = \bm{D}
-        \end{equation*}
+        \end{equation}
         其中$\bm{T}$为正交矩阵、$\bm{D}$为对角矩阵。所以
-        \begin{equation*}
+        \begin{equation}
             I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{TDT}^\mathrm{T}\bm{x}}\mathrm{d}\bm{x}
-        \end{equation*}
+        \end{equation}
         作换元$\bm{y} = \bm{T}^\mathrm{T}\bm{x}$，则有
-        \begin{equation*}
+        \begin{equation}
             \mathrm{d}\bm{y} = \det \bm{T}^\mathrm{T}\mathrm{d}\bm{x} = \mathrm{d}\bm{x}
-        \end{equation*}
+        \end{equation}
         原积分化为
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I = \int \bm{y}^\mathrm{T}\bm{T}^\mathrm{T}\bm{BTy} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}
-        \end{align*}
+        \end{aligned}\end{equation}
         令$\bm{E = T}^\mathrm{T}\bm{BT}$, 于是
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I &= \int \bm{y}^\mathrm{T}\bm{Ey} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}\\
             &= \int \sum_i \sum_j E_{ij} y_i y_j \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k
-        \end{align*}
+        \end{aligned}\end{equation}
         可以通过分离变量将各个积分分开，显然，$i \neq j$的项都是奇函数对全空间的积分，得到的结果为0，只有$i=j$的项会有贡献。于是积分化为
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I &= \int \sum_i E_{ii} y_i^2 \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k\\
             &= \prod_k \sqrt{\frac {\pi}{d_k}} \sum_i \frac {E_{ii}}{2d_i}\\
             &= \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{D}}}} \mathrm{Tr} (\bm{ED}^{-1})
-        \end{align*}
+        \end{aligned}\end{equation}
         而
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \det{\bm{D}} = \det{\bm{A}}
-        \end{align*}
+        \end{aligned}\end{equation}
         并且
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \mathrm{Tr}(\bm{ED}^{-1}) = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BT}\bm{T}^\mathrm{T} \bm{A}^{-1}\bm{T})
             = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BA}^{-1}\bm{T})
             = \mathrm{Tr}(\bm{BA}^{-1})
-        \end{align*}
+        \end{aligned}\end{equation}
         所以
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I = \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{A}}}} \mathrm{Tr} (\bm{BA}^{-1})
-        \end{align*}
+        \end{aligned}\end{equation}
 
         接下来尝试计算
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \bm{I} = \int \bm{xx}^\mathrm{T} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
-        \end{align*}
+        \end{aligned}\end{equation}
         用相同的还原方法得到
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \bm{I} = \int \bm{Ty}\bm{y}^\mathrm{T}\bm{T}^\mathrm{T} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-        \end{align*}
+        \end{aligned}\end{equation}
         计算每个元素
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I_{ij} &= \int (\bm{Ty})_{i}(\bm{y}^\mathrm{T}\bm{T}^\mathrm{T})_{j} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
             &= \int \sum_k T_{ik}y_k \sum_l T_{jl} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
             &= \int \sum_{k,l} T_{ik}T_{jl} y_ky_l \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-        \end{align*}
+        \end{aligned}\end{equation}
         同样地，只有在$k=l$时才有贡献，故
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             I_{ij} &= \int \sum_k T_{ik}T_{jk}y_k^2 \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
             &= \prod_l \sqrt{\frac {\pi}{d_l}} \sum_k T_{ik}T_{jk} \frac 1{2d_k}\\
             &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{D}}}} (\bm{TD}^{-1}\bm{T}^\mathrm{T})_{ij}\\
             &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}_{ij}
-        \end{align*}
+        \end{aligned}\end{equation}
         因此，
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \bm{I} = \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}
-        \end{align*}
+        \end{aligned}\end{equation}
         \begin{asg}
             第4次作业第3题：Gauss积分的计算
         \end{asg}

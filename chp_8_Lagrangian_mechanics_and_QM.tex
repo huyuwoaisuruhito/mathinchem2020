@@ -1,181 +1,304 @@
 \chapter{Lagrange力学和量子力学的路径积分形式}
     \section{作用量与Lagrange力学}
+
+        在前一章我们已经讨论了很多关于基于哈密顿力学的量子力学, 但这不是量子力学唯一的表示形式. 在经典力学中我们知道要描述力学体系, 除了使用基于哈密顿量的Hamilton力学, 还可以使用Lagrange力学作为一种完全等效的描述手段. 在探索量子力学的其他的表示方法之前, 我们需要先回顾一下经典力学中除Hamilton力学之外其他的两种描述力学系统的手段: 通过Lagrange力学, 或者通过Hamilton-Jacobi方程. 
+
         \subsection{最小作用量原理}
+
+        在本讲义的最开始就已经给出了Hamilton力学中的Hamilton正则方程, 并且省略了推导过程, 这里我们就来填这个坑. 
+
+        首先我们需要给出描述经典力学中最为重要的力学原理, \textbf{最小作用量原理}. 它完全概括了经典力学体系的运动规律. 下面这个定理摘自刘川老师的理论力学讲义(version1.4). 
+
+        \begin{law}[最小作用量原理]
+            力学体系有一个与其运动相关的物理量称为\textbf{作用量}$S$, 它是一个洛伦兹标量. 如果一个力学体系在给定时刻$t_1$和$t_2$分别由给定的广义坐标$q^{(1)}$与$q^{(2)}$描写, 则该力学系统的作用量$S$可以表达为联结这两个位型之间各种可能轨迹的\textbf{泛函}. 
+            \begin{equation}
+                S[\bm q] = \int_{t_1}^{t_2} L( \bm q(t), \bm \dot q(t), t ) \dd t
+            \end{equation}
+            这里的函数$L(\bm q,\bm \dot q,t)$称为系统的\textbf{拉格朗日量}, 该力学体系在时刻$t_1$和$t_2$之间联结广义坐标$\bm q^{(1)}$与$\bm q^{(2)}$的真实运动轨迹就是使作用量$S$的一阶变分$\delta S = 0$的轨迹.
+        \end{law}
+
+        这是一个原理, 这意味着它不是通过推到得出来的. 就如同电磁学中的麦克斯韦尔方程式, 统计热力学中的各态历经原理一样, 它们的正确性是由它们的推论的正确性保证的. 
+
+        \subsection{Lagrange力学}
+
+        接着我们来讨论有关与泛函和变分的问题. 在这里我并不想给出泛函与泛函微分在数学上严格的定义, 读者可以自行寻找相关参考书籍. 泛函可以认为是一个函数空间到$\mathbb{R}$的映射, 它的自变量是一个函数. 如果我们假设系统真实运动轨迹是$\bm q_\mathrm{c}(t)$, 显然有$\bm q_\mathrm{c}(t_1) = \bm q^{(1)}$, $\bm q_\mathrm{c}(t_2) =\bm q^{(2)}$. 则我们考虑一个对真实运动轨迹的一个微小偏离$\delta \bm q(t)$, 且在这里我们要求这个微小的偏离满足$\delta \bm q(t_1)=\delta \bm q(t_2)=0$. 这个对真实轨迹的微小偏离在数学上称为变分.
+
+        最小作用量原理要求$\delta S = 0$, 那么我们首先需要根据定义写下$\delta S$:
+        \begin{equation}
+            \delta S = \int_{t_1}^{t_2} L( \bm q_\mathrm{c} - \delta \bm q(t_1) , \bm \dot q_\mathrm{c} - \delta \bm \dot q(t_1), t ) \dd t - \int_{t_1}^{t_2} L( \bm q_\mathrm{c} , \bm \dot q_\mathrm{c}, t ) \dd t
+        \end{equation}
+        使得$\delta \bm q$为无穷小量, 则可以得到\footnote{这里使用了爱因斯坦求和规定, 即隐含一个对相同指标$i$的求和号. 笔者认为这种表达比使用向量表示更不容易出错, 缺点在于指标太多的时候可能没法很好地把式子整理得很好看. (虽然以笔者的微レ存的数理基础, 用向量表示可能会推错式子)}:
+        \begin{equation}
+            \delta S = \int_{t_1}^{t_2} \dd t \left( \frac{\partial L}{\partial q_i} \delta q_i + \frac{\partial L}{\partial \dot q_i} \delta \dot q_i \right)
+        \end{equation}
+        我们注意到, 通过分步积分:
+        \begin{equation}
+            \frac{\partial L}{\partial \dot q_i} \delta \dot q_i = \frac{\mathrm{d}}{\mathrm{d} t} \left( \frac{\partial L}{\partial \dot q_i} \delta q_i \right) - \left[\frac{\mathrm{d} }{\mathrm{d} t} \frac{\partial L}{\partial \dot q_i} \right] \delta q_i
+        \end{equation}
+        可以得到:
+        \begin{equation}\label{eq:8-1-1}
+            \delta S = \left. \frac{\partial L}{\partial \dot q_i} \delta q_i \right|_{t_1}^{t_2} + \int_{t_1}^{t_2} \dd t \left( \frac{\partial L}{\partial q_i} - \frac{\mathrm{d} }{\mathrm{d} t} \frac{\partial L}{\partial \dot q_i} \right) \delta q_i = 0
+        \end{equation}
+
+        在端点处我们要求过$\delta \bm q(t_1)=\delta \bm q(t_2)=0$, 所以上式中第一项为0. 由于第二项对于任意的$\delta q_i(t)$都必须成立, 而且各个$\delta q_i(t)$都是完全独立的变分, 所以唯一的可能就是上式中的括号等于0. 于是我们推出了在Lagrange力学中描述运动的方程, Euler-Lagrange方程: 
+        \begin{equation}
+            \frac{\partial L}{\partial q_i} - \frac{\mathrm{d} }{\mathrm{d} t} \frac{\partial L}{\partial \dot q_i} = 0
+            \qquad i = 1,2,\cdots,f.
+        \end{equation}
+        其中$f$为系统的自由度. 
+
+        我们看到在Lagrange力学中拉格朗日量处于中心地位, 它描述了体系全部的经典力学性质. 对于非相对论的力学体系, 拉格朗日量可以写为动能减去势能$L = T - V$. 在一些坐标系下动能可能有些非常繁杂的表达式, 而势能仅依赖于广义坐标与时间. 我们可以把它写下来:
+        \begin{equation}
+            L =  \frac{M_{ij}(\bm q)}{2} \dot q_i \dot q_j  - V(\bm q, t)
+        \end{equation}
+        我们可以定义广义动量为: 
+        \begin{equation}
+            p_i =\frac{\partial L}{\partial \dot q_i} = M_{ij}(\bm q) \dot q_j
+        \end{equation}
+
+        \splitline
+
+        考虑拉格朗日量对时间的全导数:
+        \begin{equation}
+            \frac{\mathrm{d} L}{\mathrm{d} t} = \frac{\partial L}{\partial t} + p_i \ddot q_i + \dot p_i \dot q_i = \frac{\partial L}{\partial t} +  \frac{\mathrm{d} (p_i \dot q_i)}{\mathrm{d} t}
+        \end{equation}
+        如果拉格朗日量不显含时间, 那么定义能量$E = p_i \dot q_i - L$是系统的守恒量. 
+        受到系统能量的启发, 对拉格朗日量进行勒让德变换, 定义哈密顿量为$H = p_i \dot q_i - L$. 
+        由这个定义可以得出:
+        \begin{equation}
+            \mathrm{d} H = \dot q_i \mathrm{d} p_i - \dot p_i \mathrm{d} q_i - \frac{\partial L}{\partial t} \mathrm{d} t
+        \end{equation}
+        与哈密顿量的全微分进行比较, 可以得出:
+        \begin{equation}
+            \dot{q_{i}} = \pdv{H}{p_i};
+            \qquad
+            \dot{p_{i}} = -\pdv{H}{q_i}
+        \end{equation}
+        即哈密顿正则方程.
+
         \subsection{Hamilton-Jacobi方程}
+
+        我们有了作用量$S$这一个新的物理量, 我们可以研究一下其对广义坐标$\bm q$的偏导、对时间$t$的偏导与全导. 这里的偏导数非常地多, 注意弄清楚每个偏导中那些变量是不变的. 
+
+        考虑对于广义坐标的$q$的偏导, 这里实际上考虑的是对于轨迹的初始位置$\bm q^{(1)}$与结束为止$\bm q^{(2)}$的偏导, 并且这个偏导是在真实的运动轨迹上进行的. 通过式\ref{eq:8-1-1}, 由于运动轨迹为真实轨迹, 所以第二项积分为0. 因此可以得到: 
+        \begin{equation}
+            \left( \frac{\partial S}{\partial q_i^{(1)}} \right)_{t, q_i^{(2)}} = - \frac{\partial L}{\partial \dot q_i};
+            \qquad
+            \left(\frac{\partial S}{\partial q_i^{(2)}}\right)_{t, q_i^{(1)}} = \frac{\partial L}{\partial \dot q_i}
+        \end{equation}
+        一般我们取的是末端点的偏导, 并且我们注意到拉格朗日量对广义速度的偏导数就是广义动量. 因此在不引起歧义时我们一般会写: 
+        \begin{equation}
+            \frac{\partial S}{\partial q_i} = p_i
+        \end{equation}
+
+        实际上作用量$S$形式上是一个变上限定积分, 因此全导非常容易得到: 
+        \begin{equation}
+            S[\bm q](t) = \int_{0}^{t} L( \bm q(\tau), \bm \dot q(\tau), \tau ) \dd \tau
+            \qquad \implies \frac{\mathrm{d} S}{\mathrm{d} t} = L
+        \end{equation}
+        考虑到全导与偏导的关系, 有:
+        \begin{equation}
+            \frac{\mathrm{d} S}{\mathrm{d} t} = \frac{\partial S}{\partial t} + \frac{\partial S}{\partial q_i} \dot{q}_i = \frac{\partial S}{\partial t} + p_i\dot{q}_i
+        \end{equation}
+        那么根据哈密顿量的定义$H = p_i \dot q_i - L$, 可以看出:
+        \begin{equation}\label{eq:8-1-2-1}
+            \frac{\partial S}{\partial t} = - H
+        \end{equation}
+
+        基于上面的结论, 我们发现只使用作用量$S$及其偏导也可以表述经典力学: 
+        \begin{equation}
+            \frac{\partial S}{\partial t} + H(\bm q, \frac{\partial S}{\partial \bm q}, t) = 0
+        \end{equation}
+        进一步展开可以写为:
+        \begin{equation}\label{eq:8-1-2-2}
+            \frac{\partial S}{\partial t} + \frac{M^{-1}_{ij}(\bm q)}{2} \frac{\partial S}{\partial q_i}\frac{\partial S}{\partial q_j} + V(\bm q, t) = 0
+        \end{equation}
+        $M^{-1}_{ij}$是质量矩阵的逆. 
+
+        以上\ref{eq:8-1-2-1}至\ref{eq:8-1-2-2}三个方程都可以被称为Hamilton-Jacobi方程. 它提供了一种只使用作用量$S$的偏导数表达经典力学体系的运动规律的方法.
+
+        \subsection{我们可以更深入一些}
+
+        此处应有讨论边界值问题解的存在性相关的内容.
+
     \section{量子力学的路径积分形式}
+
         如果求出传播子
-        \begin{equation*}
+        \begin{equation}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle
-        \end{equation*}
+        \end{equation}
         那么就可以求解含时Schrodinger方程，这时就将研究对象从波函数变为传播子。所以现在需要求解传播子。
         首先研究$\mathrm{e}^{\lambda \hat{A}}\mathrm{e}^{\lambda \hat{B}}$和$\mathrm{e}^{\lambda (\hat{A}+\hat{B})}$的关系。应有
-        \begin{equation*}
+        \begin{equation}
             \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B}) + \frac 12 \lambda^2 [\hat{A},\hat{B}] + O(\lambda^2)}
-        \end{equation*}
+        \end{equation}
         如果$\lambda \to 0$, 可以忽略二阶无穷小量，则有
-        \begin{equation*}
+        \begin{equation}
             \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B})}
-        \end{equation*}
+        \end{equation}
         将时间平均分为$N$份，令$\lambda = \frac tN$, 并令$N \to \infty$.所以
-        \begin{equation*}
+        \begin{equation}
             \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{K}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} =\mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{H}} 
-        \end{equation*}
+        \end{equation}
         代入传播子，得到
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}}
             \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} |y \rangle\\
             &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
             &= \int \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |p \rangle \langle p |y \rangle \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
             &= \int \langle x|p \rangle \langle p|y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
             &= \frac 1{2\pi \hbar} \int \mathrm{e}^{\frac {i(x-y)p}{\hbar}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}
-        \end{align*}
+        \end{aligned}\end{equation}
         根据Gauss积分
-        \begin{equation*}
+        \begin{equation}
             \int_{-\infty}^{+\infty} \mathrm{e}^{-ax^2+bx} \mathrm{d}x = \sqrt{\frac {\pi}a} \mathrm{e}^{-\frac {b^2}{4a}}
-        \end{equation*}
+        \end{equation}
         由此得到传播子为
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \sqrt{\frac {mN}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {mN(x-y)^2}{2\hbar t}}\mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar} V(y)}
-        \end{align*}
+        \end{aligned}\end{equation}
         前两项来自于动能算符，第三项来自于势能算符。动能算符和势能算符虽然不对易，但是在$N \to \infty$时可以得到这个结果。
         自由粒子体系的势能为0，所以可以不需要把时间分成$N$份，而是直接对整个传播子来计算。把$V=0,N=1$代入上式，即得到
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |y_0 \rangle &= \sqrt{\frac {m}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {m(x-y)^2}{2\hbar t}}
-        \end{align*}
+        \end{aligned}\end{equation}
         如果推广到$F$维体系，则有
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle &= (\frac {1}{2\pi\mathrm{i} \hbar t})^{\frac F2} |\bm{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {\bm{(x-y)}^{\mathrm{T}} \bm{M (x-y)}}{2\hbar t}}
-        \end{align*}
+        \end{aligned}\end{equation}
         可以将传播子写成
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle &= C(t) \mathrm{e}^{\frac {\mathrm{i}S(x(t))}{\hbar}}
-        \end{align*}
+        \end{aligned}\end{equation}
         在经典情况下写出作用量
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             S(x(t)) = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
-        \end{align*}
+        \end{aligned}\end{equation}
         Lagrange函数会满足Euler-Lagrange方程，而对于自由粒子，Lagrange函数不显含坐标，所以
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \frac {\mathrm{d}}{\mathrm{d}t} (m \dot x) = 0
-        \end{align*}
+        \end{aligned}\end{equation}
         由此可见，速度不随时间变化，且
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \dot{x} = \frac {y_0-x_0}t
-        \end{align*}
+        \end{aligned}\end{equation}
         所以，上述作用量积分的结果为
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             S = \frac {m(y_0 - x_0)^2}{2t}
-        \end{align*}
+        \end{aligned}\end{equation}
         显然地，这个结果代入上面写出的传播子表达式相吻合。现在希望能把$C(t)$求出。给定初始条件
-        \begin{equation*}
+        \begin{equation}
             t \to 0,~~~~~\langle y_0|x_0\rangle = \delta(y_0-x_0)
-        \end{equation*}
+        \end{equation}
         计算出
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \int_{-\infty}^{+\infty} \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac {m(y_0 - x_0)^2}{2t}}\mathrm{d}y_0 = C(t) \sqrt{\frac {2\pi\mathrm{i}\hbar t}m}
-        \end{align*}
+        \end{aligned}\end{equation}
         于是 
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             C(t) = \sqrt{\frac m{2\pi\mathrm{i}\hbar t}} D(t)
-        \end{align*}
+        \end{aligned}\end{equation}
         其中$D(0) = 1$. 现在希望证明$D(t) = 1$.
         计算
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             -\mathrm{i}\hbar \frac {\partial}{\partial t} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle =  \langle y_0 | \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
             = -\frac {\hbar^2}{2m} \frac {\partial^2}{\partial y_0^2} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
-        \end{align*}
+        \end{aligned}\end{equation}
         \begin{asg}
             第8次作业第四题
         \end{asg}
         如果不是自由体系，则使用\textbf{多边折线方案}。
+
     \section{路径积分分子动力学}
+
         假设已经得到传播子
-        \begin{equation*}
+        \begin{equation}
             \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} |y \rangle = \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \mathrm{e}^{\mathrm{i}\frac {m(x-y)^2}{2t\hbar}}
-        \end{equation*}
+        \end{equation}
         路径积分是在空间中连接所有$x,y$的路径都要进行考虑。所以，传播子是对所有路径求和
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} = \sum_{\mathrm{all~paths}} C_t \mathrm{e}^{\mathrm{i}S_t\hbar}
-        \end{align*}
+        \end{aligned}\end{equation}
         其中 
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             C_t &= \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \\
             S_t &= \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \int_0^t (\frac 12 m \dot{x}^2 - V(x)) \mathrm{d}t'
-        \end{align*}
+        \end{aligned}\end{equation}
 
         量子体系下的Boltzmann分布为
-        \begin{equation*}
+        \begin{equation}
             \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta E_n} |\phi_n \rangle \langle \phi_n|
-        \end{equation*}
+        \end{equation}
         利用了Schodinger方程
-        \begin{equation*}
+        \begin{equation}
             \hat{H} |\phi_n \rangle = E_n |\phi_n \rangle
-        \end{equation*}
+        \end{equation}
         类似地，可以作和
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}E_n t}{\hbar}} |\phi_n \rangle \langle \phi_n|
-        \end{align*}
+        \end{aligned}\end{equation}
         上述两个式子可以对应起来，区别在于第二个方程中的时间是虚数，称为\textbf{虚时间}。对应关系为
-        \begin{equation*}
+        \begin{equation}
             t = -\mathrm{i}\hbar \beta
-        \end{equation*}
+        \end{equation}
         显然地，高温对应虚时间的短时，低温对应虚时间的长时。同样可求出虚时间下的传播子
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|y\rangle
-        \end{align*}
+        \end{aligned}\end{equation}
         求出配分函数
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             Z &= \mathrm{Tr}(\mathrm{e}^{-\beta \hat{H}}) \\
             &= \sum_n \langle n| \mathrm{e}^{-\beta \hat{H}}|n\rangle \\
             &= \int \sum_n \langle n| \mathrm{e}^{-\beta \hat{H}}|x \rangle \langle x|n\rangle \mathrm{d}x\\
             &= \int \langle x|\sum_n|n \rangle \langle n| \mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x\\
             &= \int \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x
-        \end{align*}
+        \end{aligned}\end{equation}
         在路径积分的语言下，可以放弃态的概念，也不需要有波函数，只要有传播子，就有配分函数，也就有了所有的热力学函数。要求这个积分中的传播子，将$\beta$分为$N$份.有
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int \langle x_0|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_1 \rangle ... \langle x_{n-2}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_{n-1} \rangle \langle x_{n-1}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_N \rangle \prod_{i=1}^{N-1}\mathrm{d}x_i
-        \end{align*}
+        \end{aligned}\end{equation}
         其中$x_0=x_N = x$. 如果$N \to \infty$, 则可以把动能项和势能项分开。用和之前传播子计算类似的方法得到
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {m(x_j- x_{j+1})^2}{2\hbar^2 \Delta \beta}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-        \end{align*}
+        \end{aligned}\end{equation}
         定义$\omega_N^2 = \frac N{\hbar^2 \Delta \beta^2} = \frac N{\hbar^2 \beta^2}$，则有
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {\beta m\omega_N^2(x_j- x_{j+1})^2}{2}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-        \end{align*}
+        \end{aligned}\end{equation}
         代入得到 
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \bigg(\frac {mN}{2\pi \hbar^2 \beta}\bigg)^{\frac N2} \int \mathrm{e}^{-\sum_{j=0}^{N-1} \frac {\beta}2 m \omega_N^2 (x_{j+1} - x_j)^2} \mathrm{e}^{-\Delta \beta \sum_{j=0}^{N-1}V(x_j)}\prod_{i=1}^{N-1}\mathrm{d}x_i
-        \end{align*}
+        \end{aligned}\end{equation}
         这可以看作$N$个点组成的环两两用弹簧连接，且每个点都额外受外力作用。它可以写成
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int C(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x}
-        \end{align*}
+        \end{aligned}\end{equation}
         积分不太容易做，可以在这里插入一个关于“动量”的积分
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  &= \int D(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x} \int \mathrm{d}\bm{p} \mathrm{e}^{-\frac {\beta}2 \bm{p}^{\mathrm{T}}\bm{M}^{-1} \bm{p}}\\
             &= \int D(N) \mathrm{e}^{-\beta H_{\mathrm{eff}}(\bm{x,p})} \mathrm{d}\bm{x} \mathrm{d}\bm{p}
-        \end{align*}
+        \end{aligned}\end{equation}
         如果$N=1$，那么就是经典统计力学的结果。这体现了量子力学和经典统计力学的同构。
 
         如果关心含时Schodinger方程：
-        \begin{equation*}
+        \begin{equation}
             \mathrm{i}\hbar \frac {\partial}{\partial t} | \psi(t) \rangle = \hat{H}|\psi(t) \rangle
-        \end{equation*}
+        \end{equation}
         将这个改成对于$\beta$的方程：
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             -\frac {\partial}{\partial \beta} |\psi(\beta) \rangle = \hat{H} |\psi(\beta) \rangle
-        \end{align*}
+        \end{aligned}\end{equation}
 
         任意给定一个初态，可以写成Hamilton函数的本征函数的线性组合
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             |\psi(0) \rangle = \sum_n c_n |\phi_n\rangle
-        \end{align*}
+        \end{aligned}\end{equation}
         并且
-        \begin{align*}
+        \begin{equation}\begin{aligned}
             |\psi(\beta) \rangle &= \mathrm{e}^{-\beta \hat{H}} |\phi(0) \rangle = \sum_n c_n\mathrm{e}^{-\beta E_n}|\phi_n \rangle = \mathrm{e}^{-\beta E_0} \sum_n c_n \mathrm{e}^{-\beta(E_n-E_0)} |\phi_n \rangle
-        \end{align*}
+        \end{aligned}\end{equation}
         因此，当$\beta \to \infty$时，得到的就是基态。基于此开发出了\textbf{量子Monte-Carlo算法}
         如果要求第一激发态，只需求出系数，把基态从初始条件中减去，得到的新的最低的能量对应的态就是第一激发态。
-        \bibliographystyle{plain}
-        \bibliography{ref_chp_8}
+
+    \bibliographystyle{plain}
+    \bibliography{ref_chp_8}

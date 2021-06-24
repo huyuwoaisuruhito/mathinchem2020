@@ -1,158 +1,158 @@
 \chapter{时间关联函数}
     \section{20201030：物理量及其时间关联函数}
     对简正坐标下的Hamilton函数
-    \begin{equation*}
+    \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
-    \end{equation*}
+    \end{equation}
     它满足Boltzmann分布时，配分函数为
-    \begin{equation*}
+    \begin{equation}
         Z = \int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P} = \bigg(\frac {2\pi}{\beta}\bigg)^N \frac 1{\det \bm{\Omega}}
-    \end{equation*}
+    \end{equation}
     量子化以后得到的结果是
-    \begin{equation*}
+    \begin{equation}
         Z = \frac 1{(\beta \hbar)^N \det \bm{\Omega}}
-    \end{equation*}
+    \end{equation}
     要计算物理量的期望，应有
-    \begin{equation*}
+    \begin{equation}
         \langle B \rangle = \frac {\int B(\bm{Q,P})\mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
-    \end{equation*}
+    \end{equation}
     在$t$时刻也可以写出类似的形式
-    \begin{equation*}
+    \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q,P}) \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
-    \end{equation*}
+    \end{equation}
     再由
-    \begin{equation*}
+    \begin{equation}
         \rho_t (\bm{Q,P}) = \int \mathrm{e}^{-\beta H(\bm{Q_0,P_0})} \delta(\bm{Q-Q}_t) \delta(\bm{P-P}_t) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0
-    \end{equation*}
+    \end{equation}
     代入，可以得到
-    \begin{equation*}
+    \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q}_t,\bm{P}_t) \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}{\int \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}
-    \end{equation*}
+    \end{equation}
 
     现在开始研究一些光谱的性质。设红外光谱为$I(\omega)$, 让分子不转动，则得到的红外光谱为分立的线。对红外光谱做Fourier变换，得到
-    \begin{equation*}
+    \begin{equation}
     f(t) = \int I(\omega)\mathrm{e}^{\mathrm{i}\omega t}\mathrm{d}\omega 
-    \end{equation*}
+    \end{equation}
     它反映了分子的动力学性质。这个时间是什么？现在问有没有可能成为某个物理量的Fourier变换？
     \begin{asg}
         第4次作业第1题：Fourier变换
     \end{asg}
     定义\textbf{两点时间关联函数}:
-    \begin{equation*}
+    \begin{equation}
     \langle B(0)B(t) \rangle = \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0
-    \end{equation*}
+    \end{equation}
     同一物理量的两点时间关联函数如果交换顺序并不会有变化，因为Liouville定理，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
     &= \int \rho_t(x_t,p_t) B(x_t,p_t) B(x_0(x_t,p_t),p_0(x_t,p_t)) \mathrm{d}x_t \mathrm{d}p_t\\
     &= \langle B(t)B(0) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     现在要求$\langle B(0)B(t) \rangle$和$\langle B(0)B(-t) \rangle$的关系。在积分的条件下，因为积分变量是哑变量，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
     &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
     &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-    \end{align*}
+    \end{aligned}\end{equation}
     其中，第二步是作变量替换
-    \begin{equation*}
+    \begin{equation}
     x_0 \to x_{-t}
-    \end{equation*}
+    \end{equation}
     并且$x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果，而将$x_{-t}$演化$t$时间为$x_0$。如果假设
-    \begin{equation*}
+    \begin{equation}
     \frac {\partial \rho}{\partial t} = 0 = \{ H, \rho\}
-    \end{equation*}
+    \end{equation}
     则显然地，
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle B(0)B(t) \rangle &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
         &= \int \rho_{-t}(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
         &= \langle B(-t)B(0) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     \begin{asg}
         第4次作业第2题：时间自关联函数是否有时间平移对称性？
     \end{asg}
 
     \section{20201102：平衡分布的时间关联函数}
     更一般情况的两点时间关联函数为
-    \begin{equation*}
+    \begin{equation}
     \langle A(0)B(t) \rangle = \int \rho_0(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
-    \end{equation*}
+    \end{equation}
     如果是平衡分布，即
-    \begin{equation*}
+    \begin{equation}
         \frac {\partial \rho}{\partial t} = 0
-    \end{equation*}
+    \end{equation}
     例如Boltzmann分布，那么
-    \begin{align*}
+    \begin{equation}\begin{aligned}
         \langle A(0)B(t) \rangle &= \int \rho_\mathrm{eq}(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0\\
         &= \int \rho_\mathrm{eq}(\bm{x}_{t'},\bm{p}_{t'}) A(\bm{x}_{t'},\bm{p}_{t'}) B(\bm{x}_{t+t'},\bm{p}_{t+t'}) \mathrm{d}\bm{x}_{t'} \mathrm{d}\bm{p}_{t'}\\
         &= \langle A(t')B(t'+ t) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     这样时间关联函数有时间平移对称性。但是如果不是平衡分布，就没有时间平移对称性。同样由Liouville定理很容易证明
-    \begin{equation*}
+    \begin{equation}
         \langle A(0)B(t) \rangle = \langle B(t)A(0) \rangle
-    \end{equation*}
+    \end{equation}
 
     平衡分布满足
-    \begin{equation*}
+    \begin{equation}
     \langle B(t) \rangle = \langle B(0) \rangle
-    \end{equation*}
+    \end{equation}
     于是平衡分布对应的平均物理量为
-    \begin{equation*}
+    \begin{equation}
     \langle B \rangle = \frac 1T \int_0^T \langle B(t) \rangle \mathrm{d}t
-    \end{equation*}
+    \end{equation}
 
     对于Liouville方程，有
-    \begin{equation*}
+    \begin{equation}
     -\frac {\partial \rho}{\partial t} = \{H,\rho\}
-    \end{equation*}
+    \end{equation}
     此时，满足
-    \begin{equation*}
+    \begin{equation}
     \rho_0 = \rho_{\mathrm{eq}}
-    \end{equation*}
+    \end{equation}
     两点关联函数满足
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
     &= \int \rho_{\mathrm{eq}} (\bm{x_{t'}},\bm{p_{t'}}) A(\bm{x_{t'}},\bm{p_{t'}}) B(\bm{x_{t+t'}}, \bm{p_{t + t'}})\\
     &= \langle A(t')B(t+t') \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     这只有在
-    \begin{equation*}
+    \begin{equation}
     \rho_0(\bm{x},\bm{p}) = \rho_{t'}(\bm{x},\bm{p})
-    \end{equation*}
+    \end{equation}
     时成立。
 
     现在想要探索$\langle A(0)B(t) \rangle$和$\langle A(0)B(-t) \rangle$的关系。
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
     &= \int \rho_{\mathrm{eq}}(\bm x_t, \bm p_t) A(\bm x_0,\bm p_0)B(\bm x_t, \bm p_t) \mathrm{d}\bm x_t \mathrm{d} \bm p_t\\
     &= \int \rho_{\mathrm{eq}}(\bm x, \bm p)B(\bm x, \bm p) A(\bm x_{-t}(x,p), \bm p_{-t}(x,p))\mathrm{d}x\mathrm{d}p\\
     &= \langle B(0)A(-t) \rangle
-    \end{align*}
+    \end{aligned}\end{equation}
     如果只考虑一个物理量的自关联函数，作Fourier积分
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I(\omega) = \int_{-\infty}^{+\infty} \mathrm{e}^{-\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t
-    \end{align*}
+    \end{aligned}\end{equation}
     令$t=-s$，则
-    \begin{align*}
+    \begin{equation}\begin{aligned}
     I(\omega) &= -\int_{+\infty}^{-\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(-t) \rangle \mathrm{d}t\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t\\
     &= I(-\omega)
-    \end{align*}
+    \end{aligned}\end{equation}
     所以自关联函数的Fourier变换在频率空间是一个偶函数。
 
     这在量子力学中并不成立，如果它在能级0和能级1之间跃迁，则它在能级0的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_0}$,在能级1的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_1}$, 配分函数为
-    \begin{equation*}
+    \begin{equation}
     Z = \mathrm{e}^{-\beta \epsilon_0} + \mathrm{e}^{-\beta \epsilon_1}
-    \end{equation*}
+    \end{equation}
     设$E = \epsilon_1 - \epsilon_0$, 从0到1的跃迁对应的光谱Fourier变换的强度为$\mathrm{e}^{-\beta \epsilon_0} \delta(E - \hbar \omega)$，从1到0的跃迁对应的强度为$\mathrm{e}^{-\beta \epsilon_1} \delta(E + \hbar \omega)$, 于是
-    \begin{equation*}
+    \begin{equation}
     \mathrm{e}^{-\beta(\epsilon_1 - \epsilon_0)} I(\omega) = I(-\omega)
-    \end{equation*}
+    \end{equation}
     或写成
-    \begin{equation*}
+    \begin{equation}
         \mathrm{e}^{-\beta \hbar \omega}I(\omega) = I(-\omega)
-    \end{equation*}
+    \end{equation}
     这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同，称为\textbf{细致平衡}。经典极限下，$\hbar \to 0$，变成了偶函数。
     
     \bibliographystyle{plain}
