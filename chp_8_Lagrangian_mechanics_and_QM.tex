@@ -47,7 +47,7 @@
         \end{equation}
         其中$f$为系统的自由度. 
 
-        我们看到在Lagrange力学中拉格朗日量处于中心地位, 它描述了体系全部的经典力学性质. 对于非相对论的力学体系, 拉格朗日量可以写为动能减去势能$L = T - V$. 在一些坐标系下动能可能有些非常繁杂的表达式, 而势能仅依赖于广义坐标与时间. 我们可以把它写下来:
+        我们看到在Lagrange力学中拉格朗日量处于中心地位, 它描述了体系全部的经典力学性质. 对于非相对论的力学体系, 拉格朗日量可以写为动能减去势能$L = K - V$. 在一些坐标系下动能可能有些非常繁杂的表达式, 而势能仅依赖于广义坐标与时间. 我们可以把它写下来:
         \begin{equation}
             L =  \frac{M_{ij}(\bm q)}{2} \dot q_i \dot q_j  - V(\bm q, t)
         \end{equation}
@@ -80,7 +80,7 @@
 
         我们有了作用量$S$这一个新的物理量, 我们可以研究一下其对广义坐标$\bm q$的偏导、对时间$t$的偏导与全导. 这里的偏导数非常地多, 注意弄清楚每个偏导中那些变量是不变的. 
 
-        考虑对于广义坐标的$q$的偏导, 这里实际上考虑的是对于轨迹的初始位置$\bm q^{(1)}$与结束为止$\bm q^{(2)}$的偏导, 并且这个偏导是在真实的运动轨迹上进行的. 通过式\ref{eq:8-1-1}, 由于运动轨迹为真实轨迹, 所以第二项积分为0. 因此可以得到: 
+        考虑对于广义坐标的$q$的偏导, 这里实际上考虑的是对于真实轨迹的初始位置$\bm q^{(1)}$与结束为止$\bm q^{(2)}$的偏导. 通过式\ref{eq:8-1-1}, 由于运动轨迹为真实轨迹, 所以第二项积分为0. 因此可以得到: 
         \begin{equation}
             \left( \frac{\partial S}{\partial q_i^{(1)}} \right)_{t, q_i^{(2)}} = - \frac{\partial L}{\partial \dot q_i};
             \qquad
@@ -123,109 +123,139 @@
 
     \section{量子力学的路径积分形式}
 
-        如果求出传播子
+        \subsection{传播子与路径积分}
+
+        我们基于含时薛定谔方程已经得到了时间演化算符, 当不同时刻的哈密顿算符对易且不显含时间时:
         \begin{equation}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle
+            | \psi(t) \rangle = \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | \psi(0) \rangle
         \end{equation}
-        那么就可以求解含时Schrodinger方程，这时就将研究对象从波函数变为传播子。所以现在需要求解传播子。
-        首先研究$\mathrm{e}^{\lambda \hat{A}}\mathrm{e}^{\lambda \hat{B}}$和$\mathrm{e}^{\lambda (\hat{A}+\hat{B})}$的关系。应有
+        插入位置本征态:
+        \begin{equation}
+            \langle x | \psi(t) \rangle = \int \mathrm{d} y \langle x | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y \rangle  \langle y | \psi(0) \rangle
+        \end{equation}
+        我么可以将$\langle x | \exp[-\mathrm{i}\hat{H}t / \hbar] | y \rangle$定义为传播子, 如果求出传播子, 那么就可以求解含时Schrodinger方程. 这时研究对象就从波函数变为传播子, 现在需要求解传播子. 
+
+        首先研究$\mathrm{e}^{\lambda \hat{A}}\mathrm{e}^{\lambda \hat{B}}$和$\mathrm{e}^{\lambda (\hat{A}+\hat{B})}$的关系. 根据Baker–Campbell–Hausdorff公式, 应有:
         \begin{equation}
             \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B}) + \frac 12 \lambda^2 [\hat{A},\hat{B}] + O(\lambda^2)}
         \end{equation}
-        如果$\lambda \to 0$, 可以忽略二阶无穷小量，则有
+        如果$\lambda \to 0$, 可以忽略二阶无穷小量, 则有:
         \begin{equation}
             \mathrm{e}^{\lambda \hat{A}} \mathrm{e}^{\lambda \hat{B}} = \mathrm{e}^{\lambda (\hat{A}+\hat{B})}
         \end{equation}
-        将时间平均分为$N$份，令$\lambda = \frac tN$, 并令$N \to \infty$.所以
+        将时间平均分为$N$份, 令$\lambda = \frac tN$, 并令$N \to \infty$. 所以:
         \begin{equation}
-            \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{K}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} =\mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{H}} 
+            \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} = \mathrm{e}^{-\frac {\mathrm{i}\hat{K}t}{N\hbar}} \mathrm{e}^{-\frac {\mathrm{i}\hat{V}t}{N\hbar}}
         \end{equation}
-        代入传播子，得到
+        代入传播子, 得到:
         \begin{equation}\begin{aligned}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}}
-            \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \hat{V}} |y \rangle\\
-            &= \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
-            &= \int \langle x | \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {\hat{p}^2}{2m}} |p \rangle \langle p |y \rangle \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
-            &= \int \langle x|p \rangle \langle p|y \rangle \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}\\
-            &= \frac 1{2\pi \hbar} \int \mathrm{e}^{\frac {i(x-y)p}{\hbar}} \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) \frac {p^2}{2m}} \mathrm{d}p \times \mathrm{e}^{\frac tN (-\frac {\mathrm{i}}{\hbar}) V(y)}
+            \langle x | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y \rangle &= \langle x | \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}\frac {\hat{p}^2}{2m}} 
+            \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}\hat{V}} |y \rangle\\
+            &= \langle x | \mathrm{e}^{- \frac{\mathrm{i}t}{N\hbar} \frac{\hat{p}^2}{2m}} |y \rangle \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}V(y)} \\
+            &= \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}V(y)} \int \langle x | \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}\frac {\hat{p}^2}{2m}} |p \rangle \langle p |y \rangle \mathrm{d}p \\
+            &= \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}V(y)} \int \langle x|p \rangle \langle p|y \rangle \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}\frac {p^2}{2m}} \mathrm{d}p\\
+            &= \frac 1{2\pi \hbar} \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}V(y)} \int \mathrm{e}^{\frac {\mathrm{i}(x-y)p}{\hbar}} \mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar}\frac {p^2}{2m}} \mathrm{d} p
         \end{aligned}\end{equation}
         根据Gauss积分
         \begin{equation}
             \int_{-\infty}^{+\infty} \mathrm{e}^{-ax^2+bx} \mathrm{d}x = \sqrt{\frac {\pi}a} \mathrm{e}^{-\frac {b^2}{4a}}
         \end{equation}
-        由此得到传播子为
-        \begin{equation}\begin{aligned}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y_0 \rangle &= \sqrt{\frac {mN}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {mN(x-y)^2}{2\hbar t}}\mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar} V(y)}
-        \end{aligned}\end{equation}
-        前两项来自于动能算符，第三项来自于势能算符。动能算符和势能算符虽然不对易，但是在$N \to \infty$时可以得到这个结果。
-        自由粒子体系的势能为0，所以可以不需要把时间分成$N$份，而是直接对整个传播子来计算。把$V=0,N=1$代入上式，即得到
-        \begin{equation}\begin{aligned}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |y_0 \rangle &= \sqrt{\frac {m}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {m(x-y)^2}{2\hbar t}}
-        \end{aligned}\end{equation}
-        如果推广到$F$维体系，则有
-        \begin{equation}\begin{aligned}
-            \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle &= (\frac {1}{2\pi\mathrm{i} \hbar t})^{\frac F2} |\bm{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {\bm{(x-y)}^{\mathrm{T}} \bm{M (x-y)}}{2\hbar t}}
-        \end{aligned}\end{equation}
-        可以将传播子写成
-        \begin{equation}\begin{aligned}
-            \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle &= C(t) \mathrm{e}^{\frac {\mathrm{i}S(x(t))}{\hbar}}
-        \end{aligned}\end{equation}
-        在经典情况下写出作用量
-        \begin{equation}\begin{aligned}
-            S(x(t)) = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
-        \end{aligned}\end{equation}
-        Lagrange函数会满足Euler-Lagrange方程，而对于自由粒子，Lagrange函数不显含坐标，所以
-        \begin{equation}\begin{aligned}
-            \frac {\mathrm{d}}{\mathrm{d}t} (m \dot x) = 0
-        \end{aligned}\end{equation}
-        由此可见，速度不随时间变化，且
-        \begin{equation}\begin{aligned}
-            \dot{x} = \frac {y_0-x_0}t
-        \end{aligned}\end{equation}
-        所以，上述作用量积分的结果为
-        \begin{equation}\begin{aligned}
-            S = \frac {m(y_0 - x_0)^2}{2t}
-        \end{aligned}\end{equation}
-        显然地，这个结果代入上面写出的传播子表达式相吻合。现在希望能把$C(t)$求出。给定初始条件
+        由此得到传播子为:
         \begin{equation}
-            t \to 0,~~~~~\langle y_0|x_0\rangle = \delta(y_0-x_0)
+            \langle x | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y \rangle = \sqrt{\frac {mN}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{\mathrm{i}\frac {mN(x-y)^2}{2\hbar t}}\mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar} V(y)}
         \end{equation}
-        计算出
+        前两项来自于动能算符, 第三项来自于势能算符. 动能算符和势能算符虽然不对易, 但是在$N \to \infty$时可以得到这个结果. 
+
+        \splitline
+
+        而一般情况下的传播子可以通过对无穷短时间的传播子积分得到:
+        \begin{equation}
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \left(\frac{mN}{2\pi\mathrm{i}\hbar t}\right)^{N/2} \left(\prod_{n = 1}^{N}\int 
+            \mathrm{d} x_n \right) \mathrm{e}^{ \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{n} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] }
+        \end{equation}
+        在$N \to \infty$的情形下$N(x_{n-1} - x_n)/t = \dot x_n$, 且可将求和号换为积分号. 那么指数上可写为: 
         \begin{equation}\begin{aligned}
-            \int_{-\infty}^{+\infty} \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac {m(y_0 - x_0)^2}{2t}}\mathrm{d}y_0 = C(t) \sqrt{\frac {2\pi\mathrm{i}\hbar t}m}
+            \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{n} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t \left[ \frac{1}{2} m \dot x^2 - V(x) \right]\\
+            &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t L = \frac{\mathrm{i}}{\hbar} S_t[x]
         \end{aligned}\end{equation}
-        于是 
+        作为一种表示方法, 有: 
+        \begin{equation}\label{eq:8-2-1}
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \int \mathcal{D}[x] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S_t[x] }
+        \end{equation}
+        其中$\mathcal{D}[q]$表示对所有可能的路径进行积分, 同时将归一化因子作为测度包含在内(这个归一化因子应当是与路径无关的). 我们发现传播子其实是一种对所有路径进行加权平均. 其中所有路径权重的模相等, 但具有与作用量相关的相位. 由于作用量的形式与经典作用量一致, 所以只要我们能算得出这个积分就可以求得传播子. 
+
+        注意虽然上面似乎给出了归一化因子的一个形式, 但很明显它对于$N \to \infty$不是一个好的定义. 实际上不同体系归一化因子并不是一样的, 需要通过实际计算确定. 
+
+        \subsection{自由粒子的传播子}
+
+        自由粒子体系的势能为0, 所以可以不需要把时间分成$N$份, 而是直接对整个传播子来计算. 把$V=0,N=1$代入上式, 即得到:
+        \begin{equation}\label{eq:8-2-2}
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle = \sqrt{\frac {m}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{-\mathrm{i}\frac {m(x_0 - y_0)^2}{2\hbar t}}
+        \end{equation}
+        如果推广到$F$维体系, 则有:
+        \begin{equation}
+            \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle = (\frac {1}{2\pi\mathrm{i} \hbar t})^{\frac F2} |\mb{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {(\bm{x_0}-\bm{y_0})^{\mathrm{T}} \mb{M} (\bm{x_0}-\bm{y_0})}{2\hbar t}}
+        \end{equation}
+
+        \splitline
+
+        考虑直接通过路径积分得到自由粒子的传播子. 在经典情况下写出自由粒子作用量:
+        \begin{equation}
+            S_t[x] = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
+        \end{equation}
+        Lagrange函数会满足Euler-Lagrange方程. 而对于自由粒子, Lagrange函数不显含坐标, 所以:
+        \begin{equation}
+            \frac {\mathrm{d}}{\mathrm{d}t} (m \dot x) = 0
+        \end{equation}
+        由此可见, 速度不随时间变化, 且:
+        \begin{equation}
+            \dot{x} = \frac{y_0 - x_0}t
+        \end{equation}
+        所以, 上述作用量积分的结果为:
+        \begin{equation}
+            S = \frac{m(y_0 - x_0)^2}{2t}
+        \end{equation}
+        由于自由粒子的作用量与路径毫无关系, 利用传播子的一般形式(式\ref{eq:8-2-1})很容易算出传播子的表达式:
+        \begin{equation}
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle = \int \mathcal{D}[x] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S_t[x] } = C(t) \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac{m(y_0 - x_0)^2}{2t}}
+        \end{equation}
+        其中$C(t)$是归一化因子. 现在希望能把$C(t)$求出, 给定初始条件:
+        \begin{equation}
+            t \to 0,~~~~~\langle x_0|y_0\rangle = \delta(y_0-x_0)
+        \end{equation}
+        计算出:
+        \begin{equation}
+            \int_{-\infty}^{+\infty} \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac {m(y_0 - x_0)^2}{2t}}\mathrm{d}y_0 = \sqrt{\frac {2\pi\mathrm{i}\hbar t}m}
+        \end{equation}
+        于是:
+        \begin{equation}
+            C(t) = \sqrt{\frac m{2\pi\mathrm{i}\hbar t}}
+        \end{equation}
+        我们已经得出了归一化因子. 
+
+        如果不放心, 可设传播子为$ C(t) D(t) \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S } $, 带回含时薛定谔方程验证($D(0) = 1$).
+        \begin{equation}
+            -\mathrm{i}\hbar \frac {\partial}{\partial t} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle =  \langle y_0 | \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle = -\frac {\hbar^2}{2m} \frac {\partial^2}{\partial y_0^2} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
+        \end{equation}
+        展开之后可以得到$D'(t) = 0$, 所以$D(t)=1$是一个常数函数. 
         \begin{equation}\begin{aligned}
-            C(t) = \sqrt{\frac m{2\pi\mathrm{i}\hbar t}} D(t)
+            \left[i\hbar D'(t) C(t) - \frac{i\hbar}{2t} D(t) C(t) + \frac{m(x_0-y_0)^2}{2t^2} D(t) C(t) \right] \mathrm{e}^{\frac {\mathrm{i}}{\hbar} S} \\
+            = \left[- \frac{i\hbar}{2t} D(t) C(t) + \frac{m(x_0-y_0)^2}{2t^2} D(t) C(t)\right] \mathrm{e}^{\frac {\mathrm{i}}{\hbar} S}
         \end{aligned}\end{equation}
-        其中$D(0) = 1$. 现在希望证明$D(t) = 1$.
-        计算
-        \begin{equation}\begin{aligned}
-            -\mathrm{i}\hbar \frac {\partial}{\partial t} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle =  \langle y_0 | \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
-            = -\frac {\hbar^2}{2m} \frac {\partial^2}{\partial y_0^2} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
-        \end{aligned}\end{equation}
+        由此可以确定自由粒子的传播子, 结果与式\ref{eq:8-2-2}相吻合. 
+
+        即使不是自由体系也可以利用式\ref{eq:8-2-1}进行计算, 但能计算出解析形式传播子的体系非常少. 读者可以尝试计算一下谐振子的传播子作为练习. 结果为:
+        \begin{equation}
+            \langle x | \mathrm{e}^{-\frac {\mathrm{i}}{\hbar}\hat{H}_\mathrm{HO}t} | y \rangle = \sqrt{\frac{m\omega}{2\mathrm{i}\pi\hbar\sin(\omega t)}} \exp\left\{ \frac{\mathrm{i}}{\hbar} \frac{m\omega}{2\sin(\omega t)}\left[ (x^2 + y^2)\cos(\omega t) - 2xy \right] \right\} \\
+        \end{equation}
+
         \begin{asg}
             第8次作业第四题
         \end{asg}
-        如果不是自由体系，则使用\textbf{多边折线方案}。
 
     \section{路径积分分子动力学}
 
-        假设已经得到传播子
-        \begin{equation}
-            \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} |y \rangle = \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \mathrm{e}^{\mathrm{i}\frac {m(x-y)^2}{2t\hbar}}
-        \end{equation}
-        路径积分是在空间中连接所有$x,y$的路径都要进行考虑。所以，传播子是对所有路径求和
-        \begin{equation}\begin{aligned}
-            \langle x | \mathrm{e}^{-\frac {i \hat{H}t}{\hbar}} = \sum_{\mathrm{all~paths}} C_t \mathrm{e}^{\mathrm{i}S_t\hbar}
-        \end{aligned}\end{equation}
-        其中 
-        \begin{equation}\begin{aligned}
-            C_t &= \sqrt{\frac m{2\pi \mathrm{i}\hbar t}} \\
-            S_t &= \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \int_0^t (\frac 12 m \dot{x}^2 - V(x)) \mathrm{d}t'
-        \end{aligned}\end{equation}
-
-        量子体系下的Boltzmann分布为
+        我们注意到量子体系下的Boltzmann分布为
         \begin{equation}
             \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta E_n} |\phi_n \rangle \langle \phi_n|
         \end{equation}
@@ -233,18 +263,18 @@
         \begin{equation}
             \hat{H} |\phi_n \rangle = E_n |\phi_n \rangle
         \end{equation}
-        类似地，可以作和
-        \begin{equation}\begin{aligned}
+        类似地, 可以作和
+        \begin{equation}
             \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}E_n t}{\hbar}} |\phi_n \rangle \langle \phi_n|
-        \end{aligned}\end{equation}
-        上述两个式子可以对应起来，区别在于第二个方程中的时间是虚数，称为\textbf{虚时间}。对应关系为
+        \end{equation}
+        上述两个式子可以对应起来, 区别在于第二个方程中的时间是虚数, 称为\textbf{虚时间}. 对应关系为
         \begin{equation}
             t = -\mathrm{i}\hbar \beta
         \end{equation}
-        显然地，高温对应虚时间的短时，低温对应虚时间的长时。同样可求出虚时间下的传播子
-        \begin{equation}\begin{aligned}
+        显然地, 高温对应虚时间的短时, 低温对应虚时间的长时. 同样可求出虚时间下的传播子
+        \begin{equation}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|y\rangle
-        \end{aligned}\end{equation}
+        \end{equation}
         求出配分函数
         \begin{equation}\begin{aligned}
             Z &= \mathrm{Tr}(\mathrm{e}^{-\beta \hat{H}}) \\
@@ -253,52 +283,52 @@
             &= \int \langle x|\sum_n|n \rangle \langle n| \mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x\\
             &= \int \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle \mathrm{d}x
         \end{aligned}\end{equation}
-        在路径积分的语言下，可以放弃态的概念，也不需要有波函数，只要有传播子，就有配分函数，也就有了所有的热力学函数。要求这个积分中的传播子，将$\beta$分为$N$份.有
-        \begin{equation}\begin{aligned}
+        在路径积分的语言下, 可以放弃态的概念, 也不需要有波函数, 只要有传播子, 就有配分函数, 也就有了所有的热力学函数. 要求这个积分中的传播子, 将$\beta$分为$N$份.有
+        \begin{equation}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int \langle x_0|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_1 \rangle ... \langle x_{n-2}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_{n-1} \rangle \langle x_{n-1}|\mathrm{e}^{-\frac {\beta \hat{H}}N} |x_N \rangle \prod_{i=1}^{N-1}\mathrm{d}x_i
-        \end{aligned}\end{equation}
-        其中$x_0=x_N = x$. 如果$N \to \infty$, 则可以把动能项和势能项分开。用和之前传播子计算类似的方法得到
-        \begin{equation}\begin{aligned}
-            \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {m(x_j- x_{j+1})^2}{2\hbar^2 \Delta \beta}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-        \end{aligned}\end{equation}
-        定义$\omega_N^2 = \frac N{\hbar^2 \Delta \beta^2} = \frac N{\hbar^2 \beta^2}$，则有
-        \begin{equation}\begin{aligned}
-            \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle &= \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {\beta m\omega_N^2(x_j- x_{j+1})^2}{2}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
-        \end{aligned}\end{equation}
+        \end{equation}
+        其中$x_0=x_N = x$. 如果$N \to \infty$, 则可以把动能项和势能项分开. 用和之前传播子计算类似的方法得到
+        \begin{equation}
+            \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle = \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {m(x_j- x_{j+1})^2}{2\hbar^2 \Delta \beta}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
+        \end{equation}
+        定义$\omega_N^2 = \frac N{\hbar^2 \Delta \beta^2} = \frac N{\hbar^2 \beta^2}$, 则有
+        \begin{equation}
+            \langle x_j|\mathrm{e}^{-\Delta \beta \hat{H}} |x_{j+1} \rangle = \sqrt{\frac m{2\pi \hbar^2 \Delta \beta}} \mathrm{e}^{-\frac {\beta m\omega_N^2(x_j- x_{j+1})^2}{2}} \mathrm{e}^{-\Delta \beta V(x_{j+1})}
+        \end{equation}
         代入得到 
-        \begin{equation}\begin{aligned}
+        \begin{equation}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \bigg(\frac {mN}{2\pi \hbar^2 \beta}\bigg)^{\frac N2} \int \mathrm{e}^{-\sum_{j=0}^{N-1} \frac {\beta}2 m \omega_N^2 (x_{j+1} - x_j)^2} \mathrm{e}^{-\Delta \beta \sum_{j=0}^{N-1}V(x_j)}\prod_{i=1}^{N-1}\mathrm{d}x_i
-        \end{aligned}\end{equation}
-        这可以看作$N$个点组成的环两两用弹簧连接，且每个点都额外受外力作用。它可以写成
-        \begin{equation}\begin{aligned}
+        \end{equation}
+        这可以看作$N$个点组成的环两两用弹簧连接, 且每个点都额外受外力作用. 它可以写成
+        \begin{equation}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  = \int C(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x}
-        \end{aligned}\end{equation}
-        积分不太容易做，可以在这里插入一个关于“动量”的积分
+        \end{equation}
+        积分不太容易做, 可以在这里插入一个关于“动量”的积分
         \begin{equation}\begin{aligned}
             \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle  &= \int D(N) \mathrm{e}^{-\beta V_{\mathrm{eff}}(\bm{x})} \mathrm{d}\bm{x} \int \mathrm{d}\bm{p} \mathrm{e}^{-\frac {\beta}2 \bm{p}^{\mathrm{T}}\bm{M}^{-1} \bm{p}}\\
             &= \int D(N) \mathrm{e}^{-\beta H_{\mathrm{eff}}(\bm{x,p})} \mathrm{d}\bm{x} \mathrm{d}\bm{p}
         \end{aligned}\end{equation}
-        如果$N=1$，那么就是经典统计力学的结果。这体现了量子力学和经典统计力学的同构。
+        如果$N=1$, 那么就是经典统计力学的结果. 这体现了量子力学和经典统计力学的同构. 
 
         如果关心含时Schodinger方程：
         \begin{equation}
             \mathrm{i}\hbar \frac {\partial}{\partial t} | \psi(t) \rangle = \hat{H}|\psi(t) \rangle
         \end{equation}
         将这个改成对于$\beta$的方程：
-        \begin{equation}\begin{aligned}
+        \begin{equation}
             -\frac {\partial}{\partial \beta} |\psi(\beta) \rangle = \hat{H} |\psi(\beta) \rangle
-        \end{aligned}\end{equation}
+        \end{equation}
 
-        任意给定一个初态，可以写成Hamilton函数的本征函数的线性组合
-        \begin{equation}\begin{aligned}
+        任意给定一个初态, 可以写成Hamilton函数的本征函数的线性组合
+        \begin{equation}
             |\psi(0) \rangle = \sum_n c_n |\phi_n\rangle
-        \end{aligned}\end{equation}
+        \end{equation}
         并且
-        \begin{equation}\begin{aligned}
-            |\psi(\beta) \rangle &= \mathrm{e}^{-\beta \hat{H}} |\phi(0) \rangle = \sum_n c_n\mathrm{e}^{-\beta E_n}|\phi_n \rangle = \mathrm{e}^{-\beta E_0} \sum_n c_n \mathrm{e}^{-\beta(E_n-E_0)} |\phi_n \rangle
-        \end{aligned}\end{equation}
-        因此，当$\beta \to \infty$时，得到的就是基态。基于此开发出了\textbf{量子Monte-Carlo算法}
-        如果要求第一激发态，只需求出系数，把基态从初始条件中减去，得到的新的最低的能量对应的态就是第一激发态。
+        \begin{equation}
+            |\psi(\beta) \rangle = \mathrm{e}^{-\beta \hat{H}} |\phi(0) \rangle = \sum_n c_n\mathrm{e}^{-\beta E_n}|\phi_n \rangle = \mathrm{e}^{-\beta E_0} \sum_n c_n \mathrm{e}^{-\beta(E_n-E_0)} |\phi_n \rangle
+        \end{equation}
+        因此, 当$\beta \to \infty$时, 得到的就是基态. 基于此开发出了\textbf{量子Monte-Carlo算法}
+        如果要求第一激发态, 只需求出系数, 把基态从初始条件中减去, 得到的新的最低的能量对应的态就是第一激发态. 
 
     \bibliographystyle{plain}
     \bibliography{ref_chp_8}
