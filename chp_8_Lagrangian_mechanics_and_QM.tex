@@ -168,21 +168,21 @@
 
         \splitline
 
-        而一般情况下的传播子可以通过对无穷短时间的传播子积分得到:
+        一般情况下的传播子可以通过对无穷短时间的传播子积分得到:
         \begin{equation}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \left(\frac{mN}{2\pi\mathrm{i}\hbar t}\right)^{N/2} \left(\prod_{n = 1}^{N}\int 
-            \mathrm{d} x_n \right) \mathrm{e}^{ \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{n} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] }
+            \mathrm{d} x_n \right) \mathrm{e}^{ \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{N} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] }
         \end{equation}
         在$N \to \infty$的情形下$N(x_{n-1} - x_n)/t = \dot x_n$, 且可将求和号换为积分号. 那么指数上可写为: 
         \begin{equation}\begin{aligned}
-            \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{n} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t \left[ \frac{1}{2} m \dot x^2 - V(x) \right]\\
+            \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{N} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t \left[ \frac{1}{2} m \dot x^2 - V(x) \right]\\
             &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t L = \frac{\mathrm{i}}{\hbar} S_t[x]
         \end{aligned}\end{equation}
         作为一种表示方法, 有: 
         \begin{equation}\label{eq:8-2-1}
             \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \int \mathcal{D}[x] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S_t[x] }
         \end{equation}
-        其中$\mathcal{D}[q]$表示对所有可能的路径进行积分, 同时将归一化因子作为测度包含在内(这个归一化因子应当是与路径无关的). 我们发现传播子其实是一种对所有路径进行加权平均. 其中所有路径权重的模相等, 但具有与作用量相关的相位. 由于作用量的形式与经典作用量一致, 所以只要我们能算得出这个积分就可以求得传播子. 
+        其中$\mathcal{D}[q]$表示对所有可能的路径进行积分, 同时将归一化因子作为测度包含在内(这个归一化因子应当是与路径无关的). 我们发现传播子其实是一种对所有路径的加权平均. 其中所有路径权重的模相等, 但具有与作用量相关的相位. 由于作用量的形式与经典作用量一致, 所以只要我们能算得出这个积分就可以求得传播子. 
 
         注意虽然上面似乎给出了归一化因子的一个形式, 但很明显它对于$N \to \infty$不是一个好的定义. 实际上不同体系归一化因子并不是一样的, 需要通过实际计算确定. 
 
