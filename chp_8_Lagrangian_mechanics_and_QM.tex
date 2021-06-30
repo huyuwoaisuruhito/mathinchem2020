@@ -1,39 +1,39 @@
 \chapter{Lagrange力学和量子力学的路径积分形式}
     \section{作用量与Lagrange力学}
 
-        在前一章我们已经讨论了很多关于基于哈密顿力学的量子力学, 但这不是量子力学唯一的表示形式. 在经典力学中我们知道要描述力学体系, 除了使用基于哈密顿量的Hamilton力学, 还可以使用Lagrange力学作为一种完全等效的描述手段. 在探索量子力学的其他的表示方法之前, 我们需要先回顾一下经典力学中除Hamilton力学之外其他的两种描述力学系统的手段: 通过Lagrange力学, 或者通过Hamilton-Jacobi方程. 
+        在前一章我们已经讨论了很多关于基于哈密顿力学的量子力学, 但这不是量子力学唯一的表示形式. 在经典力学, 除了可以用基于哈密顿量的Hamilton力学描述力学体系, 还可以使用Lagrange力学作为一种完全等效的描述手段. 在探索量子力学的其他的表示方法之前, 先回顾一下经典力学中除Hamilton力学之外其他的两种描述力学系统的手段: Lagrange力学, 或者Hamilton-Jacobi方程. 
 
         \subsection{最小作用量原理}
 
-        在本讲义的最开始就已经给出了Hamilton力学中的Hamilton正则方程, 并且省略了推导过程, 这里我们就来填这个坑. 
+        在本讲义的最开始就已经给出了Hamilton力学中的Hamilton正则方程, 并且省略了推导过程, 这里就来填这个坑. 
 
-        首先我们需要给出描述经典力学中最为重要的力学原理, \textbf{最小作用量原理}. 它完全概括了经典力学体系的运动规律. 下面这个定理摘自刘川老师的理论力学讲义(version1.4). 
+        首先需要给出描述经典力学中最为重要的力学原理, \textbf{最小作用量原理}. 它完全概括了经典力学体系的运动规律.
 
         \begin{law}[最小作用量原理]
             力学体系有一个与其运动相关的物理量称为\textbf{作用量}$S$, 它是一个洛伦兹标量. 如果一个力学体系在给定时刻$t_1$和$t_2$分别由给定的广义坐标$q^{(1)}$与$q^{(2)}$描写, 则该力学系统的作用量$S$可以表达为联结这两个位型之间各种可能轨迹的\textbf{泛函}. 
             \begin{equation}
-                S[\bm q] = \int_{t_1}^{t_2} L( \bm q(t), \bm \dot q(t), t ) \dd t
+                S[\bm q(t)] = \int_{t_1}^{t_2} L( \bm q(t), \dot{\bm q}(t), t ) \dd t
             \end{equation}
-            这里的函数$L(\bm q,\bm \dot q,t)$称为系统的\textbf{拉格朗日量}, 该力学体系在时刻$t_1$和$t_2$之间联结广义坐标$\bm q^{(1)}$与$\bm q^{(2)}$的真实运动轨迹就是使作用量$S$的一阶变分$\delta S = 0$的轨迹.
+            这里的函数$L(\bm q,\dot{\bm q},t)$称为系统的\textbf{拉格朗日量}, 该力学体系在时刻$t_1$和$t_2$之间联结广义坐标$\bm q^{(1)}$与$\bm q^{(2)}$的真实运动轨迹就是使作用量$S$的一阶变分$\delta S = 0$的轨迹\cite{刘川理力}.
         \end{law}
 
-        这是一个原理, 这意味着它不是通过推到得出来的. 就如同电磁学中的麦克斯韦尔方程式, 统计热力学中的各态历经原理一样, 它们的正确性是由它们的推论的正确性保证的. 
+        这是一个原理, 这意味着它不是通过推到得出来的. 就如同电磁学中的麦克斯韦尔方程式, 统计热力学中的各态历经原理一样, 它们的正确性是由它们推论的正确性保证的. 
 
         \subsection{Lagrange力学}
 
-        接着我们来讨论有关与泛函和变分的问题. 在这里我并不想给出泛函与泛函微分在数学上严格的定义, 读者可以自行寻找相关参考书籍. 泛函可以认为是一个函数空间到$\mathbb{R}$的映射, 它的自变量是一个函数. 如果我们假设系统真实运动轨迹是$\bm q_\mathrm{c}(t)$, 显然有$\bm q_\mathrm{c}(t_1) = \bm q^{(1)}$, $\bm q_\mathrm{c}(t_2) =\bm q^{(2)}$. 则我们考虑一个对真实运动轨迹的一个微小偏离$\delta \bm q(t)$, 且在这里我们要求这个微小的偏离满足$\delta \bm q(t_1)=\delta \bm q(t_2)=0$. 这个对真实轨迹的微小偏离在数学上称为变分.
+        接着来讨论有关与泛函和变分的问题. 泛函可以认为是一个函数空间到$\mathbb{R}$的映射, 它的自变量是一个函数\footnote{在这里我并不想给出泛函与泛函微分在数学上严格的定义, 读者可以自行寻找相关参考书籍.}. 假设系统真实运动轨迹是$\bm q_\mathrm{c}(t)$, 显然有$\bm q_\mathrm{c}(t_1) = \bm q^{(1)}$, $\bm q_\mathrm{c}(t_2) =\bm q^{(2)}$. 考虑一个对真实运动轨迹的一个微小偏离$\delta \bm q(t)$, 且在这里我们要求这个微小的偏离满足$\delta \bm q(t_1)=\delta \bm q(t_2)=0$. 这个对真实轨迹的微小偏离在数学上称为变分.
 
-        最小作用量原理要求$\delta S = 0$, 那么我们首先需要根据定义写下$\delta S$:
+        最小作用量原理要求$\delta S = 0$, 那么首先根据定义写下$\delta S$:
         \begin{equation}
-            \delta S = \int_{t_1}^{t_2} L( \bm q_\mathrm{c} - \delta \bm q(t_1) , \bm \dot q_\mathrm{c} - \delta \bm \dot q(t_1), t ) \dd t - \int_{t_1}^{t_2} L( \bm q_\mathrm{c} , \bm \dot q_\mathrm{c}, t ) \dd t
+            \delta S = \int_{t_1}^{t_2} L( \bm q_\mathrm{c} - \delta \bm q(t_1) , \dot{\bm q}_\mathrm{c} - \delta \dot{\bm q}(t_1), t ) \dd t - \int_{t_1}^{t_2} L( \bm q_\mathrm{c} , \dot{\bm q}_\mathrm{c}, t ) \dd t
         \end{equation}
-        使得$\delta \bm q$为无穷小量, 则可以得到\footnote{这里使用了爱因斯坦求和规定, 即隐含一个对相同指标$i$的求和号. 笔者认为这种表达比使用向量表示更不容易出错, 缺点在于指标太多的时候可能没法很好地把式子整理得很好看. (虽然以笔者的微レ存的数理基础, 用向量表示可能会推错式子)}:
+        使得$\delta \bm q$为无穷小量, 则可以得到\footnote{这里使用了爱因斯坦求和规定, 即隐含一个对相同指标(这里是$i$)的求和号. 笔者认为这种表达比使用向量表示更不容易出错, 缺点在于指标太多的时候可能没法很好地把式子整理得很好看. (但以笔者的微レ存的数理基础, 用向量表示可能会推错式子)}:
         \begin{equation}
             \delta S = \int_{t_1}^{t_2} \dd t \left( \frac{\partial L}{\partial q_i} \delta q_i + \frac{\partial L}{\partial \dot q_i} \delta \dot q_i \right)
         \end{equation}
-        我们注意到, 通过分步积分:
+        注意到, 通过分步积分:
         \begin{equation}
-            \frac{\partial L}{\partial \dot q_i} \delta \dot q_i = \frac{\mathrm{d}}{\mathrm{d} t} \left( \frac{\partial L}{\partial \dot q_i} \delta q_i \right) - \left[\frac{\mathrm{d} }{\mathrm{d} t} \frac{\partial L}{\partial \dot q_i} \right] \delta q_i
+            \frac{\partial L}{\partial \dot q_i} \delta \dot q_i = \frac{\mathrm{d}}{\mathrm{d} t} \left( \frac{\partial L}{\partial \dot q_i} \delta q_i \right) - \left(\frac{\mathrm{d} }{\mathrm{d} t} \frac{\partial L}{\partial \dot q_i} \right) \delta q_i
         \end{equation}
         可以得到:
         \begin{equation}\label{eq:8-1-1}
@@ -47,11 +47,11 @@
         \end{equation}
         其中$f$为系统的自由度. 
 
-        我们看到在Lagrange力学中拉格朗日量处于中心地位, 它描述了体系全部的经典力学性质. 对于非相对论的力学体系, 拉格朗日量可以写为动能减去势能$L = K - V$. 在一些坐标系下动能可能有些非常繁杂的表达式, 而势能仅依赖于广义坐标与时间. 我们可以把它写下来:
+        拉格朗日量在Lagrange力学中处于中心地位, 它描述了体系全部的经典力学性质. 对于非相对论的力学体系, 拉格朗日量可以写为动能减去势能$L = K - V$. 在一些坐标系下动能可能有些非常繁杂的表达式, 而势能仅依赖于广义坐标与时间. 拉格朗日量的形式如下:
         \begin{equation}
             L =  \frac{M_{ij}(\bm q)}{2} \dot q_i \dot q_j  - V(\bm q, t)
         \end{equation}
-        我们可以定义广义动量为: 
+        并定义广义动量为: 
         \begin{equation}
             p_i =\frac{\partial L}{\partial \dot q_i} = M_{ij}(\bm q) \dot q_j
         \end{equation}
@@ -62,7 +62,7 @@
         \begin{equation}
             \frac{\mathrm{d} L}{\mathrm{d} t} = \frac{\partial L}{\partial t} + p_i \ddot q_i + \dot p_i \dot q_i = \frac{\partial L}{\partial t} +  \frac{\mathrm{d} (p_i \dot q_i)}{\mathrm{d} t}
         \end{equation}
-        如果拉格朗日量不显含时间, 那么定义能量$E = p_i \dot q_i - L$是系统的守恒量. 
+        如果拉格朗日量不显含时间, 那么定义系统的守恒量$E = p_i \dot q_i - L$是能量. 
         受到系统能量的启发, 对拉格朗日量进行勒让德变换, 定义哈密顿量为$H = p_i \dot q_i - L$. 
         由这个定义可以得出:
         \begin{equation}
@@ -78,22 +78,22 @@
 
         \subsection{Hamilton-Jacobi方程}
 
-        我们有了作用量$S$这一个新的物理量, 我们可以研究一下其对广义坐标$\bm q$的偏导、对时间$t$的偏导与全导. 这里的偏导数非常地多, 注意弄清楚每个偏导中那些变量是不变的. 
+        我们有了作用量$S$这个新物理量, 可以研究一下其对广义坐标$\bm q$的偏导、对时间$t$的偏导与全导. 这里的偏导数比较多, 注意弄清楚每个偏导中那些变量是不变的. 
 
-        考虑对于广义坐标的$q$的偏导, 这里实际上考虑的是对于真实轨迹的初始位置$\bm q^{(1)}$与结束为止$\bm q^{(2)}$的偏导. 通过式\ref{eq:8-1-1}, 由于运动轨迹为真实轨迹, 所以第二项积分为0. 因此可以得到: 
+        考虑对于广义坐标的$q$的偏导, 这里实际上考虑的是对初始位置$\bm q^{(1)}$与结束为止$\bm q^{(2)}$的偏导, 并且假设联结这两个点的轨迹是经典的真实运动轨迹. 通过式\ref{eq:8-1-1}, 第一项中的$\delta q_i$就相当于微元, 第二项积分为0. 可以得到: 
         \begin{equation}
             \left( \frac{\partial S}{\partial q_i^{(1)}} \right)_{t, q_i^{(2)}} = - \frac{\partial L}{\partial \dot q_i};
             \qquad
             \left(\frac{\partial S}{\partial q_i^{(2)}}\right)_{t, q_i^{(1)}} = \frac{\partial L}{\partial \dot q_i}
         \end{equation}
-        一般我们取的是末端点的偏导, 并且我们注意到拉格朗日量对广义速度的偏导数就是广义动量. 因此在不引起歧义时我们一般会写: 
+        一般选取末端点的偏导, 并且注意到拉格朗日量对广义速度的偏导数就是广义动量. 因此在不引起歧义时一般写为: 
         \begin{equation}
             \frac{\partial S}{\partial q_i} = p_i
         \end{equation}
 
         实际上作用量$S$形式上是一个变上限定积分, 因此全导非常容易得到: 
         \begin{equation}
-            S[\bm q](t) = \int_{0}^{t} L( \bm q(\tau), \bm \dot q(\tau), \tau ) \dd \tau
+            S[\bm q(t)] = \int_{0}^{t} L( \bm q(\tau), \dot{\bm q}(\tau), \tau ) \dd \tau
             \qquad \implies \frac{\mathrm{d} S}{\mathrm{d} t} = L
         \end{equation}
         考虑到全导与偏导的关系, 有:
@@ -125,7 +125,7 @@
 
         \subsection{传播子与路径积分}
 
-        我们基于含时薛定谔方程已经得到了时间演化算符, 当不同时刻的哈密顿算符对易且不显含时间时:
+        在前文中, 已经通过含时薛定谔方程得到了时间演化算符. 当不同时刻的哈密顿算符对易且不显含时间时:
         \begin{equation}
             | \psi(t) \rangle = \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | \psi(0) \rangle
         \end{equation}
@@ -160,31 +160,59 @@
         \begin{equation}
             \int_{-\infty}^{+\infty} \mathrm{e}^{-ax^2+bx} \mathrm{d}x = \sqrt{\frac {\pi}a} \mathrm{e}^{\frac {b^2}{4a}}
         \end{equation}
-        由此得到传播子为:
+        由此得到$t/N \to 0$时的传播子为:
         \begin{equation}
             \langle x | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{N\hbar}} | y \rangle = \sqrt{\frac {mN}{2\pi\mathrm{i} \hbar t}} \mathrm{e}^{\mathrm{i}\frac {mN(x-y)^2}{2\hbar t}}\mathrm{e}^{-\frac {\mathrm{i}t}{N\hbar} V(y)}
         \end{equation}
-        前两项来自于动能算符, 第三项来自于势能算符. 动能算符和势能算符虽然不对易, 但是在$N \to \infty$时可以得到这个结果. 
+        前两项来自于动能算符, 第三项来自于势能算符. 动能算符和势能算符虽然不对易, 但是在$t/N \to 0$时可以得到这个结果. 
 
         \splitline
 
         一般情况下的传播子可以通过对无穷短时间的传播子积分得到:
         \begin{equation}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \left(\frac{mN}{2\pi\mathrm{i}\hbar t}\right)^{N/2} \left(\prod_{n = 1}^{N}\int 
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \left(\frac{mN}{2\pi\mathrm{i}\hbar t}\right)^{N/2} \left(\prod_{n = 1}^{N-1}\int 
             \mathrm{d} x_n \right) \mathrm{e}^{ \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{N} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] }
         \end{equation}
-        在$N \to \infty$的情形下$N(x_{n-1} - x_n)/t = \dot x_n$, 且可将求和号换为积分号. 那么指数上可写为: 
+        在$t/N \to 0$的情形下$N(x_{n-1} - x_n)/t = \dot x_n$, 且可将求和号换为积分号. 那么指数上可写为: 
         \begin{equation}\begin{aligned}
             \frac{\mathrm{i}t}{\hbar N} \sum_{n = 1}^{N} \left[ \frac{m}{2} \left(\frac{x_{n-1} - x_n}{t/N}\right)^2 - V(x_n)\right] &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t \left[ \frac{1}{2} m \dot x^2 - V(x) \right]\\
-            &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t L = \frac{\mathrm{i}}{\hbar} S_t[x]
+            &= \frac{\mathrm{i}}{\hbar} \int_0^t \mathrm{d}t L = \frac{\mathrm{i}}{\hbar} S[x(t)]
         \end{aligned}\end{equation}
-        作为一种表示方法, 有: 
+        作为一种表示方法, 有\cite{费曼量子力学与路径积分}: 
         \begin{equation}\label{eq:8-2-1}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \int \mathcal{D}[x] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S_t[x] }
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_N \rangle = \int_{x_0}^{x_N} \mathcal{D}[x(t)] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S[x(t)] }
         \end{equation}
-        其中$\mathcal{D}[q]$表示对所有可能的路径进行积分, 同时将归一化因子作为测度包含在内(这个归一化因子应当是与路径无关的). 我们发现传播子其实是一种对所有路径的加权平均. 其中所有路径权重的模相等, 但具有与作用量相关的相位. 由于作用量的形式与经典作用量一致, 所以只要我们能算得出这个积分就可以求得传播子. 
+        其中$\mathcal{D}[x(t)]$表示对所有可能的路径进行积分, 同时将归一化因子作为测度包含在内(这个归一化因子应当是与路径无关的). 虽然上面似乎给出了归一化因子的一个形式, 但很明显它对于$N \to \infty$不是一个好的定义. 实际上不同体系归一化因子并不是一样的, 需要通过实际计算确定. 
 
-        注意虽然上面似乎给出了归一化因子的一个形式, 但很明显它对于$N \to \infty$不是一个好的定义. 实际上不同体系归一化因子并不是一样的, 需要通过实际计算确定. 
+        可以发现传播子其实是一种对所有路径的加权平均, 其中所有路径权重的模相等, 但具有与作用量相关的相位. 由于作用量的形式与经典作用量一致, 只要能算得出这个积分就能求出传播子. 请注意, 这并不意味着$S[x(t)]$的"结果"也会与经典作用量积分的结果$S[\bar x(t)]$一致(用$\bar x(t)$表示经典轨迹), 也就是说一般不能算出轨迹的经典作用量直接带入路径积分表达式.
+
+        \subsection{路径积分的准经典近似}
+
+        经典轨迹作用量$S[\bar x(t)]$的表达式相对容易求得, 它反映了经典粒子的运动状态. 而在求传播子的时候, 对所有路径求$S[x(t)]$是一件非常困难的事情. 如果能直接将传播子表达式中对所有可能的路径积分换成对经典路径的积分, 将会是一个很有用的近似. 我们将这个近似称为准经典近似, 用方程表达出来即为下式(式\ref{eq:8-2-1.1}). 
+        \begin{equation}\label{eq:8-2-1.1}
+            \langle x_i | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_f \rangle \simeq f(t) \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S[\bar x(t)] } 
+        \end{equation}
+        问: 准经典近似在什么条件下成立?
+
+        \splitline
+
+        现在我们证明, 对形式如下的拉格朗日量而言, 准经典近似是精确成立的. 
+        \begin{equation}\label{eq:8-2-1.2}
+            L(x, \dot x, t) = a(t)\dot x^2 + b(t) \dot x x + c(t) x^2 + d(t) \dot x + e(t) x + f(t)
+        \end{equation}
+        设粒子从点$(x_1, t_1)$运动到$(x_2, t_2)$, 经典轨迹为$\bar x(t)$. 设计一个新变量$y(t) = x(t) - \bar x(t)$, 有$y(t_1) = y(t_2) = 0$. 由于$\bar x(t)$是确定的轨迹, 有$\mathcal{D}[x(t)] = \mathcal{D}[y(t)]$. 作用量的积分为:
+        \begin{equation}
+            S[\bar x(t) + y(t)] = S[\bar x(t)] + \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y x + c(t) y^2 + \cdots] \mathrm{d}t
+        \end{equation}
+        其中对$y$或者$\dot y$的一次项放在了省略号里, 这些项积分为0. 传播子可以写为: 
+        \begin{equation}
+            \langle x_1 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_2 \rangle = \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S[\bar x(t)] } \int_0^0 \mathcal{D}[y(t)] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y x + c(t) y^2] \mathrm{d}t }
+        \end{equation}
+        现在注意到积分号中的被积函数与经典轨迹$\bar x(t)$无关, 所以其路径积分应当与$x_1$或$x_2$无关; 且轨迹$y(t)$起始并终止于$y=0$, 因此这个路径积分只能是时间的函数. 这意味着传播子可以写为: 
+        \begin{equation}\begin{aligned}
+            \langle x_1 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | x_2 \rangle = f(t_1, t_2) \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S[\bar x(t)] } 
+        \end{aligned}\end{equation}
+        可以看到, 在差一个$t_1$和$t_2$的函数的意义下, 通过准经典近似能准确求得体系的传播子. 而一般不管使用的是何种方法, 归一化系数都是通过间接的方法求出来的. 准经典近似非常有用, 只要拉格朗日量具有式\ref{eq:8-2-1.2}的形式, 即使对多粒子体系, 或是拉格朗日量含时的情况, 也能相对容易地算出传播子的具体形式. 
 
         \subsection{自由粒子的传播子}
 
@@ -194,14 +222,14 @@
         \end{equation}
         如果推广到$F$维体系, 则有:
         \begin{equation}
-            \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle = (\frac {1}{2\pi\mathrm{i} \hbar t})^{\frac F2} |\mb{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {(\bm{x_0}-\bm{y_0})^{\mathrm{T}} \mb{M} (\bm{x_0}-\bm{y_0})}{2\hbar t}}
+            \langle \bm{x_0} | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |\bm{y_0} \rangle = \left(\frac {1}{2\pi\mathrm{i} \hbar t} \right)^{\frac F2} |\mb{M}|^{\frac 12} \mathrm{e}^{-\mathrm{i}\frac {(\bm{x_0}-\bm{y_0})^{\mathrm{T}} \mb{M} (\bm{x_0}-\bm{y_0})}{2\hbar t}}
         \end{equation}
 
         \splitline
 
         考虑直接通过路径积分得到自由粒子的传播子. 在经典情况下写出自由粒子作用量:
         \begin{equation}
-            S_t[x] = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
+            S[x(t)] = \int_0^t \mathcal{L}(x,\dot{x},t') \mathrm{d}t' = \frac 12 \int_0^t m\dot{x}^2 \mathrm{d}t'
         \end{equation}
         Lagrange函数会满足Euler-Lagrange方程. 而对于自由粒子, Lagrange函数不显含坐标, 所以:
         \begin{equation}
@@ -213,11 +241,11 @@
         \end{equation}
         所以, 上述作用量积分的结果为:
         \begin{equation}
-            S = \frac{m(y_0 - x_0)^2}{2t}
+            S(x_0, y_0) = \frac{m(y_0 - x_0)^2}{2t}
         \end{equation}
-        由于自由粒子的作用量与路径毫无关系, 利用传播子的一般形式(式\ref{eq:8-2-1})很容易算出传播子的表达式:
+        已证得对于自由粒子准经典近似是精确成立的, 利用传播子的准经典近似(式\ref{eq:8-2-1.1})很容易算出传播子的表达式:
         \begin{equation}
-            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle = \int \mathcal{D}[x] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S_t[x] } = C(t) \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac{m(y_0 - x_0)^2}{2t}}
+            \langle x_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} | y_0 \rangle = \int \mathcal{D}[x(t)] \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S[x(t)] } = C(t) \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac{m(y_0 - x_0)^2}{2t}}
         \end{equation}
         其中$C(t)$是归一化因子. 现在希望能把$C(t)$求出, 给定初始条件:
         \begin{equation}
@@ -228,12 +256,10 @@
             \int_{-\infty}^{+\infty} \mathrm{e}^{\frac {\mathrm{i}}{\hbar} \frac {m(y_0 - x_0)^2}{2t}}\mathrm{d}y_0 = \sqrt{\frac {2\pi\mathrm{i}\hbar t}m}
         \end{equation}
         于是:
-        \begin{equation}
+        \begin{equation}\label{eq:8-2-3}
             C(t) = \sqrt{\frac m{2\pi\mathrm{i}\hbar t}}
         \end{equation}
-        我们已经得出了归一化因子. 
-
-        如果不放心, 可设传播子为$ C(t) D(t) \mathrm{e}^{ \frac{\mathrm{i}}{\hbar} S } $, 带回含时薛定谔方程验证($D(0) = 1$).
+        我们得出了$t \to 0$时的归一化因子. 为了验证在$t \neq 0$ 时归一化系数是正确的, 设传播子为$C(t) D(t) \mathrm{e}^{\frac{\mathrm{i}}{\hbar}S}$, 带回含时薛定谔方程验证, 其中$D(0) = 1$.
         \begin{equation}
             -\mathrm{i}\hbar \frac {\partial}{\partial t} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle =  \langle y_0 | \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle = -\frac {\hbar^2}{2m} \frac {\partial^2}{\partial y_0^2} \langle y_0 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} |x_0 \rangle
         \end{equation}
@@ -246,9 +272,9 @@
 
         \subsection{其他体系的传播子}
 
-        即使不是自由体系也可以利用式\ref{eq:8-2-1}进行计算, 但能计算出解析形式传播子的体系非常少. 目前, 传播子可以写出解析表达式的体系只有: 自由粒子、无限深方势阱、谐振子、Morse势、类氢原子\cite{Grosche_HFPI}\cite{Kleinnert_PIQMSPP}. 
+        即使不是自由体系也可以利用式\ref{eq:8-2-1}进行计算, 但能计算出解析形式传播子的体系非常少. 目前, 传播子可以写出解析表达式的束缚态有: 自由粒子、无限深方势阱、谐振子、Morse势、类氢原子等\cite{Grosche_HFPI}\cite{Kleinnert_PIQMSPP}. 
 
-        谐振子体系是一个可以求出解析形式传播子的体系, 读者可以尝试计算一下谐振子的传播子作为练习. 结果为:
+        谐振子体系是一个可以求出解析形式传播子的体系, 读者可以尝试计算一下谐振子的传播子作为练习\footnote{用准经典近似很简单, 读者也可以尝试下不用准经典近似怎么做}. 结果为:
         \begin{equation}
             \langle x | \mathrm{e}^{-\frac {\mathrm{i}}{\hbar}\hat{H}_\mathrm{HO}t} | y \rangle = \sqrt{\frac{m\omega}{2\mathrm{i}\pi\hbar\sin(\omega t)}} \exp\left\{ \frac{\mathrm{i}}{\hbar} \frac{m\omega}{2\sin(\omega t)}\left[ (x^2 + y^2)\cos(\omega t) - 2xy \right] \right\} \\
         \end{equation}
@@ -259,9 +285,11 @@
             第8次作业第四题
         \end{asg}
 
-    \section{路径积分分子动力学}
+    \section{虚时路径积分}
 
-        我们注意到量子体系下的Boltzmann分布为
+        \subsection{路径积分分子动力学}
+
+        注意到量子体系下的Boltzmann分布为
         \begin{equation}
             \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta E_n} |\phi_n \rangle \langle \phi_n|
         \end{equation}
@@ -315,6 +343,8 @@
             &= \int D(N) \mathrm{e}^{-\beta H_{\mathrm{eff}}(\bm{x,p})} \mathrm{d}\bm{x} \mathrm{d}\bm{p}
         \end{aligned}\end{equation}
         如果$N=1$, 那么就是经典统计力学的结果. 这体现了量子力学和经典统计力学的同构. 
+
+        \subsection{量子Monte-Carlo}
 
         如果关心含时Schodinger方程：
         \begin{equation}
