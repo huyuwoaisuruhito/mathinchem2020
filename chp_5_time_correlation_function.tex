@@ -11,7 +11,7 @@
     \end{equation}
     量子化以后得到的结果是
     \begin{equation}
-        Z = \frac 1{(\beta \hbar)^N \det \bm{\Omega}}
+        Z = \frac 1{(\beta \hslash)^N \det \bm{\Omega}}
     \end{equation}
     要计算物理量的期望, 应有
     \begin{equation}
@@ -128,18 +128,18 @@
     \end{equation}
     其中$\bm{e}$为电场偏振方向的单位矢量, $\bm{M} = \sum_i q_i \bm{r}_i$ 为分子的偶极矩. 将跃迁矩阵元记为$P_{i\to f}$, 则由费米黄金规则可以得到(或者你可以在\cite{蒋鸿中物化:含时微扰}找到推导过程)
     \begin{equation}
-        P_{i\to f}(\omega) = \frac{\pi E_0^2}{2\hbar^2} \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right]
+        P_{i\to f}(\omega) = \frac{\pi E_0^2}{2\hslash^2} \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right]
     \end{equation}
-    这里的$i$与$f$分别表示跃迁的始末态, 它们都是能量本征态; 符号$\omega_{fi} = (E_f - E_i)/\hbar$. 用$\rho_n$标记体系处于态$n$上的概率\footnote{注意到该公式中能量本征态同时也是态密度算符$\hat\rho$的本征态, 所以这个公式只适用于定态}, 我们可以计算体系吸收的能量
+    这里的$i$与$f$分别表示跃迁的始末态, 它们都是能量本征态; 符号$\omega_{fi} = (E_f - E_i)/\hslash$. 用$\rho_n$标记体系处于态$n$上的概率\footnote{注意到该公式中能量本征态同时也是态密度算符$\hat\rho$的本征态, 所以这个公式只适用于定态}, 我们可以计算体系吸收的能量
     \begin{equation}\begin{aligned}
         E_\mathrm{abs}(\omega) 
-        &= \sum_{i,f}  \hbar\omega_{fi} \rho_i P_{i\to f} \\
-        &= \frac{\pi E_0^2}{2\hbar} \sum_{i,f} \omega_{fi} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right] \\
-        &= \frac{\pi E_0^2}{2\hbar} \sum_{i,f} \omega_{fi} (\rho_i - \rho_f) \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
+        &= \sum_{i,f}  \hslash\omega_{fi} \rho_i P_{i\to f} \\
+        &= \frac{\pi E_0^2}{2\hslash} \sum_{i,f} \omega_{fi} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right] \\
+        &= \frac{\pi E_0^2}{2\hslash} \sum_{i,f} \omega_{fi} (\rho_i - \rho_f) \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
     \end{aligned}\end{equation}
     这其实是基于一阶含时微扰法导出的定态束缚态系统吸收(或者辐射)的功率谱, 也是实际观察到的光谱. 如果$\rho_n = \frac 1Z \mathrm{e}^{-\beta E_n}$是玻尔兹曼分布, 则有
     \begin{equation}
-        E_\mathrm{abs}(\omega) = \frac{\pi \omega E_0^2}{2\hbar} (1 - \mathrm{e}^{-\beta\hbar\omega}) \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
+        E_\mathrm{abs}(\omega) = \frac{\pi \omega E_0^2}{2\hslash} (1 - \mathrm{e}^{-\beta\hslash\omega}) \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
     \end{equation}
 
     我们定义光谱$I(\omega)$\footnote{这里的常数并不重要, 只是让最后的式子好看一点而已}
@@ -149,9 +149,9 @@
     展开$\delta$函数, 可以得到
     \begin{equation}\begin{aligned}
         I(\omega) = 
-        &= \frac{3}{4\pi} \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \int_{-\infty}^{\infty} \mathrm{d}t\, \mathrm{e}^{\mathrm{i}\left[(E_f - E_i)/\hbar - \omega\right]t} \\
-        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i,f} \rho_i \langle i|\bm{M} \cdot \bm{e}|f \rangle \langle f| \mathrm{e}^{\mathrm{i}E_f/\hbar t} \left(\bm{M} \cdot \bm{e}\right) \mathrm{e}^{-\mathrm{i}E_i/\hbar t} |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
-        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M} \cdot \bm{e} \left(\sum_{f} |f \rangle \langle f| \right) \left( \mathrm{e}^{\mathrm{i}H_0/\hbar t} \bm{M} \mathrm{e}^{-\mathrm{i}H_0/\hbar t} \right) \cdot \bm{e}  |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+        &= \frac{3}{4\pi} \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \int_{-\infty}^{\infty} \mathrm{d}t\, \mathrm{e}^{\mathrm{i}\left[(E_f - E_i)/\hslash - \omega\right]t} \\
+        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i,f} \rho_i \langle i|\bm{M} \cdot \bm{e}|f \rangle \langle f| \mathrm{e}^{\mathrm{i}E_f/\hslash t} \left(\bm{M} \cdot \bm{e}\right) \mathrm{e}^{-\mathrm{i}E_i/\hslash t} |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M} \cdot \bm{e} \left(\sum_{f} |f \rangle \langle f| \right) \left( \mathrm{e}^{\mathrm{i}H_0/\hslash t} \bm{M} \mathrm{e}^{-\mathrm{i}H_0/\hslash t} \right) \cdot \bm{e}  |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
         &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M}(0) \cdot \bm{e} \, \bm{M}(t) \cdot \bm{e} |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
     \end{aligned}\end{equation}
     鉴于通常入射光是各向同性的, 所以要对$\bm{e}$在单位球上进行积分. 取向量$\bm{A}$的方向为极轴, 记极坐标中向量$\bm{B} = (B, \psi, 0)$, 利用球面三角中边的余弦公式计算积分
@@ -172,13 +172,13 @@
 
     我们从光谱的定义式(式\ref{eq:5-1}), 可以得到
     \begin{equation}
-        \frac{I(\omega_{fi})}{I(\omega_{if})} = \frac{\rho_i}{\rho_f} = \mathrm{e}^{\beta\hbar\omega_{fi}}
+        \frac{I(\omega_{fi})}{I(\omega_{if})} = \frac{\rho_i}{\rho_f} = \mathrm{e}^{\beta\hslash\omega_{fi}}
     \end{equation}
     由于$\omega_{fi} = - \omega_{if}$, 所以可以得到
     \begin{equation}
-        \mathrm{e}^{-\beta \hbar \omega} I(\omega) = I(-\omega)
+        \mathrm{e}^{-\beta \hslash \omega} I(\omega) = I(-\omega)
     \end{equation}
-    这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同, 称为\textbf{细致平衡原理}. 经典极限下$\hbar \to 0$, 光谱就变成了偶函数. 
+    这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同, 称为\textbf{细致平衡原理}. 经典极限下$\hslash \to 0$, 光谱就变成了偶函数. 
     
     \bibliographystyle{plain}
     \bibliography{ref_chp_5}

@@ -50,7 +50,7 @@
         其中
         \begin{equation}\begin{aligned}
             \rho &= \frac 1Z \mathrm{e}^{-\beta H(x,p)}\\
-            Z &= \int \frac 1{2\pi \hbar} \mathrm{e}^{-\beta H(x,p)} \mathrm{d}x \mathrm{d}p
+            Z &= \int \frac 1{2\pi \hslash} \mathrm{e}^{-\beta H(x,p)} \mathrm{d}x \mathrm{d}p
         \end{aligned}\end{equation}
 
     \section{Wigner 函数}
@@ -61,12 +61,12 @@
 
         其中一种映射方法称为Wigner变换, 定义算符的Wigner密度分布函数
         \begin{equation}
-            A_\mathrm{w}(x,p) = \int \langle x - \frac {\Delta}2 | \hat{A} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i} p \Delta}{\hbar}} \mathrm{d} \Delta
+            A_\mathrm{w}(x,p) = \int \langle x - \frac {\Delta}2 | \hat{A} | x + \frac {\Delta}2 \rangle \mathrm{e}^{\frac {\mathrm{i} p \Delta}{\hslash}} \mathrm{d} \Delta
         \end{equation}
-        可以验证, 如果$\hbar \to 0$, 应有$A_\mathrm{w} \to A_\mathrm{classic}$, $B_\mathrm{w} \to B_\mathrm{classic}$. 且可以验证
+        可以验证, 如果$\hslash \to 0$, 应有$A_\mathrm{w} \to A_\mathrm{classic}$, $B_\mathrm{w} \to B_\mathrm{classic}$. 且可以验证
         \begin{equation}\begin{aligned}
             \mathrm{Tr} (\hat{A}\hat{B}) &= \sum_{ij} \langle \phi_{i} | \hat{A} | \phi_{j} \rangle \langle \phi_{j} | \hat{B} | \phi_{i} \rangle \\
-            &= \frac 1{2\pi\hbar} \int A_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x \mathrm{d}p
+            &= \frac 1{2\pi\hslash} \int A_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x \mathrm{d}p
         \end{aligned}\end{equation}
 
         可以在位置空间和动量空间给出概率密度分布. 并可以验证
@@ -77,7 +77,7 @@
         \end{equation}
         由前文的讨论可以发现物理量的期望值可以写为
         \begin{equation}
-            \langle \hat{B} \rangle = \frac 1{2\pi \hbar} \int \rho_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x\mathrm{d}p
+            \langle \hat{B} \rangle = \frac 1{2\pi \hslash} \int \rho_\mathrm{w}(x,p) B_\mathrm{w}(x,p) \mathrm{d}x\mathrm{d}p
         \end{equation}
 
     \bibliographystyle{plain}
