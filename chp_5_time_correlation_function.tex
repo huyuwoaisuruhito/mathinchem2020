@@ -1,10 +1,11 @@
 \chapter{时间关联函数}
-    \section{20201030：物理量及其时间关联函数}
-    对简正坐标下的Hamilton函数
+    \section{物理量的期望值与时间关联函数}
+
+    对简正坐标下的Hamilton函数:
     \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
     \end{equation}
-    它满足Boltzmann分布时，配分函数为
+    它满足Boltzmann分布时, 配分函数为
     \begin{equation}
         Z = \int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P} = \bigg(\frac {2\pi}{\beta}\bigg)^N \frac 1{\det \bm{\Omega}}
     \end{equation}
@@ -12,7 +13,7 @@
     \begin{equation}
         Z = \frac 1{(\beta \hbar)^N \det \bm{\Omega}}
     \end{equation}
-    要计算物理量的期望，应有
+    要计算物理量的期望, 应有
     \begin{equation}
         \langle B \rangle = \frac {\int B(\bm{Q,P})\mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
     \end{equation}
@@ -24,136 +25,160 @@
     \begin{equation}
         \rho_t (\bm{Q,P}) = \int \mathrm{e}^{-\beta H(\bm{Q_0,P_0})} \delta(\bm{Q-Q}_t) \delta(\bm{P-P}_t) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0
     \end{equation}
-    代入，可以得到
+    代入, 可以得到
     \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q}_t,\bm{P}_t) \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}{\int \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}
     \end{equation}
+    可以发现只要知道了初始时刻的分布$\rho_0(\bm{Q}_0,\bm{P}_0)$和体系的演化轨迹$(\bm{Q}_t,\bm{P}_t)$, 就可以求得$t$时刻的物理量, 而无需演化体系的分布. 
 
-    现在开始研究一些光谱的性质。设红外光谱为$I(\omega)$, 让分子不转动，则得到的红外光谱为分立的线。对红外光谱做Fourier变换，得到
+    如果假设系统的分布是一个平衡分布(比如Boltzmann分布就是一个平衡分布), 即
     \begin{equation}
-    f(t) = \int I(\omega)\mathrm{e}^{\mathrm{i}\omega t}\mathrm{d}\omega 
+        - \frac {\partial \rho}{\partial t} = \{ H, \rho\} = 0
     \end{equation}
-    它反映了分子的动力学性质。这个时间是什么？现在问有没有可能成为某个物理量的Fourier变换？
-    \begin{asg}
-        第4次作业第1题：Fourier变换
-    \end{asg}
+    则有$\rho_0(x,p) = \rho_{t'}(x, p) = \rho_{\mathrm{eq}}(x, p)$, 于是有
+    \begin{equation}
+        \langle B(t) \rangle = \langle B(0) \rangle
+    \end{equation}
+
+    \splitline
+
     定义\textbf{两点时间关联函数}:
     \begin{equation}
-    \langle B(0)B(t) \rangle = \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0
+        \langle A(0)B(t) \rangle = \int \rho_0(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
     \end{equation}
-    同一物理量的两点时间关联函数如果交换顺序并不会有变化，因为Liouville定理，
-    \begin{equation}\begin{aligned}
-    \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
-    &= \int \rho_t(x_t,p_t) B(x_t,p_t) B(x_0(x_t,p_t),p_0(x_t,p_t)) \mathrm{d}x_t \mathrm{d}p_t\\
-    &= \langle B(t)B(0) \rangle
-    \end{aligned}\end{equation}
-    现在要求$\langle B(0)B(t) \rangle$和$\langle B(0)B(-t) \rangle$的关系。在积分的条件下，因为积分变量是哑变量，
-    \begin{equation}\begin{aligned}
-    \langle B(0)B(t) \rangle &= \int \rho_0(x_0,p_0) B(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
-    &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-    &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-    \end{aligned}\end{equation}
-    其中，第二步是作变量替换
-    \begin{equation}
-    x_0 \to x_{-t}
-    \end{equation}
-    并且$x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果，而将$x_{-t}$演化$t$时间为$x_0$。如果假设
-    \begin{equation}
-    \frac {\partial \rho}{\partial t} = 0 = \{ H, \rho\}
-    \end{equation}
-    则显然地，
-    \begin{equation}\begin{aligned}
-        \langle B(0)B(t) \rangle &= \int \rho_0(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-        &= \int \rho_{-t}(x_{-t},p_{-t}) B(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-        &= \langle B(-t)B(0) \rangle
-    \end{aligned}\end{equation}
-    \begin{asg}
-        第4次作业第2题：时间自关联函数是否有时间平移对称性？
-    \end{asg}
+    注意这里$\bm{x}_t$是$\bm{x}_0$与$t$的函数; $\bm{p}_t$是$\bm{p}_0$与$t$. $A(\bm{x}_0,\bm{p}_0)$与$B(\bm{x}_t,\bm{p}_t)$可以是相同的物理量. 如果它们相同, 则可以称作自关联函数(autocorrelation function). 下文中为了表达的简洁将在一维下讨论问题, 如果需要高维下的表达, 只需将对应物理量换为矢量即可.
 
-    \section{20201102：平衡分布的时间关联函数}
-    更一般情况的两点时间关联函数为
-    \begin{equation}
-    \langle A(0)B(t) \rangle = \int \rho_0(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
-    \end{equation}
-    如果是平衡分布，即
-    \begin{equation}
-        \frac {\partial \rho}{\partial t} = 0
-    \end{equation}
-    例如Boltzmann分布，那么
+    由于Liouville定理成立, 时间关联函数中两个物理量位置交换顺序并不会产生任何变化
     \begin{equation}\begin{aligned}
-        \langle A(0)B(t) \rangle &= \int \rho_\mathrm{eq}(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0\\
-        &= \int \rho_\mathrm{eq}(\bm{x}_{t'},\bm{p}_{t'}) A(\bm{x}_{t'},\bm{p}_{t'}) B(\bm{x}_{t+t'},\bm{p}_{t+t'}) \mathrm{d}\bm{x}_{t'} \mathrm{d}\bm{p}_{t'}\\
-        &= \langle A(t')B(t'+ t) \rangle
+        \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
+        &= \int \rho_t(x_t,p_t) A(x_t,p_t) B(x_0(x_t,p_t),p_0(x_t,p_t)) \mathrm{d}x_t \mathrm{d}p_t\\
+        &= \langle A(t)B(0) \rangle
     \end{aligned}\end{equation}
-    这样时间关联函数有时间平移对称性。但是如果不是平衡分布，就没有时间平移对称性。同样由Liouville定理很容易证明
+
+    现在求$\langle A(0)B(t) \rangle$和$\langle A(-t)B(0) \rangle$的关系. 在积分的条件下, 因为积分变量是哑变量
+    \begin{equation}\begin{aligned}
+        \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
+        &= \int \rho_0 (x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}
+    \end{aligned}\end{equation}
+    其中, 第二步是作变量替换
     \begin{equation}
-        \langle A(0)B(t) \rangle = \langle B(t)A(0) \rangle
+        x_0 \to x_{-t}
+    \end{equation}
+    并且$x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果, 而将$x_{-t}$演化$t$时间后为$x_0$. 如果假设系统的分布是一个平衡分布$\rho_0(x,p) = \rho_{-t}(x, p)$, 那么
+    \begin{equation}\begin{aligned}
+        \langle A(0)B(t) \rangle &= \int \rho_{\color{red}{0}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
+        &= \int \rho_{\color{red}{-t}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
+        &= \langle A(-t)B(0) \rangle
+    \end{aligned}\end{equation}
+
+    实际上如果分布为平衡分布, 则时间关联函数具有时间平移不变性. 
+    \begin{equation}
+        \langle A(0)B(t) \rangle = \langle A(t')B(t+t') \rangle
     \end{equation}
 
-    平衡分布满足
-    \begin{equation}
-    \langle B(t) \rangle = \langle B(0) \rangle
-    \end{equation}
-    于是平衡分布对应的平均物理量为
-    \begin{equation}
-    \langle B \rangle = \frac 1T \int_0^T \langle B(t) \rangle \mathrm{d}t
-    \end{equation}
+    \section{时间关联函数与光谱}
 
-    对于Liouville方程，有
+    现在开始研究一些光谱的性质. 设红外光谱为$I(\omega)$, 让分子不转动, 则得到的红外光谱为分立的线. 对红外光谱做Fourier变换, 得到
     \begin{equation}
-    -\frac {\partial \rho}{\partial t} = \{H,\rho\}
+        f(t) = \frac{1}{2\pi} \int I(\omega)\mathrm{e}^{\mathrm{i}\omega t}\mathrm{d}\omega 
     \end{equation}
-    此时，满足
-    \begin{equation}
-    \rho_0 = \rho_{\mathrm{eq}}
-    \end{equation}
-    两点关联函数满足
-    \begin{equation}\begin{aligned}
-    \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
-    &= \int \rho_{\mathrm{eq}} (\bm{x_{t'}},\bm{p_{t'}}) A(\bm{x_{t'}},\bm{p_{t'}}) B(\bm{x_{t+t'}}, \bm{p_{t + t'}})\\
-    &= \langle A(t')B(t+t') \rangle
-    \end{aligned}\end{equation}
-    这只有在
-    \begin{equation}
-    \rho_0(\bm{x},\bm{p}) = \rho_{t'}(\bm{x},\bm{p})
-    \end{equation}
-    时成立。
+    它反映了分子的动力学性质. 现在问, $f(x)$这个函数是什么？我们可以从经典和量子的两个角度导出$f(x)$这个函数, 并证明它是某个物理量的自关联函数. 
 
-    现在想要探索$\langle A(0)B(t) \rangle$和$\langle A(0)B(-t) \rangle$的关系。
+    \subsection{经典光谱}
+
+    从经典的角度上来说, 光谱$I(\omega)$可以写作:
     \begin{equation}\begin{aligned}
-    \langle A(0)B(t) \rangle &= \int \rho_{\mathrm{eq}} (\bm{x_0},\bm{p_0}) A(\bm{x_0},\bm{p_0}) B(\bm{x_t}, \bm{p_t})\\
-    &= \int \rho_{\mathrm{eq}}(\bm x_t, \bm p_t) A(\bm x_0,\bm p_0)B(\bm x_t, \bm p_t) \mathrm{d}\bm x_t \mathrm{d} \bm p_t\\
-    &= \int \rho_{\mathrm{eq}}(\bm x, \bm p)B(\bm x, \bm p) A(\bm x_{-t}(x,p), \bm p_{-t}(x,p))\mathrm{d}x\mathrm{d}p\\
-    &= \langle B(0)A(-t) \rangle
+        I(\omega) 
+        &= \lim_{T\to\infty} \frac 1T \left\langle \left| \int_{-T/2}^{T/2} \mathrm{d}t\, B(t) \mathrm{e}^{-\mathrm{i}\omega t} \right|^2 \right\rangle \\
+        &= \lim_{T\to\infty} \frac 1T \int_{-T/2}^{T/2} \mathrm{d}t \int_{-T/2}^{T/2} \mathrm{d}t'\, \langle B(t)B(t') \rangle \mathrm{e}^{-\mathrm{i}\omega (t'-t)} \\
     \end{aligned}\end{equation}
-    如果只考虑一个物理量的自关联函数，作Fourier积分
+    然后进行换元$(t,t')\to(t, \tau=t'-t)$. 随后认为观测光谱时外界对体系的扰动是小的, 体系仍可以用平衡分布描述. 因此有$\langle B(t)B(t+\tau) \rangle = \langle B(0)B(\tau) \rangle$. 与变量$t$无关. 因此可以得出
+    \begin{equation}\begin{aligned}
+        I(\omega) 
+        &= \lim_{T\to\infty} \frac 1T \int_{-T}^{T} \mathrm{d}\tau\, (T - |\tau|) \langle B(0)B(\tau) \rangle \mathrm{e}^{-\mathrm{i}\omega \tau} \\
+        &= \int_{-\infty}^{\infty} \mathrm{d}\tau\, \langle B(0)B(\tau) \rangle \mathrm{e}^{-\mathrm{i}\omega \tau}
+    \end{aligned}\end{equation}
+    最后一个等号从数学上来说并不一定成立. 但对于"一个足够乐观的物理学家"来说, 可以认为含$\tau$项的积分总是有限的, 因而除以T后该项趋于0, 从而得到结论. 
+
+    如果只考虑一个物理量的自关联函数, 作Fourier变换
     \begin{equation}\begin{aligned}
     I(\omega) = \int_{-\infty}^{+\infty} \mathrm{e}^{-\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t
     \end{aligned}\end{equation}
-    令$t=-s$，则
+    令$t=-s$, 则
     \begin{equation}\begin{aligned}
-    I(\omega) &= -\int_{+\infty}^{-\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
+    I(\omega) 
+    &= -\int_{+\infty}^{-\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
     &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(-s) \rangle \mathrm{d}s\\
-    &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(-t) \rangle \mathrm{d}t\\
-    &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t\\
+    &= \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega t} \langle B(s)B(0) \rangle \mathrm{d}t\\
     &= I(-\omega)
     \end{aligned}\end{equation}
-    所以自关联函数的Fourier变换在频率空间是一个偶函数。
+    所以自关联函数的Fourier变换在频率空间是一个偶函数. 但这不是真实的情况, 并且在量子力学中不成立.
 
-    这在量子力学中并不成立，如果它在能级0和能级1之间跃迁，则它在能级0的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_0}$,在能级1的概率为$\frac 1Z \mathrm{e}^{-\beta \epsilon_1}$, 配分函数为
+    \subsection{量子力学下的光谱}
+
+    这一小结内容对于完全不懂量子力学的读者来说过于困难, 请在阅读时参考一本量子力学教材或酌情跳过. 同时此小结在很大程度上参考了高毅勤老师在《物理化学(下)》课程中教授的内容.
+
+    从量子的角度需要使用含时微扰法的结论, 考虑将光中的电磁场作为微扰项引入. 光是电磁波, 其中既有交变电场也有交变磁场. 那么电磁波与物质相互作用的时候, 是以哪种场的作用为主呢? 这个问题的答案可以从洛伦兹力的形式中看出来
     \begin{equation}
-    Z = \mathrm{e}^{-\beta \epsilon_0} + \mathrm{e}^{-\beta \epsilon_1}
+        \bm{F} = q (\bm{E} + \bm{v} \times \bm{B})
     \end{equation}
-    设$E = \epsilon_1 - \epsilon_0$, 从0到1的跃迁对应的光谱Fourier变换的强度为$\mathrm{e}^{-\beta \epsilon_0} \delta(E - \hbar \omega)$，从1到0的跃迁对应的强度为$\mathrm{e}^{-\beta \epsilon_1} \delta(E + \hbar \omega)$, 于是
+    注意到自然单位制中$|\bm{E}(\bm r,t)| = c|\bm{B}(\bm r,t)|$. 由于外层电子的运动速度$v \ll c$, 所以电场的作用远大于磁场. 一般考虑原子的吸收与发射都是电偶极跃迁, 微扰项可以写为
     \begin{equation}
-    \mathrm{e}^{-\beta(\epsilon_1 - \epsilon_0)} I(\omega) = I(-\omega)
+        H' = - \bm{M} \cdot \bm{E} = - (\bm{M} \cdot \bm{e}) E_0 \cos(\omega t)
     \end{equation}
-    或写成
+    其中$\bm{e}$为电场偏振方向的单位矢量, $\bm{M} = \sum_i q_i \bm{r}_i$ 为分子的偶极矩. 将跃迁矩阵元记为$P_{i\to f}$, 则由费米黄金规则可以得到(或者你可以在\cite{蒋鸿中物化:含时微扰}找到推到过程)
     \begin{equation}
-        \mathrm{e}^{-\beta \hbar \omega}I(\omega) = I(-\omega)
+        P_{i\to f}(\omega) = \frac{\pi E_0^2}{2\hbar^2} \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right]
     \end{equation}
-    这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同，称为\textbf{细致平衡}。经典极限下，$\hbar \to 0$，变成了偶函数。
+    这里的$i$与$f$分别表示跃迁的始末态, 它们都是能量本征态; 符号$\omega_{fi} = (E_f - E_i)/\hbar$. 用$\rho_n$标记体系处于态$n$上的概率\footnote{注意到该公式中能量本征态同时也是态密度算符$\hat\rho$的本征态, 所以这个公式只适用于定态}, 我们可以计算体系吸收的能量
+    \begin{equation}\begin{aligned}
+        E_\mathrm{abs}(\omega) 
+        &= \sum_{i,f}  \hbar\omega_{fi} \rho_i P_{i\to f} \\
+        &= \frac{\pi E_0^2}{2\hbar} \sum_{i,f} \omega_{fi} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \left[ \delta(\omega_{fi} - \omega) + \delta(\omega_{fi} + \omega) \right] \\
+        &= \frac{\pi E_0^2}{2\hbar} \sum_{i,f} \omega_{fi} (\rho_i - \rho_f) \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
+    \end{aligned}\end{equation}
+    这其实是基于一阶含时微扰法导出的定态束缚态系统吸收(或者辐射)的功率谱, 也是实际观察到的光谱. 如果$\rho_n = \frac 1Z \mathrm{e}^{-\beta E_n}$是玻尔兹曼分布, 则有
+    \begin{equation}
+        E_\mathrm{abs}(\omega) = \frac{\pi \omega E_0^2}{2\hbar} (1 - \mathrm{e}^{-\beta\hbar\omega}) \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
+    \end{equation}
+
+    我们定义光谱$I(\omega)$\footnote{这里的常数并不重要, 只是让最后的式子好看一点而已}
+    \begin{equation}\label{eq:5-1}
+        I(\omega) = \frac{3}{2} \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \delta(\omega_{fi} - \omega)
+    \end{equation}
+    展开$\delta$函数, 可以得到
+    \begin{equation}\begin{aligned}
+        I(\omega) = 
+        &= \frac{3}{4\pi} \sum_{i,f} \rho_i \left| \langle f|\bm{M} \cdot \bm{e}|i \rangle \right|^2 \int_{-\infty}^{\infty} \mathrm{d}t\, \mathrm{e}^{\mathrm{i}\left[(E_f - E_i)/\hbar - \omega\right]t} \\
+        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i,f} \rho_i \langle i|\bm{M} \cdot \bm{e}|f \rangle \langle f| \mathrm{e}^{\mathrm{i}E_f/\hbar t} \left(\bm{M} \cdot \bm{e}\right) \mathrm{e}^{-\mathrm{i}E_i/\hbar t} |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M} \cdot \bm{e} \left(\sum_{f} |f \rangle \langle f| \right) \left( \mathrm{e}^{\mathrm{i}H_0/\hbar t} \bm{M} \mathrm{e}^{-\mathrm{i}H_0/\hbar t} \right) \cdot \bm{e}  |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+        &= \frac{3}{4\pi} \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M}(0) \cdot \bm{e} \, \bm{M}(t) \cdot \bm{e} |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+    \end{aligned}\end{equation}
+    鉴于通常入射光是各向同性的, 所以要对$\bm{e}$在单位球上进行积分. 取向量$\bm{A}$的方向为极轴, 记极坐标中向量$\bm{B} = (B, \psi, 0)$, 利用球面三角中边的余弦公式计算积分
+    \begin{equation}\begin{aligned}
+        I_{\bm{AB}} 
+        &= \int (\bm{A} \cdot \bm{e})(\bm{B} \cdot \bm{e}) \,\mathrm{d} \Omega_{\bm e}\\
+        &= \int (A\cos\theta)(B\cos\psi\cos\theta + B\sin\psi\sin\theta\cos\phi ) \sin\theta \,\mathrm{d}\theta \mathrm{d}\phi\\
+        &= 2\pi \int_0^{\pi}\bm{A}\cdot\bm{B}\cos^2\theta\sin\theta\,\mathrm{d}\theta
+         = \frac{4\pi}{3}\bm{A}\cdot\bm{B}
+    \end{aligned}\end{equation}
+    由此可得
+    \begin{equation}\begin{aligned}
+        I(\omega) 
+        &= \int_{-\infty}^{\infty} \mathrm{d}t\, \sum_{i} \rho_i \langle i|\bm{M}(0) \cdot \bm{M}(t) |i \rangle \mathrm{e}^{-\mathrm{i} \omega t} \\
+        &= \int_{-\infty}^{\infty} \mathrm{d}t\, \langle \bm{M}(0) \cdot \bm{M}(t) \rangle_\rho \mathrm{e}^{-\mathrm{i} \omega t}
+    \end{aligned}\end{equation}
+    可以看到光谱是分子的偶极矩自关联函数的Fourier变换, 但我们要注意的是这里的自关联函数是量子力学中的自关联函数\footnote{注意这里$\langle (\cdot) \rangle_\rho$表示的是求物理量在分布$\rho$下的系综平均, 而不是量子力学中常见的期望值$\langle (\cdot) \rangle$. 要避免歧义也可以写为$\langle \hat\rho (\cdot) \rangle$}. 特别地, $\bm{M}(0)$与$\bm{M}(t)$不对易. 因此$\langle \bm{M}(0) \cdot \bm{M}(t) \rangle \neq \langle \bm{M}(t) \cdot \bm{M}(0) \rangle$, 因而有$\langle \bm{M}(0) \cdot \bm{M}(t) \rangle \neq \langle \bm{M}(0) \cdot \bm{M}(-t) \rangle$\footnote{对于量子力学中的自关联函数, 在哈密顿不显含时间时$\langle \hat A(0) \hat A(t) \rangle = \langle \hat A(t') \hat A(t'+t) \rangle$仍然成立}. 量力力学中的自关联函数不是偶函数, 因而频谱也不是偶函数.
+
+    我们从光谱的定义式(式\ref{eq:5-1}), 可以得到
+    \begin{equation}
+        \frac{I(\omega_{fi})}{I(\omega_{if})} = \frac{\rho_i}{\rho_f} = \mathrm{e}^{\beta\hbar\omega_{fi}}
+    \end{equation}
+    由于$\omega_{fi} = - \omega_{if}$, 所以可以得到
+    \begin{equation}
+        \mathrm{e}^{-\beta \hbar \omega} I(\omega) = I(-\omega)
+    \end{equation}
+    这与前面所得到的经典情况下Fourier变换得到的频谱为偶函数的结论并不相同, 称为\textbf{细致平衡原理}. 经典极限下$\hbar \to 0$, 光谱就变成了偶函数. 
     
     \bibliographystyle{plain}
     \bibliography{ref_chp_5}
