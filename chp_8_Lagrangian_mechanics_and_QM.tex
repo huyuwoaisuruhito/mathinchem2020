@@ -202,11 +202,11 @@
         \end{equation}
         设粒子从点$(x_1, t_1)$运动到$(x_2, t_2)$, 经典轨迹为$\bar x(t)$. 设计一个新变量$y(t) = x(t) - \bar x(t)$, 有$y(t_1) = y(t_2) = 0$. 由于$\bar x(t)$是确定的轨迹, 有$\mathcal{D}[x(t)] = \mathcal{D}[y(t)]$. 作用量的积分为
         \begin{equation}
-            S[\bar x(t) + y(t)] = S[\bar x(t)] + \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y x + c(t) y^2 + \cdots] \mathrm{d}t
+            S[\bar x(t) + y(t)] = S[\bar x(t)] + \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y y + c(t) y^2 + \cdots] \mathrm{d}t
         \end{equation}
         其中对$y$或者$\dot y$的一次项放在了省略号里, 这些项积分为0. 传播子可以写为
         \begin{equation}
-            \langle x_1 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}} | x_2 \rangle = \mathrm{e}^{ \frac{\mathrm{i}}{\hslash} S[\bar x(t)] } \int_0^0 \mathcal{D}[y(t)] \mathrm{e}^{ \frac{\mathrm{i}}{\hslash} \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y x + c(t) y^2] \mathrm{d}t }
+            \langle x_1 | \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}} | x_2 \rangle = \mathrm{e}^{ \frac{\mathrm{i}}{\hslash} S[\bar x(t)] } \int_0^0 \mathcal{D}[y(t)] \mathrm{e}^{ \frac{\mathrm{i}}{\hslash} \int_{t_1}^{t_2} [a(t)\dot y^2 + b(t) \dot y y + c(t) y^2] \mathrm{d}t }
         \end{equation}
         现在注意到积分号中的被积函数与经典轨迹$\bar x(t)$无关, 所以其路径积分应当与$x_1$或$x_2$无关; 且轨迹$y(t)$起始并终止于$y=0$, 因此这个路径积分只能是时间的函数. 这意味着传播子可以写为
         \begin{equation}\begin{aligned}
@@ -316,7 +316,7 @@
             Z &= \int \mathrm{d} x^{(1)} \cdots \mathrm{d} x^{(P)} \left(\frac{mP}{2\pi \hslash^2 \beta}\right)^{P/2} \\ & \qquad\times\left.
             \exp\left( -\beta \sum_{k=1}^{P} \left[\frac{mP(x^{(k+1)}-x^{(k)})^2}{2\hslash^2 \beta^2}+\frac{1}{P}V(x^{(k)})\right]\right)\right|_{x_1 = x_{P+1}}
         \end{aligned}\end{equation}
-        其中$x_1 = x_{P+1}$. 发现动能项的形式类似于一个谐振子, 可以定义$\omega_P^2 = \frac P{\hslash^2 \Delta \beta^2} = \frac P{\hslash^2 \beta^2}$. 指数上的部分看作$P$个点组成的环两两用弹簧连接, 且每个点都额外受外力作用. 它可以写成一个等效势能$V_\mathrm{eff}$:
+        其中$x_1 = x_{P+1}$. 发现动能项的形式类似于一个谐振子, 可以定义$\omega_P = \frac P{\hslash \beta}$. 指数上的部分看作$P$个点组成的环两两用弹簧连接, 且每个点都额外受外力作用. 它可以写成一个等效势能$V_\mathrm{eff}$:
         \begin{equation}
             Z = \langle x|\mathrm{e}^{-\beta \hat{H}}|x\rangle = C(\beta) \int \mathrm{e}^{-\beta V_\mathrm{eff}(\bm{x})} \mathrm{d}\bm{x}
         \end{equation}
