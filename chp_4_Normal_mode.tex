@@ -57,7 +57,7 @@
          + \frac{1}{2}\bm{q}^{\mr{t}}\left.\pdv{^2V}{\bm{x}^2}\right|_{\bm{x} = \bm{x_{\mr{eq}}}}\bm{q} + o(\left|\bm{q}\right|^2)\\
         \end{split}
     \end{equation}
-    显然在平衡位置$\dps\left.\pdv{V}{\bm{x}}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}$
+    在平衡位置$\dps\left.\pdv{V}{\bm{x}}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}$
     为0（从数学上讲，这是函数极小值点的性质；从物理上讲，平衡位置处系统不受力）；
     同时常数项不会影响运动方程，可以不予考虑；如果在$\bm{q}$比较小时，忽略2阶以上的项
     \footnote{这就是小振动近似，但是前提我们假设了Taylor展开的二阶项存在。但是，
@@ -97,8 +97,10 @@
     \footnote{对于非直角坐标，比如在某些约束下定义的广义坐标，$\bm{M}$并不对角，
     但是由于动能只可能是正值，所以$\bm{M}$一定正定}
     ，这样就可以唯一地定义它正定的平方根$\bm{M}^{\frac{1}{2}}$
-    \footnote{这也是一个实对称矩阵，结论可以通过对角化这个矩阵来理解，详细的证明要参考线性代数教材}，
-    将Hamilton量\ref{the Hamiltonian of samll vibration}写为：
+    \footnote{这也是一个实对称矩阵，结论可以通过对角化这个矩阵来理解，
+    详细的证明要参考线性代数教材}，
+    将Hamilton量\ref{the Hamiltonian of samll vibration}写为
+    （至于为什么要这么改写，在Lagrange力学部分会详细解释）：
     \begin{equation}
         H(\bm{q},\bm{p}) = \frac{1}{2}\left(\bm{M}^{-\frac{1}{2}}\bm{p}\right)^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p} + 
         \frac{1}{2}\left(\bm{M}^{\frac{1}{2}}\bm{q}\right)^{t}\bm{M}^{-\frac{1}{2}}\bm{K}\bm{M}^{-\frac{1}{2}}\left(\bm{M}^{\frac{1}{2}}\bm{q}\right)
@@ -110,7 +112,7 @@
         \end{split}
         \label{Hessian matrix}
     \end{equation}
-    它的量纲为s$^{-2}$. 显然这是一个实对称矩阵，可以由正交矩阵作对角化：
+    它的量纲为s$^{-2}$。 这是一个实对称矩阵，可以由正交矩阵作对角化：
     \begin{equation}
         \bm{\mathcal{H}} = \bm{S}\bm{\bm{\Omega}S}^{\mr{t}}
     \end{equation}
@@ -149,15 +151,18 @@
         & = \frac{1}{2}\sum_{i=1}^{N}P_{i}^2 + \frac{1}{2}\sum_{i=1}^{N}\omega_{i}^2Q_{i}^{2}
         \end{split}
     \end{equation}
-    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量，
-    其解有简单的形式（在第一章中我们讨论了这个问题）。\textbf{但是}，
-    这里忽略了一个重要的问题：坐标变换之后的新变量$(\bm{Q},\bm{P})$
-    与对应的Hamilton量$H(\bm{Q},\bm{P})$是否满足Hamilton方程？
-    \par 
-    在此处\textbf{不打算}完全解决这个问题，只给出此问题的一个严谨的表述，
-    目的是清楚地认识到上面的变换并不是随意进行的，而是一种特殊的变换。
-    考虑一个系统A的运动可以由Hamilton量$H(\bm{q},\bm{p},t),\,\,(\bm{q},\bm{p})\in\mathbb{R}^{2N}$
-    与对应的Hamilton方程来描述，考虑相空间中的一个可逆变换：$\rho:(\bm{q},\bm{p})\mapsto(\bm{Q}, \bm{P}),\,\,\mathbb{R}^{2N}\to\mathbb{R}^{2N}$
+    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量，将其
+    带入Hamilton正则方程就可以得到$N$个独立谐振子的运动方程（在第一章
+    中我们已经讨论过）。\textbf{但是}，
+    这里忽略了一个重要的问题：我们无法保证坐标变换之后的新变量$(\bm{Q},\bm{P})$
+    与对应的Hamilton量$H(\bm{Q},\bm{P})$满足Hamilton方程。
+
+    \splitline
+
+    在此处\textbf{不打算}完全解决这个问题，而是给出此问题的一个严谨的表述，
+    目的是清楚地认识到简正坐标变换并不是随意进行的，而是一种特殊的变换。
+    考虑系统A的运动可以由Hamilton量$H(\bm{q},\bm{p},t),\,\,(\bm{q},\bm{p})\in\mathbb{R}^{2N}$
+    与对应的Hamilton方程来描述，定义相空间中的一个可逆变换：$\rho:(\bm{q},\bm{p})\mapsto(\bm{Q}, \bm{P}),\,\,\mathbb{R}^{2N}\to\mathbb{R}^{2N}$
     （其中$t$为时间，也可以将其理解为任意参数）
     \begin{equation}
         \left\{
@@ -168,10 +173,12 @@
         \right.
     \end{equation}
     这样的变换可以很丰富，比前面讨论的简正坐标变换\ref{normal mode transformation}，
-    这是相空间中不包含时间的一个线性变换；还有在第二章讨论过的Hamilton方程的解所定义的
-    不同时刻轨线上的点之间的映射$\phi^{\tau}:(\bm{q}_{t},\bm{p}_{t})\mapsto(\bm{q}_{t+\tau},\bm{p}_{t+\tau})$。
+    就是相空间中不包含时间的一个线性变换；还有在第二章讨论过的Hamilton方程的解所定义的
+    不同时刻轨线上的点之间的映射
+    $\phi^{\tau}:(\bm{q}_{t},\bm{p}_{t})\mapsto(\bm{q}_{t+\tau},\bm{p}_{t+\tau})$。
     如果存在一个函数$K(\bm{Q}, \bm{P}, t)$能够让变换之后的坐标满足
-    （即$K(\bm{Q}, \bm{P}, t)$\textbf{对应的}Hamilton方程等价于$H(\bm{q},\bm{p},t)$
+    （即$K(\bm{Q}, \bm{P}, t)$\textbf{对应的}Hamilton方程等价于
+    $H(\bm{q},\bm{p},t)$
     \textbf{对应的}Hamilton方程所描述的运动）：
     \begin{equation}
         \left\{
@@ -193,8 +200,8 @@
         比如之前详细讨论的Liouville定理，就可以看作是正则变换不改变相空间体积的一个特例，
         详细的介绍可以参考\cite{Goldstein2000Classical}。
     }
-    对于任意的相空间中的变换，“新Hamilton量”$K$的存在性是无法保证的，
-    考虑新坐标对于时间的导数（方便起见，此处使用求和约定）：
+    对于相空间中的任意变换，“新Hamilton量”$K$的存在性是无法保证的，为了说明这一点，
+    直接计算新坐标对于时间的导数（方便起见，此处使用求和约定）：
     \begin{equation}
         \left\{
             \begin{split}
@@ -209,70 +216,130 @@
     等式\ref{the derivative of new coordinate}右边为$(\bm{q},\bm{p},t)$的函数，可以想象
     ，对于任意的变换，并不一定可以找到$K(\bm{Q},\bm{P},t)$使得等式右边与
     $\pdv{K}{P_{i}},-\pdv{K}{Q_i}$对应相等。
-    \par 
+    
+    \splitline
 
-    回到水分子的振动问题，水分子的势能函数在谐振子近似下为：
+    现在回到水分子的振动问题，水分子的势能函数在平衡位置附近可以展开为二次型：
     \begin{equation}
         \begin{split}
         V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
-        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12}\bm{\mathcal{H}} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
-        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{M}^{\frac 12} \bm{T\Omega T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
+        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \mb{M}^{\frac 12}\bm{\mathcal{H}} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
+        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \mb{M}^{\frac 12} \mb{S}\bm{\Omega} \mb{S}^\mathrm{T} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
         \end{split}
+    \end{equation}
+    其中：
+    \begin{equation}
+        \left[\bm{V}^{(2)}\right]_{i,j} := \left.\pdv{^2 V}{x_i\partial x_j}\right|_{x_{eq}}
     \end{equation}
     定义\textbf{简正坐标}$\bm{Q}$：
     \begin{equation}
-        \bm{Q} = \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
+        \bm{Q} = \mathbf{S}^\mathrm{T} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
     \end{equation}
-    于是稳定平衡点附近的势能面可以表示为：
+    于是平衡点附近的势能面可以近似表达为：
     \begin{equation}
         V(\bm{Q}) = V(\bm{0}) + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q} = V(\bm{0}) + \sum_{j=1}^N \frac 12 \omega_j^2 Q_j^2
     \end{equation}
 
     \section{简正坐标和Cartesian坐标的关系}
-    上一节讨论了势能在简正坐标下的形式。要想得到全能量，还需要给出动量在简正坐标下的形式。根据
+    上一节讨论了简正坐标变换。这一节讨论三个问题：1.如何用简正坐标表示系统的物理量，2.
+    验证简正坐标依然满足Hamilton方程，3.给定直角坐标的初始条件，如何通过简正坐标
+    求解系统的运动方程。
+
+    \splitline
+
+    在Cartesian坐标系下系统的动量可以表示为：
     \begin{equation}
-        \bm{p} = \bm{M\dot{x}} = \bm{M}^{\frac 12} \bm{T\dot{Q}}
+        \begin{split}
+        \bm{p} &= \mb{M}\dot{\bm{q}} = \mb{M}^{\frac 12} \mb{S}\dot{\bm{Q}}\\
+        \bm{p} &= \mb{M}^{\frac{1}{2}}\mb{S}\bm{P}
+        \end{split}
     \end{equation}
-    这是在Cartesian坐标系下的动量。定义简正坐标下的动量为
+    简正坐标中的动量定义为
+    \footnote{
+        注意这里的动量为“\textbf{正则动量}”，并不是系统真实的动量。
+        由于正则变换的存在，原有的广义坐标与广义动量在变换后会被混合，以至于完全
+        失去了“坐标”与“动量”的原有含义，甚至不具有坐标和动量的量纲，
+        因此在Hamilton力学中不再严格区分坐标与动量，而是将$(\bm{Q}, \bm{P})$
+        合称为正则共轭变量。\\
+        可以选取变换：
+        \begin{equation}
+            \left\{
+                \begin{split}
+                    Q_{i} &= p_i\\
+                    P_{i} &= -q_i
+                \end{split}
+            \right.
+        \end{equation}
+        将原本的动量与坐标互换。
+    }
+    ：
     \begin{equation}
-        \bm{P = \dot{Q}} = \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}
+        \bm{P} = \mb{S}^\mr{T} \mb{M}^{-\frac 12} \bm{p}
     \end{equation}
-    那么，可以得到动能的表达式为
-    \begin{equation}\begin{aligned}
-        E_\mathrm{k} = \frac 12 \bm{p}^{\mathrm{T}} \bm{M}^{-1} \bm{p} &= \frac 12 \bm{\dot{x}}^\mathrm{T}\bm{M\dot{x}}
-        = \frac 12 \bm{\dot{Q}}^\mathrm{T} \bm{Q}
-        = \frac 12 \bm{P}^{\mathrm{T}} \bm{P}
-    \end{aligned}\end{equation}
-    总结简正坐标和Cartesian坐标的变换：
-    \begin{equation}\begin{aligned}
+    可以得到动能在简正坐标下的表达式：
+    \begin{equation}
+        \begin{split}
+        E_{k} &= \frac{1}{2}\bm{p}^{\mr{t}}\mb{M}^{-1}\bm{p} = \frac{1}{2}\dot{\bm{Q}}^{\mr{t}}\dot{\bm{Q}}\\
+        E_{k} &= \frac{1}{2}\bm{p}^{\mr{t}}\mb{M}^{-1}\bm{p} = \frac{1}{2}\bm{P}^{\mr{t}}\bm{P}
+        \end{split}
+    \end{equation}
+    总结简正坐标和Cartesian坐标之间的变换：
+    \begin{equation}
+        \begin{aligned}
         \bm{Q} &= \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
         \bm{P} &= \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}\\
         \bm{x} &= \bm{x}_\mathrm{eq} + \bm{M}^{-\frac 12}\bm{TQ}\\
         \bm{p} &= \bm{M}^{\frac 12}\bm{TP}
-    \end{aligned}\end{equation}
+        \end{aligned}
+        \label{normal mode and cartesian coordinate}
+    \end{equation}
 
-    有了简正坐标下的动量就可以得到简正坐标下的Hamilton函数：
+    \splitline
+
+    有了简正坐标与Cartesian坐标之间的变换，可以得到简正坐标下的Hamilton量（前一节已经给出）：
     \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
     \end{equation}
-    很容易可以验证，正则方程在简正坐标下依旧成立：
-    \begin{equation}\begin{aligned}
-        \bm{\dot{Q}} &= \frac {\partial H}{\partial \bm{P}} = \bm{P}\\
-        \bm{\dot{P}} &= -\frac {\partial H}{\partial \bm{Q}} = -\bm{\Omega Q}
-    \end{aligned}\end{equation}
-    要求出每个元素的值也十分容易：
-    \begin{equation}\begin{aligned}
-        \dot{Q}_j &= P_j\\
-        \dot{P}_j &= - \omega_j^2 Q_j
-    \end{aligned}\end{equation}
-    但如果在Cartesian坐标下用正则方程，得到每个元素的值结果为
-    \begin{equation}\begin{aligned}
-        \dot{x}_i &= \frac {p_j}{m_i}\\
-        \dot{p}_i &= \sum_j \frac {\partial^2 V}{\partial x_i \partial x_j} (x_j - x_\mathrm{eq}^{(j)})
-    \end{aligned}\end{equation}
-    显然要比在简正坐标下的形式要复杂很多。这体现了简正坐标的优势。
+    使用Hamilton正则方程，可以得到简正坐标下的运动方程：
+    \begin{equation}
+        \begin{aligned}
+            \bm{\dot{Q}} &= \frac {\partial H}{\partial \bm{P}} = \bm{P}\\
+            \bm{\dot{P}} &= -\frac {\partial H}{\partial \bm{Q}} = -\bm{\Omega Q}
+        \end{aligned}
+        \label{equation of motion in normal mode coordinate}
+    \end{equation}
+    上式也可以写为分量的形式：
+    \begin{equation}
+        \begin{aligned}
+            \dot{Q}_j &= P_j\\
+            \dot{P}_j &= - \omega_j^2 Q_j
+        \end{aligned}
+    \end{equation}
+    前一节中已经指出，相空间中的任意变换并不能够保证Hamilton方程的不变，这里验证一下
+    简正坐标变换下Hamilton方程的不变性。首先根据Cartesian坐标下的Hamilton量给出运动方程：
+    \begin{equation}
+        \begin{split}
+            \dot{\bm{q}} &= \pdv{H}{\bm{p}} = \mb{M^{-1}}\bm{P}\\
+            \dot{\bm{p}} &= -\pdv{H}{\bm{q}} = -V^{(2)}\bm{q}
+        \end{split}
+        \label{equation of motion in cartesian coordiante}
+    \end{equation}
+    上式同样可以写为分量形式：
+    \begin{equation}
+        \begin{aligned}
+            \dot{x}_i &= \frac {p_j}{m_i}\\
+            \dot{p}_i &= \sum_j \frac {\partial^2 V}{\partial x_i \partial x_j} (x_j - x_\mathrm{eq}^{(j)})
+        \end{aligned}
+    \end{equation}
+    这要比在简正坐标下的形式要复杂很多。
+    将简正坐标变换\ref{normal mode and cartesian coordinate}
+    带入Cartesian坐标下的运动方程\ref{equation of motion in cartesian coordiante}，可以得到
+    简正坐标下的运动方程\ref{equation of motion in normal mode coordinate}，这样就验证了
+    简正坐标变换保证了Hamilton方程的不变。
 
-    我们可以根据初始条件$(\bm{x}_0,\bm{p}_0)$，得到$(\bm{x},\bm{p}$每个分量的解析表达式。将它变换为简正坐标，得到
+    \splitline
+
+    如果给定0时刻时系统在Cartesian坐标下的初始条件$(\bm{x}_0,\bm{p}_0)$，得到$(\bm{x},\bm{p}$每个分量的解析表达式。将它变换为简正坐标，得到
     \begin{equation}\begin{aligned}
         Q_j &= \sum_i T_{ij} m_i^{\frac 12} (x_0^{(i)} - x_\mathrm{eq}^{(i)})\\
         P_j &= \sum_i T_{ij} m_i^{-\frac 12} (p_0^{(i)})
