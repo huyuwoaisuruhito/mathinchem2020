@@ -10,7 +10,8 @@
 
 如果要查看 `pdf` ，需要按照如下顺序编译：`xelatex` 编译 `main.tex`，`bibtex` 编译对应的每个章节的 `.bib` 文件，最后再用 `xelatex` 编译两遍。 
 
-`compile.sh` 是懒人脚本（
+`compile.sh` 是懒人脚本（Linux系统下
+`compile.bat` 是懒人脚本（Windows系统下
 
 ## 章节安排：
 
