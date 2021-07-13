@@ -86,11 +86,11 @@
         \end{equation}
         如果选择
         \begin{equation}
-            \hat{\bm{p}} = -\mathrm{i}\hbar \frac {\partial }{\partial \bm{x}}
+            \hat{\bm{p}} = -\mathrm{i}\hslash \frac {\partial }{\partial \bm{x}}
         \end{equation}
         就得到
         \begin{equation}
-            \langle \bm{x} |\hat{\bm{p}} | \psi \rangle = -\mathrm{i}\hbar \frac {\partial }{\partial \bm{x}}\langle \bm{x} | \psi \rangle
+            \langle \bm{x} |\hat{\bm{p}} | \psi \rangle = -\mathrm{i}\hslash \frac {\partial }{\partial \bm{x}}\langle \bm{x} | \psi \rangle
         \end{equation}
         有了位置算符和动量算符，我们可以讨论两个算符的\textbf{对易}
         \begin{equation}
@@ -98,18 +98,18 @@
         \end{equation}
         先计算
         \begin{equation}\begin{aligned}
-            \langle \bm{x}_0 |\hat{\bm{p}}\hat{\bm{x}} | \psi \rangle &= -\mathrm{i}\hbar \frac {\partial}{\partial \bm{x}_0} \langle \bm{x}_0 |\hat{\bm{x}} | \psi \rangle\\
-            &= -\mathrm{i}\hbar \frac {\partial}{\partial \bm{x}_0} (\bm{x}_0\psi(\bm{x}_0))\\
-            &= -\mathrm{i}\hbar \psi(\bm{x}_0) - \mathrm{i}\hbar \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
+            \langle \bm{x}_0 |\hat{\bm{p}}\hat{\bm{x}} | \psi \rangle &= -\mathrm{i}\hslash \frac {\partial}{\partial \bm{x}_0} \langle \bm{x}_0 |\hat{\bm{x}} | \psi \rangle\\
+            &= -\mathrm{i}\hslash \frac {\partial}{\partial \bm{x}_0} (\bm{x}_0\psi(\bm{x}_0))\\
+            &= -\mathrm{i}\hslash \psi(\bm{x}_0) - \mathrm{i}\hslash \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
         \end{aligned}\end{equation}
         再计算
         \begin{equation}\begin{aligned}
             \langle \bm{x}_0 |\hat{\bm{x}} \hat{\bm{p}} | \psi \rangle &= \bm{x}_0 \langle \bm{x}_0 \hat{\bm{p}} | \psi \rangle\\
-            &= -\mathrm{i}\hbar \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
+            &= -\mathrm{i}\hslash \bm{x}_0 \frac {\partial \psi(\bm{x}_0)}{\partial \bm{x}_0}
         \end{aligned}\end{equation}
         这两个式子相比较，得到
         \begin{equation}
-            [\hat{\bm{x}},\hat{\bm{p}}] = \mathrm{i}\hbar
+            [\hat{\bm{x}},\hat{\bm{p}}] = \mathrm{i}\hslash
         \end{equation}
         此即\textbf{Heisenberg不确定性原理}。
 
@@ -119,7 +119,7 @@
             \item 波函数：态$|\psi \rangle$可以在位置空间描述$\langle x|\psi\rangle$
             \item 算符：物理量对应Hermite算符。
             \item 测量：对某个态测量某个物理量，会得到其本征值。
-            \item 不确定性原理：$[\hat{\bm{x}},\hat{\bm{p}}] = \mathrm{i}\hbar$
+            \item 不确定性原理：$[\hat{\bm{x}},\hat{\bm{p}}] = \mathrm{i}\hslash$
         \end{enumerate}
         在量子力学中，位置空间、动量空间是连续的，时间也是连续的，并且认为质量不变。量子力学中，位置和动量都有对应的算符，但时间没有。
 
@@ -172,11 +172,11 @@
         \end{equation}
         注意
         \begin{equation}
-            [\Delta \hat{x},\Delta \hat{p}] = [\hat{x}-\langle \hat{x} \rangle, \hat{p}-\langle \hat{p} \rangle ] = [\hat{x},\hat{p}] = \mathrm{i}\hbar
+            [\Delta \hat{x},\Delta \hat{p}] = [\hat{x}-\langle \hat{x} \rangle, \hat{p}-\langle \hat{p} \rangle ] = [\hat{x},\hat{p}] = \mathrm{i}\hslash
         \end{equation}
         上面就是一个复数模的平方，得到
         \begin{equation}
-            |\langle \psi |\Delta \hat{x} \Delta \hat{p}|\psi \rangle|^2 = \frac {\hbar^2}4 + \frac 14 |\langle \psi |\{\Delta \hat{x},\Delta \hat{p}\}|\psi \rangle|^2 \geqslant \frac {\hbar^2}4
+            |\langle \psi |\Delta \hat{x} \Delta \hat{p}|\psi \rangle|^2 = \frac {\hslash^2}4 + \frac 14 |\langle \psi |\{\Delta \hat{x},\Delta \hat{p}\}|\psi \rangle|^2 \geqslant \frac {\hslash^2}4
         \end{equation}
         这是不确定性原理的另一种表述形式。
 
@@ -186,11 +186,11 @@
         \end{equation}
         由此可知 
         \begin{equation}\begin{aligned}
-            -\mathrm{i}\hbar \frac {\partial}{\partial x} \langle x|p \rangle = p \langle x|p \rangle
+            -\mathrm{i}\hslash \frac {\partial}{\partial x} \langle x|p \rangle = p \langle x|p \rangle
         \end{aligned}\end{equation}
         解这个常微分方程，得到
         \begin{equation}
-            \langle x|p \rangle = C \mathrm{e}^{\frac {\mathrm{i}px}\hbar}
+            \langle x|p \rangle = C \mathrm{e}^{\frac {\mathrm{i}px}\hslash}
         \end{equation}
         $C$由归一化条件决定。首先考虑
         \begin{equation}
@@ -202,25 +202,25 @@
         \end{equation}
         显然$\delta$函数满足这个要求。又
         \begin{equation}
-            \langle p' | p_0 \rangle = \delta (p'-p_0) = \frac 1{2\pi\hbar} \int \mathrm{e}^{\frac {\mathrm{i}(p-p_0)x}{\hbar}} \mathrm{d}x
+            \langle p' | p_0 \rangle = \delta (p'-p_0) = \frac 1{2\pi\hslash} \int \mathrm{e}^{\frac {\mathrm{i}(p-p_0)x}{\hslash}} \mathrm{d}x
         \end{equation}
         并且
         \begin{equation}\begin{aligned}
             \langle p'|p_0 \rangle &= \int \langle p'|x\rangle \langle x|p_0 \rangle \mathrm{d}x\\
             &= \int (\langle x|p' \rangle)^* \langle x|p_0 \rangle \mathrm{d}x\\
-            &= C^*C\int \mathrm{e}^{\frac {\mathrm{i}(p_0-p')x}{\hbar}} \mathrm{d}x
+            &= C^*C\int \mathrm{e}^{\frac {\mathrm{i}(p_0-p')x}{\hslash}} \mathrm{d}x
         \end{aligned}\end{equation}
         所以， 
         \begin{equation}
-            C = \frac 1{\sqrt{2\pi\hbar}}
+            C = \frac 1{\sqrt{2\pi\hslash}}
         \end{equation}
         这样就得到 
         \begin{equation}
-            \langle x|p \rangle = \frac 1{\sqrt{2\pi\hbar}} \mathrm{e}^{\frac {\mathrm{i}px}{\hbar}}
+            \langle x|p \rangle = \frac 1{\sqrt{2\pi\hslash}} \mathrm{e}^{\frac {\mathrm{i}px}{\hslash}}
         \end{equation}
         并由此可以得到
         \begin{equation}
-            \langle p|x \rangle = \frac 1{\sqrt{2\pi\hbar}} \mathrm{e}^{-\frac {\mathrm{i}px}{\hbar}}
+            \langle p|x \rangle = \frac 1{\sqrt{2\pi\hslash}} \mathrm{e}^{-\frac {\mathrm{i}px}{\hslash}}
         \end{equation}
         \begin{asg}
             第5次作业第1题：计算动量空间的位置算符。
@@ -289,12 +289,12 @@
         应有
         \begin{equation}\begin{aligned}
             \phi_n(x) &= c_+ \langle x|p_n\rangle + c_- \langle x|p_n\rangle\\
-            &= \frac 1{\sqrt{2\pi \hbar}}(c_+\mathrm{e}^{\frac {\mathrm{i}xp_n}{\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}xp_n}{\hbar}})
+            &= \frac 1{\sqrt{2\pi \hslash}}(c_+\mathrm{e}^{\frac {\mathrm{i}xp_n}{\hslash}}+c_-\mathrm{e}^{-\frac {\mathrm{i}xp_n}{\hslash}})
         \end{aligned}\end{equation}
         再加上边界条件
         \begin{equation}\begin{aligned}
-            c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hbar}} &= 0\\
-            c_+\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hbar}}+c_-\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hbar}} &= 0
+            c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hslash}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hslash}} &= 0\\
+            c_+\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{2\hslash}}+c_-\mathrm{e}^{\frac {\mathrm{i}Lp_n}{2\hslash}} &= 0
         \end{aligned}\end{equation}
         又有归一化条件
         \begin{equation}\begin{aligned}
@@ -304,16 +304,16 @@
         \[ \langle x|\hat{B}| p \rangle = \langle x+\lambda |p\rangle \]
         由于
         \begin{equation}\begin{aligned}
-            \langle x|\hat{B}| p \rangle = \langle x+\lambda |p\rangle = \frac {\mathrm{e}^{\frac {\mathrm{i}(x+\lambda)p}{\hbar}}}{\sqrt{2\pi\hbar}}
+            \langle x|\hat{B}| p \rangle = \langle x+\lambda |p\rangle = \frac {\mathrm{e}^{\frac {\mathrm{i}(x+\lambda)p}{\hslash}}}{\sqrt{2\pi\hslash}}
         \end{aligned}\end{equation}
         显然地，应有
         \begin{equation}
-            \hat{B} = \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hbar}}
+            \hat{B} = \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hslash}}
         \end{equation}
         这个算符称为\textbf{平移算符}。左矢形式表达为
-        \[ \langle x| \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hbar}} = \langle x+\lambda| \]
+        \[ \langle x| \mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hslash}} = \langle x+\lambda| \]
         右矢形式表达为
-        \[ \mathrm{e}^{-\frac {\mathrm{i}\lambda \hat{p}}{\hbar}} | x\rangle = |x+\lambda \rangle \]
+        \[ \mathrm{e}^{-\frac {\mathrm{i}\lambda \hat{p}}{\hslash}} | x\rangle = |x+\lambda \rangle \]
         我们使用平移算符，将一维势阱的体系作平移，将波函数平移到$[0,\frac L2]$的位置上。此时体系满足
         \begin{equation}
             V(x) = \left \{
@@ -331,20 +331,20 @@
         得到
         \begin{equation}\begin{aligned}
             c_+ +c_- &= 0\\
-            c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hbar}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hbar}} &= 0
+            c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hslash}}+c_-\mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hslash}} &= 0
         \end{aligned}\end{equation}
         将前一个式子代入后一个，得到
-        \[ c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hbar}}-c_+ \mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hbar}} = 0 \]
+        \[ c_+\mathrm{e}^{\frac {\mathrm{i}Lp_n}{\hslash}}-c_+ \mathrm{e}^{-\frac {\mathrm{i}Lp_n}{\hslash}} = 0 \]
         于是
         \begin{equation}\begin{aligned}
-            2\mathrm{i}c_+ \sin{\frac {Lp_n}{\hbar}} = 0
+            2\mathrm{i}c_+ \sin{\frac {Lp_n}{\hslash}} = 0
         \end{aligned}\end{equation}
         但是$c_+ \neq 0$（否则得到零解），所以
         \begin{equation}\begin{aligned}
-            \frac {Lp_n}{\hbar} = n\pi
+            \frac {Lp_n}{\hslash} = n\pi
         \end{aligned}\end{equation}
         即
-        \[ p_n = \frac {n\pi \hbar}{L} \]
+        \[ p_n = \frac {n\pi \hslash}{L} \]
         $c_+$的选择取决于归一化条件，
         \[ \int_0^L |c|^2 \sin^2{\frac {n\pi x}L}\mathrm{d}x = 1 \]
         算出
@@ -352,7 +352,7 @@
         于是，一维无限深势阱的解为
         \[ \langle x|\phi_n \rangle = \sqrt{\frac 2L} \sin{\frac {n\pi x}L} \]
         本征值为
-        \[ \epsilon_n = \frac {\hbar^2}{2m} \bigg(\frac {n\pi}L\bigg)^2 \]
+        \[ \epsilon_n = \frac {\hslash^2}{2m} \bigg(\frac {n\pi}L\bigg)^2 \]
         平移回来，得到
         \[ \langle x|\phi_n \rangle = \sqrt{\frac 2L} \sin{\bigg(\frac {n\pi}L\bigg(x+\frac L2\bigg)\bigg)}, \ n=1,2,3,... \]
         本征值和平移前一样。
@@ -364,7 +364,7 @@
         \end{asg}
 
     \section{20201120：一维势阱求解自由粒子问题}
-        上一节在求解一维无限深势阱的过程中，引入了平移算符。我们想要了解$\mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hbar}} \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\lambda \hat{p}}{\hbar}}$的性质。显然地，这是一个Hermite算符，并且新的算符和原来的Hamilton算符$\hat{H}$有相同的本征值。这是因为我们只改变了坐标的选取。
+        上一节在求解一维无限深势阱的过程中，引入了平移算符。我们想要了解$\mathrm{e}^{\frac {\mathrm{i}\lambda \hat{p}}{\hslash}} \hat{H} \mathrm{e}^{-\frac {\mathrm{i}\lambda \hat{p}}{\hslash}}$的性质。显然地，这是一个Hermite算符，并且新的算符和原来的Hamilton算符$\hat{H}$有相同的本征值。这是因为我们只改变了坐标的选取。
         \begin{asg}
             第6次作业第1题（2）：证明这个结论。
         \end{asg}
@@ -380,19 +380,19 @@
         定义Boltzmann算符$\mathrm{e}^{-\beta\hat{H}}$, 并且定义配分函数为
         \[ Z = \mathrm{Tr}\  \mathrm{e}^{-\beta \hat{H}} = \sum_n \langle n| \mathrm{e}^{-\beta \hat{H}} | n \rangle = \sum_n \mathrm{e}^{-\beta \epsilon_n }\]
         那么这个配分函数是否收敛呢？
-        \[ Z = \sum_n \mathrm{e}^{-\beta \frac {\hbar^2}{2m} (\frac {n\pi}L)^2} \]
+        \[ Z = \sum_n \mathrm{e}^{-\beta \frac {\hslash^2}{2m} (\frac {n\pi}L)^2} \]
         定义$x_n = \frac nL$, 于是$\Delta x = \frac 1L$. 由此可以将求和变成积分。
         \begin{equation}\begin{aligned}
-            Z &= L \sum_n \Delta x \mathrm{e}^{-\beta \frac {\hbar^2\pi^2 x^2}{2m} }\\
-            &= L \int_0^{+\infty} \mathrm{e}^{-\beta \frac {\hbar^2\pi^2 x^2}{2m}} \mathrm{d}x\\
-            &= L\sqrt{\frac m{2\pi \beta \hbar^2}}
+            Z &= L \sum_n \Delta x \mathrm{e}^{-\beta \frac {\hslash^2\pi^2 x^2}{2m} }\\
+            &= L \int_0^{+\infty} \mathrm{e}^{-\beta \frac {\hslash^2\pi^2 x^2}{2m}} \mathrm{d}x\\
+            &= L\sqrt{\frac m{2\pi \beta \hslash^2}}
         \end{aligned}\end{equation}
         或者我们定义
         \[ \mathrm{Tr} \ \mathrm{e}^{-\frac {\beta \hat{p}^2}{2m}} = \int \mathrm{e}^{-\frac {\beta p^2}{2m}} \langle p|p\rangle \mathrm{d}p \]
         发现这里并不好处理，只能知道该值为$\infty$, 但不能给出具体的表达形式。这就是我们使用一维无限深势阱来近似自由粒子的原因。
 
         有了一维形式的配分函数，类比得到三维粒子为
-        \[ Z = V \bigg(\frac m{2\pi \beta \hbar^2}\bigg)^{\frac 32} \]
+        \[ Z = V \bigg(\frac m{2\pi \beta \hslash^2}\bigg)^{\frac 32} \]
 
         有了配分函数可以得到一维情况下能量的平均值：
         \begin{equation}\begin{aligned}
@@ -435,14 +435,14 @@
         \end{asg}
 
         一维无限深势阱的能级差会随着$n$的增大而增大。
-        \[ \Delta \epsilon = \frac {\hbar^2}{2m} \bigg(\frac {n\pi}L \bigg)^2 (2n+1) \]
+        \[ \Delta \epsilon = \frac {\hslash^2}{2m} \bigg(\frac {n\pi}L \bigg)^2 (2n+1) \]
         虽然如此，我们仍可以用一维无限深势阱的能量本征态来对其他的体系进行研究。比如一个势能算符为$\hat{V}'$时，势能矩阵元为
         \[
             \langle \phi_k | \hat{V}' | \phi_n \rangle = \int_{-\frac L2}^{+\frac L2} \phi_k^*(x) V(x) \phi_n(x) \mathrm{d}x 
         \]
         但是动能算符和原来是一样的。
         \[
-            \langle \phi_k | \frac {\hat{p^2}}{2m} | \phi_n \rangle = \delta_{kn} \frac {\hbar^2}{2m} \bigg( \frac {\pi}L \bigg)^2 n^2
+            \langle \phi_k | \frac {\hat{p^2}}{2m} | \phi_n \rangle = \delta_{kn} \frac {\hslash^2}{2m} \bigg( \frac {\pi}L \bigg)^2 n^2
         \]
         由此可以得到Hamilton算符的矩阵元$\langle \phi_k | \hat{H} | \phi_n \rangle$，将它对角化就可以用来展开其他势能下的能量本征态。
         \begin{asg}
@@ -457,7 +457,7 @@
         \[ a^2 + b^2 = (a+b\mathrm{i})(a-b\mathrm{i}) \]
         对于数字这样分解是可以的，但是对于算符来说，只有对易的算符才成立。先考虑数字的情况
         \[ \frac {p^2}{2m} + \frac 12 m\omega^2 x^2 = \frac 12 (\frac p{\sqrt{m}} + \mathrm{i}\sqrt{m}\omega x)(\frac p{\sqrt{m}} - \mathrm{i}\sqrt{m}\omega x) \]
-        可以先把能量$\hbar \omega$提出来，这样就可以操作里面的没有量纲的算符，会更方便一些。
+        可以先把能量$\hslash \omega$提出来，这样就可以操作里面的没有量纲的算符，会更方便一些。
 
     \section{20201127：一维谐振子的求解（1）}
         继续讨论一维谐振子的求解问题。定义算符
@@ -477,12 +477,12 @@
             &= [d_1\hat{p}, d_1\hat{p} - \mathrm{i}d_2\hat{x}] + [\mathrm{i}d_2\hat{x}, d_1\hat{p} - \mathrm{i}d_2\hat{x}]\\
             &= [d_1\hat{p}, -\mathrm{i}d_2\hat{x}] + [\mathrm{i}d_2\hat{x}, d_1\hat{p}]\\
             &= -\mathrm{i}d_1d_2[\hat{p},\hat{x}] + \mathrm{i}d_1d_2[\hat{x},\hat{p}]\\
-            &= -2d_1d_2\hbar\\
-            &= -\hbar \omega
+            &= -2d_1d_2\hslash\\
+            &= -\hslash \omega
         \end{aligned}\end{equation}
         为了让算符无量纲化，定义
         \begin{equation}\begin{aligned}
-            \hat{a} = \frac {\hat{c}}{\sqrt{\hbar \omega}} =\frac 1{\sqrt{2}} \bigg(\frac {\hat{p}}{\sqrt{m\hbar\omega}} + \mathrm{i}\sqrt{\frac {m\omega}{\hbar}} \hat{x}\bigg)
+            \hat{a} = \frac {\hat{c}}{\sqrt{\hslash \omega}} =\frac 1{\sqrt{2}} \bigg(\frac {\hat{p}}{\sqrt{m\hslash\omega}} + \mathrm{i}\sqrt{\frac {m\omega}{\hslash}} \hat{x}\bigg)
         \end{aligned}\end{equation}
         \begin{asg}
             第6次作业第3题（2）：证明$\hat{a}\hat{a}^\dagger$和$\hat{a}^\dagger\hat{a}$都是Hermite算符。
@@ -490,7 +490,7 @@
         显然
         \[ [\hat{a},\hat{a}^\dagger] = \hat{a}\hat{a}^\dagger - \hat{a}^\dagger \hat{a} =  -1 \]
         可以用$\hat{a}$写出Hamilton算符：
-        \[ \hat{H} = \frac {\hbar \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
+        \[ \hat{H} = \frac {\hslash \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
         可以计算
         \begin{equation}\begin{aligned}
             [\hat{a}^\dagger\hat{a}, \hat{a}\hat{a}^\dagger] &= \hat{a}^\dagger [\hat{a},\hat{a}\hat{a}^\dagger] +  [\hat{a}^\dagger,\hat{a}\hat{a}^\dagger]\hat{a}\\
@@ -499,29 +499,29 @@
         \end{aligned}\end{equation}
         \begin{asg}
             第6次作业第3题（3）：证明
-            \[ \hat{H} = \frac {\hbar \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
+            \[ \hat{H} = \frac {\hslash \omega}2 (\hat{a}\hat{a}^\dagger + \hat{a}^\dagger \hat{a}) \]
         \end{asg}
         上面结果也给出了
         \[ \hat{a}^\dagger\hat{a} = \hat{a}\hat{a}^\dagger + 1 \]
         于是
-        \[ \hat{H} = \hbar \omega\bigg(\hat{a}\hat{a}^\dagger + \frac 12\bigg)\]
+        \[ \hat{H} = \hslash \omega\bigg(\hat{a}\hat{a}^\dagger + \frac 12\bigg)\]
         现在定义
-        \[ \hat{b} = \frac 1{\sqrt{2}}\bigg(\sqrt{\frac {m\omega}{\hbar}}\hat{x} + \frac {\mathrm{i}\hat{p}}{\sqrt{m\omega\hbar}}\bigg) \]
+        \[ \hat{b} = \frac 1{\sqrt{2}}\bigg(\sqrt{\frac {m\omega}{\hslash}}\hat{x} + \frac {\mathrm{i}\hat{p}}{\sqrt{m\omega\hslash}}\bigg) \]
         用相同的方法得到 
-        \[ \hat{H} = \hbar \omega\bigg(\hat{b}^\dagger\hat{b}+ \frac 12\bigg) \]
+        \[ \hat{H} = \hslash \omega\bigg(\hat{b}^\dagger\hat{b}+ \frac 12\bigg) \]
         并且
         \[ [\hat{b}, \hat{b}^\dagger] = 1 \]
         定义
         \[ \hat{N} = \hat{b}^\dagger\hat{b} \]
         于是
-        \[ \hat{H} = \hbar \omega \bigg(\hat{N}+\frac 12\bigg) \]
+        \[ \hat{H} = \hslash \omega \bigg(\hat{N}+\frac 12\bigg) \]
         因此 
         \[ [\hat{N},\hat{H}] = 0 \]
         两个对易的算符有相同的本征态。假设
         \[ \hat{N}|\phi_n \rangle = \lambda_n |\phi_n \rangle \]
         则
         \begin{equation}\begin{aligned}
-            \hat{H}|\phi_n \rangle = \bigg(\hat{N}+\frac 12\bigg)\hbar\omega|\phi_n \rangle = \bigg(\lambda_n + \frac 12\bigg)\hbar\omega|\phi_n\rangle
+            \hat{H}|\phi_n \rangle = \bigg(\hat{N}+\frac 12\bigg)\hslash\omega|\phi_n \rangle = \bigg(\lambda_n + \frac 12\bigg)\hslash\omega|\phi_n\rangle
         \end{aligned}\end{equation}
         并且
         \[ \langle \phi_n|\hat{N}|\phi_n \rangle = \lambda_n \langle \phi_n |\phi_n \rangle = \lambda_n \]
@@ -554,12 +554,12 @@
         \[ \langle x|\hat{b}|\phi_0 \rangle = 0\]
         将$\hat{b}$的定义代入，得到
         \begin{equation}\begin{aligned}
-            \langle x|\sqrt{\frac 12}\bigg(\sqrt{\frac {m\omega}{\hbar}}\hat{x}+ \frac {\mathrm{i}\hat{p}}{\sqrt{m\omega\hbar}}\bigg)|\phi_0 \rangle = 0
+            \langle x|\sqrt{\frac 12}\bigg(\sqrt{\frac {m\omega}{\hslash}}\hat{x}+ \frac {\mathrm{i}\hat{p}}{\sqrt{m\omega\hslash}}\bigg)|\phi_0 \rangle = 0
         \end{aligned}\end{equation}
         解得
-        \[ \langle x|\phi_0\rangle = \bigg(\frac {m\omega}{\pi\hbar} \bigg)^{\frac 14} \mathrm{e}^{-\frac {m\omega}{2\hbar}x^2} \]
+        \[ \langle x|\phi_0\rangle = \bigg(\frac {m\omega}{\pi\hslash} \bigg)^{\frac 14} \mathrm{e}^{-\frac {m\omega}{2\hslash}x^2} \]
         求出基态的能量
-        \[ \hat{H}|\phi_0 \rangle = \frac 12 \hbar \omega |\phi_0 \rangle \]
+        \[ \hat{H}|\phi_0 \rangle = \frac 12 \hslash \omega |\phi_0 \rangle \]
         基态也有一定的能量，称为\textbf{零点能}。
 
         现在研究一下$\hat{b}^\dagger$作用于$\hat{N}$的本征态上。
@@ -581,11 +581,11 @@
         前面我们用一维无限深势阱来展开不同的势能函数，有了一维谐振子的解我们也可以用一维谐振子的解来展开其他势能函数的情况。
 
         有了一维谐振子的解，我们可以拓展到多维，类比之前的简谐振动分析，得到能量的本征值为
-        \[ E = \sum_{j=1}^F \bigg(n_j+\frac 12\bigg)\hbar \omega_j \]
+        \[ E = \sum_{j=1}^F \bigg(n_j+\frac 12\bigg)\hslash \omega_j \]
         在简正坐标下的波函数为
         \[ \langle \bm{Q}|\psi \rangle = \prod_{j=1}^F \langle Q_j | \phi_{n_j} \rangle \]
         其中
-        \[ \langle Q_j|\phi_{n_j} \rangle = \bigg(\frac {\omega}{\pi \hbar}\bigg)^{\frac 14} \mathrm{e}^{-\frac {\omega_j}{2\hbar} Q_j^2} \]
+        \[ \langle Q_j|\phi_{n_j} \rangle = \bigg(\frac {\omega}{\pi \hslash}\bigg)^{\frac 14} \mathrm{e}^{-\frac {\omega_j}{2\hslash} Q_j^2} \]
         注意此处没有质量，因为它被概率在简正坐标变换时引入的Jacobi行列式约掉了。
 
         如果Hamilton函数为两个Hamilton函数之和
@@ -601,23 +601,23 @@
         如果我们已知了
         \[ \hat{H}|\phi_n\rangle = \epsilon_n|\phi_n\rangle \]
         那么
-        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}|\phi_n\rangle = \mathrm{e}^{-\frac {\mathrm{i}\epsilon_n t}{\hbar}}|\phi_n\rangle \]
+        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}|\phi_n\rangle = \mathrm{e}^{-\frac {\mathrm{i}\epsilon_n t}{\hslash}}|\phi_n\rangle \]
         含时的Schrodinger方程为
-        \[ \mathrm{i}\hbar \frac {\partial}{\partial t}|\psi(t)\rangle = \hat{H} |\psi(t)\rangle \]
+        \[ \mathrm{i}\hslash \frac {\partial}{\partial t}|\psi(t)\rangle = \hat{H} |\psi(t)\rangle \]
         注意时间在量子力学中并没有算符，而是一个参量。由含时的Schrodinger方程可以推出
-        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}|\psi(0)\rangle = |\psi(t) \rangle \]
-        所以把$\mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}$称为\textbf{时间演化算符}。可以得到任意物理量在时间$t$的平均值 
-        \[ \langle \hat{B}(t) \rangle = \langle \psi(t)|\hat{B} | \psi(t) \rangle = \langle \psi(0) |\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hbar}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}|\psi(0) \rangle \]
-        定义$\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hbar}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}$为算符$\hat{B}$的\textbf{Heisenberg算符}.
+        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}|\psi(0)\rangle = |\psi(t) \rangle \]
+        所以把$\mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}$称为\textbf{时间演化算符}。可以得到任意物理量在时间$t$的平均值 
+        \[ \langle \hat{B}(t) \rangle = \langle \psi(t)|\hat{B} | \psi(t) \rangle = \langle \psi(0) |\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hslash}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}|\psi(0) \rangle \]
+        定义$\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hslash}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}$为算符$\hat{B}$的\textbf{Heisenberg算符}.
 
         时间演化算符可以写在能量本征态上
-        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}\epsilon_n t}{\hbar}} |\phi_n \rangle \langle\phi_n| \]
+        \[ \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}} = \sum_n \mathrm{e}^{-\frac {\mathrm{i}\epsilon_n t}{\hslash}} |\phi_n \rangle \langle\phi_n| \]
         代入，得到 
         \begin{equation}\begin{aligned}
             \langle \hat{B}(t) \rangle &= \langle \psi(t)|\hat{B} | \psi(t) \rangle\\
-            &= \langle \psi(0) |\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hbar}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hbar}}|\psi(0) \rangle\\
-            &= \langle \psi(0) |\sum_n \mathrm{e}^{\frac {\mathrm{i}\epsilon_n t}{\hbar}} |\phi_n \rangle \langle\phi_n|\hat{B}|\sum_m \mathrm{e}^{-\frac {\mathrm{i}\epsilon_m t}{\hbar}} |\phi_m \rangle \langle\phi_m|\psi(0)\rangle\\
-            &= \sum_{m,n} \langle \psi(0)|\phi_n\rangle \langle \phi_n|\hat{B}|\phi_m \rangle \langle \phi_m|\psi(0)\rangle \mathrm{e}^{\frac {\mathrm{i}(\epsilon_n-\epsilon_m)t}{\hbar}}
+            &= \langle \psi(0) |\mathrm{e}^{\frac {\mathrm{i}\hat{H}t}{\hslash}} \hat{B} \mathrm{e}^{-\frac {\mathrm{i}\hat{H}t}{\hslash}}|\psi(0) \rangle\\
+            &= \langle \psi(0) |\sum_n \mathrm{e}^{\frac {\mathrm{i}\epsilon_n t}{\hslash}} |\phi_n \rangle \langle\phi_n|\hat{B}|\sum_m \mathrm{e}^{-\frac {\mathrm{i}\epsilon_m t}{\hslash}} |\phi_m \rangle \langle\phi_m|\psi(0)\rangle\\
+            &= \sum_{m,n} \langle \psi(0)|\phi_n\rangle \langle \phi_n|\hat{B}|\phi_m \rangle \langle \phi_m|\psi(0)\rangle \mathrm{e}^{\frac {\mathrm{i}(\epsilon_n-\epsilon_m)t}{\hslash}}
         \end{aligned}\end{equation}
         \begin{asg}
             第7次作业第1题：高维谐振子$t$时刻的物理量
@@ -629,19 +629,19 @@
     \end{asg}
 
     光谱的定义为
-    \[ I(\omega) = \int_{-\infty}^{+\infty} \langle \hat{A}(0)\hat{A}(t)\rangle \mathrm{e}^{\frac {\mathrm{i}\omega t}{\hbar}} \mathrm{d}t \]
+    \[ I(\omega) = \int_{-\infty}^{+\infty} \langle \hat{A}(0)\hat{A}(t)\rangle \mathrm{e}^{\frac {\mathrm{i}\omega t}{\hslash}} \mathrm{d}t \]
     如果$\hat{A} = \hat{M}$则为红外光谱；如果$\hat{A} = \hat{\beta}$则为Raman光谱。
 
     我们比较一下谐振子的经典和量子描述。经典配分函数为
-    \[ Z_\mathrm{cl} = \int \mathrm{e}^{-\beta H(x,p)}\frac {\mathrm{d}x\mathrm{d}p}{2\pi\hbar} = \frac 1{\beta\hbar\omega} \]
+    \[ Z_\mathrm{cl} = \int \mathrm{e}^{-\beta H(x,p)}\frac {\mathrm{d}x\mathrm{d}p}{2\pi\hslash} = \frac 1{\beta\hslash\omega} \]
     量子体系的配分函数为
-    \[ Z_\mathrm{Q} = \mathrm{Tr} \ \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta\epsilon_n} = \frac 1{2\sinh{\frac {\beta\hbar\omega}2}} \]
-    这两个结果在$\beta\hbar\omega \to 0$时是一致的。如果
-    $\beta \to 0$则对应高温极限；$\hbar \to 0$对应经典极限；$\omega \to 0$对应能级差很小，也逼近经典情况。
+    \[ Z_\mathrm{Q} = \mathrm{Tr} \ \mathrm{e}^{-\beta \hat{H}} = \sum_n \mathrm{e}^{-\beta\epsilon_n} = \frac 1{2\sinh{\frac {\beta\hslash\omega}2}} \]
+    这两个结果在$\beta\hslash\omega \to 0$时是一致的。如果
+    $\beta \to 0$则对应高温极限；$\hslash \to 0$对应经典极限；$\omega \to 0$对应能级差很小，也逼近经典情况。
     根据$m\omega^2 = k$, 增大约化质量会使得$\omega$减小，这就是同位素效应。
 
     有了配分函数就可以求出各个热力学函数。定义
-    \[ u = \beta\hbar\omega \]
+    \[ u = \beta\hslash\omega \]
     自由能为
     \begin{equation}\begin{aligned}
         F_\mathrm{cl} &= -\frac 1{\beta} \ln{Z_\mathrm{cl}} = \frac 1{\beta} \ln{u}\\
@@ -667,7 +667,7 @@
     于是 
     \[ \langle \hat{H} \rangle = U = \frac {Q(\frac u2)}{\beta} \]
     当$u \to 0$, $Q(\frac u2) \to 1$，接近经典结果；当$u \to +\infty$，$\frac {Q(\frac u2)}{\frac u2} \to 1$, 于是
-    \[U \to \frac {\hbar \omega}2 \]
+    \[U \to \frac {\hslash \omega}2 \]
     能量即为零点能，即都聚集在基态。
 
     对于热容，如果$u \to +\infty$则有$C_V \to 0$
