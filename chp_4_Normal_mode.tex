@@ -222,9 +222,9 @@
     现在回到水分子的振动问题，水分子的势能函数在平衡位置附近可以展开为二次型：
     \begin{equation}
         \begin{split}
-        V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
-        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \mb{M}^{\frac 12}\bm{\mathcal{H}} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
-        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{T} \mb{M}^{\frac 12} \mb{S}\bm{\Omega} \mb{S}^\mathrm{T} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
+        V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{t} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
+        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{t} \mb{M}^{\frac 12}\bm{\mathcal{H}} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
+        &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{t} \mb{M}^{\frac 12} \mb{S}\bm{\Omega} \mb{S}^\mathrm{t} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
         \end{split}
     \end{equation}
     其中：
@@ -233,11 +233,11 @@
     \end{equation}
     定义\textbf{简正坐标}$\bm{Q}$：
     \begin{equation}
-        \bm{Q} = \mathbf{S}^\mathrm{T} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
+        \bm{Q} = \mathbf{S}^\mathrm{t} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})
     \end{equation}
     于是平衡点附近的势能面可以近似表达为：
     \begin{equation}
-        V(\bm{Q}) = V(\bm{0}) + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q} = V(\bm{0}) + \sum_{j=1}^N \frac 12 \omega_j^2 Q_j^2
+        V(\bm{Q}) = V(\bm{0}) + \frac 12 \bm{Q}^\mathrm{t} \bm{\Omega Q} = V(\bm{0}) + \sum_{j=1}^N \frac 12 \omega_j^2 Q_j^2
     \end{equation}
 
     \section{简正坐标和Cartesian坐标的关系}
@@ -274,7 +274,7 @@
     }
     ：
     \begin{equation}
-        \bm{P} = \mb{S}^\mr{T} \mb{M}^{-\frac 12} \bm{p}
+        \bm{P} = \mb{S}^\mr{t} \mb{M}^{-\frac 12} \bm{p}
     \end{equation}
     可以得到动能在简正坐标下的表达式：
     \begin{equation}
@@ -286,10 +286,10 @@
     总结简正坐标和Cartesian坐标之间的变换：
     \begin{equation}
         \begin{aligned}
-        \bm{Q} &= \bm{T}^\mathrm{T} \bm{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
-        \bm{P} &= \bm{T}^\mathrm{T} \bm{M}^{-\frac 12} \bm{p}\\
-        \bm{x} &= \bm{x}_\mathrm{eq} + \bm{M}^{-\frac 12}\bm{TQ}\\
-        \bm{p} &= \bm{M}^{\frac 12}\bm{TP}
+        \bm{Q} &= \mb{S}^\mathrm{t} \mb{M}^{\frac 12} (\bm{x-x}_\mathrm{eq})\\
+        \bm{P} &= \mb{S}^\mathrm{t} \mb{M}^{-\frac 12} \bm{p}\\
+        \bm{x} &= \bm{x}_\mathrm{eq} + \mb{M}^{-\frac 12}\mb{S}\bm{Q}\\
+        \bm{p} &= \mb{M}^{\frac 12}\mb{S}\bm{P}
         \end{aligned}
         \label{normal mode and cartesian coordinate}
     \end{equation}
@@ -298,7 +298,7 @@
 
     有了简正坐标与Cartesian坐标之间的变换，可以得到简正坐标下的Hamilton量（前一节已经给出）：
     \begin{equation}
-        H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
+        H = \frac 12 \bm{P}^\mathrm{t}\bm{P} + \frac 12 \bm{Q}^\mathrm{t} \bm{\Omega Q}
     \end{equation}
     使用Hamilton正则方程，可以得到简正坐标下的运动方程：
     \begin{equation}
@@ -339,45 +339,118 @@
 
     \splitline
 
-    如果给定0时刻时系统在Cartesian坐标下的初始条件$(\bm{x}_0,\bm{p}_0)$，得到$(\bm{x},\bm{p}$每个分量的解析表达式。将它变换为简正坐标，得到
-    \begin{equation}\begin{aligned}
-        Q_j &= \sum_i T_{ij} m_i^{\frac 12} (x_0^{(i)} - x_\mathrm{eq}^{(i)})\\
-        P_j &= \sum_i T_{ij} m_i^{-\frac 12} (p_0^{(i)})
-    \end{aligned}\end{equation}
-    由正则方程的形式可以给出
-    \begin{equation}\begin{aligned}
-        Q_j(t) &= Q_0^{(j)}\cos{\omega_j t} + \frac {P_0^{(j)}}{\omega} \sin{\omega_j t}\\
-        P_j(t) &= P_0^{(j)}\cos{\omega_j t} - \omega_j Q_0^{(j)} \sin{\omega_j t}
-    \end{aligned}\end{equation}
-    再变换回Cartesian坐标，得到
-    \begin{equation}\begin{aligned}
-        x_i(t) - x_\mathrm{eq}^{(i)} &= \sum_j m_j^{-\frac 12} T_{ij} Q_j(t)\\
-        p_i(t) &= \sum_j m_j^{\frac 12} T_{ij}P_j(t)
-    \end{aligned}\end{equation}
-
-    如果水分子服从Boltzmann分布，即
-    \begin{equation}\begin{aligned}
-        \rho \propto \mathrm{e}^{-\beta (\frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q})} = \mathrm{e}^{- \frac {\beta}2 \sum_j (P_j^2 + \omega_j^2 Q_j^2)} = \prod_j \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
-    \end{aligned}\end{equation}
-    要想将Cartesian坐标下的积分变换成简正坐标下的积分，需要计算Jacobi行列式：
-    \begin{equation}\begin{aligned}
-        \bigg|\frac {\partial (\bm{Q,P})}{\partial (\bm{x,p})}\bigg| &= \det
-        \begin{pmatrix}
-            \bm{T}^\mathrm{T}\bm{M}^{\frac 12} & 0\\
-            0 & \bm{T}^\mathrm{T}\bm{M}^{-\frac 12}
-        \end{pmatrix}
-        = 1
-    \end{aligned}\end{equation}
-    这里用到了正交矩阵的行列式为1（这也是显然成立的）。因此可以积分得到配分函数，从而得到简正坐标下的某个分量概率密度为
+    如果给定0时刻时系统在Cartesian坐标下的初始条件$(\bm{x}(0),\bm{p}(0))$，
+    可以根据简正坐标变换给出在简正坐标下的初始条件
+    （同时考虑了质量矩阵为对角矩阵这种常见的情形）：
     \begin{equation}
-        \mathcal{P}_j = \frac {2\pi}{\beta\omega_j} \mathrm{e}^{-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)}
+        \begin{aligned}
+            Q_j(0) &=\sum_{i,k} S_{ij} M^{\frac{1}{2}}_{ik}(x_k(0) - x_{\mr{eq},k}) =\sum_i S_{ij} M_{ii}^{\frac 12} (x_i(0) - x_{\mathrm{eq},i})\\
+            P_j(0) &=\sum_{i,k} S_{ij} M^{-\frac{1}{2}}_{ik}p_k(0)=\sum_i S_{ij} M_{ii}^{-\frac 12} p_{i}(0)
+        \end{aligned}
     \end{equation}
-    总概率密度为
+    根据正则方程可以解出简正坐标下的运动方程：
     \begin{equation}
-        \mathcal{P} = \prod_j \mathcal{P}_j
+        \begin{aligned}
+            Q_j(t) &= Q_j(0)\cos{\omega_j t} + \frac{P_j(0)}{\omega_j} \sin{\omega_j t}\\
+            P_j(t) &= P_j(0)\cos{\omega_j t} - \omega_j Q_j(0) \sin{\omega_j t}
+        \end{aligned}
     \end{equation}
-    由此可以得到Cartesian坐标下概率密度。
+    再根据简正坐标变换得到Cartesian坐标下的运动方程，这样就利用简正坐标
+    完全求解了小振动的问题，这里不再给出具体形式。
 
+    \splitline
+
+    再讨论小振动近似下的正则配分函数，
+    将其转换到简正坐标中，分布函数为高斯函数，分析为什么要进行这样的转换？
+
+    在NVT系综中，由单个水分子组成的系统的系综密度可以表示为：
+    \begin{equation}
+        \begin{split}
+            \rho(\bm{x}, \bm{p}) &= \frac{1}{Z}\exp\left[-\beta H(\bm{x}, \bm{p})\right]
+            = \frac{1}{Z}\exp\left[-\beta\left(\frac{1}{2}\bm{p}^{\mr{t}}\mb{M}^{-1}\bm{p} + V(\bm{x})\right)\right]\\
+            Z &= \frac{1}{(2\pi\hslash)^{2N}}\int\exp\left[-\beta H(\bm{x}, \bm{p})\right]\dd \bm{x}\dd \bm{p}
+        \end{split}
+    \end{equation}
+    如果可以知道$V(\bm{x})$的具体形式
+    \footnote{可以从文献中查找到描述水分子不同性质、不同精度的势能面}
+    ，就可以计算出配分函数$Z$
+    \footnote{即使在$V(\bm{x})$形式已知的情况下，计算配分函数也并不是简单的事情。
+    在第三章中提到了在Morse势下计算\ce{HCl}分子物理量的系综平均值，（只考虑径向）
+    这个二体系统的相空间只有2维，可以采用划分网格等传统数值积分方法计算。
+    \textbf{但是}，对于水分子，相空间有9维，如果采用网格法计算这样的积分，那么
+    格点数量会随系统的维数指数增加。为了计算这类高维积分，人们发展了\textbf{分子动力学}
+    与\textbf{Monte Carlo}等方法，不再均匀地从相空间中取点，而是在
+    $\exp\left[-\beta H(\bm{x}, \bm{p})\right]$取值比较大的地方采更多的
+    点。}
+    ，进一步获得水分子的热力学性质。这里为了计算方便，考虑对势能面使用小振动近似
+    \footnote{
+        容易想象，当系统温度较低时，系综密度只分布在平衡点附近，此时小振动近似是比较准确
+        的。（当然，这里是经典谐振子，如果使用量子力学框架，需要另行讨论）
+    }
+    ，那么Cartesian坐标下的系综密度应该写为：
+    \begin{equation}
+        \begin{split}
+            \rho(\bm{x}, \bm{p}) = \frac{1}{Z}\exp\left[-\beta\left(
+                \frac{1}{2}\bm{p}^{\mr{t}}\mb{M}^{-1}\bm{p} + \frac{1}{2}\bm{x}^{\mr{t}}
+                \mb{V}^{(2)}\bm{x}
+            \right)\right]
+        \end{split}
+    \end{equation}
+    在简正坐标下小振动近似的Hamilton量有着简单的形式，因此我们非常希望能用简正坐标表示
+    系综密度函数（这相当于在讨论坐标变换之下系综密度的变换规则）。假设坐标变换为：
+    $\sigma: (\bm{x}, \bm{p})\mapsto(\bm{Q}, \bm{P})$，
+    系综密度函数为$\tilde{\rho}(\bm{Q}, \bm{P})$，考虑相空间内的一块体积$D$，无论
+    使用哪个坐标表示，这块体积包含的系综密度是相同的，有：
+    \begin{equation}
+        \begin{split}
+            \int_{D(\bm{x},\bm{p})}\rho(\bm{x}, \bm{p})\dd \bm{x}\dd \bm{p}
+             = \int_{D(\bm{Q}, \bm{P})}\tilde{\rho}(\bm{Q}, \bm{P})\dd \bm{Q}\dd \bm{P}
+        \end{split}
+    \end{equation}
+    其中$D(\bm{x},\bm{p})$为体积$D$在原坐标下的表示，而$D(\bm{Q}, \bm{P})$为体积$D$在
+    新坐标下的表示，对于任意的体积$D$上式成立，那么利用重积分的换元公式，可以得到：
+    \begin{equation}
+        \tilde{\rho}(\bm{Q}, \bm{P}) = \rho(\bm{x}, \bm{p})\left|\pdv{(\bm{x}, \bm{p})}{(\bm{Q}, \bm{P})}\right|
+    \end{equation}
+    （上式中的$(\bm{x}, \bm{p})$要用$(\bm{Q}, \bm{P})$表示）。考虑简正坐标变换：
+    \begin{equation}
+        \begin{aligned}
+            \left|\frac {\partial (\bm{x,p})}{\partial (\bm{Q,,P})}\right| &= \det
+            \begin{pmatrix}
+                \mb{M}^{-\frac{1}{2}}\mb{S} & 0\\
+                0 & \mb{M}^{\frac{1}{2}}\mb{S}
+            \end{pmatrix}
+            = 1
+        \end{aligned}
+    \end{equation}
+    这里用到了正交矩阵的行列式为1。这样得到了简正坐标下的系综密度：
+    \begin{equation}
+        \tilde{\rho}(\bm{Q}, \bm{P}) = \rho(\bm{x}(\bm{Q}, \bm{P}), \bm{p}(\bm{Q}, \bm{P})) 
+        = \frac{1}{Z}\exp\left[-\beta\sum_{j=1}^{N}\left(\frac{1}{2}P_{j}^{2} + \frac{1}{2}\omega_{j}^2 Q_{j}^{2}\right)\right] 
+    \end{equation}
+    可以看到使用小振动近似后，系统的系综密度函数在简正坐标下具有Gauss函数乘积的形式，具体
+    来说，可以定义每个简正坐标自由度的“系综密度”：
+    \begin{equation}
+        \tilde{\rho}_{j}(Q_j, P_j) = \frac {1}{\beta\hslash\omega_j} \exp\left[-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)\right]
+    \end{equation}
+    系统的系综密度为各个自由度“系综密度”的乘积：
+    \begin{equation}
+        \tilde{\rho}(\bm{Q}, \bm{P}) = \prod_{j=1}^{N}\tilde{\rho}_{j}(Q_j, P_j)
+    \end{equation}
+    系综密度可以表示为Gauss函数乘积的这个特点可以极大地方便数值计算，考虑系统的物理量$B$
+    ，将其写为简正坐标的函数$B(\bm{Q}, \bm{P})$，那么平均值为：
+    \begin{equation}
+        \begin{split}
+            \left<B\right> = \int B(\bm{Q}, \bm{P})\prod_{j=1}^{N}\tilde{\rho}_j\dd \bm{Q}\dd \bm{P}
+        \end{split}
+    \end{equation}
+    分别在每个自由度上按照对应的密度函数采样
+    \footnote{
+        如果想了解怎么按照Gauss函数对应的密度分布抽样，可以参考Box-Muller sampling
+    }
+    ，将这些坐标组合为相空间中点的坐标，这样得到
+    对于相空间中密度函数的抽样，根据这个抽样可以计算$\left<B\right>$，这个方法被称为
+    “重要性抽样”。
     \section{Homework}
     \begin{asg}
         证明Hessian矩阵的本征值都是实数。
