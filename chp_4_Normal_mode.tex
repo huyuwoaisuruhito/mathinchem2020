@@ -1,19 +1,19 @@
 \chapter{多自由度小振动}
     \section{将平衡位置附近的势能函数展开为二次型}
-    现在研究复杂一些的\ce{H2O}分子的振动。它总共有3个原子，所以有9个运动自由度。质心平动3个自由度，
-    刚性转动也有3个自由度，因此振动是3个自由度。
+    现在研究复杂一些的\ce{H2O}分子的振动.它总共有3个原子, 所以有9个运动自由度.质心平动3个自由度, 
+    刚性转动也有3个自由度, 因此振动是3个自由度.
     \footnote{
-    3个振动自由度分别为剪切振动、对称伸缩振动和不对称伸缩振动。
+    3个振动自由度分别为剪切振动、对称伸缩振动和不对称伸缩振动.
     水分子的O-H振动波数约为3700 cm$^{-1}$, 剪切振动波数约为1600 cm$^{-1}$, 
-    伸缩振动1个周期应当约为20.8 fs, 剪切振动周期约为9 fs. 而1 a.u. = 0.024 fs.即可据此估计模拟过程中的时间步长。\\
-    多原子分子的振动问题比表面上看起来更加复杂。对于刚体，
-    有三个平动自由度与三个转动自由度，可以通过描述质心坐标与刚体的旋转
-    （特殊正交矩阵描述，3个自由度）来确定整个刚体的运动。对于分子来说，振动和转动
-    通常是耦合的，并不能严格定义转动自由度，但是在\textbf{小振动}的情形下，可以分离
-    平动、转动、振动自由度，略微下详细的讨论可以参见\cite{Landau2007mechanics}，
-    这里不再展开。
+    伸缩振动1个周期应当约为20.8 fs, 剪切振动周期约为9 fs. 而1 a.u. = 0.024 fs.即可据此估计模拟过程中的时间步长.\\
+    多原子分子的振动问题比表面上看起来更加复杂.对于刚体, 
+    有三个平动自由度与三个转动自由度, 可以通过描述质心坐标与刚体的旋转
+    （特殊正交矩阵描述, 3个自由度）来确定整个刚体的运动.对于分子来说, 振动和转动
+    通常是耦合的, 并不能严格定义转动自由度, 但是在\textbf{小振动}的情形下, 可以分离
+    平动、转动、振动自由度, 略微下详细的讨论可以参见\cite{Landau2007mechanics}, 
+    这里不再展开.
     }
-    对于水分子，定义每个原子的坐标为：
+    对于水分子, 定义每个原子的坐标为：
     \begin{equation}
         \begin{split}
         \bm{x} = 
@@ -24,7 +24,7 @@
         \end{pmatrix}
     \end{split}
     \end{equation}
-    其中$\bm{x}_\mr{O}$表示氧原子O在三维空间中的Descartes坐标，其他以此类推。
+    其中$\bm{x}_\mr{O}$表示氧原子O在三维空间中的Descartes坐标, 其他以此类推.
     给定原子核运动的势能$V(\bm{x})$, 定义质量矩阵：
     \begin{equation}
         \begin{split}
@@ -37,20 +37,20 @@
         \label{mass matrix}
     \end{split}
     \end{equation}
-    其中，$m_1,m_2,m_3$等于氧原子的质量，$m_4,...,m_9$等于氢原子的质量。那么可以将
+    其中, $m_1,m_2,m_3$等于氧原子的质量, $m_4,...,m_9$等于氢原子的质量.那么可以将
     系统的动量表示为：
     \begin{equation}
         \bm{p} = \bm{M}\cdot\dot{\bm{x}}
     \end{equation}
-    仿照一维系统的Hamilton量，可以写出这个多维系统的Hamilton量：
+    仿照一维系统的Hamilton量, 可以写出这个多维系统的Hamilton量：
     \begin{equation}
         H(\bm{x}, \bm{p}) = \frac{1}{2}\bm{p}^{\mr{t}}\bm{M}^{-1}\bm{p} + V(\bm{x})
     \end{equation}
-    理论上，只要给出势能函数的形式，就可以完全讨论系统的运动。但是对于系统在平衡位置
-    \footnote{一般都是指稳定平衡位置，即当系统偏离平衡点的距离非常微小时，
-    系统有回到平衡位置的运动趋势，数学上对应势能函数的\textbf{极小值点}
-    }附近的运动，通常采用\textbf{小振动近似}来得到系统在平衡位置附近运动的解析表达式。
-    假设平衡位置为$\bm{x_{\mr{eq}}}$，那么在平衡点邻域内的函数值可以按照Taylor展开写为：
+    理论上, 只要给出势能函数的形式, 就可以完全讨论系统的运动.但是对于系统在平衡位置
+    \footnote{一般都是指稳定平衡位置, 即当系统偏离平衡点的距离非常微小时, 
+    系统有回到平衡位置的运动趋势, 数学上对应势能函数的\textbf{极小值点}
+    }附近的运动, 通常采用\textbf{小振动近似}来得到系统在平衡位置附近运动的解析表达式.
+    假设平衡位置为$\bm{x_{\mr{eq}}}$, 那么在平衡点邻域内的函数值可以按照Taylor展开写为：
     \begin{equation}
         \begin{split}
         V(\bm{x_{\mr{eq}}} + \bm{q}) &= V(\bm{x_{\mr{eq}}}) + \left.\pdv{V}{\bm{x}}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}^{\mr{t}}\bm{q}
@@ -58,23 +58,23 @@
         \end{split}
     \end{equation}
     在平衡位置$\dps\left.\pdv{V}{\bm{x}}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}$
-    为0（从数学上讲，这是函数极小值点的性质；从物理上讲，平衡位置处系统不受力）；
-    同时常数项不会影响运动方程，可以不予考虑；如果在$\bm{q}$比较小时，忽略2阶以上的项
-    \footnote{这就是小振动近似，但是前提我们假设了Taylor展开的二阶项存在。但是，
-    对于稳定平衡（极小值点）附近的Taylor展开，完全可能出现二阶项为0的情形，
-    比如势能是四次函数，这时使用小振动图像得到的结论就会完全出错。
+    为0（从数学上讲, 这是函数极小值点的性质；从物理上讲, 平衡位置处系统不受力）；
+    同时常数项不会影响运动方程, 可以不予考虑；如果在$\bm{q}$比较小时, 忽略2阶以上的项
+    \footnote{这就是小振动近似, 但是前提我们假设了Taylor展开的二阶项存在.但是, 
+    对于稳定平衡（极小值点）附近的Taylor展开, 完全可能出现二阶项为0的情形, 
+    比如势能是四次函数, 这时使用小振动图像得到的结论就会完全出错.
     }
-    ，那么就可以将势能函数重写为：
+    , 那么就可以将势能函数重写为：
     \begin{equation}
         V(\bm{q}) = \frac{1}{2}\bm{q}^{\mr{t}}\left.\pdv{^2V}{\bm{x}^2}\right|_{\bm{x} = \bm{x}_{\mr{eq}}}\bm{q}
         \label{potential at equilibrium point}
     \end{equation}
     定义矩阵（通常而言是一个半正定
     \footnote{
-        一般而言这个矩阵一定有0作为特征值。因为分子在某些
-        自由度运动时（刚性转动、质心平动）分子的势能不变，这说明在势能极小值处
-        沿着某些方向运动时势能函数恒定。可以说明代表分子整体平移的矢量是此矩阵特征值为0
-        的特征向量，但是对于分子的转动，不一定会对应一个特征值为0的特征向量？
+        一般而言这个矩阵一定有0作为特征值.因为分子在某些
+        自由度运动时（刚性转动、质心平动）分子的势能不变, 这说明在势能极小值处
+        沿着某些方向运动时势能函数恒定.可以说明代表分子整体平移的矢量是此矩阵特征值为0
+        的特征向量, 但是对于分子的转动, 不一定会对应一个特征值为0的特征向量？
     }
     的实对称矩阵）：
     \begin{equation}
@@ -90,17 +90,17 @@
     \begin{equation}
         \bm{q} = \bm{x} - \bm{x_{\mr{eq}}}
     \end{equation}
-    表示偏移平衡点的位移。
+    表示偏移平衡点的位移.
 
     \section{简正坐标}
-    对于更一般的情况，质量矩阵$\bm{M}$不一定是对角的，但一定是实对称且正定的矩阵
-    \footnote{对于非直角坐标，比如在某些约束下定义的广义坐标，$\bm{M}$并不对角，
-    但是由于动能只可能是正值，所以$\bm{M}$一定正定}
-    ，这样就可以唯一地定义它正定的平方根$\bm{M}^{\frac{1}{2}}$
-    \footnote{这也是一个实对称矩阵，结论可以通过对角化这个矩阵来理解，
-    详细的证明要参考线性代数教材}，
+    对于更一般的情况, 质量矩阵$\bm{M}$不一定是对角的, 但一定是实对称且正定的矩阵
+    \footnote{对于非直角坐标, 比如在某些约束下定义的广义坐标, $\bm{M}$并不对角, 
+    但是由于动能只可能是正值, 所以$\bm{M}$一定正定}
+    , 这样就可以唯一地定义它正定的平方根$\bm{M}^{\frac{1}{2}}$
+    \footnote{这也是一个实对称矩阵, 结论可以通过对角化这个矩阵来理解, 
+    详细的证明要参考线性代数教材}, 
     将Hamilton量\ref{the Hamiltonian of samll vibration}写为
-    （至于为什么要这么改写，在Lagrange力学部分会详细解释）：
+    （至于为什么要这么改写, 在Lagrange力学部分会详细解释）：
     \begin{equation}
         H(\bm{q},\bm{p}) = \frac{1}{2}\left(\bm{M}^{-\frac{1}{2}}\bm{p}\right)^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p} + 
         \frac{1}{2}\left(\bm{M}^{\frac{1}{2}}\bm{q}\right)^{t}\bm{M}^{-\frac{1}{2}}\bm{K}\bm{M}^{-\frac{1}{2}}\left(\bm{M}^{\frac{1}{2}}\bm{q}\right)
@@ -112,29 +112,29 @@
         \end{split}
         \label{Hessian matrix}
     \end{equation}
-    它的量纲为s$^{-2}$。 这是一个实对称矩阵，可以由正交矩阵作对角化：
+    它的量纲为s$^{-2}$. 这是一个实对称矩阵, 可以由正交矩阵作对角化：
     \begin{equation}
         \bm{\mathcal{H}} = \bm{S}\bm{\bm{\Omega}S}^{\mr{t}}
     \end{equation}
-    其中$\bm{\Omega}$为一个对角矩阵，$\bm{S}$为\textbf{正交矩阵}
+    其中$\bm{\Omega}$为一个对角矩阵, $\bm{S}$为\textbf{正交矩阵}
     \footnote{
         正交矩阵满足: 
     \begin{equation}
         \bm{S}^\mathrm{t}\bm{S} = \bm{SS}^\mathrm{t} = \bm{I}
     \end{equation}
     }
-    ，其列向量为$\bm{\mathcal{H}}$的特征向量，
+    , 其列向量为$\bm{\mathcal{H}}$的特征向量, 
     令：
     \begin{equation}
         \bm{\Omega} = \mathrm{diag} \{\omega_1^2, ..., \omega_N^2 \}
     \end{equation}
-    这样就得到了$N$个（$N$为系统的总自由度数目）具有频率量纲的常数，后面会讨论
-    其物理含义。利用上面定义的矩阵，可以继续改写系统的Hamilton量：
+    这样就得到了$N$个（$N$为系统的总自由度数目）具有频率量纲的常数, 后面会讨论
+    其物理含义.利用上面定义的矩阵, 可以继续改写系统的Hamilton量：
     \begin{equation}
         H(\bm{q},\bm{p}) = \frac{1}{2}\left(\bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}\right)^\mr{t}\left(\bm{S}^\mr{t}\bm{M}^{-\frac{1}{2}}\bm{p}\right) + 
         \frac{1}{2}\left(\bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\right)^{t}\bm{\Omega}\left(\bm{S}^\mr{t}\bm{M}^{\frac{1}{2}}\bm{q}\right)
     \end{equation}
-    利用上面Hamilton量的形式，定义如下相空间中的\textbf{坐标变换}（简正坐标变换）：
+    利用上面Hamilton量的形式, 定义如下相空间中的\textbf{坐标变换}（简正坐标变换）：
     \begin{equation}
         \left\{
         \begin{split}
@@ -151,19 +151,19 @@
         & = \frac{1}{2}\sum_{i=1}^{N}P_{i}^2 + \frac{1}{2}\sum_{i=1}^{N}\omega_{i}^2Q_{i}^{2}
         \end{split}
     \end{equation}
-    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量，将其
+    表面上看起来这是$N$个不耦合（之间没有相互作用）的简谐振子的Hamilton量, 将其
     带入Hamilton正则方程就可以得到$N$个独立谐振子的运动方程（在第一章
-    中我们已经讨论过）。\textbf{但是}，
+    中我们已经讨论过）.\textbf{但是}, 
     这里忽略了一个重要的问题：我们无法保证坐标变换之后的新变量$(\bm{Q},\bm{P})$
-    与对应的Hamilton量$H(\bm{Q},\bm{P})$满足Hamilton方程。
+    与对应的Hamilton量$H(\bm{Q},\bm{P})$满足Hamilton方程.
 
     \splitline
 
-    在此处\textbf{不打算}完全解决这个问题，而是给出此问题的一个严谨的表述，
-    目的是清楚地认识到简正坐标变换并不是随意进行的，而是一种特殊的变换。
+    在此处\textbf{不打算}完全解决这个问题, 而是给出此问题的一个严谨的表述, 
+    目的是清楚地认识到简正坐标变换并不是随意进行的, 而是一种特殊的变换.
     考虑系统A的运动可以由Hamilton量$H(\bm{q},\bm{p},t),\,\,(\bm{q},\bm{p})\in\mathbb{R}^{2N}$
-    与对应的Hamilton方程来描述，定义相空间中的一个可逆变换：$\rho:(\bm{q},\bm{p})\mapsto(\bm{Q}, \bm{P}),\,\,\mathbb{R}^{2N}\to\mathbb{R}^{2N}$
-    （其中$t$为时间，也可以将其理解为任意参数）
+    与对应的Hamilton方程来描述, 定义相空间中的一个可逆变换：$\rho:(\bm{q},\bm{p})\mapsto(\bm{Q}, \bm{P}),\,\,\mathbb{R}^{2N}\to\mathbb{R}^{2N}$
+    （其中$t$为时间, 也可以将其理解为任意参数）
     \begin{equation}
         \left\{
         \begin{split}
@@ -172,10 +172,10 @@
         \end{split}
         \right.
     \end{equation}
-    这样的变换可以很丰富，比前面讨论的简正坐标变换\ref{normal mode transformation}，
+    这样的变换可以很丰富, 比前面讨论的简正坐标变换\ref{normal mode transformation}, 
     就是相空间中不包含时间的一个线性变换；还有在第二章讨论过的Hamilton方程的解所定义的
     不同时刻轨线上的点之间的映射
-    $\phi^{\tau}:(\bm{q}_{t},\bm{p}_{t})\mapsto(\bm{q}_{t+\tau},\bm{p}_{t+\tau})$。
+    $\phi^{\tau}:(\bm{q}_{t},\bm{p}_{t})\mapsto(\bm{q}_{t+\tau},\bm{p}_{t+\tau})$.
     如果存在一个函数$K(\bm{Q}, \bm{P}, t)$能够让变换之后的坐标满足
     （即$K(\bm{Q}, \bm{P}, t)$\textbf{对应的}Hamilton方程等价于
     $H(\bm{q},\bm{p},t)$
@@ -188,20 +188,20 @@
         \end{split}
         \right.
     \end{equation}
-    那么称这样的变换为\textbf{正则变换}，前面提到的两种变换都是正则变换。
+    那么称这样的变换为\textbf{正则变换}, 前面提到的两种变换都是正则变换.
     \footnote{
         一个变换是正则变换的充要条件是满足：
         \begin{equation}
             \left[\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})}\right]^{\mr{t}}\bm{J}\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})} = \bm{J}
         \end{equation}
-        其中$\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})}$是正则变换的Jacobi矩阵，它可以是时间的函数，$\bm{J}$为
-        标准辛矩阵。可以通过这个验证文中所述的变换为正则变换。
-        正则变换极大地拓展了Hamilton力学的内涵，导出了很多在数学和物理上有深刻意义的结论，
-        比如之前详细讨论的Liouville定理，就可以看作是正则变换不改变相空间体积的一个特例，
-        详细的介绍可以参考\cite{Goldstein2000Classical}。
+        其中$\pdv{(\bm{Q},\bm{P})}{(\bm{q}, \bm{p})}$是正则变换的Jacobi矩阵, 它可以是时间的函数, $\bm{J}$为
+        标准辛矩阵.可以通过这个验证文中所述的变换为正则变换.
+        正则变换极大地拓展了Hamilton力学的内涵, 导出了很多在数学和物理上有深刻意义的结论, 
+        比如之前详细讨论的Liouville定理, 就可以看作是正则变换不改变相空间体积的一个特例, 
+        详细的介绍可以参考\cite{Goldstein2000Classical}.
     }
-    对于相空间中的任意变换，“新Hamilton量”$K$的存在性是无法保证的，为了说明这一点，
-    直接计算新坐标对于时间的导数（方便起见，此处使用求和约定）：
+    对于相空间中的任意变换, “新Hamilton量”$K$的存在性是无法保证的, 为了说明这一点, 
+    直接计算新坐标对于时间的导数（方便起见, 此处使用求和约定）：
     \begin{equation}
         \left\{
             \begin{split}
@@ -213,13 +213,13 @@
         \right.
         \label{the derivative of new coordinate}
     \end{equation}
-    等式\ref{the derivative of new coordinate}右边为$(\bm{q},\bm{p},t)$的函数，可以想象
-    ，对于任意的变换，并不一定可以找到$K(\bm{Q},\bm{P},t)$使得等式右边与
-    $\pdv{K}{P_{i}},-\pdv{K}{Q_i}$对应相等。
+    等式\ref{the derivative of new coordinate}右边为$(\bm{q},\bm{p},t)$的函数, 可以想象
+    , 对于任意的变换, 并不一定可以找到$K(\bm{Q},\bm{P},t)$使得等式右边与
+    $\pdv{K}{P_{i}},-\pdv{K}{Q_i}$对应相等.
     
     \splitline
 
-    现在回到水分子的振动问题，水分子的势能函数在平衡位置附近可以展开为二次型：
+    现在回到水分子的振动问题, 水分子的势能函数在平衡位置附近可以展开为二次型：
     \begin{equation}
         \begin{split}
         V(\bm{x}) &= V(\bm{x}_\mathrm{eq}) + \frac 12 (\bm{x-x}_\mathrm{eq})^\mathrm{t} \bm{V}^{(2)} (\bm{x-x}_\mathrm{eq})\\
@@ -241,9 +241,9 @@
     \end{equation}
 
     \section{简正坐标和Cartesian坐标的关系}
-    上一节讨论了简正坐标变换。这一节讨论三个问题：1.如何用简正坐标表示系统的物理量，2.
-    验证简正坐标依然满足Hamilton方程，3.给定直角坐标的初始条件，如何通过简正坐标
-    求解系统的运动方程。
+    上一节讨论了简正坐标变换.这一节讨论三个问题：1.如何用简正坐标表示系统的物理量, 2.
+    验证简正坐标依然满足Hamilton方程, 3.给定直角坐标的初始条件, 如何通过简正坐标
+    求解系统的运动方程.
 
     \splitline
 
@@ -256,11 +256,11 @@
     \end{equation}
     简正坐标中的动量定义为
     \footnote{
-        注意这里的动量为“\textbf{正则动量}”，并不是系统真实的动量。
-        由于正则变换的存在，原有的广义坐标与广义动量在变换后会被混合，以至于完全
-        失去了“坐标”与“动量”的原有含义，甚至不具有坐标和动量的量纲，
-        因此在Hamilton力学中不再严格区分坐标与动量，而是将$(\bm{Q}, \bm{P})$
-        合称为正则共轭变量。\\
+        注意这里的动量为“\textbf{正则动量}”, 并不是系统真实的动量.
+        由于正则变换的存在, 原有的广义坐标与广义动量在变换后会被混合, 以至于完全
+        失去了“坐标”与“动量”的原有含义, 甚至不具有坐标和动量的量纲, 
+        因此在Hamilton力学中不再严格区分坐标与动量, 而是将$(\bm{Q}, \bm{P})$
+        合称为正则共轭变量.\\
         可以选取变换：
         \begin{equation}
             \left\{
@@ -270,7 +270,7 @@
                 \end{split}
             \right.
         \end{equation}
-        将原本的动量与坐标互换。
+        将原本的动量与坐标互换.
     }
     ：
     \begin{equation}
@@ -296,11 +296,11 @@
 
     \splitline
 
-    有了简正坐标与Cartesian坐标之间的变换，可以得到简正坐标下的Hamilton量（前一节已经给出）：
+    有了简正坐标与Cartesian坐标之间的变换, 可以得到简正坐标下的Hamilton量（前一节已经给出）：
     \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{t}\bm{P} + \frac 12 \bm{Q}^\mathrm{t} \bm{\Omega Q}
     \end{equation}
-    使用Hamilton正则方程，可以得到简正坐标下的运动方程：
+    使用Hamilton正则方程, 可以得到简正坐标下的运动方程：
     \begin{equation}
         \begin{aligned}
             \bm{\dot{Q}} &= \frac {\partial H}{\partial \bm{P}} = \bm{P}\\
@@ -315,8 +315,8 @@
             \dot{P}_j &= - \omega_j^2 Q_j
         \end{aligned}
     \end{equation}
-    前一节中已经指出，相空间中的任意变换并不能够保证Hamilton方程的不变，这里验证一下
-    简正坐标变换下Hamilton方程的不变性。首先根据Cartesian坐标下的Hamilton量给出运动方程：
+    前一节中已经指出, 相空间中的任意变换并不能够保证Hamilton方程的不变, 这里验证一下
+    简正坐标变换下Hamilton方程的不变性.首先根据Cartesian坐标下的Hamilton量给出运动方程：
     \begin{equation}
         \begin{split}
             \dot{\bm{q}} &= \pdv{H}{\bm{p}} = \mb{M^{-1}}\bm{P}\\
@@ -331,15 +331,15 @@
             \dot{p}_i &= \sum_j \frac {\partial^2 V}{\partial x_i \partial x_j} (x_j - x_\mathrm{eq}^{(j)})
         \end{aligned}
     \end{equation}
-    这要比在简正坐标下的形式要复杂很多。
+    这要比在简正坐标下的形式要复杂很多.
     将简正坐标变换\ref{normal mode and cartesian coordinate}
-    带入Cartesian坐标下的运动方程\ref{equation of motion in cartesian coordiante}，可以得到
-    简正坐标下的运动方程\ref{equation of motion in normal mode coordinate}，这样就验证了
-    简正坐标变换保证了Hamilton方程的不变。
+    带入Cartesian坐标下的运动方程\ref{equation of motion in cartesian coordiante}, 可以得到
+    简正坐标下的运动方程\ref{equation of motion in normal mode coordinate}, 这样就验证了
+    简正坐标变换保证了Hamilton方程的不变.
 
     \splitline
 
-    如果给定0时刻时系统在Cartesian坐标下的初始条件$(\bm{x}(0),\bm{p}(0))$，
+    如果给定0时刻时系统在Cartesian坐标下的初始条件$(\bm{x}(0),\bm{p}(0))$, 
     可以根据简正坐标变换给出在简正坐标下的初始条件
     （同时考虑了质量矩阵为对角矩阵这种常见的情形）：
     \begin{equation}
@@ -355,15 +355,15 @@
             P_j(t) &= P_j(0)\cos{\omega_j t} - \omega_j Q_j(0) \sin{\omega_j t}
         \end{aligned}
     \end{equation}
-    再根据简正坐标变换得到Cartesian坐标下的运动方程，这样就利用简正坐标
-    完全求解了小振动的问题，这里不再给出具体形式。
+    再根据简正坐标变换得到Cartesian坐标下的运动方程, 这样就利用简正坐标
+    完全求解了小振动的问题, 这里不再给出具体形式.
 
     \splitline
 
-    再讨论小振动近似下的正则配分函数，
-    将其转换到简正坐标中，分布函数为高斯函数，分析为什么要进行这样的转换？
+    再讨论小振动近似下的正则配分函数, 
+    将其转换到简正坐标中, 分布函数为高斯函数, 分析为什么要进行这样的转换？
 
-    在NVT系综中，由单个水分子组成的系统的系综密度可以表示为：
+    在NVT系综中, 由单个水分子组成的系统的系综密度可以表示为：
     \begin{equation}
         \begin{split}
             \rho(\bm{x}, \bm{p}) &= \frac{1}{Z}\exp\left[-\beta H(\bm{x}, \bm{p})\right]
@@ -373,21 +373,21 @@
     \end{equation}
     如果可以知道$V(\bm{x})$的具体形式
     \footnote{可以从文献中查找到描述水分子不同性质、不同精度的势能面}
-    ，就可以计算出配分函数$Z$
-    \footnote{即使在$V(\bm{x})$形式已知的情况下，计算配分函数也并不是简单的事情。
-    在第三章中提到了在Morse势下计算\ce{HCl}分子物理量的系综平均值，（只考虑径向）
-    这个二体系统的相空间只有2维，可以采用划分网格等传统数值积分方法计算。
-    \textbf{但是}，对于水分子，相空间有9维，如果采用网格法计算这样的积分，那么
-    格点数量会随系统的维数指数增加。为了计算这类高维积分，人们发展了\textbf{分子动力学}
-    与\textbf{Monte Carlo}等方法，不再均匀地从相空间中取点，而是在
+    , 就可以计算出配分函数$Z$
+    \footnote{即使在$V(\bm{x})$形式已知的情况下, 计算配分函数也并不是简单的事情.
+    在第三章中提到了在Morse势下计算\ce{HCl}分子物理量的系综平均值, （只考虑径向）
+    这个二体系统的相空间只有2维, 可以采用划分网格等传统数值积分方法计算.
+    \textbf{但是}, 对于水分子, 相空间有9维, 如果采用网格法计算这样的积分, 那么
+    格点数量会随系统的维数指数增加.为了计算这类高维积分, 人们发展了\textbf{分子动力学}
+    与\textbf{Monte Carlo}等方法, 不再均匀地从相空间中取点, 而是在
     $\exp\left[-\beta H(\bm{x}, \bm{p})\right]$取值比较大的地方采更多的
-    点。}
-    ，进一步获得水分子的热力学性质。这里为了计算方便，考虑对势能面使用小振动近似
+    点.}
+    , 进一步获得水分子的热力学性质.这里为了计算方便, 考虑对势能面使用小振动近似
     \footnote{
-        容易想象，当系统温度较低时，系综密度只分布在平衡点附近，此时小振动近似是比较准确
-        的。（当然，这里是经典谐振子，如果使用量子力学框架，需要另行讨论）
+        容易想象, 当系统温度较低时, 系综密度只分布在平衡点附近, 此时小振动近似是比较准确
+        的.（当然, 这里是经典谐振子, 如果使用量子力学框架, 需要另行讨论）
     }
-    ，那么Cartesian坐标下的系综密度应该写为：
+    , 那么Cartesian坐标下的系综密度应该写为：
     \begin{equation}
         \begin{split}
             \rho(\bm{x}, \bm{p}) = \frac{1}{Z}\exp\left[-\beta\left(
@@ -396,23 +396,23 @@
             \right)\right]
         \end{split}
     \end{equation}
-    在简正坐标下小振动近似的Hamilton量有着简单的形式，因此我们非常希望能用简正坐标表示
-    系综密度函数（这相当于在讨论坐标变换之下系综密度的变换规则）。假设坐标变换为：
-    $\sigma: (\bm{x}, \bm{p})\mapsto(\bm{Q}, \bm{P})$，
-    系综密度函数为$\tilde{\rho}(\bm{Q}, \bm{P})$，考虑相空间内的一块体积$D$，无论
-    使用哪个坐标表示，这块体积包含的系综密度是相同的，有：
+    在简正坐标下小振动近似的Hamilton量有着简单的形式, 因此我们非常希望能用简正坐标表示
+    系综密度函数（这相当于在讨论坐标变换之下系综密度的变换规则）.假设坐标变换为：
+    $\sigma: (\bm{x}, \bm{p})\mapsto(\bm{Q}, \bm{P})$, 
+    系综密度函数为$\tilde{\rho}(\bm{Q}, \bm{P})$, 考虑相空间内的一块体积$D$, 无论
+    使用哪个坐标表示, 这块体积包含的系综密度是相同的, 有：
     \begin{equation}
         \begin{split}
             \int_{D(\bm{x},\bm{p})}\rho(\bm{x}, \bm{p})\dd \bm{x}\dd \bm{p}
              = \int_{D(\bm{Q}, \bm{P})}\tilde{\rho}(\bm{Q}, \bm{P})\dd \bm{Q}\dd \bm{P}
         \end{split}
     \end{equation}
-    其中$D(\bm{x},\bm{p})$为体积$D$在原坐标下的表示，而$D(\bm{Q}, \bm{P})$为体积$D$在
-    新坐标下的表示，对于任意的体积$D$上式成立，那么利用重积分的换元公式，可以得到：
+    其中$D(\bm{x},\bm{p})$为体积$D$在原坐标下的表示, 而$D(\bm{Q}, \bm{P})$为体积$D$在
+    新坐标下的表示, 对于任意的体积$D$上式成立, 那么利用重积分的换元公式, 可以得到：
     \begin{equation}
         \tilde{\rho}(\bm{Q}, \bm{P}) = \rho(\bm{x}, \bm{p})\left|\pdv{(\bm{x}, \bm{p})}{(\bm{Q}, \bm{P})}\right|
     \end{equation}
-    （上式中的$(\bm{x}, \bm{p})$要用$(\bm{Q}, \bm{P})$表示）。考虑简正坐标变换：
+    （上式中的$(\bm{x}, \bm{p})$要用$(\bm{Q}, \bm{P})$表示）.考虑简正坐标变换：
     \begin{equation}
         \begin{aligned}
             \left|\frac {\partial (\bm{x,p})}{\partial (\bm{Q,,P})}\right| &= \det
@@ -423,13 +423,13 @@
             = 1
         \end{aligned}
     \end{equation}
-    这里用到了正交矩阵的行列式为1。这样得到了简正坐标下的系综密度：
+    这里用到了正交矩阵的行列式为1.这样得到了简正坐标下的系综密度：
     \begin{equation}
         \tilde{\rho}(\bm{Q}, \bm{P}) = \rho(\bm{x}(\bm{Q}, \bm{P}), \bm{p}(\bm{Q}, \bm{P})) 
         = \frac{1}{Z}\exp\left[-\beta\sum_{j=1}^{N}\left(\frac{1}{2}P_{j}^{2} + \frac{1}{2}\omega_{j}^2 Q_{j}^{2}\right)\right] 
     \end{equation}
-    可以看到使用小振动近似后，系统的系综密度函数在简正坐标下具有Gauss函数乘积的形式，具体
-    来说，可以定义每个简正坐标自由度的“系综密度”：
+    可以看到使用小振动近似后, 系统的系综密度函数在简正坐标下具有Gauss函数乘积的形式, 具体
+    来说, 可以定义每个简正坐标自由度的“系综密度”：
     \begin{equation}
         \tilde{\rho}_{j}(Q_j, P_j) = \frac {1}{\beta\hslash\omega_j} \exp\left[-\frac {\beta}2 (P_j^2 + \omega_j^2 Q_j^2)\right]
     \end{equation}
@@ -437,8 +437,8 @@
     \begin{equation}
         \tilde{\rho}(\bm{Q}, \bm{P}) = \prod_{j=1}^{N}\tilde{\rho}_{j}(Q_j, P_j)
     \end{equation}
-    系综密度可以表示为Gauss函数乘积的这个特点可以极大地方便数值计算，考虑系统的物理量$B$
-    ，将其写为简正坐标的函数$B(\bm{Q}, \bm{P})$，那么平均值为：
+    系综密度可以表示为Gauss函数乘积的这个特点可以极大地方便数值计算, 考虑系统的物理量$B$
+    , 将其写为简正坐标的函数$B(\bm{Q}, \bm{P})$, 那么平均值为：
     \begin{equation}
         \begin{split}
             \left<B\right> = \int B(\bm{Q}, \bm{P})\prod_{j=1}^{N}\tilde{\rho}_j\dd \bm{Q}\dd \bm{P}
@@ -446,18 +446,18 @@
     \end{equation}
     分别在每个自由度上按照对应的密度函数采样
     \footnote{
-        如果想了解怎么按照Gauss函数对应的密度分布抽样，可以参考Box-Muller sampling
+        如果想了解怎么按照Gauss函数对应的密度分布抽样, 可以参考Box-Muller sampling
     }
-    ，将这些坐标组合为相空间中点的坐标，这样得到
-    对于相空间中密度函数的抽样，根据这个抽样可以计算$\left<B\right>$，这个方法被称为
-    “重要性抽样”。
+    , 将这些坐标组合为相空间中点的坐标, 这样得到
+    对于相空间中密度函数的抽样, 根据这个抽样可以计算$\left<B\right>$, 这个方法被称为
+    “重要性抽样”.
     \section{Homework}
     \begin{asg}
-        证明Hessian矩阵的本征值都是实数。
+        证明Hessian矩阵的本征值都是实数.
     \end{asg}
     \begin{asg}
-        给定水分子简正坐标下的初始系综密度函数，求键长、键角
-        的期望和涨落随时间的变化。
+        给定水分子简正坐标下的初始系综密度函数, 求键长、键角
+        的期望和涨落随时间的变化.
     \end{asg}
 
 

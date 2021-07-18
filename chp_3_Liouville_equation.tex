@@ -3,8 +3,8 @@
     \subsection{有关系综的概念}\footnote{这一节的更多内容可以参考\cite{Tuckerman2010Statistical}
     和刘川老师的平衡态统计物理讲义第二章开头}
     统计物理的目标是建立宏观物理量和微观运动规律之间的联系，之前讨论的Hamilton方程可以用来描述经典意义下
-    微观系统的运动。某个微观系统的运动状态（某一时刻各个粒子的广义坐标和广义动量）对应相空间中一个点（
-    称为系统的\textbf{代表点}），系统随时间的演化等价于代表点在相空间中按照Hamilton方程决定的轨线运动。Maxwell
+    微观系统的运动.某个微观系统的运动状态（某一时刻各个粒子的广义坐标和广义动量）对应相空间中一个点（
+    称为系统的\textbf{代表点}），系统随时间的演化等价于代表点在相空间中按照Hamilton方程决定的轨线运动.Maxwell
     与Boltzmann认为，对于宏观系统的测量发生在一段时间$(t_0, t_0 + \tau)$内，其中$\tau$是一个
     宏观短（指系统的宏观物理量没有发生可观测的变化）、微观长（指在这段时间内系统的代表点在相空间中发生了
     很明显的移动）的时间段，而真正观测到的物理量$A(t_0)$是对应微观物理量$a(x,p)$的\textbf{时间平均}：
@@ -12,30 +12,30 @@
         A(t_0) := \frac{1}{\tau}\int_{t_0}^{t_0+\tau}a(x(t), p(t))\dd x\dd p
     \end{equation}
     但是我们无法求解由大量粒子（~$10^{23}$）构成的复杂系统的运动方程，无法给出系统的相轨道，
-    因此上面的定义难以给出有意义的结论。
+    因此上面的定义难以给出有意义的结论.
     \par 
     Boltzmann通过提出\textbf{各态历经假设}
     \footnote{从数学上讲各态历经假设并不是对于任意力学系统都成立}
     来解决上面遇到的困难，Boltzmann认为对于能量守恒的系统，
-    经过足够长（微观上）时间演化后，系统的代表点在等能面上每一个点邻域内都停留相同长的时间。
+    经过足够长（微观上）时间演化后，系统的代表点在等能面上每一个点邻域内都停留相同长的时间.
     利用这种思想，我们可以定义系统在宏观短微观长的时间内在相空间中每一点附近出现的概率$\rho(x, p, t)$，
     那么就能将物理量对时间的平均转化到对相空间的平均：
     \begin{equation}
         A(t_0) = \int\rho(x, p, t_0)a(x, p)\dd x\dd p
     \end{equation}
-    随着我们引入相空间中的概率密度函数$\rho(x, p, t)$，我们已经更换了思考问题的角度。我们不再考虑\textbf{一个
+    随着我们引入相空间中的概率密度函数$\rho(x, p, t)$，我们已经更换了思考问题的角度.我们不再考虑\textbf{一个
     系统}长时间演化过程中在相空间中的分布，而是直接考虑以同样的密度函数分布在相空间中的\textbf{大量完全相同的系统}，
     待求的宏观物理量是对应的微观物理量在这些系统上的平均值，可以想象，如果各态历经假设是成立的，那么这两种
-    平均应该给出相同的结果。
+    平均应该给出相同的结果.
     \par 
     有了上面的讨论，就将求出任意时刻热力学量的问题转化为了求出任意时刻密度函数$\rho(x, p, t)$的问题，
-    这个密度函数被称为\textbf{系综密度函数}，下面给出系综的准确定义。
+    这个密度函数被称为\textbf{系综密度函数}，下面给出系综的准确定义.
     满足同样宏观条件（如能量、体积、粒子数）的系统有可能处于不同的微观运动状态、对应相空间中不同的代表点
     ，将具有\textbf{相同宏观条件}的所有系统
     \footnote{这些系统必须是“相同的系统”，即是用Hamilton方程所描述的系统，形象地说有着相同数量、种类
     的粒子，并且相互作用也相同；但是这里的相同并不是说运动状态也相同，它们对应着相空间中不同的代表点
     }
-    的集合称为此宏观条件下的一个\textbf{系综}。可以定义系综内系统代表点在相空间的归一化密度函数$\rho(x, p, t)$，
+    的集合称为此宏观条件下的一个\textbf{系综}.可以定义系综内系统代表点在相空间的归一化密度函数$\rho(x, p, t)$，
     这个函数代表了这个系综内系统的代表点在$(x, p)$邻域出现的概率，
     满足：
     \begin{equation}
@@ -49,14 +49,14 @@
     在相空间中运动，代表点会随着时间在相空间中重新分布，对应的系综密度函数也会随时间变化
     \footnote{既然系综内系统的代表点按照Hamilton方程运动，这样引起的系综密度的变化是完全确定的，
     可以用下一节将要介绍的Liouville方程描述}
-    ，任意时刻的物理量按照对应时刻的系综密度函数计算。
+    ，任意时刻的物理量按照对应时刻的系综密度函数计算.
     \subsection{Liouville方程}
     \footnote{这一节的更多内容可以参考\cite{Tuckerman2010Statistical2}}
     考虑给定初始时刻$t=0$大量系统的代表点在相空间中的一个分布
     \footnote{这样的分布可能是某个系综对应的分布，也有可能只是任意给定的分布，不代表真实的系综}
     ，这个分布可以用一个归一化的密度函数$\rho(x, p, 0)$（满足\ref{ensemble density}）来描述，
     这些系统的代表点将在相空间中按照Hamilton方程演化，我们想知道$t$时间后相空间中代表点的密度函数，
-    即希望给出$\rho(x, p, 0)$满足的方程。
+    即希望给出$\rho(x, p, 0)$满足的方程.
     \par
     假设给定的分布在相空间中代表点的总数目为$N$，对于0时刻任意相空间中的区域$D$
     \footnote{在我们的讨论中总假设$D$是有体积的}，其中代表点的数目$n(D)$为：
@@ -80,7 +80,7 @@
         \int_{D}\rho(x_0, p_0, 0)\dd x_0\dd p_0 = \int_{D}\rho(x_t(x_0, p_0), p_t(x_0, p_0), t)\dd x_0 \dd p_0
     \end{equation}
     上式中$(x_t, p_t)$的精确含义是$(x_t, p_t) = \phi^t(x_0, p_0)$，表示$(x_t, p_t)$是由
-    $(x_0, p_0)$按照Hamilton方程演化$t$时间后到达的点。由于上面的区域$D$是任意给定的，那么可以得到：
+    $(x_0, p_0)$按照Hamilton方程演化$t$时间后到达的点.由于上面的区域$D$是任意给定的，那么可以得到：
     \begin{equation}
         \rho(x_t(x_0, p_0), p_t(x_0, p_0), t) = \rho(x_0, p_0, 0)
         \label{Liouville equation Lagrange}
@@ -95,16 +95,16 @@
         \bigg(\frac {\partial \rho}{\partial \bm{p}}\bigg)^\mathrm{t} \frac {\partial H}{\partial \bm{x}}
         \label{Liouville equation Euler}
     \end{equation}
-    这个方程被称为Liouville方程。
+    这个方程被称为Liouville方程.
     \par 
     考虑定义在相空间中的两个函数$A(\bm{x}, \bm{p}),B(x ,p)$，定义这两个函数的\textbf{Poisson括号}
     \footnote{
-        可以使用更紧凑的形式表达Poisson括号。考虑Hamilton方程\ref{canonical equation}，其中将$(\bm{x}, \bm{p})$
+        可以使用更紧凑的形式表达Poisson括号.考虑Hamilton方程\ref{canonical equation}，其中将$(\bm{x}, \bm{p})$
         合并为正则变量$\bm{\eta}$，基于这种考虑，可以将Poisson括号写为：
         \begin{equation}
             \{A, B\} = \left(\pdv{A}{\bm{\eta}}\right)^\mr{t}\bm{J}\left(\pdv{B}{\bm{\eta}}\right)
         \end{equation}
-        从这种形式的Poisson括号更容易看出其是正则变换下的不变量。
+        从这种形式的Poisson括号更容易看出其是正则变换下的不变量.
     }
     ：
     \begin{equation}
@@ -114,7 +114,7 @@
     \begin{equation}
         - \frac {\partial \rho}{\partial t} = \{ \rho, H\}
     \end{equation}
-    得到Liouville方程的另一种表述形式。如果Hamilton函数满足形式:
+    得到Liouville方程的另一种表述形式.如果Hamilton函数满足形式:
     \begin{equation}
         H(\bm{x},\bm{p}) = \frac{1}{2}\bm{p}^\mathrm{t} \bm{M}^{-1} \bm{p} + V(\bm{x})
     \end{equation}
@@ -139,7 +139,7 @@
     \begin{equation}
         A(t) = \int\rho(\bm{x}, \bm{p})a(\bm{x}, \bm{p})\dd \bm{x}\dd \bm{p}
     \end{equation}
-    $A$是一个不随时间变化的微观量，那么称这样的分布为\textbf{稳态分布}。
+    $A$是一个不随时间变化的微观量，那么称这样的分布为\textbf{稳态分布}.
 
     \section{求解Liouville方程}
     一般我们遇到的是给定初始密度分布，求解$t$时刻密度分布的问题，即如下一阶偏微分方程的初值问题
@@ -157,7 +157,7 @@
             \end{split}
             \label{conservation of density}
         \end{equation}
-        其中同时使用了Liouville定理和Liouville方程。  
+        其中同时使用了Liouville定理和Liouville方程.  
     }
     （为了方便书写假设为一维系统）：
     \begin{equation}
@@ -169,33 +169,33 @@
         \right.
         \label{Liouville equation Cauchy problem}
     \end{equation}
-    在求解这个问题时很难使用解析的方法，一般都是利用数值解法求解。针对Liouville方程的特点，我们
-    从两个视角出发，给出两种基本的解法。
+    在求解这个问题时很难使用解析的方法，一般都是利用数值解法求解.针对Liouville方程的特点，我们
+    从两个视角出发，给出两种基本的解法.
     从方程\ref{Liouville equation Euler}出发，可以研究给定区域（给定点附近）内系综密度随时间的变化，
     这称为\textbf{Euler图象}
     \footnote{这个名称来源于流体力学，Euler通过描述空间内的\textbf{流速场}来描述流体的运动；Lagrange通过描述
-    每一个质点的\textbf{运动轨迹}来描述流体的运动。}
-    。从方程\ref{Liouville equation Lagrange}出发，可以追踪相空间内按照Hamilton方程运动的点处的系综密度
-    ，轨线上任意一点的系综密度值都可以通过初值确定，这称为\textbf{Lagrange图象}。
+    每一个质点的\textbf{运动轨迹}来描述流体的运动.}
+    .从方程\ref{Liouville equation Lagrange}出发，可以追踪相空间内按照Hamilton方程运动的点处的系综密度
+    ，轨线上任意一点的系综密度值都可以通过初值确定，这称为\textbf{Lagrange图象}.
 
     \subsection{从Euler图像求解任意时刻的密度分布}
-    这里给出一个具体的问题。
+    这里给出一个具体的问题.
     回顾第一章中使用经典力学描述HCl分子的振动，在那里只讨论了谐振子的情形，通常使用Morse势来
     更精确地描述这个振动，Morse势被定义为：
     \begin{equation}
         V(x) = D_e (1- \mathrm{e}^{-a(r-r_\mathrm{eq})})^2 = D_e(1-\mathrm{e}^{-ax})^2
     \end{equation}
-    其中$a>0$, 在平衡位置附近可以使用谐振子近似（Taylor展开到二阶）。写出谐振子近似下的Boltzmann分布：
+    其中$a>0$, 在平衡位置附近可以使用谐振子近似（Taylor展开到二阶）.写出谐振子近似下的Boltzmann分布：
     \begin{equation}
         \rho(x,p,0) = \frac {1}{Z} \mathrm{e}^{-\beta (\frac {p^2}{2m} + \frac 12 m\omega^2 x^2)} 
     \end{equation}
-    其中谐振子的参数$\omega$后面给出。
+    其中谐振子的参数$\omega$后面给出.
     上面给出的系综密度函数不满足归一化条件，只有归一化之后才会是严格意义上的系综密度函数，
     显然归一化常数$Z$为：
     \begin{equation}
         Z = \int\ee^{-\beta H(x, p)}\dd x\dd p
     \end{equation}
-    这个归一化常数被称为\textbf{正则配分函数}。归一化的过程涉及到Gauss函数的积分，下面给出一个一般的定义：
+    这个归一化常数被称为\textbf{正则配分函数}.归一化的过程涉及到Gauss函数的积分，下面给出一个一般的定义：
     \begin{equation}
         I(a) = \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
         \label{1_D Gauss integral}
@@ -205,7 +205,7 @@
         \begin{equation}
             \int_{0}^{+\infty}\ee^{-x^2}\dd x = \frac{\sqrt{\pi}}{2}
         \end{equation}
-        这个可以通过将两个同样的积分相乘，用极坐标换元之后计算。
+        这个可以通过将两个同样的积分相乘，用极坐标换元之后计算.
     }
 
     令$t = ax^2$, 则$\mathrm{d}t = 2ax\mathrm{d}x$
@@ -228,13 +228,13 @@
         Z = \int \mathrm{e}^{-\beta (\frac {p^2}{2m} + \frac 12 m\omega^2 x^2)} \mathrm{d}x\mathrm{d}p = \frac {2\pi}{\beta \omega}
     \end{equation}
     从量纲上分析，在配分函数中多出了$\mathrm{d}x\mathrm{d}p$的量纲（而且这么定义的配分函数的量纲
-    会随着系统的维数变化）。应该除以$2\pi\hslash$, 相当于对相空间做了量子化。于是
+    会随着系统的维数变化）.应该除以$2\pi\hslash$, 相当于对相空间做了量子化.于是
     \begin{equation}
         Z = \frac 1{\beta \hslash \omega}
     \end{equation}
-    就是无量纲的配分函数。
+    就是无量纲的配分函数.
     \par 
-    回到用Morse势描述HCl的振动的问题，Morse势的常数$a$可以用谐振子近似的$\omega$进行估计。
+    回到用Morse势描述HCl的振动的问题，Morse势的常数$a$可以用谐振子近似的$\omega$进行估计.
     令$x \to 0 $，对$V(x)$在平衡位置附近作Taylor展开，展开到二阶：
     \begin{equation}
         V(x) = D_e a^2 x^2 + o(x^2)
@@ -248,9 +248,9 @@
         \omega = \sqrt{\frac {2D_ea^2}m}
         \label{omega of Morse}
     \end{equation}
-    这样就可以在知道振动频率（通过光谱数据）后构造双原子分子的Morse势。
+    这样就可以在知道振动频率（通过光谱数据）后构造双原子分子的Morse势.
     \par 
-    现在我们考虑氢分子在Morse势下的振动，计算在Morse势下给定初始系综密度随时间的演化。
+    现在我们考虑氢分子在Morse势下的振动，计算在Morse势下给定初始系综密度随时间的演化.
     Hamilton量为：
     \begin{equation}
         H(x, p) = \frac{p^2}{2\mu} + D_e(1-\ee^{-ax^2})^2
@@ -259,11 +259,11 @@
     \begin{equation}
         \rho(x, p, 0) = \frac{1}{Z}\exp\left[-\beta\left(\frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2\right)\right]
     \end{equation}
-    这样就可以考虑初值问题\ref{Liouville equation Cauchy problem}。
-    与数值求解常微分方程的思路类似，我们希望用差分来代替方程中的偏微分。这样就需要把空间
+    这样就可以考虑初值问题\ref{Liouville equation Cauchy problem}.
+    与数值求解常微分方程的思路类似，我们希望用差分来代替方程中的偏微分.这样就需要把空间
     \footnote{
         很显然，只能划分有限空间上的网格，但是给出的密度函数并不是有限空间的函数，因此要做出取舍，
-        要看系综密度主要分布在什么位置，将会演化到什么位置。
+        要看系综密度主要分布在什么位置，将会演化到什么位置.
     }
     划分成规则的（按照坐标线划分的）矩形网格，通过函数在网格点上的值来不断递推下一个时刻（时间也是离散的）
     网格点上的函数值，对于边界值需要额外讨论
@@ -271,18 +271,18 @@
         一般而言，有界区域上的偏微分方程都会给定边界条件，但是在处理我们的问题时人为选择了有界的区域，
         边界条件需要自己给定，要怎么选择？
     }
-    。
+    .
     在$x$取值范围等距插入$M-1$个点，将其最小值与最大值分别记为$x_0, x_M$，令$\Delta x = x_{j+1} - x_j$
     \footnote{
         这里有一个问题，如何选择合适的空间步长$\Delta x$？
     }
     ；在$p$取值的范围等距插入
-    $N-1$个点，将其最小值与最大值分别记为$p_0, p_N$，令$\Delta p = p_{j + 1} - p_j$。
+    $N-1$个点，将其最小值与最大值分别记为$p_0, p_N$，令$\Delta p = p_{j + 1} - p_j$.
     这样就构造了\textbf{某个时刻}相空间中的格点
     ；将初始时刻记作$t_0$，时间步长设为$\Delta t$，
-    如此也构造了离散的时间点$t_n$。解偏微分方程相当于通过前一个时刻空间中函数值推出下一个时刻
+    如此也构造了离散的时间点$t_n$.解偏微分方程相当于通过前一个时刻空间中函数值推出下一个时刻
     空间中函数值的过程，而这里通过将空间格点化的方法数值求解的过程相当于通过$t_j$时刻对应相空间格点上
-    的函数值递推$t_{j+1}$时刻相空间格点上函数值的过程。下面给出基本的递推方案，为了方便起见，首先引入一些
+    的函数值递推$t_{j+1}$时刻相空间格点上函数值的过程.下面给出基本的递推方案，为了方便起见，首先引入一些
     记号（对于格点的编号）：
     \begin{equation}
         \rho_{i, j}^{n} := \rho(x_i, p_j, t_n)
@@ -291,7 +291,7 @@
     \begin{equation}
         \pdv{\rho(x_i, p_j, t_n)}{t} \approx  \frac{\rho_{i, j}^{n + 1} - \rho_{i, j}^{n}}{\Delta t}
     \end{equation}
-    其中$\rho_{i, j}^{n+1}$是待求的量。同样也可以通过差分表示$\rho$对$x, p$的偏微分：
+    其中$\rho_{i, j}^{n+1}$是待求的量.同样也可以通过差分表示$\rho$对$x, p$的偏微分：
     \begin{equation}
         \begin{split}
             \pdv{\rho(x_i, p_j, t_n)}{x} &\approx \frac{\rho_{i + 1, j}^{n} - \rho_{i, j}^n}{\Delta x}
@@ -301,7 +301,7 @@
         \end{split}
     \end{equation}
     注意到上面使用了\textbf{中心差分}作为一种数值微分方法，中心差分更加对称，一般而言比不对称差分
-    （对事件求导的差分）拥有更高的精度。使用这样的差分方案将Liouville方程改为差分方程：
+    （对事件求导的差分）拥有更高的精度.使用这样的差分方案将Liouville方程改为差分方程：
     \begin{equation}
         -\frac{\rho_{i, j}^{n+1} - \rho_{i, j}^{n}}{\Delta t} = \frac{p_j}{\mu}
         \frac{\rho_{i+1, j}^{n} - \rho_{i-1, j}^{n}}{\Delta x} - V_x(x_i)
@@ -312,18 +312,18 @@
         \rho_{i, j}^{n+1} = \rho_{i, j}^{n} + \frac{\Delta t}{2\Delta p}V_{x}(x_i)(\rho_{i, j+1}^{n} - \rho_{i, j-1}^{n})
         - \frac{p_j\Delta t}{2 \mu \Delta x}(\rho_{i+1, j}^{n} - \rho_{i-1, j}^{n}) 
     \end{equation}
-    可以看出根据前一个时刻5个格点的数据可以递推出下一个时刻一个格点的函数值。这样看起来已经很好地解决了
+    可以看出根据前一个时刻5个格点的数据可以递推出下一个时刻一个格点的函数值.这样看起来已经很好地解决了
     数值演化系综密度的问题，理论上只要将时间步长和空间步长取得足够小，就可以获得任意精确的解，但是实际
     并不是这样，真实计算中无法将步长取的任意小（更小的时间步长会带来更大的计算量，同时也受到
     计算机处理浮点数精度的影响）所以我们获取的数值解并不一定准确
     \footnote{
         至于“有限差分带来的误差到底有多大”，“这样的误差怎么传递”，“误差会不会累积”这样的问题就不是本课程
-        能够讨论的内容了，应该查阅数值偏微分方程相关的书籍。
+        能够讨论的内容了，应该查阅数值偏微分方程相关的书籍.
     }
-    。
+    .
     \par 
     经过实践\footnote{是修改笔记者的实践，情况仅供参考}，这种显式的差分方案数值上不稳定（长时间演化会带来
-    函数值的发散，尤其集中在选定区域的边界）。一般而言，隐式的差分方案在数值上相较于显式方案更加稳定，
+    函数值的发散，尤其集中在选定区域的边界）.一般而言，隐式的差分方案在数值上相较于显式方案更加稳定，
     在隐式方案中，对于空间的微分要通过下一个时刻格点上的函数值计算：
     \begin{equation}
         \pdv{\rho(x_i, p_j, t_n)}{x} \approx \frac{\rho_{i + 1, j}^{n+1} - \rho_{i, j}^{n+1}}{\Delta x}
@@ -343,9 +343,9 @@
     这是一种半隐式的方案，一个时间步长分为两小步演化，每一个方程中有一个变量的微分通过隐式计算、另一个通过显式计算
     \footnote{
         这样的目的是为了让待求解的线性方程组更加简单（是一个三对角矩阵方程），从原理上讲可以采用全隐式
-        差分方案，但是得到的线性方程组是更高阶的，会使得整体计算的复杂度更高。
+        差分方案，但是得到的线性方程组是更高阶的，会使得整体计算的复杂度更高.
     }
-    。
+    .
     引入记号$r:=\frac{\Delta t}{\Delta p},\, s:=\frac{\Delta t}{\Delta x}$，上面的两个差分方程可以写为如下形式：
     \begin{equation}
         \begin{split}
@@ -361,8 +361,8 @@
         其余元素均为零的线性方程组，求解这样的方程组有特殊的算法（追赶法），为$O(n^2)$复杂度
         ，显著快于求解一般线性方程组的Gauss消元法（$O(n^3)$复杂度）
     }
-    ，可以每次求解n个这样的三对角矩阵方程来得到下一个时刻格点上的函数值。经过实践，这个隐式的差分方案
-    在较大的空间步长上都是数值稳定的，但是计算量较大。
+    ，可以每次求解n个这样的三对角矩阵方程来得到下一个时刻格点上的函数值.经过实践，这个隐式的差分方案
+    在较大的空间步长上都是数值稳定的，但是计算量较大.
     \par 
     这里还留有一个问题，根据前文的讨论\ref{conservation of density}，在密度函数随时间演化的过程中
     其始终是归一化的，但是我们这里讨论的数值解法是否可以保证这一点呢？能不能发展出保持这个守恒量
@@ -371,7 +371,7 @@
     \subsection{从Lagrange图像求解任意时刻密度分布}
     前一节中使用格点化相空间的方法数值求解了Liouville方程，这种方法在相空间维数很高的时候计算量急剧上升
     （主要是因为格点的数量随着维度指数上升），
-    导致这种方法无法适用于高维系统的计算。除了用Euler图象来演化密度函数以外，也可以用Lagrange图象来演化密度函数。
+    导致这种方法无法适用于高维系统的计算.除了用Euler图象来演化密度函数以外，也可以用Lagrange图象来演化密度函数.
     考虑Liouville方程的另一种形式：
     \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \rho(x_t(x_0, p_0, t),p_t(x_0, p_0, t),t) = 0
@@ -386,7 +386,7 @@
         严格来讲$\delta$函数并不是普通意义上的函数，而是广义函数，有关$\delta$函数的严格理论
         这里不做讨论，只是从物理含义（直观）上给出一个概念
     }
-    。$\delta$函数满足：
+    .$\delta$函数满足：
     \begin{equation}
         \begin{split}
         &\delta(x-x_0) = 0, \ \forall \ x \neq x_0\\
@@ -397,10 +397,10 @@
     \end{equation}
     \footnote{$\delta$函数的严格定义是从上面性质的第三条出发的，$\delta$函数被
     定义为试验函数空间上的满足性质3的连续线性泛函}基于上面的性质，$\delta$函数
-    在物理中经常被用来描述一些集中在某一点但积分有限的量（比如带有一定电量的点电荷，具有质量的质点）。
+    在物理中经常被用来描述一些集中在某一点但积分有限的量（比如带有一定电量的点电荷，具有质量的质点）.
     现在希望给$\delta$函数给一个形式
     \footnote{
-        可以证明$\delta$函数并不能表示为普通函数的形式，但是可以用普通函数序列来逼近。
+        可以证明$\delta$函数并不能表示为普通函数的形式，但是可以用普通函数序列来逼近.
     }
     ，让它和上面满足的性质自洽：
     可以利用Fourier变换
@@ -427,16 +427,16 @@
         \delta(x-x_0) = \frac 1{2\pi} \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}k(x-x_0)}\mathrm{d}k
         \label{integral formation of delta function}
     \end{equation}
-    讨论完了$\delta$函数这个数学工具，我们回到使用Lagrange图像解决密度函数演化的问题。直接利用：
+    讨论完了$\delta$函数这个数学工具，我们回到使用Lagrange图像解决密度函数演化的问题.直接利用：
     \begin{equation}
         \rho(x_t(x_0, p_0), p_t(x_0, p_0), t) = \rho(x_0, p_0, 0)
     \end{equation}
     给定相空间中的初始点$(x_0, p_0)$，只要数值求解Hamilton方程，就可以得到
     $(x_t(x_0, p_0), p_t(x_0, p_0))$处的系综密度值，那么可以抽取初始时刻相空间中
     大量的点（比如一个矩形的网格），同时按照Hamilton方程演化这些点，就可以得到这些点$t$
-    时刻时在相空间中的分布，进而得出这些点的系综密度值。这种方法只用求解常微分方程组（前面章节中
-    讨论过数值解法），计算量比较小而且适用于维数较高的情况。除此之外还有一个明显的优点，我们可以
-    在初始时刻时就去关注那些有着明显密度分布的点。
+    时刻时在相空间中的分布，进而得出这些点的系综密度值.这种方法只用求解常微分方程组（前面章节中
+    讨论过数值解法），计算量比较小而且适用于维数较高的情况.除此之外还有一个明显的优点，我们可以
+    在初始时刻时就去关注那些有着明显密度分布的点.
     \par 
     上述的思想可以进一步推广，去解决更普遍的一些一阶偏微分方程，考虑如下方程：
     \begin{equation}
@@ -449,8 +449,8 @@
         \label{character line}
     \end{equation}
     容易看出沿着这个粒子的运动轨迹，函数$f$的值不变，这样可以仿照Lagrange图像求解密度函数的方法来求解
-    任意时刻$f$的数值。将这个粒子的运动轨迹\ref{character line}称为这个一阶偏微分方程的特征线，
-    Hamilton方程决定的曲线就是Liouville方程的特征线，因此这个方法也被称为特征线方法。
+    任意时刻$f$的数值.将这个粒子的运动轨迹\ref{character line}称为这个一阶偏微分方程的特征线，
+    Hamilton方程决定的曲线就是Liouville方程的特征线，因此这个方法也被称为特征线方法.
     \par
     物理量$B(x, p)$的期望定义为：
     \begin{equation}
@@ -469,13 +469,13 @@
     \footnote{
         根据笔记修改者的经验，如果要计算系综平均值必须依赖于任意时刻格点上的系综密度，将这些数据存储
         起来可能是一笔不小的开销（很有可能会导致内存溢出）；另外，
-        通过Lagrange图像求解系综密度一般来说不能得到矩形格点上的系综密度值，会造成数值积分的困难。
+        通过Lagrange图像求解系综密度一般来说不能得到矩形格点上的系综密度值，会造成数值积分的困难.
     }
-    。我们可以有更好的方法来计算这些物理量，利用Liouville方程的形式解\ref{formal solution}，
+    .我们可以有更好的方法来计算这些物理量，利用Liouville方程的形式解\ref{formal solution}，
     可以将$t$时刻物理量的期望表示为
     \footnote{
         如果觉得使用包含$\delta$函数的形式解计算数学上不够“严格”，也可以利用0时刻与$t$时刻之间粒子位置的映射（严格讲
-        是Hamilton相流）$\phi^t$进行积分换元，然后使用Liouville定理和Liouville方程，得到完全相同的结果。
+        是Hamilton相流）$\phi^t$进行积分换元，然后使用Liouville定理和Liouville方程，得到完全相同的结果.
     }
     ：
     \begin{equation}
@@ -486,20 +486,20 @@
             &= \int B(\bm{x}_t,\bm{p}_t) \rho(\bm{x}_0,\bm{p}_0,0)\mathrm{d}\bm{x}_0\mathrm{d}\bm{p}_0
         \end{split}
     \end{equation}
-    这意味着，只用初始概率密度也可以得到$t$时刻的物理量的期望，这使得数值计算变得十分方便。
+    这意味着，只用初始概率密度也可以得到$t$时刻的物理量的期望，这使得数值计算变得十分方便.
 
     \section{Homework}
     \begin{asg}
         Boltzmann分布是否为稳态分布？
     \end{asg}
     \begin{asg}
-        查阅\ce{H2}分子的红外光谱数据，构造\ce{H2}分子的Morse势表达式。
+        查阅\ce{H2}分子的红外光谱数据，构造\ce{H2}分子的Morse势表达式.
     \end{asg}
     \begin{asg}
-        以谐振子的Boltzmann分布为初始分布，在Morse势，Euler图象下演化\ce{H2}的$t$时刻的分布。
+        以谐振子的Boltzmann分布为初始分布，在Morse势，Euler图象下演化\ce{H2}的$t$时刻的分布.
     \end{asg}
     \begin{asg}
-        以谐振子的Boltzmann分布为初始分布，在Morse势，Lagrange图象下演化\ce{H2}的$t$时刻的分布。
+        以谐振子的Boltzmann分布为初始分布，在Morse势，Lagrange图象下演化\ce{H2}的$t$时刻的分布.
     \end{asg}
     \bibliographystyle{plain}
     \bibliography{ref_chp_3}

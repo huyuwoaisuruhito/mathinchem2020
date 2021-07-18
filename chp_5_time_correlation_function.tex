@@ -1,39 +1,51 @@
 \chapter{时间关联函数}
     \section{物理量的期望值与时间关联函数}
 
-    对简正坐标下的Hamilton函数:
+    简正坐标下的Hamilton量为:
     \begin{equation}
         H = \frac 12 \bm{P}^\mathrm{T}\bm{P} + \frac 12 \bm{Q}^\mathrm{T} \bm{\Omega Q}
     \end{equation}
-    它满足Boltzmann分布时, 配分函数为
+    系统热平衡时满足Boltzmann分布, 配分函数为：
     \begin{equation}
         Z = \int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P} = \bigg(\frac {2\pi}{\beta}\bigg)^N \frac 1{\det \bm{\Omega}}
     \end{equation}
-    量子化以后得到的结果是
+    量子化
+    \footnote{
+        这里的“量子化”并不是量子力学中的“量子化”；我们非常希望通过没有量纲的系综密度函数
+        定义一个\textbf{没有量纲}的配分函数,但是对相空间积分时会产生量纲,而且这个量纲会随着系统的
+        维数变化。可以看出$\dd x\dd p$具有作用量量纲,这提示我们存在一个具有作用量量纲的
+        常数,在量子统计的框架下,可以证明这个常数就是Planck常数$h$。
+    }
+    以后得到的结果是：
     \begin{equation}
         Z = \frac 1{(\beta \hslash)^N \det \bm{\Omega}}
     \end{equation}
-    要计算物理量的期望, 应有
+    物理量$B(\bm{Q}, \bm{P})$的期望表示为：
     \begin{equation}
         \langle B \rangle = \frac {\int B(\bm{Q,P})\mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \mathrm{e}^{-\beta H} \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
     \end{equation}
-    在$t$时刻也可以写出类似的形式
+    在$t$时刻也可以写出$B(\bm{Q}, \bm{P})$的期望：
+    \footnote{我们已经知道Boltzmann分布是稳定分布,不会随时间演化,但是对于
+    任意的系综密度,其应该按照Liouville方程演化,因此$t$时刻的系综密度分布
+    有可能不同于0时刻}
+    ：
     \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q,P}) \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}{\int \rho_t(\bm{Q,P}) \mathrm{d}\bm{Q}\mathrm{d}\bm{P}}
     \end{equation}
-    再由
+    根据Liouville定理,可以将$t$时刻系综密度表达为积分形式：
     \begin{equation}
-        \rho_t (\bm{Q,P}) = \int \mathrm{e}^{-\beta H(\bm{Q_0,P_0})} \delta(\bm{Q-Q}_t) \delta(\bm{P-P}_t) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0
+        \rho_t (\bm{Q,P}) = \int \rho_0(\bm{Q}_0, \bm{P}_0)\delta(\bm{Q}_0-\bm{Q}_t(\bm{Q}_0, \bm{P}_0)) \delta(\bm{P}_0-\bm{P}_t(\bm{Q}_0, \bm{P}_0)) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0
     \end{equation}
-    代入, 可以得到
+    其中$\bm{Q}_t(\bm{Q}_0, \bm{P}_0)$表示从$(\bm{Q}, \bm{P})$出发的点,按照Hamilton方程演化$t$时间到达的点。
+    代入物理量期望的表达式：
     \begin{equation}
         \langle B(t) \rangle = \frac {\int B(\bm{Q}_t,\bm{P}_t) \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}{\int \rho_0(\bm{Q}_0,\bm{P}_0) \mathrm{d}\bm{Q}_0\mathrm{d}\bm{P}_0}
     \end{equation}
-    可以发现只要知道了初始时刻的分布$\rho_0(\bm{Q}_0,\bm{P}_0)$和体系的演化轨迹$(\bm{Q}_t,\bm{P}_t)$, 就可以求得$t$时刻的物理量, 而无需演化体系的分布. 
+    可以发现只要知道初始时刻的分布$\rho_0(\bm{Q}_0,\bm{P}_0)$和系统的演化轨迹$(\bm{Q}_t,\bm{P}_t)$, 就可以求得$t$时刻的物理量, 而无需演化体系的分布. 
 
-    如果假设系统的分布是一个平衡分布(比如Boltzmann分布就是一个平衡分布), 即
+    如果假设系统的分布是平衡分布(比如Boltzmann分布就是平衡分布), 即：
     \begin{equation}
-        - \frac {\partial \rho}{\partial t} = \{ H, \rho\} = 0
+        \frac {\partial \rho}{\partial t} = \{ H, \rho\} = 0
     \end{equation}
     则有$\rho_0(x,p) = \rho_{t'}(x, p) = \rho_{\mathrm{eq}}(x, p)$, 于是有
     \begin{equation}
@@ -46,53 +58,84 @@
     \begin{equation}
         \langle A(0)B(t) \rangle = \int \rho_0(\bm{x}_0,\bm{p}_0) A(\bm{x}_0,\bm{p}_0) B(\bm{x}_t,\bm{p}_t) \mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0
     \end{equation}
-    注意这里$\bm{x}_t$是$\bm{x}_0$与$t$的函数; $\bm{p}_t$是$\bm{p}_0$与$t$. $A(\bm{x}_0,\bm{p}_0)$与$B(\bm{x}_t,\bm{p}_t)$可以是相同的物理量. 如果它们相同, 则可以称作自关联函数(Autocorrelation Function, ACF). 下文中为了表达的简洁将在一维下讨论问题, 如果需要高维下的表达, 只需将对应物理量换为矢量即可.
+    注意这里$\bm{x}_t$,$\bm{p}_t$均是$\bm{p}_0$与$t$的函数（就是Hamilton方程的届解）.
+     $A(\bm{x}_0,\bm{p}_0)$与$B(\bm{x}_t,\bm{p}_t)$可以是相同的物理量. 如果它们相同, 
+     那么被称作自关联函数(Autocorrelation Function, ACF). 
+     下文中为了表达的简洁将在一维下讨论问题, 如果需要高维下的表达, 只需将对应物理量换为矢量即可.
 
-    由于Liouville定理成立, 时间关联函数中两个物理量位置交换顺序并不会产生任何变化
-    \begin{equation}\begin{aligned}
-        \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
-        &= \int \rho_t(x_t,p_t) A(x_t,p_t) B(x_0(x_t,p_t),p_0(x_t,p_t)) \mathrm{d}x_t \mathrm{d}p_t\\
-        &= \langle A(t)B(0) \rangle
-    \end{aligned}\end{equation}
-
-    现在求$\langle A(0)B(t) \rangle$和$\langle A(-t)B(0) \rangle$的关系. 在积分的条件下, 因为积分变量是哑变量
-    \begin{equation}\begin{aligned}
-        \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
-        &= \int \rho_0 (x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}
-    \end{aligned}\end{equation}
-    其中, 第二步是作变量替换
+    由于Liouville定理成立
+    \footnote{下面第二个等号用到了Liouville定理$\rho_0(x_0, p_0) = \rho_t(x_t, p_t)$}
+    , 时间关联函数中两个物理量位置交换顺序并不会产生任何变化：
+    \begin{equation}
+        \begin{aligned}
+            \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
+            &= \int \rho_t(x_t(x_0, p_0),p_t(x_0, p_0)) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
+            &= \langle B(t)A(0) \rangle
+        \end{aligned}
+    \end{equation}
+    现在分析$\langle A(0)B(t) \rangle$和$\langle A(-t)B(0) \rangle$的关系. 
+    因为积分变量是哑变量,可以利用Hamilton方程的解对积分换元
+    \footnote{利用Hamilton方程的解所定义的不同时刻相空间之间的映射}
+    ,同时利用Liouville定理可以得到：
+    \begin{equation}
+        \begin{aligned}
+            \langle A(0)B(t) \rangle &= \int \rho_0(x_0,p_0) A(x_0,p_0) B(x_t(x_0,p_0),p_t(x_0,p_0)) \mathrm{d}x_0 \mathrm{d}p_0\\
+            &= \int \rho_0 (x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_t(x_{-t},p_{-t}),p_t(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}
+        \end{aligned}
+    \end{equation}
+    其中, 第二步作了变量替换：
+    \footnote{这个变量替换的含义是将0时刻的相空间映射为$-t$时刻的相空间,可以形象地
+    理解为沿着某条相空间中的轨线,从0时刻地点走到$-t$时刻的点}
     \begin{equation}
         x_0 \to x_{-t}
     \end{equation}
-    并且$x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果, 而将$x_{-t}$演化$t$时间后为$x_0$. 如果假设系统的分布是一个平衡分布$\rho_0(x,p) = \rho_{-t}(x, p)$, 那么
-    \begin{equation}\begin{aligned}
-        \langle A(0)B(t) \rangle &= \int \rho_{\color{red}{0}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-        &= \int \rho_{\color{red}{-t}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0(x_{-t},p_{-t}),p_0(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
-        &= \langle A(-t)B(0) \rangle
-    \end{aligned}\end{equation}
+    $x_t(x_0,p_0)$是初始时间为0时演化$t$时间的结果, 
+    将$x_{-t}$演化$t$时间后为$x_0$. 如果假设系统的分布是一个\textbf{平衡分布}
+    $\rho_0(x,p) = \rho_{-t}(x, p)$, 那么
+    \footnote{
+        这里的记号可能会引起混淆,$(x_0, p_0)$的意义是某条轨线上0时刻的点,
+        是$(x_{-t}, p_{-t})$的函数,但是不能写为$x_0(x_{-t}, p_{-t})$,
+        因为在我们对于记号的规定中$x_{t'}(x_t, p_t)$表示$t$时刻的点演化了$t'$
+        时间后到达的点,那么$x_0(x_{-t}, p_{-t})$表示的就是$x_{-t}$.
+    }
+    ：
+    \begin{equation}
+        \begin{aligned}
+            \langle A(0)B(t) \rangle &= \int \rho_{\color{red}{0}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_t(x_{-t},p_{-t}),p_t(x_{-t},p_{-t})) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
+            &= \int \rho_{\color{red}{-t}}(x_{-t},p_{-t}) A(x_{-t},p_{-t}) B(x_0,p_0) \mathrm{d}x_{-t} \mathrm{d}p_{-t}\\
+            &= \langle A(-t)B(0) \rangle
+        \end{aligned}
+    \end{equation}
 
     实际上如果分布为平衡分布, 则时间关联函数具有时间平移不变性. 
     \begin{equation}
         \langle A(0)B(t) \rangle = \langle A(t')B(t+t') \rangle
     \end{equation}
-
     \section{时间关联函数与光谱}
 
-    现在开始研究一些光谱的性质. 设红外光谱为$I(\omega)$, 让分子不转动, 则得到的红外光谱为分立的线. 对红外光谱做Fourier变换, 得到
+    现在开始研究一些光谱的性质. 设红外光谱为$I(\omega)$
+    , 其中$\omega$为吸收光的频率, 让分子不转动, 则得到的红外光谱为分立的线. 
+    对红外光谱做Fourier变换, 得到: 
     \begin{equation}
         f(t) = \int I(\omega)\mathrm{e}^{\mathrm{i}\omega t}\mathrm{d}\omega 
     \end{equation}
-    它反映了分子的动力学性质. 现在问, $f(x)$这个函数是什么？我们可以从经典和量子的两个角度导出$f(x)$这个函数, 并证明它是某个物理量的自关联函数. 
+    它反映了分子的动力学性质. 现在问, $f(t)$这个函数是什么？
+    我们可以从经典和量子的两个角度导出$f(t)$这个函数, 并证明它是某个物理量的自关联函数. 
 
     \subsection{经典光谱}
-
     从经典的角度上来说, 光谱$I(\omega)$可以写作:
-    \begin{equation}\begin{aligned}
-        I(\omega) 
-        &= \lim_{T\to\infty} \frac 1T \left\langle \left| \int_{-T/2}^{T/2} \mathrm{d}t\, B(t) \mathrm{e}^{-\mathrm{i}\omega t} \right|^2 \right\rangle \\
-        &= \lim_{T\to\infty} \frac 1T \int_{-T/2}^{T/2} \mathrm{d}t \int_{-T/2}^{T/2} \mathrm{d}t'\, \langle B(t)B(t') \rangle \mathrm{e}^{-\mathrm{i}\omega (t'-t)} \\
-    \end{aligned}\end{equation}
-    然后进行换元$(t,t')\to(t, \tau=t'-t)$. 随后认为观测光谱时外界对体系的扰动是小的, 体系仍可以用平衡分布描述. 因此有$\langle B(t)B(t+\tau) \rangle = \langle B(0)B(\tau) \rangle$. 与变量$t$无关. 因此可以得出
+    \begin{equation}
+        \begin{aligned}
+            I(\omega) 
+            &= \lim_{T\to\infty} \frac 1T \left\langle \left| \int_{-T/2}^{T/2} \mathrm{d}t\, B(t) \mathrm{e}^{-\mathrm{i}\omega t} \right|^2 \right\rangle \\
+            &= \lim_{T\to\infty} \frac 1T \int_{-T/2}^{T/2} \mathrm{d}t \int_{-T/2}^{T/2} \mathrm{d}t'\, \langle B(t)B(t') \rangle \mathrm{e}^{-\mathrm{i}\omega (t'-t)} \\
+        \end{aligned}
+    \end{equation}
+    然后进行换元$(t,t')\to(t, \tau=t'-t)$. 随后认为观测光谱时外界对体系的扰动是小的, 
+    体系仍可以用平衡分布描述. 因此有$\langle B(t)B(t+\tau) \rangle = \langle B(0)B(\tau) \rangle$. 
+    与变量$t$无关. 因此可以得出
+    \footnote{可以尝试进行一下这个换元，涉及到了积分上下限的变化}
+    : 
     \begin{equation}\begin{aligned}
         I(\omega) 
         &= \lim_{T\to\infty} \frac 1T \int_{-T}^{T} \mathrm{d}\tau\, (T - |\tau|) \langle B(0)B(\tau) \rangle \mathrm{e}^{-\mathrm{i}\omega \tau} \\
@@ -100,7 +143,7 @@
     \end{aligned}\end{equation}
     最后一个等号从数学上来说并不一定成立. 但对于“一个足够乐观的物理学家”来说, 可以认为含$\tau$项的积分总是有限的, 因而除以T后该项趋于0. 因此可以得到结论, 光谱是某一物理量自关联函数的Fourier变换.
 
-    如果只考虑一个物理量的自关联函数, 作Fourier变换
+    如果只考虑一个物理量的自关联函数, 作Fourier变换：
     \begin{equation}\begin{aligned}
     I(\omega) = \int_{-\infty}^{+\infty} \mathrm{e}^{-\mathrm{i}\omega t} \langle B(0)B(t) \rangle \mathrm{d}t
     \end{aligned}\end{equation}
@@ -113,13 +156,18 @@
     =  \int_{-\infty}^{+\infty} \mathrm{e}^{\mathrm{i}\omega s} \langle B(0)B(s) \rangle \mathrm{d}s\\
     &= I(-\omega)
     \end{aligned}\end{equation}
-    所以自关联函数的Fourier变换在频率空间是一个偶函数. 但这不是真实的情况, 并且在量子力学中不成立.
+    所以自关联函数的Fourier变换在频率空间是一个偶函数
+    \footnote{本质上是因为经典情况下平衡分布的自关联函数是偶函数}
+    . 但这不是真实的情况, 并且在量子力学中不成立.
 
     \subsection{量子力学下的光谱}
 
-    这一小结内容对于完全不懂量子力学的读者来说过于困难, 请在阅读时参考一本量子力学教材或酌情跳过. 同时此小结在很大程度上参考了高毅勤老师在《物理化学(下)》课程中教授的内容.
+    这一小结内容对于完全不懂量子力学的读者来说过于困难, 请在阅读时参考一本量子力学教材或酌情跳过. 
+    同时此小结在很大程度上参考了高毅勤老师在《物理化学(下)》课程中教授的内容.
 
-    从量子的角度需要使用含时微扰法的结论, 考虑将光中的电磁场作为微扰项引入. 光是电磁波, 其中既有交变电场也有交变磁场. 那么电磁波与物质相互作用的时候, 是以哪种场的作用为主呢? 这个问题的答案可以从洛伦兹力的形式中看出来
+    从量子的角度需要使用含时微扰法的结论, 考虑将光中的电磁场作为微扰项引入. 
+    光是电磁波, 其中既有交变电场也有交变磁场. 那么电磁波与物质相互作用的时候, 是以哪种场的作用为主呢? 
+    这个问题的答案可以从洛伦兹力的形式中看出来
     \begin{equation}
         \bm{F} = q (\bm{E} + \bm{v} \times \bm{B})
     \end{equation}

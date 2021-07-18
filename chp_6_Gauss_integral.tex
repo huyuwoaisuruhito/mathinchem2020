@@ -1,90 +1,183 @@
 \chapter{Gauss积分}
     \section{20201106：Gauss积分的计算}
-        回顾一维Gauss积分的计算：
-        \begin{equation}\begin{aligned}
-            I &= \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
-        \end{aligned}\end{equation}
+        回顾一维Gauss积分
+        \footnote{事实上, 这种类型的积分是Euler最先通过将两个高斯函数相乘, 
+        再进行极坐标变换算出来的, 按理来说应该称为“Euler积分”}
+        的计算：
+        \begin{equation}
+            \begin{aligned}
+                I &= \int_0^{+\infty} \mathrm{e}^{-ax^2} x^{n} \mathrm{d}x
+            \end{aligned}
+        \end{equation}
         令$t = ax^2$, 则$\mathrm{d}t = 2ax\mathrm{d}x$
         所以
-        \begin{equation}\begin{aligned}
-        I &= \int_0^{+\infty} \mathrm{e}^{-t} \bigg(\frac ta\bigg)^{\frac n2} \frac {\mathrm{d}t}{\sqrt{at}}\\
-        &= \frac 1{2a^{\frac {n+1}2}} \int_0^{+\infty} \mathrm{e}^{-t} t^{\frac {n-1}2} \mathrm{d}t\\
-        &= \frac {\Gamma(\frac {n+1}2)}{2a^{\frac {n+1}2}}
-        \end{aligned}\end{equation}
+        \begin{equation}
+            \begin{aligned}
+                I &= \int_0^{+\infty} \mathrm{e}^{-t} \bigg(\frac ta\bigg)^{\frac n2} \frac {\mathrm{d}t}{\sqrt{at}}\\
+                &= \frac 1{2a^{\frac {n+1}2}} \int_0^{+\infty} \mathrm{e}^{-t} t^{\frac {n-1}2} \mathrm{d}t\\
+                &= \frac {\Gamma(\frac {n+1}2)}{2a^{\frac {n+1}2}}
+            \end{aligned}
+        \end{equation}
 
-        利用一维Gauss积分的计算结果可以计算多维的Gauss积分。比如计算
+        利用一维Gauss积分的计算结果可以计算多维的Gauss积分. 
+        先举一个最简单的例子，其中应用的思想可以用于计算很多不同种类的Gauss
+        积分：
         \begin{equation}
-            I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
+            I = \int \ee^{-\bm{x}^\mathrm{t}\mb{A}\bm{x}}\dd \bm{x}
         \end{equation}
-        其中，$\bm{A}$为正定的实对称矩阵。首先将$\bm{A}$对角化，得到
+        其中$\bm{A}$是正定实对称矩阵
+        \footnote{
+            这里必须要求$\mb{A}$是正定的，否则这个Gauss积分不收敛
+        }
+        ，根据线性代数中的定理，$\mb{A}$可以在正交
+        变换下对角化：
         \begin{equation}
-            \bm{T}^\mathrm{T} \bm{AT} = \bm{D}
+            \mb{D} = \mb{S}^{\mr{t}}\mb{AS}
         \end{equation}
-        其中$\bm{T}$为正交矩阵、$\bm{D}$为对角矩阵。所以
+        其中$\mb{S}$为正交矩阵，那么原积分可以表示为：
         \begin{equation}
-            I = \int \bm{x}^\mathrm{T}\bm{Bx} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{TDT}^\mathrm{T}\bm{x}}\mathrm{d}\bm{x}
+            \begin{split}
+                I &= \int\ee^{-(\mb{S}\bm{x})^{\mr{t}}\mb{S}^{\mr{t}}\mb{AS}\mb{S}^{\mr{t}}\bm{x}}\dd \bm{x}\\
+                &= \int\ee^{-(\mb{S}\bm{x})^{\mr{t}}\mb{D}\mb{S}^{\mr{t}}\bm{x}} \dd \bm{x}
+            \end{split}
         \end{equation}
-        作换元$\bm{y} = \bm{T}^\mathrm{T}\bm{x}$，则有
+        做变量替换$\bm{y} = \mb{S}^{\mr{t}}\bm{x}$, 利用重积分的换元:
         \begin{equation}
-            \mathrm{d}\bm{y} = \det \bm{T}^\mathrm{T}\mathrm{d}\bm{x} = \mathrm{d}\bm{x}
+            \begin{split}
+                I &= \int\ee^{-\bm{y}^{\mr{t}}\mb{D}\bm{y}}\left|\pdv{\bm{x}}{\bm{y}}\right|\dd \bm{y}\\
+                &= \int\ee^{-\bm{y}^{\mr{t}}\mb{D}\bm{y}}\left|\mb{S}\right|\dd \bm{y}\\
+                &= \prod_{j=1}^{N}\int_{-\infty}^{+\infty}\ee^{-y_j^2D_{jj}}\dd y_j\\
+                &= \prod_{j=1}^{N}\sqrt{\frac{\pi}{D_{jj}}}\\
+                &= \frac{\pi^{\frac{N}{2}}}{\sqrt{\det{\mb{A}}}}
+            \end{split}
+        \end{equation}
+        稍微复杂点的一个例子, Gauss函数与二次型相乘: 
+        \begin{equation}
+            I = \int \bm{x}^\mathrm{t}\mb{B}\bm{x} \mathrm{e}^{-\bm{x}^\mathrm{t}\mb{A}\bm{x}}\mathrm{d}\bm{x}
+        \end{equation}
+        其中$\mb{A}$为正定实对称矩阵, $\mb{B}$为实对称矩阵
+        \footnote{
+            任意二次型均可以表示为$\bm{x}^{\mr{t}}\mb{B}\bm{x}$, 其中$\mb{B}$为对称矩阵.
+        }
+        . 仿照上一个例子将$\bm{A}$对角化, 得到:
+        \begin{equation}
+            \mb{S}^\mathrm{t} \mb{AS} = \mb{D}
+        \end{equation}
+        所以:
+        \begin{equation}
+            I = \int \bm{x}^\mathrm{T}\mb{B}\bm{x} \mathrm{e}^{-\bm{x}^\mathrm{t}\mb{SDS}^\mathrm{t}\bm{x}}\mathrm{d}\bm{x}
+        \end{equation}
+        对重积分进行换元$\bm{y} = \mb{S}^\mathrm{t}\bm{x}$: 
+        \begin{equation}
+            \mathrm{d}\bm{y} = \det\mb{S}^\mathrm{t}\mathrm{d}\bm{x} = \mathrm{d}\bm{x}
         \end{equation}
         原积分化为
-        \begin{equation}\begin{aligned}
-            I = \int \bm{y}^\mathrm{T}\bm{T}^\mathrm{T}\bm{BTy} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}
-        \end{aligned}\end{equation}
-        令$\bm{E = T}^\mathrm{T}\bm{BT}$, 于是
-        \begin{equation}\begin{aligned}
-            I &= \int \bm{y}^\mathrm{T}\bm{Ey} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{D}\bm{y}}\mathrm{d}\bm{y}\\
-            &= \int \sum_i \sum_j E_{ij} y_i y_j \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k
-        \end{aligned}\end{equation}
-        可以通过分离变量将各个积分分开，显然，$i \neq j$的项都是奇函数对全空间的积分，得到的结果为0，只有$i=j$的项会有贡献。于是积分化为
-        \begin{equation}\begin{aligned}
-            I &= \int \sum_i E_{ii} y_i^2 \mathrm{e}^{-\sum_k d_k y_k^2} \prod_k \mathrm{d}y_k\\
-            &= \prod_k \sqrt{\frac {\pi}{d_k}} \sum_i \frac {E_{ii}}{2d_i}\\
-            &= \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{D}}}} \mathrm{Tr} (\bm{ED}^{-1})
-        \end{aligned}\end{equation}
-        而
-        \begin{equation}\begin{aligned}
-            \det{\bm{D}} = \det{\bm{A}}
-        \end{aligned}\end{equation}
-        并且
-        \begin{equation}\begin{aligned}
-            \mathrm{Tr}(\bm{ED}^{-1}) = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BT}\bm{T}^\mathrm{T} \bm{A}^{-1}\bm{T})
-            = \mathrm{Tr}(\bm{T}^\mathrm{T}\bm{BA}^{-1}\bm{T})
-            = \mathrm{Tr}(\bm{BA}^{-1})
-        \end{aligned}\end{equation}
-        所以
-        \begin{equation}\begin{aligned}
-            I = \frac {\pi^{\frac n2}}{2\sqrt{\det{\bm{A}}}} \mathrm{Tr} (\bm{BA}^{-1})
-        \end{aligned}\end{equation}
+        \begin{equation}
+            \begin{aligned}
+                I = \int \bm{y}^\mathrm{t}\mb{S}^\mathrm{t}\mb{BS}\bm{y}
+                 \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}
+            \end{aligned}
+            \label{change variable}
+        \end{equation}
+        令$\mb{E} = \mb{S}^\mathrm{t}\mb{BS}$, 于是
+        \begin{equation}
+            \begin{aligned}
+                I &= \int \bm{y}^\mathrm{t}\mb{E}\bm{y} \mathrm{e}^{-\bm{y}^\mathrm{t}\bm{D}\bm{y}}\mathrm{d}\bm{y}\\
+                &= \int \sum_{i=1}^{N} \sum_{j=1}^{N} E_{ij} y_i y_j \mathrm{e}^{-\sum_{k=1}^{N} D_{kk} y_k^2} \prod_{k=1}^{N} \mathrm{d}y_k
+            \end{aligned}
+        \end{equation}
+        可以将求和号放到积分外面, 可以分别计算每一个积分, 显然$i \neq j$的项都
+        是奇函数对全空间的积分, 得到的结果为0, 只有$i=j$的项会有贡献. 于是积分化简为
+        \footnote{请仔细验证一下}:
+        \begin{equation}
+            \begin{aligned}
+                I &= \int \sum_{i=1}^N E_{ii} y_i^2 \mathrm{e}^{-\sum_{k=1}^{N} D_{kk} y_k^2} \prod_{k=1}^{N} \mathrm{d}y_k\\
+                &= \prod_{k=1}^{N} \sqrt{\frac {\pi}{D_{kk}}} \sum_{i=1}^{N} \frac {E_{ii}}{2D_{ii}}\\
+                &= \frac {\pi^{\frac N2}}{2\sqrt{\det{\mb{D}}}} \mathrm{Tr} (\mb{ED}^{-1})
+            \end{aligned}
+        \end{equation}
+        利用迹的性质进一步化简:
+        \begin{equation}
+            \begin{aligned}
+                \det{\mb{D}} = \det{\mb{S}^{\mr{t}}\mb{A}\mb{S}} = \det{\mb{SS}^{\mr{t}}\mb{A}} = \det{\mb{A}}
+            \end{aligned}
+        \end{equation}
+        类似的: 
+        \begin{equation}
+            \begin{aligned}
+                \mathrm{Tr}(\mb{ED}^{-1}) = \mathrm{Tr}(\mb{S}^\mathrm{t}\mb{BS}\mb{S}^\mathrm{t} \mb{A}^{-1}\mb{T})
+                = \mathrm{Tr}(\mb{S}^\mathrm{t}\mb{BA}^{-1}\mb{S})
+                = \mathrm{Tr}(\mb{BA}^{-1})
+            \end{aligned}
+        \end{equation}
+        所以:
+        \begin{equation}
+            \begin{aligned}
+                I = \frac {\pi^{\frac N2}}{2\sqrt{\det{\mb{A}}}} \mathrm{Tr} (\mb{BA}^{-1})
+            \end{aligned}
+        \end{equation}
 
         接下来尝试计算
-        \begin{equation}\begin{aligned}
-            \bm{I} = \int \bm{xx}^\mathrm{T} \mathrm{e}^{-\bm{x}^\mathrm{T}\bm{Ax}}\mathrm{d}\bm{x}
-        \end{aligned}\end{equation}
-        用相同的还原方法得到
-        \begin{equation}\begin{aligned}
-            \bm{I} = \int \bm{Ty}\bm{y}^\mathrm{T}\bm{T}^\mathrm{T} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-        \end{aligned}\end{equation}
-        计算每个元素
-        \begin{equation}\begin{aligned}
-            I_{ij} &= \int (\bm{Ty})_{i}(\bm{y}^\mathrm{T}\bm{T}^\mathrm{T})_{j} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
-            &= \int \sum_k T_{ik}y_k \sum_l T_{jl} \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
-            &= \int \sum_{k,l} T_{ik}T_{jl} y_ky_l \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}
-        \end{aligned}\end{equation}
-        同样地，只有在$k=l$时才有贡献，故
-        \begin{equation}\begin{aligned}
-            I_{ij} &= \int \sum_k T_{ik}T_{jk}y_k^2 \mathrm{e}^{-\bm{y}^\mathrm{T}\bm{Dy}}\mathrm{d}\bm{y}\\
-            &= \prod_l \sqrt{\frac {\pi}{d_l}} \sum_k T_{ik}T_{jk} \frac 1{2d_k}\\
-            &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{D}}}} (\bm{TD}^{-1}\bm{T}^\mathrm{T})_{ij}\\
-            &= \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}_{ij}
-        \end{aligned}\end{equation}
-        因此，
-        \begin{equation}\begin{aligned}
-            \bm{I} = \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}
-        \end{aligned}\end{equation}
+        \footnote{注意这里是对于一个矩阵的积分，很容易理解，这相当于对每一个矩阵元积分}
+        :
+        \begin{equation}
+            \begin{aligned}
+                \mb{I} = \int \bm{xx}^\mathrm{T} \mathrm{e}^{-\bm{x}^\mathrm{t}\mb{A}\bm{x}}\mathrm{d}\bm{x}
+            \end{aligned}
+        \end{equation}
+        用相同的换元方法得到:
+        \begin{equation}
+            \begin{aligned}
+                \mb{I} = \int \mb{S}\mb{y}\bm{y}^\mathrm{t}\mb{S}^\mathrm{t} \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}
+            \end{aligned}
+        \end{equation}
+        计算每个元素: 
+        \begin{equation}
+            \begin{aligned}
+                I_{ij} &= \int (\mb{S}\bm{y})_{i}(\bm{y}^\mathrm{t}\mb{S}^\mathrm{t})_{j} \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}\\
+                &= \int\sum_{k=1}^{N} S_{ik}y_k \sum_{l=1}^{N} S_{jl} y_l \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}\\
+                &= \int \sum_{k,l=1}^{N} S_{ik} S_{jl} y_k y_l \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}
+            \end{aligned}
+        \end{equation}
+        同样, 只有在$k=l$的项对积分有贡献才有贡献, 那么:
+        \begin{equation}
+            \begin{aligned}
+                I_{ij} &= \int \sum_{k=1}^{N} S_{ik} S_{jk}y_k^2 \mathrm{e}^{-\bm{y}^\mathrm{t}\mb{D}\bm{y}}\mathrm{d}\bm{y}\\
+                &= \prod_{l=1}^{N} \sqrt{\frac {\pi}{D_{ll}}} \sum_{k=1}^N S_{ik} S_{jk} \frac 1{2D_{kk}}\\
+                &= \frac {\pi^{\frac N2}}{2 \sqrt{\det{\mb{D}}}} (\mb{SD}^{-1}\mb{S}^\mathrm{t})_{ij}\\
+                &= \frac {\pi^{\frac N2}}{2 \sqrt{\det{\mb{A}}}} \mb{A}^{-1}_{ij}
+            \end{aligned}
+        \end{equation}
+        因此: 
+        \begin{equation}
+            \begin{aligned}
+                \bm{I} = \frac {\pi^{\frac n2}}{2 \sqrt{\det{\bm{A}}}} \bm{A}^{-1}
+            \end{aligned}
+        \end{equation}
+        利用之前的计算结果，可以得到一个有趣的结论:
+        \begin{equation}
+            \frac{\int\ee^{-\bm{x}^{\mr{t}}\mb{A}\bm{x}}(\bm{x}\bm{x}^{\mr{t}})\dd \bm{x}}{\int\ee^{-\bm{x}^{\mr{t}}\mb{A}\bm{x}}}\dd \bm{x}
+            = \frac{1}{2}\mb{A}^{-1}
+        \end{equation}
+        最为普遍的一类Gauss积分可以定义为:
+        \begin{equation}
+            I = \int\ee^{-\bm{x}^{\mr{t}}\mb{A}\bm{x}}g(\bm{x})\dd \bm{x}
+        \end{equation}
+        其中$g(\bm{x})$可以取
+        \footnote{对于最一般的$g(\bm{x})$，此积分也可以计算，感兴趣可以查阅相关资料}
+        :
+        \begin{equation}
+            g(\bm{x}) = 
+            \left\{
+            \begin{split}
+                    &\exp\left[-(\bm{x} - \bm{x_0})^{\mr{t}}\mb{C}(\bm{x} - \bm{x_0})\right]\\
+                    &\exp\left[-V_0^{\mr{t}}(\bm{x} - \bm{x_0})\right]\\
+                    &(\bm{x}^{\mr{t}}\mb{B}\bm{x})\cdot(\bm{x}^{\mr{t}}\mb{D}\bm{x})
+            \end{split}
+            \right.
+        \end{equation}
         \begin{asg}
-            第4次作业第3题：Gauss积分的计算
+            第4次作业第3题：计算正文中提到的Gauss积分
         \end{asg}
         \bibliographystyle{plain}
         \bibliography{ref_chp_6}

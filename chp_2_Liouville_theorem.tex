@@ -3,7 +3,7 @@
     \subsection{将Hamilton方程写为对称的形式}
     由于Hamilton方程是一阶微分方程组，其变量$\bm{x},\bm{p}$拥有比牛顿方程中位置和速度更加平等的地位
     \footnote{正则变量之间平等地位更应该通过\cite{Goldstein2000Classical}来说明}，
-    所以我们希望能将Hamilton方程写为对称的形式。对于一个$n$自由度的力学系统
+    所以我们希望能将Hamilton方程写为对称的形式.对于一个$n$自由度的力学系统
     \footnote{
         即$\bm{x}$是一个n维向量
     }
@@ -32,14 +32,14 @@
         \label{canonical equation}
     \end{equation}
     \subsection{动力系统的概念}
-    这一节讨论一下比Hamilton方程更加普遍的情况。考虑如下微分方程组（Hamilton方程显然是下面所述
+    这一节讨论一下比Hamilton方程更加普遍的情况.考虑如下微分方程组（Hamilton方程显然是下面所述
     微分方程的一个特例）：
     \begin{equation}
         \dv{\bm{x}}{t} = \bm{v}(\bm{x})
         \label{dynamical system}
     \end{equation}
-    其中$\bm{v}$是一个$\mathbb{R}^{n}\to\mathbb{R}^{n}$的连续可微映射。这个方程可以看作
-    一个在给定速度场中运动的粒子的运动方程。对于任何给定的初始条件：
+    其中$\bm{v}$是一个$\mathbb{R}^{n}\to\mathbb{R}^{n}$的连续可微映射.这个方程可以看作
+    一个在给定速度场中运动的粒子的运动方程.对于任何给定的初始条件：
     \begin{equation}
         \bm{x}(t_0) = \bm{x_0}
         \label{initial condition}
@@ -49,32 +49,32 @@
         \bm{x} = \bm{\phi}(t;t_0, \bm{x}_0)
     \end{equation}
     我们将$\bm{\phi}$在给定$t_0,\bm{x}_0$时作为$t$的函数的“函数图像”
-    \footnote{即集合$\{(\bm{\phi}(t;t_0,\bm{x}_0), t)|t>t_0\}$}称为积分曲线。
-    其中$\bm{x}$取值的空间$\mathbb{R}^n$称为\textbf{相空间}。给定初始条件之后微分方程的解
-    给出了相空间中一条以$t$为参数并且在$t_0$时间通过$\bm{x}_0$的曲线，称之为\textbf{轨线}。
-    从直观上讲，这个曲线就是我们能看到的在速度场中运动的粒子所走过的轨迹。一般称这样的方程为动力系统
-    （注意速度场并不显含时间）。
-    \par 下面介绍几个动力系统的基本性质，有助于我们理解本节讲授的Liouville定理。
-    \par (1) 积分曲线的平移不变性。考虑$\bm{x} = \bm{\phi}(t;t_0,\bm{x}_0)$是初始条件\ref{initial condition}
+    \footnote{即集合$\{(\bm{\phi}(t;t_0,\bm{x}_0), t)|t>t_0\}$}称为积分曲线.
+    其中$\bm{x}$取值的空间$\mathbb{R}^n$称为\textbf{相空间}.给定初始条件之后微分方程的解
+    给出了相空间中一条以$t$为参数并且在$t_0$时间通过$\bm{x}_0$的曲线，称之为\textbf{轨线}.
+    从直观上讲，这个曲线就是我们能看到的在速度场中运动的粒子所走过的轨迹.一般称这样的方程为动力系统
+    （注意速度场并不显含时间）.
+    \par 下面介绍几个动力系统的基本性质，有助于我们理解本节讲授的Liouville定理.
+    \par (1) 积分曲线的平移不变性.考虑$\bm{x} = \bm{\phi}(t;t_0,\bm{x}_0)$是初始条件\ref{initial condition}
     对应的解，那么$\bm{x} = \bm{\phi}(t;t_0 + C,\bm{x}_0)$依然满足方程（但是不再满足初始条件），
-    这个结论的正确性是由速度场不含时间保证的，可以直接将解带入微分方程进行验证。容易想象，时间平移之后
+    这个结论的正确性是由速度场不含时间保证的，可以直接将解带入微分方程进行验证.容易想象，时间平移之后
     相空间中的轨线完全没有变化，可以形象地理解，在不含时速度场中粒子运动的轨迹只取决于粒子的初始位置
-    而与粒子开始运动的时间无关。
-    \par (2) 过相空间每一点轨线的唯一性。 这是动力系统（同样是Hamilton方程）的一个重要性质，
-    它说明了从相空间中不同点出发的轨线不可能相交。考虑两个不同初始条件的积分曲线
+    而与粒子开始运动的时间无关.
+    \par (2) 过相空间每一点轨线的唯一性. 这是动力系统（同样是Hamilton方程）的一个重要性质，
+    它说明了从相空间中不同点出发的轨线不可能相交.考虑两个不同初始条件的积分曲线
     $\bm{\phi}(t;t_1,\bm{x}_1),\, \bm{\phi}(t; t_2, \bm{x}_2)$在相空间中相交于同一点$\bm{x}'$，
     那么可以对其中一个曲线进行时间平移，使得在某个时刻$t'$两个积分曲线相交于$(\bm{x}', t')$，由微分
     方程解的存在唯一性定理，这两个积分曲线必须完全重合，那么它们对应的相空间中的轨线也必须完全重合，
-    这说明了通过相空间中每一点有且只有一条轨线。
-    \par (3) 相流。考虑将初始条件设为$t=0,\, \bm{x}(0) = \bm{x}_0$，定义
+    这说明了通过相空间中每一点有且只有一条轨线.
+    \par (3) 相流.考虑将初始条件设为$t=0,\, \bm{x}(0) = \bm{x}_0$，定义
     $\mathbb{R}^n \to \mathbb{R}^n$的映射：
     \begin{equation}
         \phi^{t}: \bm{x}_{0} \to \bm{\phi}(t; 0, \bm{x}_0)
     \end{equation}
-    这个映射将$t=0$时粒子在相空间中的位置映射为粒子沿着轨线运动$t$时间后粒子在相空间中的位置。由轨线
-    的唯一性可知，对于$\forall t$映射$\phi^t$是一个双射。更进一步，由于已经假设了$\bm{v}(\bm{x})$
+    这个映射将$t=0$时粒子在相空间中的位置映射为粒子沿着轨线运动$t$时间后粒子在相空间中的位置.由轨线
+    的唯一性可知，对于$\forall t$映射$\phi^t$是一个双射.更进一步，由于已经假设了$\bm{v}(\bm{x})$
     是一个连续可微映射，因此$\bm{\phi}(t; 0, \bm{x}_0)$对于初值$\bm{x}_0$也是连续可微的
-    \cite{丁同仁2004常微分方程教程2}，那么映射$\phi^t$是$\mathbb{R}^n$上的一个微分同胚。事实上，
+    \cite{丁同仁2004常微分方程教程2}，那么映射$\phi^t$是$\mathbb{R}^n$上的一个微分同胚.事实上，
     容易根据微分方程解的存在唯一性证明$\forall s, t\in \mathbb{R}$:
     \begin{equation}
         \phi^{s + t} = \phi^s\circ\phi^{t}
@@ -82,10 +82,10 @@
     \end{equation}
     这样$\phi^t$组成的集合就有了群的结构
     \footnote{严格来讲，应该验证存在单位元、逆元等，使这个集合满足群的定义}
-    ，将这样的一个单参数微分同胚群称为\textbf{相流}。
+    ，将这样的一个单参数微分同胚群称为\textbf{相流}.
 
     \subsection{Hamilton系统的稳定性矩阵}
-    在这一节中我们讨论改变初值对于轨线的影响。固定初始时刻$t=0$，初始位置为$(\bm{x}_0, \bm{p}_0)$，
+    在这一节中我们讨论改变初值对于轨线的影响.固定初始时刻$t=0$，初始位置为$(\bm{x}_0, \bm{p}_0)$，
     将$t$时刻系统在相空间中的位置写成初始条件的函数（这个函数就是Hamilton方程的解）：
     \begin{equation}
         \begin{split}
@@ -100,7 +100,7 @@
         \bm{p}_t(\bm{x}_0+\mathrm{d}\bm{x}_0, \bm{p}_0+\mathrm{d}\bm{p}_0) &= \bm{p}_t(\bm{x}_0, \bm{p}_0) + \frac {\partial \bm{p}_t}{\partial \bm{x_0}} \dd \bm{x}_0 + \frac {\partial \bm{p}_t}{\partial \bm{p}_0} \dd \bm{p}_0
         \end{split}
     \end{equation}
-    这里只考虑了Taylor展开到一阶的结果。或者写成
+    这里只考虑了Taylor展开到一阶的结果.或者写成
     \begin{equation}
         \begin{split}
             \mathrm{d}\bm{x}_t &= \frac {\partial \bm{x}_t}{\partial \bm{x_0}} \dd \bm{x}_0 + \frac {\partial \bm{x}_t}{\partial \bm{p}_0} \dd \bm{p}_0\\
@@ -108,7 +108,7 @@
         \end{split}
         \end{equation}
     现在已经将$t$时刻的位置偏离表示成了0时刻位置偏离的函数\footnote{初始时刻只有无穷小偏离，因此只考虑线性近似}
-    ，但是由于Hamilton方程的解是未知的，系数矩阵没有办法直接求出来。为了获取系数矩阵的一些信息，我们尝试对时间求导：
+    ，但是由于Hamilton方程的解是未知的，系数矩阵没有办法直接求出来.为了获取系数矩阵的一些信息，我们尝试对时间求导：
     \begin{equation}
         \begin{split}
             \frac{\mathrm{d}}{\mathrm{d}t} \bigg(\frac {\partial \bm{x}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0} &= \bigg(\frac {\partial}{\partial \bm{x}_0} \frac {\mathrm{d}\bm{x}_t}{\mathrm{d}t}\bigg)_{\bm{p}_0} = \bigg(\frac {\partial}{\partial \bm{x}_0} \bigg(\frac {\partial H}{\partial \bm{p}_t}\bigg)_{\bm{x}_t}\bigg)_{\bm{p}_0} = \bigg(\frac {\partial^2 H}{\partial \bm{x}_t \partial \bm{p}_t}\bigg) \bigg(\frac {\partial \bm{x}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}+ \bigg(\frac {\partial^2H}{\partial \bm{p}_t^2}\bigg)_{\bm{x}_t} \bigg(\frac {\partial \bm{p}_t}{\partial \bm{x}_0}\bigg)_{\bm{p}_0}\\
@@ -138,7 +138,7 @@
         \end{split}
     \end{equation}
     等式右边由Hamilton量二阶偏导数组成的矩阵称为Hamilton系统的\textbf{稳定性矩阵}，其决定了在相空间
-    某一点附近，初值改变引起的\textbf{短时间内}轨线改变的趋势，下面给以简单说明。考虑一般的微分方程组
+    某一点附近，初值改变引起的\textbf{短时间内}轨线改变的趋势，下面给以简单说明.考虑一般的微分方程组
     \ref{dynamical system}，初始条件分别为$t=0, \bm{x}(0) = \bm{x}_0;\, t=0, \bm{x}(0) = \bm{x}_0 + \delta\bm{x}_0$
     ，写出对应的解：
     \begin{equation}
@@ -159,19 +159,19 @@
     可以看到短时间内矩阵$\displaystyle\left.\pdv{\bm{v}}{\bm{x}}\right|_{\bm{x} = \bm{x}_0}$的性质决定了$\delta\bm{\phi}$
     的行为（主要是其特征值实部的正负\footnote{若实部最大的特征值实部若大于0，则在该点邻域内初值小的偏移
     都会引起轨线以指数增长的偏移，称这样的区域为轨道的不稳定区域；若特征值实部全部小于0，那么初值小的偏移
-    引起的轨线偏移是指数衰减的，称这样的区域为轨道的稳定区域}）。对于Hamilton系统，$\displaystyle\bm{v} = \bm{J}\pdv{H}{\bm{\eta}}$，
-    容易验证$\displaystyle\pdv{\bm{v}}{\bm{x}}$就是之前定义的Hamilton系统的稳定性矩阵。
+    引起的轨线偏移是指数衰减的，称这样的区域为轨道的稳定区域}）.对于Hamilton系统，$\displaystyle\bm{v} = \bm{J}\pdv{H}{\bm{\eta}}$，
+    容易验证$\displaystyle\pdv{\bm{v}}{\bm{x}}$就是之前定义的Hamilton系统的稳定性矩阵.
     \section{Liouville定理}
     \subsection{Liouville定理的提出}
     前一节已经指出了$\phi^t$是一个$\mathbb{R}^n\to\mathbb{R}^n$的微分同胚，其意义是将0时刻相空间
-    中的点映射到$t$时刻相空间中的点。我们关心这个映射的性质，对于Hamilton系统\ref{canonical equation}
+    中的点映射到$t$时刻相空间中的点.我们关心这个映射的性质，对于Hamilton系统\ref{canonical equation}
     一个重要的性质是$\phi^t$是一个保持体积的映射，具体来说，假设$V(D)$表示
     $D\in\mathbb{R}^n$（前提是$D$的体积有定义）的体积，那么：
     \begin{equation}
         V(\phi^t(D)) = V(D)
     \end{equation}
-    这个结论并不需要用到Hamilton系统的全部性质，可以期待$\phi^t$保持了相空间中更多的量。同时也可以探究
-    一般的动力系统\ref{dynamical system}中相体积在$\phi^t$下的变化。
+    这个结论并不需要用到Hamilton系统的全部性质，可以期待$\phi^t$保持了相空间中更多的量.同时也可以探究
+    一般的动力系统\ref{dynamical system}中相体积在$\phi^t$下的变化.
     \subsection{Liouville定理的证明}
     $t$时刻$\phi^t(D)$的体积用积分表示为：
     \begin{equation}
@@ -183,7 +183,7 @@
         \label{volum of D}
     \end{equation}
     那么只用知道映射$\phi^t$的Jacobi行列式$\displaystyle\left|\pdv{\phi^t(\bm{x}_0)}{\bm{x}}\right|$的表达式就可以计算出
-    $\phi^t$映射下体积的变化。但是这个行列式本身的性质无法直接看出，我们对其求导：
+    $\phi^t$映射下体积的变化.但是这个行列式本身的性质无法直接看出，我们对其求导：
     \begin{equation}
         \begin{split}
             \dv{}{t}\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0} &= \pdv{}{\bm{x}_0}\dv{\bm{\phi}(t, \bm{x}_0)}{t}\\
@@ -193,9 +193,9 @@
         \end{split}
         \label{the equation of jacobian}
     \end{equation}
-    我们希望通过上面得到的等式来计算Jacobi行列式$\displaystyle\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}$。
+    我们希望通过上面得到的等式来计算Jacobi行列式$\displaystyle\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}$.
     \par 
-    首先给出一个利用矩阵函数性质的证明。考虑方阵$\bm{A}$：
+    首先给出一个利用矩阵函数性质的证明.考虑方阵$\bm{A}$：
     \begin{equation}
         \bm{A} = 
         \begin{pmatrix}
@@ -216,7 +216,7 @@
     \end{equation}
     $a_{ij}$的代数余子式$A_{ij}^*$定义为$A_{ij}^* := (-1)^{i+j}M_{ij}$
     }
-    。定义$\bm{A}$的\textbf{伴随矩阵}$\bar{\bm{A}}$为:
+    .定义$\bm{A}$的\textbf{伴随矩阵}$\bar{\bm{A}}$为:
     \begin{equation}
         \bar{\bm{A}}_{ij} = A_{ji}^* 
     \end{equation}
@@ -227,7 +227,7 @@
     \end{equation}
     \par 
     假设方阵$\bm{A}$中的每个元素$a_{ij}$均是$t$的函数，可以想象对于方阵$\bm{A}$求导即是对于每个
-    元素求导组成的方阵，但是对$\det \bm{A}$求导并不是这样。利用行列式是每一行（每一列）的多重线性
+    元素求导组成的方阵，但是对$\det \bm{A}$求导并不是这样.利用行列式是每一行（每一列）的多重线性
     函数这个性质
     \footnote{
         设$T(v_1,\cdots,v_n)$是$V\times\cdots\times V \to \mathbb{R}$的多重线性映射，那么：
@@ -236,12 +236,12 @@
              + \cdots + T\left(v_1, v_2, \cdots, \dv{v_n}{t}\right)
         \end{equation}
         有很多与之相关的例子，比如对n个函数乘积的求导（莱布尼茨法则），对两个向量内积的求导、
-        对$\mathbb{R}^3$中向量积的求导、对对易子的求导等等；证明的思路与莱布尼茨法则证明的思路类似。
+        对$\mathbb{R}^3$中向量积的求导、对对易子的求导等等；证明的思路与莱布尼茨法则证明的思路类似.
     }，可以给出对行列式求导的结果：
     \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \det{\bm{A}} = \sum_i \det{\dot{\bm{A}_{i}}}
     \end{equation}
-    其中，$\dot{\bm{A}_{i}}$是只对第$i$行的所有元素对时间求导，其他元素不变得到的矩阵。进一步得到
+    其中，$\dot{\bm{A}_{i}}$是只对第$i$行的所有元素对时间求导，其他元素不变得到的矩阵.进一步得到
     \begin{equation}
         \begin{split}
             \frac {\mathrm{d}}{\mathrm{d}t} \det{\bm{A}} &= \sum_i \det{\dot{\bm{A}_i}} = \sum_{i=1}^n \sum_{j=1}^n \frac {\mathrm{d}a_{ij}}{\mathrm{d}t} \bm{A}_{ij}^*\\
@@ -272,15 +272,15 @@
         \pdv{\bm{v}}{\bm{x}}\right|_{\bm{x} = \bm{\phi}(u, \bm{x}_0)}\d u\right)
         \label{expression of jacobian}
     \end{equation}
-    将上式带入\ref{volum of D}就可以得到理论上的体积公式。可以看出，要计算出Jacobi行列式必须要方程的显式解，
+    将上式带入\ref{volum of D}就可以得到理论上的体积公式.可以看出，要计算出Jacobi行列式必须要方程的显式解，
     这在大多数情况下并不能够得到满足，但是当$\displaystyle\mr{Tr}\pdv{\bm{v}}{\bm{x}}$
-    与时间无关时，就容易计算出Jacobi行列式。有一种特殊的情况：
+    与时间无关时，就容易计算出Jacobi行列式.有一种特殊的情况：
     \begin{equation}
         \mr{Tr}\pdv{\bm{v}}{\bm{x}} = 0
     \end{equation}
     此时$\displaystyle\left|\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}\right| = 1,\, \forall t$，
     满足这个条件的系统的相流中的任何一个元素$\phi^t$均是保持相体积不变的映射，
-    这个结论被称为Liouville定理。对于Hamilton系统的相流中某个映射$\phi^t$的Jacobi行列式有
+    这个结论被称为Liouville定理.对于Hamilton系统的相流中某个映射$\phi^t$的Jacobi行列式有
     （参考\ref{eqaution of matrix}中的定义）：
     \begin{equation}
         \bm{M} = \bm{J} \pdv{^2 H}{\bm{\eta}^2}=
@@ -293,26 +293,26 @@
     \begin{equation}
         \frac {\mathrm{d}}{\mathrm{d}t} \det \bigg|\frac {\partial (\bm{x}_t,\bm{p}_t)}{\partial (\bm{x}_0,\bm{p}_0)} \bigg| = 0
     \end{equation}
-    所以Jacobi行列式恒为1。由之前得到的结果\ref{volum of D}就可以证明Hamilton相流中任一映射均是保持相体积的映射。
+    所以Jacobi行列式恒为1.由之前得到的结果\ref{volum of D}就可以证明Hamilton相流中任一映射均是保持相体积的映射.
     为了区分0时刻与$t$时刻的相空间，通常将0时刻相空间中的坐标记为$(\bm{x}_0, \bm{p}_0)$，$t$时刻记为
     $(\bm{x}_t,\bm{p}_{t})$\footnote{这样的记法所表达的真正含义是$\phi^t(\bm{x}_0, \bm{p}_0) = (\bm{x}_t, \bm{p}_t)$}，
     那么两个由映射$\phi^t$联系起来的空间的体积元之间满足：
     \begin{equation}
         \mathrm{d}\bm{x}_t \mathrm{d}\bm{p}_t = \left|\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}\right|\mathrm{d}\bm{x}_0 \mathrm{d}\bm{p}_0 = \dd \bm{x}_0\dd \bm{p}_0
     \end{equation}
-    上面的等式完全可以看作Liouville定理的另一种表述形式。
+    上面的等式完全可以看作Liouville定理的另一种表述形式.
     \paragraph{}
     还有另外的证明Liouville定理的方法，将方程\ref{the equation of jacobian}看作一个线性微分方程组，将$\displaystyle\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}$
     的每一列都看作方程的一个解，那么$\displaystyle\left|\pdv{\phi^t(\bm{x}_0)}{\bm{x}_0}\right|$就是这个微分方程组的
     Wronsky行列式，根据线性微分方程组的Liouville公式
     \footnote{直接对Liouville公式求导并带入微分方程组就可以证明这个结论}
-    可以直接得到\ref{expression of jacobian}式的结论。
+    可以直接得到\ref{expression of jacobian}式的结论.
     \paragraph{}
     还可以根据Hamilton系统的性质，给出一个比较巧妙的证明
     \footnote{
         这里证明了Hamilton相流给出的相空间之间的变换是一个辛变换；相流给出的变换
-        是一种正则变换。
-    }。首先约定一些记号：
+        是一种正则变换.
+    }.首先约定一些记号：
     \begin{equation}
         \begin{split}
             \bm{M}(t) &:= \pdv{\phi^t(\bm{\eta}_0)}{\bm{\eta}_0}\\
@@ -340,10 +340,10 @@
     \end{equation}
     在上式两边取行列式，容易得到$\dps\det\bm{M}(t) = \pm 1$，如果考虑到$t\to\bm{M}(t)$是一个连续的映射
     \footnote{这里的连续性只是修改者的一个感觉，}
-    而行列式也是连续的映射，可以根据$t=0$时$\det\bm{M}(0) = 1$确定下$\det\bm{M}(t) = 1$。
+    而行列式也是连续的映射，可以根据$t=0$时$\det\bm{M}(0) = 1$确定下$\det\bm{M}(t) = 1$.
     \section{Homework}
     \begin{asg}
-        尝试用不同的方法证明Liouville定理。
+        尝试用不同的方法证明Liouville定理.
     \end{asg}
 
 
